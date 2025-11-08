@@ -1,4 +1,5 @@
 import { Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
 export const GuaranteeSection = () => {
   return <section className="py-12 md:py-20 px-4" style={{
     backgroundColor: 'hsl(0 75% 35%)'
@@ -25,6 +26,16 @@ export const GuaranteeSection = () => {
               ✅ Sem burocracia, sem perguntas.
             </p>
           </div>
+          
+          <Button 
+            size="lg" 
+            className="mt-8 text-base md:text-xl px-8 md:px-12 py-4 md:py-6 shadow-neon-strong bg-white text-primary hover:bg-white/90"
+            onClick={() => {
+              document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }}
+          >
+            🔘 Quero Começar Meu Negócio de Brownies!
+          </Button>
         </div>
       </div>
     </section>;

@@ -1,4 +1,5 @@
 import { Gift, Star, Calendar, BookOpen, Sparkles, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
 const bonuses = [{
   icon: Calendar,
   title: "BROWNIES NATALINOS",
@@ -82,7 +83,7 @@ export const BonusSection = () => {
             </div>)}
         </div>
         
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center space-y-6">
           <div className="inline-block bg-gradient-premium text-primary-foreground px-8 py-6 rounded-2xl shadow-premium">
             <p className="font-heading font-bold text-2xl md:text-3xl">Tudo isso por apenas R$14,90!<span className="text-gold text-glow">R$14,90</span>!
             </p>
@@ -90,6 +91,16 @@ export const BonusSection = () => {
               Mais de 150 receitas + suporte + planilhas + acesso vitalício
             </p>
           </div>
+          
+          <Button 
+            size="lg" 
+            className="text-base md:text-xl px-8 md:px-12 py-4 md:py-6 shadow-neon-strong"
+            onClick={() => {
+              document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }}
+          >
+            🔘 Quero Começar Meu Negócio de Brownies!
+          </Button>
         </div>
       </div>
     </section>;
