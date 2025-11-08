@@ -1,4 +1,5 @@
 import { ChefHat, Sparkles, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 const recipeCategories = [{
   title: "BROWNIES TRADICIONAIS",
   emoji: "🍫",
@@ -65,6 +66,16 @@ export const RecipesSection = () => {
               💰 Transforme R$60 em R$200 por fornada com técnicas comprovadas!
             </p>
           </div>
+          
+          <Button 
+            size="lg" 
+            className="mt-6 text-base md:text-xl px-8 md:px-12 py-4 md:py-6 shadow-neon-strong bg-white text-primary hover:bg-white/90"
+            onClick={() => {
+              document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }}
+          >
+            🔘 Quero Começar Meu Negócio de Brownies!
+          </Button>
         </div>
       </div>
     </section>;
