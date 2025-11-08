@@ -1,6 +1,5 @@
 import secretBrownies from "@/assets/secret-brownies.jpg";
 import { Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
 export const SecretSection = () => {
   return <section className="py-12 md:py-20 px-4 bg-gradient-warm text-primary-foreground relative overflow-hidden">
       
@@ -52,16 +51,6 @@ export const SecretSection = () => {
                   📽️ Curso em Vídeo Aulas – Passo a passo fácil de seguir
                 </p>
               </div>
-              
-              <Button 
-                size="lg" 
-                className="w-full text-base md:text-lg shadow-strong hover:shadow-premium mt-4"
-                onClick={() => {
-                  document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }}
-              >
-                🔘 Quero Começar Meu Negócio de Brownies!
-              </Button>
             </div>
           </div>
         </div>

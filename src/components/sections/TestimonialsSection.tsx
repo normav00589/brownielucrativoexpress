@@ -2,7 +2,6 @@ import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
 import { Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const reviews = [
   {
@@ -76,18 +75,6 @@ export const TestimonialsSection = () => {
               </div>
             </div>
           ))}
-        </div>
-        
-        <div className="text-center mt-10 md:mt-12">
-          <Button 
-            size="lg" 
-            className="text-base md:text-xl px-8 md:px-12 py-4 md:py-6 shadow-neon-strong"
-            onClick={() => {
-              document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }}
-          >
-            🔘 Quero Começar Meu Negócio de Brownies!
-          </Button>
         </div>
       </div>
     </section>

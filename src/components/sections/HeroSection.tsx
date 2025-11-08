@@ -38,13 +38,7 @@ export const HeroSection = () => {
                 </p>
               </div>
               
-              <Button 
-                size="lg" 
-                className="w-full md:w-auto text-sm md:text-lg shadow-strong hover:shadow-premium"
-                onClick={() => {
-                  document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }}
-              >
+              <Button size="lg" className="w-full md:w-auto text-sm md:text-lg shadow-strong hover:shadow-premium">
                 🔘 Quero Começar Meu Negócio de Brownies!
               </Button>
               

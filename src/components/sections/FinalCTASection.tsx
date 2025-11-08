@@ -22,13 +22,7 @@ export const FinalCTASection = () => {
             Aprenda o segredo do <span className="text-accent font-bold">Método 3C</span> e comece hoje mesmo a lucrar com brownies irresistíveis.
           </p>
           
-          <Button 
-            size="lg" 
-            className="mt-8 text-lg md:text-2xl px-8 md:px-12 py-4 md:py-6 shadow-neon-strong"
-            onClick={() => {
-              document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }}
-          >
+          <Button size="lg" className="mt-8 text-lg md:text-2xl px-8 md:px-12 py-4 md:py-6 shadow-neon-strong">
             🔘 Quero Lucrar com Brownies Agora!
           </Button>
           
