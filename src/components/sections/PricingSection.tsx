@@ -1,4 +1,4 @@
-import { Button } from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 export const PricingSection = () => {
   return <section className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
@@ -36,8 +36,10 @@ export const PricingSection = () => {
               </li>
             </ul>
             
-            <Button variant="secondary" className="w-full">
-              Começar Agora
+            <Button variant="secondary" className="w-full" asChild>
+              <a href="https://www.ggcheckout.com/checkout/v2/9jwm1AUaZKjbNSzRYO1w" target="_blank" rel="noopener noreferrer">
+                Começar Agora
+              </a>
             </Button>
           </div>
           
@@ -78,8 +80,10 @@ export const PricingSection = () => {
               </li>
             </ul>
             
-            <Button className="w-full bg-white text-primary hover:bg-white/90 shadow-red">
-              Quero o Acesso Completo!
+            <Button className="w-full bg-white text-primary hover:bg-white/90 shadow-red" asChild>
+              <a href="https://www.ggcheckout.com/checkout/v2/FB2BQbKx59cYBFvUhFWN" target="_blank" rel="noopener noreferrer">
+                Quero o Acesso Completo!
+              </a>
             </Button>
           </div>
         </div>
