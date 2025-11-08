@@ -13,7 +13,7 @@ export const AuthoritySection = () => {
             <img 
               src={gabriellaCastro} 
               alt="Gabriella Castro - Confeiteira, Gastrônoma e Nutricionista especialista em produtos caseiros lucrativos" 
-              className="w-48 h-48 rounded-full object-cover shadow-lg"
+              className="w-64 h-64 rounded-2xl object-cover shadow-lg"
             />
           </div>
           
