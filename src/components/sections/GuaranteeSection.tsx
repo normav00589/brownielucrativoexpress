@@ -27,15 +27,7 @@ export const GuaranteeSection = () => {
             </p>
           </div>
           
-          <Button 
-            size="lg" 
-            className="mt-8 text-base md:text-xl px-8 md:px-12 py-4 md:py-6 shadow-neon-strong bg-white text-primary hover:bg-white/90"
-            onClick={() => {
-              document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }}
-          >
-            🔘 Quero Começar Meu Negócio de Brownies!
-          </Button>
+          
         </div>
       </div>
     </section>;
