@@ -80,8 +80,7 @@ export const BonusSection = () => {
         
         <div className="mt-12 text-center">
           <div className="inline-block bg-gradient-premium text-primary-foreground px-8 py-6 rounded-2xl shadow-premium">
-            <p className="font-heading font-bold text-2xl md:text-3xl">
-              Tudo isso por apenas <span className="text-gold text-glow">R$14,90</span>!
+            <p className="font-heading font-bold text-2xl md:text-3xl">Tudo isso por apenas  R$14,90!<span className="text-gold text-glow">R$14,90</span>!
             </p>
             <p className="text-primary-foreground/80 mt-2">
               Mais de 150 receitas + suporte + planilhas + acesso vitalício

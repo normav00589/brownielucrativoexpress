@@ -13,7 +13,9 @@ const recipeCategories = [{
   recipes: ["Brownie Zero Açúcar - Para todos os públicos", "Brownie Zero Lactose - Inclusivo e saboroso", "Brownie Low Carb - Opção fitness", "Brownie Vegano - Para todos", "Brownie de Caneca - Prático e rápido", "Brownie de Abobrinha - Saudável e fofinho", "Brownie de Banana - Naturalmente doce", "Brownie de Aveia - Nutritivo e saboroso", "Brownie de Micro-ondas - Emergência doce", "Brownie de Frutas Vermelhas - Antioxidante"]
 }];
 export const RecipesSection = () => {
-  return <section className="py-12 md:py-20 px-4 text-white relative overflow-hidden" style={{ backgroundColor: 'hsl(0 75% 35%)' }}>
+  return <section className="py-12 md:py-20 px-4 text-white relative overflow-hidden" style={{
+    backgroundColor: 'hsl(0 75% 35%)'
+  }}>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 bg-white rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-white rounded-full blur-3xl" />
