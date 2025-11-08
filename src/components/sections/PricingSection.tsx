@@ -37,7 +37,20 @@ export const PricingSection = () => {
             </ul>
             
             <Button variant="secondary" className="w-full" asChild>
-              <a href="https://www.ggcheckout.com/checkout/v2/9jwm1AUaZKjbNSzRYO1w" target="_blank" rel="noopener noreferrer">
+              <a 
+                href="https://www.ggcheckout.com/checkout/v2/9jwm1AUaZKjbNSzRYO1w" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).fbq) {
+                    (window as any).fbq('track', 'InitiateCheckout', {
+                      content_name: 'App Brownies Lucrativos',
+                      value: 1.99,
+                      currency: 'BRL'
+                    });
+                  }
+                }}
+              >
                 Começar Agora
               </a>
             </Button>
@@ -81,7 +94,20 @@ export const PricingSection = () => {
             </ul>
             
             <Button className="w-full bg-white text-primary hover:bg-white/90 shadow-red" asChild>
-              <a href="https://www.ggcheckout.com/checkout/v2/FB2BQbKx59cYBFvUhFWN" target="_blank" rel="noopener noreferrer">
+              <a 
+                href="https://www.ggcheckout.com/checkout/v2/FB2BQbKx59cYBFvUhFWN" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).fbq) {
+                    (window as any).fbq('track', 'InitiateCheckout', {
+                      content_name: 'App Completo + Bônus Exclusivos',
+                      value: 14.90,
+                      currency: 'BRL'
+                    });
+                  }
+                }}
+              >
                 Quero o Acesso Completo!
               </a>
             </Button>
