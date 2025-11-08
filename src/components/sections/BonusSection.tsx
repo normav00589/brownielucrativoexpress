@@ -1,4 +1,4 @@
-import { Gift, Star, Calendar, BookOpen, Sparkles } from "lucide-react";
+import { Gift, Star, Calendar, BookOpen, Sparkles, Award } from "lucide-react";
 const bonuses = [{
   icon: Calendar,
   title: "BROWNIES NATALINOS",
@@ -29,6 +29,12 @@ const bonuses = [{
   description: "Recheios, coberturas e ganaches de confeitaria",
   highlight: "Segredos Profissionais",
   recipes: "Técnicas avançadas"
+}, {
+  icon: Award,
+  title: "CERTIFICADO DE CONCLUSÃO",
+  description: "Certificado digital para comprovar sua especialização",
+  highlight: "Profissionalização",
+  recipes: "Documento oficial"
 }];
 export const BonusSection = () => {
   return <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-cream via-cream-dark to-cream relative overflow-hidden">
