@@ -16,7 +16,7 @@ export const UrgencySection = () => {
           <div className="space-y-3 md:space-y-4 text-base md:text-xl">
             <div className="flex items-center justify-center gap-2 bg-primary-foreground/10 p-4 rounded-xl">
               <Clock className="w-5 h-5 md:w-6 md:h-6 text-accent" />
-              <p>Promoção válida até <span className="font-bold text-accent text-lg md:text-2xl">10/12</span> ou enquanto durar o estoque de bônus.</p>
+              <p>Aproveite a chance de faturar muito nesse Natal!<span className="font-bold text-accent text-lg md:text-2xl">10/12</span> ou enquanto durar o estoque de bônus.</p>
             </div>
             
             <p className="text-xl md:text-2xl font-bold bg-destructive/20 p-4 rounded-xl shadow-neon">
