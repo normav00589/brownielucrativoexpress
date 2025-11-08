@@ -7,7 +7,7 @@ export const AuthoritySection = () => {
             Criado por Especialistas em Produtos Caseiros Lucrativos
           </h2>
           
-          <p className="font-body text-muted-foreground max-w-3xl mx-auto text-lg font-bold">Desenvolvido por confeiteiras e estrategistas digitais especializados em produtos caseiros lucrativos, o Método 3C já transformou milhares de cozinhas em microempresas rentáveis.</p>
+          <p className="font-body text-muted-foreground max-w-3xl mx-auto text-lg font-bold">Desenvolvido pela confeiteira, gastrônoma e Nutri Gabriella Castro especialista em produtos caseiros lucrativos, o Método 3C já transformou milhares de cozinhas em microempresas rentáveis.</p>
           
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="bg-card p-8 rounded-xl shadow-soft">
