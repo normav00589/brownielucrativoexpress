@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 28 90% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 28 90% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 28 90% 12%;
+
+    --primary: 0 75% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 28 90% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 35 25% 96%;
+    --muted-foreground: 28 60% 25%;
+
+    --accent: 42 95% 65%;
+    --accent-foreground: 28 90% 12%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 28 20% 88%;
+    --input: 28 20% 88%;
+    --ring: 0 75% 48%;
+
+    --radius: 1rem;
+
+    --gold: 42 95% 65%;
+    --gold-dark: 40 70% 52%;
+    --gold-light: 45 100% 75%;
+    --chocolate: 28 90% 12%;
+    --chocolate-light: 28 60% 28%;
+    --red-deep: 0 75% 48%;
+    --red-light: 0 85% 60%;
+    --cream: 35 40% 96%;
+    --cream-dark: 35 30% 90%;
+    
+    --gradient-warm: linear-gradient(135deg, hsl(0 75% 48%) 0%, hsl(0 65% 35%) 50%, hsl(28 90% 12%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 75%) 0%, hsl(42 95% 65%) 50%, hsl(40 70% 52%) 100%);
+    --gradient-neon: linear-gradient(135deg, hsl(42 95% 65%) 0%, hsl(0 85% 60%) 50%, hsl(0 75% 48%) 100%);
+    --gradient-premium: linear-gradient(135deg, hsl(28 90% 12%) 0%, hsl(0 65% 35%) 50%, hsl(0 75% 48%) 100%);
+    --gradient-cream: linear-gradient(135deg, hsl(35 40% 96%) 0%, hsl(35 30% 90%) 50%, hsl(42 80% 88%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(35 40% 95%) 30%, hsl(0 75% 95%) 50%, hsl(35 40% 95%) 70%, hsl(0 0% 98%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(35 50% 98%) 100%);
+    --gradient-fire: radial-gradient(ellipse at top, hsl(0 85% 60%) 0%, hsl(0 75% 48%) 40%, transparent 70%);
+    
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 8px 30px rgba(178, 34, 34, 0.15);
+    --shadow-strong: 0 12px 40px rgba(178, 34, 34, 0.35);
+    --shadow-neon: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(234, 193, 123, 0.4);
+    --shadow-neon-strong: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 60px rgba(234, 193, 123, 0.6), 0 0 90px rgba(178, 34, 34, 0.3);
+    --shadow-premium: 0 20px 60px rgba(75, 46, 5, 0.5), 0 10px 30px rgba(178, 34, 34, 0.2);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  @keyframes neon-pulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 10px rgba(234, 193, 123, 0.8)) drop-shadow(0 0 20px rgba(234, 193, 123, 0.5));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px rgba(234, 193, 123, 1)) drop-shadow(0 0 40px rgba(234, 193, 123, 0.7));
+    }
+  }
+  
+  @keyframes glow-text {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(234, 193, 123, 0.5), 0 0 20px rgba(234, 193, 123, 0.3);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(234, 193, 123, 0.8), 0 0 40px rgba(234, 193, 123, 0.5), 0 0 60px rgba(234, 193, 123, 0.3);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .dark {
+    --background: 28 90% 8%;
+    --foreground: 28 20% 95%;
+
+    --card: 28 80% 12%;
+    --card-foreground: 28 20% 95%;
+
+    --popover: 28 80% 12%;
+    --popover-foreground: 28 20% 95%;
+
+    --primary: 0 58% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 28 90% 20%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 28 60% 18%;
+    --muted-foreground: 28 20% 65%;
+
+    --accent: 42 80% 65%;
+    --accent-foreground: 28 100% 8%;
+
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 28 60% 20%;
+    --input: 28 60% 20%;
+    --ring: 0 58% 50%;
+    
+    --gold: 42 80% 65%;
+    --gold-dark: 42 60% 50%;
+    --chocolate: 28 90% 20%;
+    --red-deep: 0 58% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+  }
+  
+  .neon-glow-strong {
+    box-shadow: var(--shadow-neon-strong);
+    animation: neon-pulse 2s ease-in-out infinite;
+  }
+  
+  .text-glow {
+    animation: glow-text 3s ease-in-out infinite;
+  }
+  
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+}

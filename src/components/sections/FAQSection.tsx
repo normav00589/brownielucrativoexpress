@@ -1,0 +1,54 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const faqs = [
+  {
+    question: "Preciso saber cozinhar?",
+    answer: "Não! O método é feito para iniciantes. Você aprenderá passo a passo desde o básico até técnicas profissionais.",
+  },
+  {
+    question: "Posso vender brownies com esse método?",
+    answer: "Sim! Você aprenderá desde o preparo até o empacotamento e estratégias de venda comprovadas.",
+  },
+  {
+    question: "O App funciona no celular?",
+    answer: "Sim, 100% compatível com Android e iOS. Acesse de qualquer lugar, a qualquer momento.",
+  },
+  {
+    question: "Quanto tempo até ver resultados?",
+    answer: "Em até 7 dias você já pode ter suas primeiras vendas seguindo o método corretamente.",
+  },
+  {
+    question: "Funciona fora do Natal?",
+    answer: "Sim! O App inclui estratégias para todas as épocas do ano, não apenas o período natalino.",
+  },
+];
+
+export const FAQSection = () => {
+  return (
+    <section className="py-20 px-4 bg-background">
+      <div className="container mx-auto max-w-4xl">
+        <h2 className="font-heading font-bold text-3xl md:text-4xl text-center mb-12 text-foreground">
+          Perguntas Frequentes
+        </h2>
+        
+        <Accordion type="single" collapsible className="w-full">
+          {faqs.map((faq, index) => (
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="font-heading font-semibold text-lg text-left">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="font-body text-muted-foreground">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </section>
+  );
+};
