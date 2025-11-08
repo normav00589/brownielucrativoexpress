@@ -1,4 +1,6 @@
 import { Award, TrendingUp, Users } from "lucide-react";
+import gabriellaCastro from "@/assets/gabriella-castro.webp";
+
 export const AuthoritySection = () => {
   return <section className="py-20 px-4 bg-muted">
       <div className="container mx-auto max-w-5xl">
@@ -6,6 +8,14 @@ export const AuthoritySection = () => {
           <h2 className="font-heading font-bold md:text-4xl text-foreground text-2xl">
             Criado por Especialistas em Produtos Caseiros Lucrativos
           </h2>
+          
+          <div className="flex justify-center my-8">
+            <img 
+              src={gabriellaCastro} 
+              alt="Gabriella Castro - Confeiteira, Gastrônoma e Nutricionista especialista em produtos caseiros lucrativos" 
+              className="w-48 h-48 rounded-full object-cover shadow-lg"
+            />
+          </div>
           
           <p className="font-body text-muted-foreground max-w-3xl mx-auto text-lg font-bold">Desenvolvido pela confeiteira, gastrônoma e Nutri Gabriella Castro especialista em produtos caseiros lucrativos, o Método 3C já transformou milhares de cozinhas em microempresas rentáveis.</p>
           
