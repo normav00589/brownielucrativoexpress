@@ -28,7 +28,7 @@ export const DreamSection = () => {
           </div>
           
           <div className="float-animation">
-            <img src={dreamPackaging} alt="Embalando brownies com app" className="rounded-3xl shadow-premium w-full h-auto border-4 border-gold/40" />
+            <img src={dreamPackaging} alt="Embalando brownies com app" width="1024" height="1024" className="rounded-3xl shadow-premium w-full h-auto border-4 border-gold/40" />
           </div>
         </div>
       </div>

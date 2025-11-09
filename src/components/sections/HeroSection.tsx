@@ -21,7 +21,7 @@ export const HeroSection = () => {
             
             <div className="relative float-animation my-6 overflow-visible">
               <div className="rounded-2xl overflow-hidden shadow-premium border-4 border-primary/30 bg-gradient-card">
-                <img src={heroBrownie} alt="Brownies deliciosos com casquinha crocante" className="w-full h-auto" />
+                <img src={heroBrownie} alt="Brownies deliciosos com casquinha crocante" width="1920" height="1080" className="w-full h-auto" />
               </div>
               <div className="absolute top-2 right-2 bg-gradient-neon text-secondary px-5 py-3 rounded-full font-heading font-bold text-sm shadow-neon-strong animate-neon-pulse">
                 🔥 Oferta Limitada!
