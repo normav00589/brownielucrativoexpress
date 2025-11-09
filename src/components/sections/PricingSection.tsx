@@ -38,7 +38,7 @@ export const PricingSection = () => {
             
             <Button variant="secondary" className="w-full" asChild>
               <a 
-                href="https://www.ggcheckout.com/checkout/v2/9jwm1AUaZKjbNSzRYO1w" 
+                href="https://danielle-dias.mycartpanda.com/checkout/202036361:1" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={() => {
@@ -95,7 +95,7 @@ export const PricingSection = () => {
             
             <Button className="w-full bg-white text-primary hover:bg-white/90 shadow-red" asChild>
               <a 
-                href="https://www.ggcheckout.com/checkout/v2/FB2BQbKx59cYBFvUhFWN" 
+                href="https://danielle-dias.mycartpanda.com/checkout/202036345:1" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={() => {
