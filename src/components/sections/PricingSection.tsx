@@ -37,20 +37,15 @@ export const PricingSection = () => {
             </ul>
             
             <Button variant="secondary" className="w-full" asChild>
-              <a 
-                href="https://danielle-dias.mycartpanda.com/checkout/202036361:1" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                onClick={() => {
-                  if (typeof window !== 'undefined' && (window as any).fbq) {
-                    (window as any).fbq('track', 'InitiateCheckout', {
-                      content_name: 'App Brownies Lucrativos',
-                      value: 1.99,
-                      currency: 'BRL'
-                    });
-                  }
-                }}
-              >
+              <a href="https://danielle-dias.mycartpanda.com/checkout/202036361:1" target="_blank" rel="noopener noreferrer" onClick={() => {
+              if (typeof window !== 'undefined' && (window as any).fbq) {
+                (window as any).fbq('track', 'InitiateCheckout', {
+                  content_name: 'App Brownies Lucrativos',
+                  value: 1.99,
+                  currency: 'BRL'
+                });
+              }
+            }}>
                 Começar Agora
               </a>
             </Button>
@@ -89,25 +84,20 @@ export const PricingSection = () => {
               </li>
               <li className="flex items-start gap-2">
                 <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
-                <span className="font-body font-semibold text-sm md:text-base text-white">Suporte + Acesso Vitalício</span>
+                <span className="font-body font-semibold text-sm md:text-base text-white">Suporte + Acesso Vitalício + Certificado de Conclusão</span>
               </li>
             </ul>
             
             <Button className="w-full bg-white text-primary hover:bg-white/90 shadow-red" asChild>
-              <a 
-                href="https://danielle-dias.mycartpanda.com/checkout/202036345:1" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                onClick={() => {
-                  if (typeof window !== 'undefined' && (window as any).fbq) {
-                    (window as any).fbq('track', 'InitiateCheckout', {
-                      content_name: 'App Completo + Bônus Exclusivos',
-                      value: 14.90,
-                      currency: 'BRL'
-                    });
-                  }
-                }}
-              >
+              <a href="https://danielle-dias.mycartpanda.com/checkout/202036345:1" target="_blank" rel="noopener noreferrer" onClick={() => {
+              if (typeof window !== 'undefined' && (window as any).fbq) {
+                (window as any).fbq('track', 'InitiateCheckout', {
+                  content_name: 'App Completo + Bônus Exclusivos',
+                  value: 14.90,
+                  currency: 'BRL'
+                });
+              }
+            }}>
                 Quero o Acesso Completo!
               </a>
             </Button>
