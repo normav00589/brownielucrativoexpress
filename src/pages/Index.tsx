@@ -16,6 +16,7 @@ import { UrgencySection } from "@/components/sections/UrgencySection";
 import { AuthoritySection } from "@/components/sections/AuthoritySection";
 import { FinalCTASection } from "@/components/sections/FinalCTASection";
 import { FooterSection } from "@/components/sections/FooterSection";
+import { BrownieGallerySection } from "@/components/sections/BrownieGallerySection";
 import { useEffect } from "react";
 const Index = () => {
   useEffect(() => {
@@ -45,6 +46,7 @@ const Index = () => {
         
         <RecipesSection />
         <BonusSection />
+        <BrownieGallerySection />
         
         <PricingSection />
         <TestimonialsSection />
