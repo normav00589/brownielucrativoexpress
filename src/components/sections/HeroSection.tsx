@@ -2,7 +2,7 @@ import { Button } from "@/components/Button";
 import heroBrownie from "@/assets/hero-brownie.jpg";
 import { Shield, Users, Sparkles, CheckCircle } from "lucide-react";
 export const HeroSection = () => {
-  return <section className="relative py-12 md:py-20 px-4 overflow-hidden bg-background">
+  return <section className="relative py-12 md:py-20 px-4 bg-background">
       <div className="absolute inset-0 bg-gradient-hero -z-10" />
       <div className="absolute inset-0 bg-gradient-fire opacity-40 -z-10" />
       
