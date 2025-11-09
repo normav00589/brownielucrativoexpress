@@ -19,11 +19,11 @@ export const HeroSection = () => {
               🍫 Transforme sua cozinha em uma <span className="text-primary font-bold">máquina de lucros</span> com o Método 3C!
             </p>
             
-            <div className="relative float-animation my-6">
+            <div className="relative float-animation my-6 overflow-visible">
               <div className="rounded-2xl overflow-hidden shadow-premium border-4 border-primary/30 bg-gradient-card">
                 <img src={heroBrownie} alt="Brownies deliciosos com casquinha crocante" className="w-full h-auto" />
               </div>
-              <div className="absolute -top-4 -right-4 bg-gradient-neon text-secondary px-5 py-3 rounded-full font-heading font-bold text-sm shadow-neon-strong animate-neon-pulse">
+              <div className="absolute top-2 right-2 bg-gradient-neon text-secondary px-5 py-3 rounded-full font-heading font-bold text-sm shadow-neon-strong animate-neon-pulse">
                 🔥 Oferta Limitada!
               </div>
             </div>
