@@ -51,7 +51,7 @@ const Index = () => {
         <GuaranteeSection />
         <FAQSection />
         <UrgencySection />
-        <AuthoritySection />
+        
         <FinalCTASection />
       </main>
       
