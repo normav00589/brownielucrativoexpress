@@ -54,12 +54,7 @@ export const RecipesSection = () => {
         </div>
         
         <div className="text-center space-y-6">
-          <div className="bg-gold/20 backdrop-blur-sm border-2 border-gold rounded-2xl p-6 md:p-8 inline-block">
-            <p className="font-heading font-bold text-2xl md:text-3xl text-gold flex items-center gap-3 justify-center">
-              <Sparkles className="w-8 h-8" />
-              E MAIS 50 RECEITAS EXCLUSIVAS no método completo!
-            </p>
-          </div>
+          
           
           <div className="bg-primary/20 backdrop-blur-sm border border-primary rounded-xl p-6 max-w-2xl mx-auto">
             <p className="font-heading font-bold text-xl md:text-2xl">
