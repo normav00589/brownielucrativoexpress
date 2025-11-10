@@ -13,9 +13,7 @@ export const PricingSection = () => {
           {/* Basic Plan */}
           <div className="bg-card border-2 border-border rounded-2xl p-6 md:p-8 shadow-soft hover:shadow-neon transition-all duration-300">
             <div className="text-center mb-6">
-              <h3 className="font-heading font-bold text-xl md:text-2xl mb-2 text-foreground">
-                App Brownies Lucrativos
-              </h3>
+              <h3 className="font-heading font-bold text-xl md:text-2xl mb-2 text-foreground">Receita Brownies Lucrativos</h3>
               <div className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
                 R$1,99
               </div>
