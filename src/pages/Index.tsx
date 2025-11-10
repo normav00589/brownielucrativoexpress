@@ -45,8 +45,8 @@ const Index = () => {
         <OfferSection />
         
         <RecipesSection />
-        <BonusSection />
         <BrownieGallerySection />
+        <BonusSection />
         
         <PricingSection />
         <TestimonialsSection />
