@@ -2,13 +2,15 @@ import testimonialReal1 from "@/assets/testimonial-real-1.jpg";
 import testimonialReal2 from "@/assets/testimonial-real-2.jpg";
 import testimonialReal3 from "@/assets/testimonial-real-3.jpg";
 import testimonialReal4 from "@/assets/testimonial-real-4.jpg";
+import testimonialReal5 from "@/assets/testimonial-real-5.jpg";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const realTestimonials = [
   testimonialReal1,
   testimonialReal2,
   testimonialReal3,
-  testimonialReal4
+  testimonialReal4,
+  testimonialReal5
 ];
 export const TestimonialsSection = () => {
   return <section className="py-12 md:py-20 px-4 bg-muted">
