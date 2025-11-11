@@ -34,6 +34,15 @@ export const OfferSection = () => {
                 </div>
               </div>
             </div>
+            
+            <div className="flex justify-center lg:justify-start mt-8">
+              <a 
+                href="#pricing" 
+                className="inline-block w-full sm:w-auto px-8 py-4 bg-gradient-neon text-secondary font-heading font-bold text-lg md:text-xl rounded-full shadow-neon-strong hover:scale-105 transition-all duration-300 text-center"
+              >
+                🔥 Quero Aproveitar por R$ 14,90!
+              </a>
+            </div>
           </div>
           
           <div className="flex justify-center lg:justify-end">
