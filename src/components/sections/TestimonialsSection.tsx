@@ -22,23 +22,23 @@ export const TestimonialsSection = () => {
           </p>
         </div>
         
-        <div className="relative px-12">
+        <div className="relative px-4 md:px-16">
           <Carousel
             opts={{
-              align: "start",
+              align: "center",
               loop: true,
             }}
-            className="w-full"
+            className="w-full max-w-3xl mx-auto"
           >
             <CarouselContent>
               {realTestimonials.map((image, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-2">
+                <CarouselItem key={index}>
+                  <div className="p-4">
                     <div className="bg-card rounded-2xl shadow-soft hover:shadow-neon transition-all duration-300 border border-accent/20 overflow-hidden">
                       <img 
                         src={image} 
                         alt={`Depoimento real ${index + 1}`}
-                        className="w-full h-auto object-contain"
+                        className="w-full h-auto object-contain max-h-[600px] mx-auto"
                       />
                     </div>
                   </div>
