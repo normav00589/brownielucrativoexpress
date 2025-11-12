@@ -49,7 +49,6 @@ const Index = () => {
       
       <main>
         <HeroSection />
-        <PricingSection />
         
         <DreamSection />
         <OfferSection />
@@ -60,6 +59,7 @@ const Index = () => {
         <Suspense fallback={<div className="min-h-screen" />}>
           <BonusSection />
           
+          <PricingSection />
           <TestimonialsSection />
           <GuaranteeSection />
           <FAQSection />
