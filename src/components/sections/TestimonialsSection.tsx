@@ -3,6 +3,9 @@ import testimonialReal2 from "@/assets/testimonial-real-2.jpg";
 import testimonialReal3 from "@/assets/testimonial-real-3.jpg";
 import testimonialReal4 from "@/assets/testimonial-real-4.jpg";
 import testimonialReal5 from "@/assets/testimonial-real-5.jpg";
+import testimonialReal6 from "@/assets/testimonial-real-6.jpg";
+import testimonialReal7 from "@/assets/testimonial-real-7.jpg";
+import testimonialReal8 from "@/assets/testimonial-real-8.jpg";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const realTestimonials = [
@@ -10,7 +13,10 @@ const realTestimonials = [
   testimonialReal2,
   testimonialReal3,
   testimonialReal4,
-  testimonialReal5
+  testimonialReal5,
+  testimonialReal6,
+  testimonialReal7,
+  testimonialReal8
 ];
 export const TestimonialsSection = () => {
   return <section className="py-12 md:py-20 px-4 bg-muted">
