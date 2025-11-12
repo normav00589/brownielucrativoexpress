@@ -10,45 +10,6 @@ export const PricingSection = () => {
         </h2>
         
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {/* Basic Plan */}
-          <div className="bg-card border-2 border-border rounded-2xl p-6 md:p-8 shadow-soft hover:shadow-neon transition-all duration-300">
-            <div className="text-center mb-6">
-              <h3 className="font-heading font-bold text-xl md:text-2xl mb-2 text-foreground">Receita Brownies Lucrativos</h3>
-              <div className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
-                R$1,99
-              </div>
-            </div>
-            
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <span className="font-body text-sm md:text-base text-foreground">10 Receitas base testadas</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <span className="font-body text-sm md:text-base text-foreground">Método 3C introdutório</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <span className="font-body text-sm md:text-base text-foreground">PDF "Casquinha Perfeita"</span>
-              </li>
-            </ul>
-            
-            <Button variant="secondary" className="w-full" asChild>
-              <a href="https://danielle-dias.mycartpanda.com/checkout/202036361:1" target="_blank" rel="noopener noreferrer" onClick={() => {
-              if (typeof window !== 'undefined' && (window as any).fbq) {
-                (window as any).fbq('track', 'InitiateCheckout', {
-                  content_name: 'App Brownies Lucrativos',
-                  value: 1.99,
-                  currency: 'BRL'
-                });
-              }
-            }}>
-                Começar Agora
-              </a>
-            </Button>
-          </div>
-          
           {/* Master Plan */}
           <div id="master-plan" className="bg-gradient-premium border-4 border-primary rounded-2xl p-6 md:p-8 shadow-strong relative transform hover:scale-105 transition-all duration-300">
             <div className="absolute -top-3 md:-top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 md:px-6 py-1.5 md:py-2 font-heading font-bold text-xs md:text-sm shadow-red subtle-pulse my-0 mx-0 rounded-full">🔥 MAIS POPULAR</div>
@@ -97,6 +58,45 @@ export const PricingSection = () => {
               }
             }}>
                 Quero o Acesso Completo!
+              </a>
+            </Button>
+          </div>
+          
+          {/* Basic Plan */}
+          <div className="bg-card border-2 border-border rounded-2xl p-6 md:p-8 shadow-soft hover:shadow-neon transition-all duration-300">
+            <div className="text-center mb-6">
+              <h3 className="font-heading font-bold text-xl md:text-2xl mb-2 text-foreground">Receita Brownies Lucrativos</h3>
+              <div className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
+                R$1,99
+              </div>
+            </div>
+            
+            <ul className="space-y-3 mb-8">
+              <li className="flex items-start gap-2">
+                <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <span className="font-body text-sm md:text-base text-foreground">10 Receitas base testadas</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <span className="font-body text-sm md:text-base text-foreground">Método 3C introdutório</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <span className="font-body text-sm md:text-base text-foreground">PDF "Casquinha Perfeita"</span>
+              </li>
+            </ul>
+            
+            <Button variant="secondary" className="w-full" asChild>
+              <a href="https://danielle-dias.mycartpanda.com/checkout/202036361:1" target="_blank" rel="noopener noreferrer" onClick={() => {
+              if (typeof window !== 'undefined' && (window as any).fbq) {
+                (window as any).fbq('track', 'InitiateCheckout', {
+                  content_name: 'App Brownies Lucrativos',
+                  value: 1.99,
+                  currency: 'BRL'
+                });
+              }
+            }}>
+                Começar Agora
               </a>
             </Button>
           </div>
