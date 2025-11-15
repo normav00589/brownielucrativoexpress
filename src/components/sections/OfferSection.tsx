@@ -12,7 +12,8 @@ export const OfferSection = () => {
             
             <div className="flex items-center justify-center gap-2 mt-4">
               <div className="bg-gradient-neon px-4 py-2 rounded-full shadow-neon-strong">
-                <p className="font-heading font-bold text-secondary flex items-center gap-2">Download disponível para Android e iOS<Smartphone className="w-5 h-5" />
+                <p className="font-heading font-bold text-secondary flex items-center gap-2">
+                  <Smartphone className="w-5 h-5" />
                   Disponível para Android e iOS
                 </p>
               </div>
