@@ -29,7 +29,7 @@ const Index = () => {
       document.body.appendChild(script);
       
       const embedScript = document.createElement("script");
-      embedScript.src = "https://fast.wistia.com/embed/9ql3hwsrco.js";
+      embedScript.src = "https://fast.wistia.com/embed/h7twixkhdo.js";
       embedScript.async = true;
       embedScript.defer = true;
       embedScript.type = "module";
