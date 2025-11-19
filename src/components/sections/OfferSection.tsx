@@ -62,9 +62,9 @@ export const OfferSection = () => {
                     
                     {/* Video Content */}
                     <div className="absolute inset-0 bg-gradient-to-br from-chocolate to-secondary">
-                      <div className="w-full h-full flex items-center justify-center p-4 pt-12">
-                        <div className="w-full h-full rounded-2xl overflow-hidden" dangerouslySetInnerHTML={{
-                        __html: '<wistia-player media-id="h7twixkhdo" seo="false" style="width: 100%; height: 120%; margin-top: -10%;"></wistia-player>'
+                      <div className="w-full h-full flex items-center justify-center p-2 pt-8">
+                        <div className="w-full h-full rounded-[2rem] overflow-hidden" dangerouslySetInnerHTML={{
+                        __html: '<wistia-player media-id="h7twixkhdo" seo="false" style="width: 100%; height: 125%; margin-top: -12%; object-fit: cover;"></wistia-player>'
                       }} />
                       </div>
                     </div>
