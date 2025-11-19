@@ -20,10 +20,10 @@ const bonuses = [{
   recipes: "24 variações premium"
 }, {
   icon: Star,
-  title: "14 BOLOS NO POTE GOURMET",
-  description: "Versões sofisticadas com maior margem de lucro",
+  title: "RECEITAS EM VÍDEO DE CONFEITARIA",
+  description: "Cocada, biscoitinhos, manjar, brigadeirão, mousse e muito mais!",
   highlight: "Alto Valor",
-  recipes: "14 receitas exclusivas"
+  recipes: "6+ receitas em vídeo"
 }, {
   icon: Gift,
   title: "RECEITAS PROFISSIONAIS",
