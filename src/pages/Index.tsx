@@ -10,6 +10,7 @@ import { PricingSection } from "@/components/sections/PricingSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { BrownieGallerySection } from "@/components/sections/BrownieGallerySection";
 import { useEffect, lazy, Suspense } from "react";
+import { trackPageView } from "@/lib/fbTracking";
 
 // Lazy load sections below the fold
 const BonusSection = lazy(() => import("@/components/sections/BonusSection").then(m => ({ default: m.BonusSection })));
@@ -20,6 +21,9 @@ const FinalCTASection = lazy(() => import("@/components/sections/FinalCTASection
 
 const Index = () => {
   useEffect(() => {
+    // Track PageView via Conversion API
+    trackPageView();
+    
     // Defer Wistia scripts loading until after page is interactive
     const loadWistiaScripts = () => {
       const script = document.createElement("script");

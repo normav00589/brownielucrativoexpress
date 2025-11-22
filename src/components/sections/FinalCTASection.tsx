@@ -1,5 +1,6 @@
 import { Button } from "@/components/Button";
 import { Sparkles } from "lucide-react";
+import { trackViewContent } from "@/lib/fbTracking";
 
 export const FinalCTASection = () => {
   return (
@@ -26,6 +27,7 @@ export const FinalCTASection = () => {
             size="lg" 
             className="mt-8 text-lg md:text-2xl px-8 md:px-12 py-4 md:py-6 shadow-neon-strong"
             onClick={() => {
+              trackViewContent('Final CTA - Brownies Lucrativos', 14.90);
               document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }}
           >
