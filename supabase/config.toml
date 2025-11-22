@@ -1,0 +1,4 @@
+project_id = "your_project_id"
+
+[functions.facebook-conversion]
+verify_jwt = false

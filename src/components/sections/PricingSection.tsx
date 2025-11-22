@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { trackInitiateCheckout } from "@/lib/fbTracking";
 export const PricingSection = () => {
   return <section id="pricing" className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,193,123,0.1),transparent_70%)] -z-10" />
@@ -49,13 +50,7 @@ export const PricingSection = () => {
             
             <Button className="w-full bg-white text-primary hover:bg-white/90 shadow-red" asChild>
               <a href="https://danielle-dias.mycartpanda.com/checkout/202036345:1" target="_blank" rel="noopener noreferrer" onClick={() => {
-              if (typeof window !== 'undefined' && (window as any).fbq) {
-                (window as any).fbq('track', 'InitiateCheckout', {
-                  content_name: 'App Completo + Bônus Exclusivos',
-                  value: 14.90,
-                  currency: 'BRL'
-                });
-              }
+              trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan');
             }}>
                 Quero o Acesso Completo!
               </a>
@@ -88,13 +83,7 @@ export const PricingSection = () => {
             
             <Button variant="secondary" className="w-full" asChild>
               <a href="https://danielle-dias.mycartpanda.com/checkout/202036361:1" target="_blank" rel="noopener noreferrer" onClick={() => {
-              if (typeof window !== 'undefined' && (window as any).fbq) {
-                (window as any).fbq('track', 'InitiateCheckout', {
-                  content_name: 'App Brownies Lucrativos',
-                  value: 1.99,
-                  currency: 'BRL'
-                });
-              }
+              trackInitiateCheckout(1.99, 'App Brownies Lucrativos - Basic Plan');
             }}>
                 Começar Agora
               </a>

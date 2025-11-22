@@ -1,6 +1,7 @@
 import { Button } from "@/components/Button";
 import heroBrownie from "@/assets/hero-brownie.jpg";
 import { Shield, Users, Sparkles, CheckCircle } from "lucide-react";
+import { trackViewContent } from "@/lib/fbTracking";
 export const HeroSection = () => {
   return <section className="relative py-12 md:py-20 px-4 bg-background">
       <div className="absolute inset-0 bg-gradient-hero -z-10" />
@@ -32,6 +33,7 @@ export const HeroSection = () => {
               </div>
               
               <Button size="lg" className="w-full md:w-auto text-sm md:text-lg shadow-strong hover:shadow-premium" onClick={() => {
+              trackViewContent('Hero CTA - Brownies Lucrativos', 14.90);
               document.getElementById('master-plan')?.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center'
