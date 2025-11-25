@@ -33,7 +33,7 @@ const Index = () => {
       document.body.appendChild(script);
       
       const embedScript = document.createElement("script");
-      embedScript.src = "https://fast.wistia.com/embed/h7twixkhdo.js";
+      embedScript.src = "https://fast.wistia.com/embed/pt22c9q3y0.js";
       embedScript.async = true;
       embedScript.defer = true;
       embedScript.type = "module";
