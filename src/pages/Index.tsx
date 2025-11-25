@@ -11,6 +11,10 @@ import { FooterSection } from "@/components/sections/FooterSection";
 import { BrownieGallerySection } from "@/components/sections/BrownieGallerySection";
 import { useEffect, lazy, Suspense } from "react";
 import { trackPageView } from "@/lib/fbTracking";
+import { useWebVitals } from "@/hooks/useWebVitals";
+import { inlineCriticalCSS } from "@/lib/criticalCss";
+import { preloadCriticalImages } from "@/lib/imageOptimization";
+import { addResourceHints, preloadFonts } from "@/lib/resourceHints";
 
 // Lazy load sections below the fold
 const BonusSection = lazy(() => import("@/components/sections/BonusSection").then(m => ({ default: m.BonusSection })));
@@ -20,7 +24,24 @@ const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m 
 const FinalCTASection = lazy(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 
 const Index = () => {
+  // Track web vitals
+  useWebVitals();
+  
   useEffect(() => {
+    // Inline critical CSS immediately
+    inlineCriticalCSS();
+    
+    // Add resource hints for external domains
+    addResourceHints();
+    
+    // Preload critical fonts
+    preloadFonts();
+    
+    // Preload critical images for hero section
+    preloadCriticalImages([
+      new URL('../assets/brownie-pricing.webp', import.meta.url).href
+    ]);
+    
     // Track PageView via Conversion API
     trackPageView();
     
@@ -42,9 +63,9 @@ const Index = () => {
 
     // Use requestIdleCallback for better performance or fallback to setTimeout
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => loadWistiaScripts(), { timeout: 1000 });
+      requestIdleCallback(() => loadWistiaScripts(), { timeout: 2000 });
     } else {
-      setTimeout(loadWistiaScripts, 1000);
+      setTimeout(loadWistiaScripts, 2000);
     }
   }, []);
   return <div className="min-h-screen">
@@ -60,7 +81,7 @@ const Index = () => {
         <RecipesSection />
         <BrownieGallerySection />
         
-        <Suspense fallback={<div className="min-h-screen" />}>
+        <Suspense fallback={<div className="min-h-[400px] bg-background animate-pulse" />}>
           <BonusSection />
           
           <PricingSection />

@@ -1,5 +1,5 @@
 import { Button } from "@/components/Button";
-import heroBrownie from "@/assets/hero-brownie.jpg";
+import { OptimizedButton } from "@/components/OptimizedButton";
 import browniePricing from "@/assets/brownie-pricing.webp";
 import { Shield, Users, Sparkles, CheckCircle } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
@@ -49,7 +49,7 @@ export const HeroSection = () => {
                 </p>
               </div>
               
-              <Button size="lg" className="w-full md:w-auto text-sm md:text-lg shadow-strong hover:shadow-premium" onClick={() => {
+              <OptimizedButton size="lg" className="w-full md:w-auto text-sm md:text-lg shadow-strong hover:shadow-premium" onClick={() => {
               trackViewContent('Hero CTA - Brownies Lucrativos', 14.90);
               document.getElementById('master-plan')?.scrollIntoView({
                 behavior: 'smooth',
@@ -57,7 +57,7 @@ export const HeroSection = () => {
               });
             }}>
                 🔘 Quero Começar Meu Negócio de Brownies!
-              </Button>
+              </OptimizedButton>
               
               <div className="grid grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm max-w-md mx-auto md:mx-0">
                 <div className="flex items-center gap-2 bg-gradient-card px-4 py-3 rounded-xl shadow-medium border border-primary/20 hover:shadow-strong transition-all duration-300">
