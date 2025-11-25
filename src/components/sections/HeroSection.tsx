@@ -21,13 +21,15 @@ export const HeroSection = () => {
               🍫 <span className="text-primary font-bold">Transforme R$60 em R$300</span> a cada fornada com brownies que <span className="text-primary font-bold">seus clientes vão IMPLORAR</span> por mais – usando o revolucionário <span className="text-accent font-bold">Método 3C</span>!
             </p>
             
-            {/* Brownie Image with Animation */}
+            {/* Brownie Image with Animation - Optimized for LCP */}
             <div className="relative w-full max-w-md mx-auto my-8 animate-fade-in">
               <div className="relative group">
                 <img 
                   src={browniePricing} 
                   alt="Brownie cremoso e delicioso" 
-                  loading="lazy"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
                   width="600"
                   height="600"
                   className="w-full h-auto rounded-2xl shadow-premium border-4 border-primary/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-strong"

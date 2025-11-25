@@ -24,7 +24,7 @@ const Index = () => {
     // Track PageView via Conversion API
     trackPageView();
     
-    // Defer Wistia scripts loading until after page is interactive
+    // Defer Wistia scripts loading until page is idle
     const loadWistiaScripts = () => {
       const script = document.createElement("script");
       script.src = "https://fast.wistia.com/player.js";
@@ -40,12 +40,12 @@ const Index = () => {
       document.body.appendChild(embedScript);
     };
 
-    // Load scripts after a short delay to prioritize initial render
-    const timeoutId = setTimeout(loadWistiaScripts, 100);
-    
-    return () => {
-      clearTimeout(timeoutId);
-    };
+    // Use requestIdleCallback for better performance or fallback to setTimeout
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => loadWistiaScripts(), { timeout: 1000 });
+    } else {
+      setTimeout(loadWistiaScripts, 1000);
+    }
   }, []);
   return <div className="min-h-screen">
       <UrgencyBanner />
