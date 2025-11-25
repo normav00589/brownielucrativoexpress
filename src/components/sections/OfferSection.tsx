@@ -53,32 +53,38 @@ export const OfferSection = () => {
             <div className="relative">
               {/* iPhone Mockup */}
               <div className="relative w-[280px] md:w-[320px] mx-auto">
+                {/* Glow effect behind phone */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-accent/20 to-primary/30 blur-3xl animate-pulse" />
+                
                 {/* iPhone Frame */}
-                <div className="relative bg-gradient-to-br from-gray-900 to-gray-700 rounded-[3rem] p-3 shadow-premium border-2 border-primary/30">
+                <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-slate-700/50">
                   {/* Screen */}
                   <div className="relative bg-black rounded-[2.5rem] overflow-hidden" style={{ aspectRatio: '0.549618320610687' }}>
-                    {/* Notch */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl z-10" />
+                    {/* Notch - more realistic */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl z-10 shadow-lg">
+                      {/* Camera */}
+                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-900 rounded-full border border-slate-700" />
+                    </div>
                     
                     {/* Video Content */}
                     <div className="absolute inset-0 bg-gradient-to-br from-chocolate to-secondary">
                       <div className="w-full h-full flex items-center justify-center p-2 pt-8">
-                        <div className="w-full h-full rounded-[2rem] overflow-hidden" dangerouslySetInnerHTML={{
+                        <div className="w-full h-full rounded-[2rem] overflow-hidden shadow-inner" dangerouslySetInnerHTML={{
                         __html: '<wistia-player media-id="pt22c9q3y0" seo="false" style="width: 100%; height: 100%; object-fit: cover;"></wistia-player>'
                       }} />
                       </div>
                     </div>
                   </div>
                   
-                  {/* iPhone Button */}
-                  <div className="absolute right-0 top-24 w-1 h-12 bg-gray-800 rounded-l" />
-                  <div className="absolute right-0 top-40 w-1 h-16 bg-gray-800 rounded-l" />
-                  <div className="absolute right-0 top-60 w-1 h-16 bg-gray-800 rounded-l" />
-                  <div className="absolute left-0 top-32 w-1 h-8 bg-gray-800 rounded-r" />
+                  {/* iPhone Buttons - more realistic */}
+                  <div className="absolute right-0 top-24 w-1 h-12 bg-slate-900 rounded-l shadow-inner" />
+                  <div className="absolute right-0 top-40 w-1 h-16 bg-slate-900 rounded-l shadow-inner" />
+                  <div className="absolute right-0 top-60 w-1 h-16 bg-slate-900 rounded-l shadow-inner" />
+                  <div className="absolute left-0 top-32 w-1 h-8 bg-slate-900 rounded-r shadow-inner" />
                 </div>
                 
                 {/* Floating badge */}
-                <div className="absolute -top-4 -right-4 bg-gradient-neon px-4 py-2 rounded-full shadow-neon-strong animate-neon-pulse">
+                <div className="absolute -top-4 -right-4 bg-gradient-neon px-4 py-2 rounded-full shadow-neon-strong animate-neon-pulse z-20">
                   <p className="font-heading font-bold text-secondary flex items-center gap-2">
                     <Play className="w-4 h-4" />
                     Assista Agora
