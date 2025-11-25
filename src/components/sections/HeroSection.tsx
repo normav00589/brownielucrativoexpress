@@ -1,5 +1,6 @@
 import { Button } from "@/components/Button";
 import heroBrownie from "@/assets/hero-brownie.jpg";
+import browniePricing from "@/assets/brownie-pricing.webp";
 import { Shield, Users, Sparkles, CheckCircle } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
 export const HeroSection = () => {
@@ -20,7 +21,21 @@ export const HeroSection = () => {
               🍫 Transforme sua cozinha em uma <span className="text-primary font-bold">máquina de lucros</span> com o Método 3C!
             </p>
             
-            
+            {/* Brownie Image with Animation */}
+            <div className="relative w-full max-w-md mx-auto my-8 animate-fade-in">
+              <div className="relative group">
+                <img 
+                  src={browniePricing} 
+                  alt="Brownie cremoso e delicioso" 
+                  loading="lazy"
+                  width="600"
+                  height="600"
+                  className="w-full h-auto rounded-2xl shadow-premium border-4 border-primary/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-strong"
+                />
+                {/* Subtle glow effect on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              </div>
+            </div>
             
             <div className="space-y-6">
               <div className="text-center md:text-left bg-gradient-card backdrop-blur-sm rounded-2xl p-8 shadow-strong border-2 border-primary/30">
