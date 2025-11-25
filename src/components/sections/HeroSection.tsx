@@ -22,20 +22,19 @@ export const HeroSection = () => {
             </p>
             
             {/* Brownie Image with Animation - Optimized for LCP */}
-            <div className="relative w-full max-w-md mx-auto my-8 animate-fade-in">
-              <div className="relative group">
+            <div className="relative w-full max-w-md mx-auto my-8">
+              <div className="relative">
                 <img 
                   src={browniePricing} 
-                  alt="Brownie cremoso e delicioso" 
+                  alt="Brownie cremoso e delicioso que gera lucro de R$150 a R$300 por fornada" 
                   fetchPriority="high"
                   loading="eager"
-                  decoding="async"
+                  decoding="sync"
                   width="600"
                   height="600"
-                  className="w-full h-auto rounded-2xl shadow-premium border-4 border-primary/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-strong"
+                  style={{ contentVisibility: 'auto' }}
+                  className="w-full h-auto rounded-2xl shadow-premium border-4 border-primary/20"
                 />
-                {/* Subtle glow effect on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
             </div>
             
