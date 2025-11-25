@@ -74,6 +74,10 @@ export const OfferSection = () => {
                       }} />
                       </div>
                     </div>
+                    
+                    {/* Glass reflection overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-40 pointer-events-none z-20" />
+                    <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-gradient-to-br from-white/30 to-transparent opacity-50 blur-2xl pointer-events-none z-20" />
                   </div>
                   
                   {/* iPhone Buttons - more realistic */}
