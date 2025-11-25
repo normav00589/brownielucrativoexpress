@@ -56,7 +56,7 @@ export const OfferSection = () => {
                 {/* iPhone Frame */}
                 <div className="relative bg-gradient-to-br from-gray-900 to-gray-700 rounded-[3rem] p-3 shadow-premium border-2 border-primary/30">
                   {/* Screen */}
-                  <div className="relative bg-black rounded-[2.5rem] overflow-hidden aspect-[9/19.5]">
+                  <div className="relative bg-black rounded-[2.5rem] overflow-hidden" style={{ aspectRatio: '0.549618320610687' }}>
                     {/* Notch */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl z-10" />
                     
@@ -64,7 +64,7 @@ export const OfferSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-chocolate to-secondary">
                       <div className="w-full h-full flex items-center justify-center p-2 pt-8">
                         <div className="w-full h-full rounded-[2rem] overflow-hidden" dangerouslySetInnerHTML={{
-                        __html: '<wistia-player media-id="pt22c9q3y0" seo="false" style="width: 100%; height: 125%; margin-top: -12%; object-fit: cover;"></wistia-player>'
+                        __html: '<wistia-player media-id="pt22c9q3y0" seo="false" style="width: 100%; height: 100%; object-fit: cover;"></wistia-player>'
                       }} />
                       </div>
                     </div>
