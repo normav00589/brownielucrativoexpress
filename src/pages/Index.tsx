@@ -31,22 +31,16 @@ const Index = () => {
     // Inline critical CSS immediately
     inlineCriticalCSS();
     
-    // Add resource hints for external domains
-    addResourceHints();
-    
-    // Preload critical fonts
-    preloadFonts();
-    
-    // Preload critical images for hero section
-    preloadCriticalImages([
-      new URL('../assets/brownie-pricing.webp', import.meta.url).href
-    ]);
+    // Preload hero image immediately for better LCP
+    const heroImg = new Image();
+    heroImg.fetchPriority = 'high';
+    heroImg.src = new URL('../assets/brownie-pricing.webp', import.meta.url).href;
     
     // Track PageView via Conversion API
     trackPageView();
     
-    // Defer Wistia scripts loading until page is idle
-    const loadWistiaScripts = () => {
+    // Defer all non-critical scripts significantly
+    const loadNonCriticalScripts = () => {
       const script = document.createElement("script");
       script.src = "https://fast.wistia.com/player.js";
       script.async = true;
@@ -61,11 +55,13 @@ const Index = () => {
       document.body.appendChild(embedScript);
     };
 
-    // Use requestIdleCallback for better performance or fallback to setTimeout
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => loadWistiaScripts(), { timeout: 2000 });
+    // Delay scripts until page is fully loaded
+    if (document.readyState === 'complete') {
+      setTimeout(loadNonCriticalScripts, 3000);
     } else {
-      setTimeout(loadWistiaScripts, 2000);
+      window.addEventListener('load', () => {
+        setTimeout(loadNonCriticalScripts, 3000);
+      });
     }
   }, []);
   return <div className="min-h-screen">

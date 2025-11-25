@@ -2,13 +2,10 @@
 
 export const addResourceHints = (): void => {
   const hints = [
-    // Preconnect to critical third-party origins
-    { rel: 'preconnect', href: 'https://fonts.googleapis.com', crossOrigin: false },
+    // Preconnect to critical third-party origins (only most critical)
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: true },
-    { rel: 'preconnect', href: 'https://fast.wistia.com', crossOrigin: false },
-    { rel: 'dns-prefetch', href: 'https://connect.facebook.net', crossOrigin: false },
-    { rel: 'dns-prefetch', href: 'https://distillery.wistia.com', crossOrigin: false },
-    { rel: 'dns-prefetch', href: 'https://pipedream.wistia.com', crossOrigin: false },
+    { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com', crossOrigin: false },
+    { rel: 'dns-prefetch', href: 'https://fast.wistia.com', crossOrigin: false },
   ];
 
   hints.forEach(({ rel, href, crossOrigin }) => {

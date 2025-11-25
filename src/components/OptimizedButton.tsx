@@ -8,16 +8,21 @@ interface OptimizedButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean;
 }
 
-// Memoized button to prevent unnecessary re-renders
+// Memoized button to prevent unnecessary re-renders and optimize INP
 export const OptimizedButton = memo(({ 
   children, 
   onClick,
   ...props 
 }: OptimizedButtonProps) => {
-  // Passive event listener for better scroll performance
+  // Schedule interactions for better INP
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (onClick) {
-      onClick(e);
+      // Use scheduler API for better task prioritization
+      if ('scheduler' in window && 'postTask' in (window as any).scheduler) {
+        (window as any).scheduler.postTask(() => onClick(e), { priority: 'user-blocking' });
+      } else {
+        requestAnimationFrame(() => onClick(e));
+      }
     }
   };
 
