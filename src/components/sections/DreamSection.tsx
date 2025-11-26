@@ -1,4 +1,4 @@
-import dreamPackaging from "@/assets/dream-packaging.jpg";
+import dreamPackaging from "@/assets/dream-packaging.webp";
 export const DreamSection = () => {
   return <section className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(234,193,123,0.2),transparent_70%)] -z-10" />

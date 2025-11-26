@@ -1,11 +1,11 @@
-import testimonialReal1 from "@/assets/testimonial-real-1.jpg";
-import testimonialReal2 from "@/assets/testimonial-real-2.jpg";
-import testimonialReal3 from "@/assets/testimonial-real-3.jpg";
-import testimonialReal4 from "@/assets/testimonial-real-4.jpg";
-import testimonialReal5 from "@/assets/testimonial-real-5.jpg";
-import testimonialReal6 from "@/assets/testimonial-real-6.jpg";
-import testimonialReal7 from "@/assets/testimonial-real-7.jpg";
-import testimonialReal8 from "@/assets/testimonial-real-8.jpg";
+import testimonialReal1 from "@/assets/testimonial-real-1.webp";
+import testimonialReal2 from "@/assets/testimonial-real-2.webp";
+import testimonialReal3 from "@/assets/testimonial-real-3.webp";
+import testimonialReal4 from "@/assets/testimonial-real-4.webp";
+import testimonialReal5 from "@/assets/testimonial-real-5.webp";
+import testimonialReal6 from "@/assets/testimonial-real-6.webp";
+import testimonialReal7 from "@/assets/testimonial-real-7.webp";
+import testimonialReal8 from "@/assets/testimonial-real-8.webp";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const realTestimonials = [
