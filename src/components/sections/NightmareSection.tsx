@@ -1,8 +1,11 @@
 import problemBrownies from "@/assets/problem-brownies.jpg";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export const NightmareSection = () => {
+  const { ref, isVisible } = useIntersectionObserver();
+  
   return (
-    <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-background via-cream to-background relative overflow-hidden">
+    <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-to-br from-background via-cream to-background relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(178,34,34,0.08),transparent_70%)] -z-10" />
       
       <div className="container mx-auto max-w-6xl">

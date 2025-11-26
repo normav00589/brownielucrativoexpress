@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { trackInitiateCheckout } from "@/lib/fbTracking";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+
 export const PricingSection = () => {
-  return <section id="pricing" className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
+  const { ref, isVisible } = useIntersectionObserver();
+  
+  return <section ref={ref} id="pricing" className={`py-12 md:py-20 px-4 bg-background relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,193,123,0.1),transparent_70%)] -z-10" />
       
       <div className="container mx-auto max-w-6xl">

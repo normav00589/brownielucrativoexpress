@@ -7,6 +7,7 @@ import testimonialReal6 from "@/assets/testimonial-real-6.jpg";
 import testimonialReal7 from "@/assets/testimonial-real-7.jpg";
 import testimonialReal8 from "@/assets/testimonial-real-8.jpg";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const realTestimonials = [
   testimonialReal1,
@@ -18,8 +19,11 @@ const realTestimonials = [
   testimonialReal7,
   testimonialReal8
 ];
+
 export const TestimonialsSection = () => {
-  return <section className="py-12 md:py-20 px-4 bg-muted">
+  const { ref, isVisible } = useIntersectionObserver();
+  
+  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-muted fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-foreground mb-4 text-glow">

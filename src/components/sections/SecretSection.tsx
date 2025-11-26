@@ -1,8 +1,12 @@
 import secretBrownies from "@/assets/secret-brownies.jpg";
 import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+
 export const SecretSection = () => {
-  return <section className="py-12 md:py-20 px-4 bg-gradient-warm text-primary-foreground relative overflow-hidden">
+  const { ref, isVisible } = useIntersectionObserver();
+  
+  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-warm text-primary-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       
       
       <div className="container mx-auto max-w-6xl relative z-10">

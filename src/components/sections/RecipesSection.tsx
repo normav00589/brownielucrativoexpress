@@ -1,5 +1,7 @@
 import { ChefHat, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+
 const recipeCategories = [{
   title: "BROWNIES TRADICIONAIS",
   emoji: "🍫",
@@ -13,8 +15,11 @@ const recipeCategories = [{
   emoji: "🥄",
   recipes: ["Brownie Zero Açúcar - Para todos os públicos", "Brownie Zero Lactose - Inclusivo e saboroso", "Brownie Low Carb - Opção fitness", "Brownie Vegano - Para todos", "Brownie de Caneca - Prático e rápido", "Brownie de Abobrinha - Saudável e fofinho", "Brownie de Banana - Naturalmente doce", "Brownie de Aveia - Nutritivo e saboroso", "Brownie de Micro-ondas - Emergência doce", "Brownie de Frutas Vermelhas - Antioxidante"]
 }];
+
 export const RecipesSection = () => {
-  return <section className="py-12 md:py-20 px-4 text-white relative overflow-hidden" style={{
+  const { ref, isVisible } = useIntersectionObserver();
+  
+  return <section ref={ref} className={`py-12 md:py-20 px-4 text-white relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`} style={{
     backgroundColor: 'hsl(0 75% 35%)'
   }}>
       <div className="absolute inset-0 opacity-10">

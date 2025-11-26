@@ -1,7 +1,11 @@
 import { Award, TrendingUp, Users } from "lucide-react";
 import gabriellaCastro from "@/assets/gabriella-castro.webp";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+
 export const AuthoritySection = () => {
-  return <section className="py-20 px-4 bg-muted">
+  const { ref, isVisible } = useIntersectionObserver();
+  
+  return <section ref={ref} className={`py-20 px-4 bg-muted fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-5xl">
         <div className="text-center space-y-8">
           <h2 className="font-heading font-bold md:text-4xl text-foreground text-2xl">Criado por Especialista em Produtos Caseiros Lucrativos</h2>
