@@ -15,6 +15,7 @@ export const FooterSection = () => {
           <div>
             <h4 className="font-heading font-semibold mb-4">Links Úteis</h4>
             <ul className="space-y-2 font-body text-sm">
+              <li><a href="/install" className="hover:text-accent transition-colors">📱 Instalar App</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Termos de Uso</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Política de Privacidade</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Contato</a></li>
