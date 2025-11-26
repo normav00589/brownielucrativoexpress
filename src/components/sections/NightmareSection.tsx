@@ -1,4 +1,4 @@
-import problemBrownies from "@/assets/problem-brownies.webp";
+import problemBrownies from "@/assets/problem-brownies.jpg";
 
 export const NightmareSection = () => {
   return (

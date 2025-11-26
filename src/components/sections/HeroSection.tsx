@@ -1,5 +1,5 @@
 import { Button } from "@/components/Button";
-import heroBrownie from "@/assets/hero-brownie.webp";
+import heroBrownie from "@/assets/hero-brownie.jpg";
 import browniePricing from "@/assets/brownie-pricing.webp";
 import { Shield, Users, Sparkles, CheckCircle } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";

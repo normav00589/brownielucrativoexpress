@@ -1,4 +1,4 @@
-import secretBrownies from "@/assets/secret-brownies.webp";
+import secretBrownies from "@/assets/secret-brownies.jpg";
 import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 export const SecretSection = () => {
