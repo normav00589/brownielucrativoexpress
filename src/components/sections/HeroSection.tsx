@@ -17,7 +17,7 @@ export const HeroSection = () => {
               mesmo começando do zero.
             </h1>
             
-            <p className="sm:text-xl md:text-2xl font-body text-foreground text-xl leading-relaxed font-semibold">🍫 Transforme R$60 em R$300 a cada fornada com brownies que seus clientes vão IMPLORAR por mais – usando ingredientes simples e baratos! Você não precisa de chocolate caríssimo pa<span className="text-primary font-bold">Transforme R$60 em R$300</span> a cada fornada com brownies que <span className="text-primary font-bold">seus clientes vão IMPLORAR</span> por mais – usando o revolucionário <span className="text-accent font-bold">Método 3C</span>!
+            <p className="sm:text-xl md:text-2xl font-body text-foreground text-xl leading-relaxed font-semibold">🍫 Você não precisa de chocolate caríssimo paTransforme R$60 em R$300 a cada fornada com brownies que seus clientes vão IMPLORAR por mais – usando o revolucionário Método 3C!<span className="text-primary font-bold">Transforme R$60 em R$300</span> a cada fornada com brownies que <span className="text-primary font-bold">seus clientes vão IMPLORAR</span> por mais – usando o revolucionário <span className="text-accent font-bold">Método 3C</span>!
             </p>
             
             {/* Brownie Image with Animation */}
