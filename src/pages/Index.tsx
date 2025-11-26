@@ -1,23 +1,19 @@
 import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { SaleNotification } from "@/components/SaleNotification";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { NightmareSection } from "@/components/sections/NightmareSection";
 import { DreamSection } from "@/components/sections/DreamSection";
 import { OfferSection } from "@/components/sections/OfferSection";
-import { SecretSection } from "@/components/sections/SecretSection";
 import { RecipesSection } from "@/components/sections/RecipesSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { BrownieGallerySection } from "@/components/sections/BrownieGallerySection";
-import { useEffect, lazy, Suspense } from "react";
+import { BonusSection } from "@/components/sections/BonusSection";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { GuaranteeSection } from "@/components/sections/GuaranteeSection";
+import { FAQSection } from "@/components/sections/FAQSection";
+import { FinalCTASection } from "@/components/sections/FinalCTASection";
+import { useEffect } from "react";
 import { trackPageView } from "@/lib/fbTracking";
-
-// Lazy load sections below the fold
-const BonusSection = lazy(() => import("@/components/sections/BonusSection").then(m => ({ default: m.BonusSection })));
-const TestimonialsSection = lazy(() => import("@/components/sections/TestimonialsSection").then(m => ({ default: m.TestimonialsSection })));
-const GuaranteeSection = lazy(() => import("@/components/sections/GuaranteeSection").then(m => ({ default: m.GuaranteeSection })));
-const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })));
-const FinalCTASection = lazy(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 
 const Index = () => {
   useEffect(() => {
@@ -60,16 +56,14 @@ const Index = () => {
         <RecipesSection />
         <BrownieGallerySection />
         
-        <Suspense fallback={<div className="min-h-screen" />}>
-          <BonusSection />
-          
-          <PricingSection />
-          <TestimonialsSection />
-          <GuaranteeSection />
-          <FAQSection />
-          
-          <FinalCTASection />
-        </Suspense>
+        <BonusSection />
+        
+        <PricingSection />
+        <TestimonialsSection />
+        <GuaranteeSection />
+        <FAQSection />
+        
+        <FinalCTASection />
       </main>
       
       <FooterSection />
