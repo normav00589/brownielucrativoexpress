@@ -1,4 +1,4 @@
-import varietyBrownies from "@/assets/variety-brownies.webp";
+import varietyBrownies from "@/assets/variety-brownies.jpg";
 import { Check } from "lucide-react";
 const benefits = [{
   icon: "📃",

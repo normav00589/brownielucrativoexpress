@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import brownie1 from "@/assets/brownie-1.webp";
-import brownie2 from "@/assets/brownie-2.webp";
-import brownie3 from "@/assets/brownie-3.webp";
-import brownie4 from "@/assets/brownie-4.webp";
-import brownie5 from "@/assets/brownie-5.webp";
-import brownie6 from "@/assets/brownie-6.webp";
-import brownie7 from "@/assets/brownie-7.webp";
+import brownie1 from "@/assets/brownie-1.jpg";
+import brownie2 from "@/assets/brownie-2.jpg";
+import brownie3 from "@/assets/brownie-3.jpg";
+import brownie4 from "@/assets/brownie-4.jpg";
+import brownie5 from "@/assets/brownie-5.jpg";
+import brownie6 from "@/assets/brownie-6.jpg";
+import brownie7 from "@/assets/brownie-7.jpg";
 import brownie8 from "@/assets/brownie-8.webp";
 import brownie9 from "@/assets/brownie-9.webp";
-import brownie10 from "@/assets/brownie-10.webp";
+import brownie10 from "@/assets/brownie-10.jpg";
 import type { CarouselApi } from "@/components/ui/carousel";
 
 export const BrownieGallerySection = () => {
