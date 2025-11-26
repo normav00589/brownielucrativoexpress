@@ -17,21 +17,13 @@ export const HeroSection = () => {
               mesmo começando do zero.
             </h1>
             
-            <p className="sm:text-xl md:text-2xl font-body text-foreground text-xl leading-relaxed font-semibold">
-              🍫 <span className="text-primary font-bold">Transforme R$60 em R$300</span> a cada fornada com brownies que <span className="text-primary font-bold">seus clientes vão IMPLORAR</span> por mais – usando o revolucionário <span className="text-accent font-bold">Método 3C</span>!
+            <p className="sm:text-xl md:text-2xl font-body text-foreground text-xl leading-relaxed font-semibold">🍫 Transforme R$60 em R$300 a cada fornada com brownies que seus clientes vão IMPLORAR por mais – usando ingredientes simples e baratos! Você não precisa de chocolate caríssimo pa<span className="text-primary font-bold">Transforme R$60 em R$300</span> a cada fornada com brownies que <span className="text-primary font-bold">seus clientes vão IMPLORAR</span> por mais – usando o revolucionário <span className="text-accent font-bold">Método 3C</span>!
             </p>
             
             {/* Brownie Image with Animation */}
             <div className="relative w-full max-w-md mx-auto my-8 animate-fade-in">
               <div className="relative group">
-                <img 
-                  src={browniePricing} 
-                  alt="Brownie cremoso e delicioso" 
-                  loading="lazy"
-                  width="600"
-                  height="600"
-                  className="w-full h-auto rounded-2xl shadow-premium border-4 border-primary/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-strong"
-                />
+                <img src={browniePricing} alt="Brownie cremoso e delicioso" loading="lazy" width="600" height="600" className="w-full h-auto rounded-2xl shadow-premium border-4 border-primary/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-strong" />
                 {/* Subtle glow effect on hover */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
