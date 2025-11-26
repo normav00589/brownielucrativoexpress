@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import brownie1 from "@/assets/brownie-1.jpg";
 import brownie2 from "@/assets/brownie-2.jpg";
 import brownie3 from "@/assets/brownie-3.jpg";
@@ -14,6 +15,7 @@ import type { CarouselApi } from "@/components/ui/carousel";
 
 export const BrownieGallerySection = () => {
   const [api, setApi] = useState<CarouselApi>();
+  const { ref, isVisible } = useIntersectionObserver();
 
   useEffect(() => {
     if (!api) return;
@@ -40,7 +42,7 @@ export const BrownieGallerySection = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-background to-secondary/10">
+    <section ref={ref} className={`py-16 px-4 bg-gradient-to-b from-background to-secondary/10 fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">

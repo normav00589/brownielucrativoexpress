@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const faqs = [
   {
@@ -29,8 +30,10 @@ const faqs = [
 ];
 
 export const FAQSection = () => {
+  const { ref, isVisible } = useIntersectionObserver();
+  
   return (
-    <section className="py-20 px-4 bg-background">
+    <section ref={ref} className={`py-20 px-4 bg-background fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-4xl">
         <h2 className="font-heading font-bold text-3xl md:text-4xl text-center mb-12 text-foreground">
           Perguntas Frequentes

@@ -1,7 +1,10 @@
 import { Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+
 export const GuaranteeSection = () => {
-  return <section className="py-12 md:py-20 px-4" style={{
+  const { ref, isVisible } = useIntersectionObserver();
+  return <section ref={ref} className={`py-12 md:py-20 px-4 fade-in-up ${isVisible ? 'visible' : ''}`} style={{
     backgroundColor: 'hsl(0 75% 35%)'
   }}>
       <div className="container mx-auto max-w-4xl">

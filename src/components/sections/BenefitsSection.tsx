@@ -1,5 +1,7 @@
 import varietyBrownies from "@/assets/variety-brownies.jpg";
 import { Check } from "lucide-react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+
 const benefits = [{
   icon: "📃",
   title: "50 Receitas Incríveis",
@@ -25,8 +27,11 @@ const benefits = [{
   title: "Acesso Vitalício",
   description: "Acesse quando quiser, para sempre"
 }];
+
 export const BenefitsSection = () => {
-  return <section className="py-12 md:py-20 px-4 bg-gradient-hero relative overflow-hidden">
+  const { ref, isVisible } = useIntersectionObserver();
+  
+  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-hero relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       
       
       
