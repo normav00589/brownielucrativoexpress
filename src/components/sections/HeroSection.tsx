@@ -17,7 +17,7 @@ export const HeroSection = () => {
               mesmo começando do zero.
             </h1>
             
-            <p className="sm:text-xl md:text-2xl font-body text-foreground text-xl leading-relaxed font-semibold">
+            <p className="sm:text-xl md:text-2xl font-body text-foreground leading-relaxed font-semibold text-lg">
               🍫 Você não precisa de chocolate e materiais caríssimos para vender Brownies! <span className="text-primary font-bold">Transforme R$ 60,00 em R$ 300,00</span> a cada fornada com brownies que seus clientes vão <span className="text-primary font-bold">IMPLORAR</span> por mais!
             </p>
             
