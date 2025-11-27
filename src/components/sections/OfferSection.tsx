@@ -37,11 +37,18 @@ export const OfferSection = () => {
             </div>
             
             <div className="flex flex-col items-center gap-4 mt-8">
-              <a href="#pricing" className="inline-block w-full sm:w-auto px-8 py-4 bg-gradient-neon text-secondary font-heading font-bold text-lg md:text-xl rounded-full shadow-neon-strong hover:scale-105 transition-all duration-300 text-center">🔥 BAIXE SUAS RECEITAS E APROVEITE!</a>
+              <a 
+                href="#pricing" 
+                className="relative inline-block w-full sm:max-w-md px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-accent to-accent/80 text-background font-heading font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 text-center border-2 border-accent/50 shimmer-effect overflow-hidden group"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  🔥 BAIXE SUAS RECEITAS E APROVEITE!
+                </span>
+              </a>
               
               <div className="flex items-center justify-center gap-2">
-                <Smartphone className="w-5 h-5 text-accent" />
-                <p className="font-heading font-bold text-accent text-lg">
+                <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                <p className="font-heading font-bold text-accent text-sm sm:text-base md:text-lg">
                   Disponível para Android e iOS
                 </p>
               </div>
