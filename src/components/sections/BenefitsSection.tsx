@@ -32,8 +32,42 @@ export const BenefitsSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
   
   return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-hero relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
-      
-      
-      
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient-neon">
+            O Que Você Vai Receber
+          </h2>
+          <p className="text-foreground/80 text-lg">
+            Tudo que você precisa para começar a faturar com brownies
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((benefit, index) => (
+            <div
+              key={index}
+              className="bg-gradient-card border border-accent/20 rounded-xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-neon hover:border-accent/50 cursor-pointer group"
+            >
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                {benefit.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-accent transition-colors duration-300">
+                {benefit.title}
+              </h3>
+              <p className="text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300">
+                {benefit.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <img 
+            src={varietyBrownies} 
+            alt="Variedade de brownies gourmet deliciosos" 
+            className="rounded-2xl shadow-neon-strong border-2 border-accent/30 mx-auto max-w-2xl w-full hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      </div>
     </section>;
 };
