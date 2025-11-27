@@ -49,11 +49,11 @@ export const HeroSection = () => {
             </p>
             
             {/* Price Highlight */}
-            <div className="inline-block bg-gradient-card backdrop-blur-sm rounded-2xl p-6 shadow-neon border-2 border-primary/40">
-              <p className="text-accent font-bold text-xl md:text-2xl mb-2">
-                Por apenas <span className="text-3xl md:text-4xl">R$ 1,90</span>
+            <div className="inline-block bg-secondary rounded-lg px-8 py-4">
+              <p className="text-accent font-bold text-2xl md:text-3xl mb-1">
+                Por apenas R$ 1,90
               </p>
-              <p className="text-foreground/80 text-sm">Acesso vitalício completo</p>
+              <p className="text-white text-base md:text-lg">Acesso vitalício completo</p>
             </div>
             
             {/* CTA Button */}
