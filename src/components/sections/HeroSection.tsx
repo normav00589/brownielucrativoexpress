@@ -55,7 +55,7 @@ export const HeroSection = () => {
             
             {/* CTA Button */}
             <button 
-              className="group relative w-full md:w-auto px-12 py-6 text-lg md:text-xl font-bold text-white rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
+              className="group relative w-full md:w-auto px-8 py-4 text-base md:text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
               onClick={() => {
                 trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
                 document.getElementById('master-plan')?.scrollIntoView({
@@ -75,9 +75,9 @@ export const HeroSection = () => {
               
               {/* Button content */}
               <span className="relative flex items-center justify-center gap-2">
-                <Sparkles className="w-6 h-6 animate-pulse" />
+                <Sparkles className="w-5 h-5 animate-pulse" />
                 ESCOLHA SEU PLANO ABAIXO
-                <Sparkles className="w-6 h-6 animate-pulse" />
+                <Sparkles className="w-5 h-5 animate-pulse" />
               </span>
             </button>
             
