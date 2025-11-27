@@ -40,32 +40,45 @@ export const UrgencyBanner = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-warm py-3 px-4 sticky top-0 z-50 shadow-neon-strong">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8 text-primary-foreground">
-        <div className="flex items-center gap-2">
-          <AlertCircle className="w-4 h-4 md:w-5 md:h-5 animate-neon-pulse" />
-          <span className="font-heading font-bold text-xs md:text-base">
+    <div className="relative py-4 px-4 sticky top-0 z-50 overflow-hidden border-b-2 border-accent/50">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-secondary to-background animate-pulse" />
+      
+      {/* Glitter effect overlay */}
+      <div className="absolute inset-0 shimmer-effect opacity-30" />
+      
+      {/* Neon glow effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/20 to-transparent blur-xl" />
+      
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8 text-foreground relative z-10">
+        <div className="flex items-center gap-2 group">
+          <AlertCircle className="w-5 h-5 md:w-6 md:h-6 text-accent animate-pulse group-hover:scale-110 transition-transform" />
+          <span className="font-heading font-bold text-sm md:text-lg bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-pulse">
             🎄 OFERTA EXPIRA EM:
           </span>
         </div>
+        
         <div className="flex items-center gap-2">
-          <Clock className="w-4 h-4 md:w-5 md:h-5" />
-          <div className="flex gap-1.5 md:gap-2 font-heading font-bold text-base md:text-xl">
-            <span className="bg-primary-foreground text-primary px-2 py-1 rounded shadow-neon text-sm md:text-lg">
+          <Clock className="w-5 h-5 md:w-6 md:h-6 text-accent animate-spin" style={{ animationDuration: '3s' }} />
+          <div className="flex gap-2 md:gap-3 font-heading font-bold text-lg md:text-2xl">
+            <span className="bg-gradient-to-br from-accent to-accent/70 text-background px-3 py-2 rounded-lg shadow-neon-strong border-2 border-accent/50 hover:scale-110 transition-transform">
               {String(timeLeft.hours).padStart(2, "0")}
             </span>
-            <span className="text-sm md:text-base">:</span>
-            <span className="bg-primary-foreground text-primary px-2 py-1 rounded shadow-neon text-sm md:text-lg">
+            <span className="text-accent animate-pulse">:</span>
+            <span className="bg-gradient-to-br from-accent to-accent/70 text-background px-3 py-2 rounded-lg shadow-neon-strong border-2 border-accent/50 hover:scale-110 transition-transform">
               {String(timeLeft.minutes).padStart(2, "0")}
             </span>
-            <span className="text-sm md:text-base">:</span>
-            <span className="bg-primary-foreground text-primary px-2 py-1 rounded shadow-neon text-sm md:text-lg">
+            <span className="text-accent animate-pulse">:</span>
+            <span className="bg-gradient-to-br from-accent to-accent/70 text-background px-3 py-2 rounded-lg shadow-neon-strong border-2 border-accent/50 hover:scale-110 transition-transform">
               {String(timeLeft.seconds).padStart(2, "0")}
             </span>
           </div>
         </div>
-        <div className="font-heading font-bold text-xs md:text-base animate-neon-pulse">
-          🔥 Restam apenas {spotsLeft} vagas!
+        
+        <div className="font-heading font-bold text-sm md:text-lg animate-bounce">
+          <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            🔥 Restam apenas {spotsLeft} vagas!
+          </span>
         </div>
       </div>
     </div>
