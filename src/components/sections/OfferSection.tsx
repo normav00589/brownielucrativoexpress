@@ -3,11 +3,21 @@ export const OfferSection = () => {
   return <section className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-fire opacity-20 -z-10" />
       
+      {/* Glitter particles */}
+      <div className="particle absolute top-10 left-10 w-2 h-2 bg-accent rounded-full" style={{ animationDelay: '0s', animationDuration: '3s' }} />
+      <div className="particle absolute top-20 right-20 w-3 h-3 bg-primary rounded-full" style={{ animationDelay: '0.5s', animationDuration: '4s' }} />
+      <div className="particle absolute top-40 left-1/4 w-2 h-2 bg-accent rounded-full" style={{ animationDelay: '1s', animationDuration: '3.5s' }} />
+      <div className="particle absolute top-60 right-1/3 w-3 h-3 bg-primary rounded-full" style={{ animationDelay: '1.5s', animationDuration: '4.5s' }} />
+      <div className="particle absolute bottom-40 left-1/3 w-2 h-2 bg-accent rounded-full" style={{ animationDelay: '2s', animationDuration: '3s' }} />
+      <div className="particle absolute bottom-20 right-1/4 w-3 h-3 bg-primary rounded-full" style={{ animationDelay: '2.5s', animationDuration: '4s' }} />
+      <div className="particle absolute top-1/2 left-10 w-2 h-2 bg-accent rounded-full" style={{ animationDelay: '0.8s', animationDuration: '3.8s' }} />
+      <div className="particle absolute top-1/3 right-10 w-3 h-3 bg-primary rounded-full" style={{ animationDelay: '1.8s', animationDuration: '4.2s' }} />
+      
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="space-y-8 md:space-y-12">
           {/* Content Section */}
           <div className="text-center space-y-6 md:space-y-8 max-w-4xl mx-auto">
-            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-3xl drop-shadow-lg text-gradient-neon">
+            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-3xl drop-shadow-lg text-gradient-neon neon-glow animate-pulse">
               MÉTODO DO BROWNIE PERFEITO & LUCRATIVO!
             </h2>
             
