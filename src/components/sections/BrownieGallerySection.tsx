@@ -42,11 +42,11 @@ export const BrownieGallerySection = () => {
   ];
 
   return (
-    <section ref={ref} className={`py-16 px-4 bg-gradient-to-b from-background to-secondary/10 fade-in-up ${isVisible ? 'visible' : ''}`}>
+    <section ref={ref} className={`py-16 px-4 bg-background fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Brownies Que <span className="text-gold">Vendem Sozinhos</span>
+            Brownies Que <span className="text-accent">Vendem Sozinhos</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Veja os resultados incríveis que você vai conseguir fazer com nossas receitas testadas e aprovadas
@@ -65,7 +65,7 @@ export const BrownieGallerySection = () => {
             {brownies.map((brownie, index) => (
               <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                 <div className="p-2">
-                  <div className="relative group overflow-hidden rounded-2xl shadow-elegant hover:shadow-glow transition-all duration-500">
+                  <div className="relative group overflow-hidden rounded-2xl border-2 border-primary/20 hover:border-primary/50 shadow-medium hover:shadow-neon transition-all duration-500">
                     <div className="aspect-square overflow-hidden bg-muted">
                       <img
                         src={brownie.src}
@@ -74,8 +74,8 @@ export const BrownieGallerySection = () => {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-chocolate/80 via-chocolate/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
-                      <p className="text-cream text-sm font-medium px-4 text-center">
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                      <p className="text-foreground text-sm font-medium px-4 text-center">
                         {brownie.alt}
                       </p>
                     </div>
@@ -84,8 +84,8 @@ export const BrownieGallerySection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-12 bg-gold/90 hover:bg-gold text-chocolate border-gold" />
-          <CarouselNext className="hidden md:flex -right-12 bg-gold/90 hover:bg-gold text-chocolate border-gold" />
+          <CarouselPrevious className="hidden md:flex -left-12 bg-primary hover:bg-primary/90 text-white border-primary" />
+          <CarouselNext className="hidden md:flex -right-12 bg-primary hover:bg-primary/90 text-white border-primary" />
         </Carousel>
 
         <div className="text-center mt-8">

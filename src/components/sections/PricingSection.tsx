@@ -7,10 +7,10 @@ export const PricingSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
   
   return <section ref={ref} id="pricing" className={`py-12 md:py-20 px-4 bg-background relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,193,123,0.1),transparent_70%)] -z-10" />
+      <div className="absolute inset-0 bg-gradient-fire opacity-20 -z-10" />
       
       <div className="container mx-auto max-w-6xl">
-        <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-5xl text-center mb-8 md:mb-12 text-foreground text-glow">
+        <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-5xl text-center mb-8 md:mb-12 text-foreground">
           Escolha Seu Plano
         </h2>
         
