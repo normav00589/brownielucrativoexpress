@@ -45,7 +45,7 @@ export const HeroSection = () => {
             </h1>
             
             <p className="text-lg sm:text-xl md:text-2xl font-body text-foreground/90 leading-relaxed font-medium">
-              <span className="text-white">(mesmo sem experiência e morando em cidade pequena)</span>
+              <span className="text-white">(mesmo sem experiência, sem ingredientes caros e morando em cidade pequena)</span>
             </p>
             
             {/* Price Highlight */}
