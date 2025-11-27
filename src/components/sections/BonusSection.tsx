@@ -43,37 +43,37 @@ const bonuses = [{
 export const BonusSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
   
-  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-to-br from-cream via-cream-dark to-cream relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
+  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-card relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 right-20 w-64 h-64 bg-gold rounded-full blur-3xl" />
+        <div className="absolute top-10 right-20 w-64 h-64 bg-accent rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-20 w-64 h-64 bg-primary rounded-full blur-3xl" />
       </div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-3 bg-gradient-neon px-6 py-3 rounded-full mb-6 shadow-neon-strong">
-            <Gift className="w-6 h-6 text-secondary" />
-            <span className="font-heading font-bold text-lg text-secondary">6 Bônus Exclusivos</span>
+            <Gift className="w-6 h-6 text-white" />
+            <span className="font-heading font-bold text-lg text-white">6 Bônus Exclusivos</span>
           </div>
           
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-secondary mb-6">E AINDA LEVA 6 BÔNUS 🎁</h2>
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground mb-6">E AINDA LEVA 6 BÔNUS 🎁</h2>
           
-          <p className="text-lg md:text-xl text-chocolate max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Com <span className="font-bold text-primary">+70 receitas extras</span> para você diversificar e lucrar ainda mais!
           </p>
         </div>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {bonuses.map((bonus, idx) => <div key={idx} className="group relative bg-card rounded-2xl p-6 md:p-8 shadow-medium hover:shadow-premium transition-all duration-500 border-2 border-gold/20 hover:border-gold hover:scale-105">
+          {bonuses.map((bonus, idx) => <div key={idx} className="group relative bg-background/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-medium hover:shadow-neon transition-all duration-500 border-2 border-primary/20 hover:border-primary/50 hover:scale-105">
               <div className="absolute top-0 right-0 bg-gradient-neon px-4 py-1 rounded-bl-2xl rounded-tr-xl">
-                <span className="text-xs font-heading font-bold text-secondary">{bonus.highlight}</span>
+                <span className="text-xs font-heading font-bold text-white">{bonus.highlight}</span>
               </div>
               
               <div className="bg-gradient-neon w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-neon group-hover:shadow-neon-strong transition-all duration-300">
-                <bonus.icon className="w-8 h-8 text-secondary" />
+                <bonus.icon className="w-8 h-8 text-white" />
               </div>
               
-              <h3 className="font-heading font-bold text-xl md:text-2xl text-secondary mb-3">
+              <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
                 {bonus.title}
               </h3>
               
@@ -89,9 +89,9 @@ export const BonusSection = () => {
         </div>
         
         <div className="mt-12 text-center space-y-6">
-          <div className="inline-block bg-gradient-premium text-primary-foreground px-8 py-6 rounded-2xl shadow-premium">
+          <div className="inline-block bg-gradient-neon text-white px-8 py-6 rounded-2xl shadow-neon-strong">
             
-            <p className="text-primary-foreground/80 mt-2">
+            <p className="text-white/90 mt-2">
               Mais de 150 receitas + suporte + planilhas + acesso vitalício
             </p>
           </div>

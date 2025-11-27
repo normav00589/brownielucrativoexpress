@@ -1,6 +1,6 @@
 import { Smartphone, Play } from "lucide-react";
 export const OfferSection = () => {
-  return <section className="py-12 md:py-20 px-4 bg-gradient-to-b from-background via-cream/50 to-background relative overflow-hidden">
+  return <section className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-fire opacity-20 -z-10" />
       
       <div className="container mx-auto max-w-6xl relative z-10">

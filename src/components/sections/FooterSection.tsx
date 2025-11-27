@@ -2,7 +2,7 @@ import { Mail } from "lucide-react";
 
 export const FooterSection = () => {
   return (
-    <footer className="bg-secondary text-secondary-foreground py-12 px-4">
+    <footer className="bg-gradient-card text-foreground py-12 px-4 border-t border-primary/20">
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
@@ -30,11 +30,11 @@ export const FooterSection = () => {
           </div>
         </div>
         
-        <div className="border-t border-secondary-foreground/20 pt-8 text-center">
-          <p className="font-body text-sm opacity-80 mb-4">
-            📜 <span className="font-semibold">Missão:</span> Tornar o brownie uma fonte de liberdade financeira para milhares de pessoas.
+        <div className="border-t border-primary/20 pt-8 text-center">
+          <p className="font-body text-sm text-muted-foreground mb-4">
+            📜 <span className="font-semibold text-foreground">Missão:</span> Tornar o brownie uma fonte de liberdade financeira para milhares de pessoas.
           </p>
-          <p className="font-body text-xs opacity-60">
+          <p className="font-body text-xs text-muted-foreground">
             © {new Date().getFullYear()} Brownies Lucrativos. Todos os direitos reservados.
           </p>
         </div>

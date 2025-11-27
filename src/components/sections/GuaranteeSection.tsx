@@ -4,9 +4,7 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export const GuaranteeSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
-  return <section ref={ref} className={`py-12 md:py-20 px-4 fade-in-up ${isVisible ? 'visible' : ''}`} style={{
-    backgroundColor: 'hsl(0 75% 35%)'
-  }}>
+  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-neon fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-4xl">
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-12 shadow-strong text-center border-2 border-white/20">
           <div className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-white/20 rounded-full mb-4 md:mb-6 subtle-pulse">

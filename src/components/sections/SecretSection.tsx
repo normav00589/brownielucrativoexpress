@@ -6,7 +6,7 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 export const SecretSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
   
-  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-warm text-primary-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
+  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-card text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       
       
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -22,37 +22,37 @@ export const SecretSection = () => {
           
           <div className="space-y-6 md:space-y-8 order-1 md:order-2">
             <div className="flex items-start gap-4">
-              <Sparkles className="w-10 h-10 md:w-12 md:h-12 text-gold animate-neon-pulse flex-shrink-0" />
-              <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-glow leading-tight">
+              <Sparkles className="w-10 h-10 md:w-12 md:h-12 text-accent animate-neon-pulse flex-shrink-0" />
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
                 O Segredo do Método 3C
               </h2>
             </div>
             
             <div className="space-y-4 md:space-y-5 font-body text-base md:text-lg">
-              <div className="bg-gold/20 backdrop-blur-sm border-2 border-gold p-6 rounded-2xl shadow-neon">
-                <p className="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+              <div className="bg-gradient-neon backdrop-blur-sm border-2 border-primary p-6 rounded-2xl shadow-neon-strong">
+                <p className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
                   <span>✨</span>
                   <span>Casquinha + Cremoso + Caixinha</span>
                 </p>
               </div>
               
-              <div className="bg-primary-foreground/10 backdrop-blur-sm p-5 rounded-xl border border-primary-foreground/20">
-                <p className="leading-relaxed">
+              <div className="bg-background/60 backdrop-blur-sm p-5 rounded-xl border border-primary/20 shadow-medium">
+                <p className="leading-relaxed text-foreground">
                   Um sistema simples que transforma um doce comum em um produto{" "}
-                  <span className="font-bold text-gold">irresistível e vendável</span>.
+                  <span className="font-bold text-accent">irresistível e vendável</span>.
                 </p>
               </div>
               
-              <div className="bg-primary-foreground/10 backdrop-blur-sm p-5 rounded-xl border border-primary-foreground/20">
-                <p className="leading-relaxed">
+              <div className="bg-background/60 backdrop-blur-sm p-5 rounded-xl border border-primary/20 shadow-medium">
+                <p className="leading-relaxed text-foreground">
                   Nada de receitas aleatórias — aqui você aprende a{" "}
-                  <span className="font-bold text-gold">ciência do brownie perfeito</span>{" "}
+                  <span className="font-bold text-accent">ciência do brownie perfeito</span>{" "}
                   que vende sozinho.
                 </p>
               </div>
               
-              <div className="bg-primary/20 backdrop-blur-sm p-5 rounded-xl border border-primary">
-                <p className="font-bold leading-relaxed">
+              <div className="bg-gradient-card backdrop-blur-sm p-5 rounded-xl border border-accent/30 shadow-medium">
+                <p className="font-bold leading-relaxed text-foreground">
                   📽️ Curso em Vídeo Aulas – Passo a passo fácil de seguir
                 </p>
               </div>

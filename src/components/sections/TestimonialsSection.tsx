@@ -23,7 +23,7 @@ const realTestimonials = [
 export const TestimonialsSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
   
-  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-muted fade-in-up ${isVisible ? 'visible' : ''}`}>
+  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-background fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-foreground mb-4 text-glow">
