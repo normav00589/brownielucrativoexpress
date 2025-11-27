@@ -4,20 +4,12 @@ export const OfferSection = () => {
       <div className="absolute inset-0 bg-gradient-fire opacity-20 -z-10" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="text-center lg:text-left space-y-6 md:space-y-8">
-            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-foreground text-center text-3xl drop-shadow-lg">
+        <div className="space-y-8 md:space-y-12">
+          {/* Content Section */}
+          <div className="text-center space-y-6 md:space-y-8 max-w-4xl mx-auto">
+            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-foreground text-3xl drop-shadow-lg">
               MÉTODO DO BROWNIE PERFEITO & LUCRATIVO!
             </h2>
-            
-            <div className="flex items-center justify-center gap-2 mt-4">
-              <div className="bg-gradient-neon px-4 py-2 rounded-full shadow-neon-strong">
-                <p className="font-heading font-bold text-secondary flex items-center gap-2">
-                  <Smartphone className="w-5 h-5" />
-                  Disponível para Android e iOS
-                </p>
-              </div>
-            </div>
             
             <div className="space-y-4">
               <p className="text-lg md:text-xl text-muted-foreground">
@@ -44,12 +36,20 @@ export const OfferSection = () => {
               </div>
             </div>
             
-            <div className="flex justify-center lg:justify-start mt-8">
+            <div className="flex flex-col items-center gap-4 mt-8">
               <a href="#pricing" className="inline-block w-full sm:w-auto px-8 py-4 bg-gradient-neon text-secondary font-heading font-bold text-lg md:text-xl rounded-full shadow-neon-strong hover:scale-105 transition-all duration-300 text-center">🔥 BAIXE SUAS RECEITAS E APROVEITE!</a>
+              
+              <div className="flex items-center justify-center gap-2">
+                <Smartphone className="w-5 h-5 text-accent" />
+                <p className="font-heading font-bold text-accent text-lg">
+                  Disponível para Android e iOS
+                </p>
+              </div>
             </div>
           </div>
           
-          <div className="flex justify-center lg:justify-end">
+          {/* iPhone Mockup Below Button */}
+          <div className="flex justify-center">
             <div className="relative">
               {/* iPhone Mockup */}
               <div className="relative w-[280px] md:w-[320px] mx-auto">
