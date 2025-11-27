@@ -57,7 +57,7 @@ export const HeroSection = () => {
             </div>
             
             {/* CTA Button */}
-            <Button size="lg" className="w-full md:w-auto text-lg md:text-xl px-8 py-6 bg-gradient-neon shadow-neon-strong hover:shadow-neon border-2 border-primary/50 font-bold neon-glow-strong" onClick={() => {
+            <Button size="lg" className="w-full md:w-auto text-lg md:text-xl px-8 py-6 font-bold" onClick={() => {
             trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
             document.getElementById('master-plan')?.scrollIntoView({
               behavior: 'smooth',
