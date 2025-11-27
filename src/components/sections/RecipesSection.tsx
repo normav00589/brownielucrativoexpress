@@ -32,7 +32,7 @@ export const RecipesSection = () => {
             <span className="font-heading font-bold text-lg text-white">+80 Receitas Incríveis</span>
           </div>
           
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl mb-6 text-foreground">
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl mb-6 text-gradient-neon">
             VEJA ALGUMAS RECEITAS QUE TE ESPERA 
           </h2>
           
