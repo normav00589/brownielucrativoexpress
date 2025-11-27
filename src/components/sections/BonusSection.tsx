@@ -1,7 +1,6 @@
 import { Gift, Star, Calendar, BookOpen, Sparkles, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-
 const bonuses = [{
   icon: Calendar,
   title: "BROWNIES NATALINOS",
@@ -39,10 +38,11 @@ const bonuses = [{
   highlight: "Profissionalização",
   recipes: "Documento oficial"
 }];
-
 export const BonusSection = () => {
-  const { ref, isVisible } = useIntersectionObserver();
-  
+  const {
+    ref,
+    isVisible
+  } = useIntersectionObserver();
   return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-card relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 right-20 w-64 h-64 bg-accent rounded-full blur-3xl" />
@@ -77,7 +77,7 @@ export const BonusSection = () => {
                 {bonus.title}
               </h3>
               
-              <p className="text-muted-foreground mb-4">
+              <p className="mb-4 text-primary-foreground">
                 {bonus.description}
               </p>
               
