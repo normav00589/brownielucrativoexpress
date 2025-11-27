@@ -6,7 +6,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-const PIXEL_ID = '1034279045491529';
+const PIXEL_ID = '2025669271618388';
 const API_TOKEN = Deno.env.get('FACEBOOK_CONVERSION_API_TOKEN');
 
 serve(async (req) => {
