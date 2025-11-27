@@ -41,7 +41,7 @@ export const HeroSection = () => {
                 FATURE DE R$150,00 a R$350,00 por DIA e ATÉ MAIS!
               </span>
               <br />
-              <span className="text-white mt-4 block">Vendendo BROWNIES LUCRATIVOS!</span>
+              <span className="text-white mt-4 block shimmer-effect">Vendendo BROWNIES LUCRATIVOS!</span>
             </h1>
             
             
