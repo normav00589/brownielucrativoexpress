@@ -44,7 +44,15 @@ export const PricingSection = () => {
               </li>
               <li className="flex items-start gap-2">
                 <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
-                <span className="font-body font-semibold text-sm md:text-base text-white">Planilha de Lucros Automática</span>
+                <span className="font-body font-semibold text-sm md:text-base text-white">Calculadora de Lucro no App</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+                <span className="font-body font-semibold text-sm md:text-base text-white">Guia dos Melhores Ingredientes</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+                <span className="font-body font-semibold text-sm md:text-base text-white">Aulas Extras de Confeitaria</span>
               </li>
               <li className="flex items-start gap-2">
                 <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
@@ -52,7 +60,7 @@ export const PricingSection = () => {
               </li>
             </ul>
             
-            <Button className="w-full bg-white text-primary hover:bg-white/90 shadow-red" asChild>
+            <Button className="w-full bg-white text-primary hover:bg-white/90 shadow-red shimmer-effect" asChild>
               <a href="https://www.ggcheckout.com/checkout/v2/FB2BQbKx59cYBFvUhFWN" target="_blank" rel="noopener noreferrer" onClick={() => {
               trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan');
             }}>
@@ -85,7 +93,7 @@ export const PricingSection = () => {
               </li>
             </ul>
             
-            <Button variant="secondary" className="w-full" asChild>
+            <Button variant="secondary" className="w-full shimmer-effect" asChild>
               <a href="https://www.ggcheckout.com/checkout/v2/9jwm1AUaZKjbNSzRYO1w" target="_blank" rel="noopener noreferrer" onClick={() => {
               trackInitiateCheckout(1.99, 'App Brownies Lucrativos - Basic Plan');
             }}>
