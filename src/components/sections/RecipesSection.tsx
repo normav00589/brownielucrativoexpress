@@ -1,7 +1,6 @@
 import { ChefHat, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-
 const recipeCategories = [{
   title: "BROWNIES TRADICIONAIS",
   emoji: "🍫",
@@ -15,10 +14,11 @@ const recipeCategories = [{
   emoji: "🥄",
   recipes: ["Brownie Zero Açúcar - Para todos os públicos", "Brownie Zero Lactose - Inclusivo e saboroso", "Brownie Low Carb - Opção fitness", "Brownie Vegano - Para todos", "Brownie de Caneca - Prático e rápido", "Brownie de Abobrinha - Saudável e fofinho", "Brownie de Banana - Naturalmente doce", "Brownie de Aveia - Nutritivo e saboroso", "Brownie de Micro-ondas - Emergência doce", "Brownie de Frutas Vermelhas - Antioxidante"]
 }];
-
 export const RecipesSection = () => {
-  const { ref, isVisible } = useIntersectionObserver();
-  
+  const {
+    ref,
+    isVisible
+  } = useIntersectionObserver();
   return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-card text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 bg-white rounded-full blur-3xl" />
@@ -33,7 +33,7 @@ export const RecipesSection = () => {
           </div>
           
           <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl mb-6 text-foreground">
-            Veja algumas das receitas que te esperam 🎯
+            VEJA ALGUMAS RECEITAS QUE TE ESPERA 
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
