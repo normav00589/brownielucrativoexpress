@@ -44,9 +44,6 @@ export const HeroSection = () => {
               <span className="text-white mt-4 block">Vendendo BROWNIES LUCRATIVOS!</span>
             </h1>
             
-            <p className="text-lg sm:text-xl md:text-2xl font-body text-foreground/90 leading-relaxed font-medium">
-              <span className="text-white">(mesmo sem experiência, sem ingredientes caros e morando em cidade pequena)</span>
-            </p>
             
             {/* Price Highlight */}
             <div className="inline-block bg-secondary rounded-lg px-8 py-4">
@@ -81,6 +78,9 @@ export const HeroSection = () => {
             </div>
             
             {/* Pain Point Copy */}
+            <p className="text-lg sm:text-xl md:text-2xl font-body text-foreground/90 leading-relaxed font-medium mt-8">
+              <span className="text-white">(mesmo sem experiência, sem ingredientes caros e morando em cidade pequena)</span>
+            </p>
             
             
             {/* Feature Grid */}
