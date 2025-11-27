@@ -6,7 +6,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-const PIXEL_ID = '2025669271618388';
+const PIXEL_IDS = ['1034279045491529', '2025669271618388'];
 const API_TOKEN = Deno.env.get('FACEBOOK_CONVERSION_API_TOKEN');
 
 serve(async (req) => {
@@ -44,31 +44,41 @@ serve(async (req) => {
 
     console.log('Sending event to Facebook Conversion API:', JSON.stringify(eventData, null, 2));
 
-    // Enviar para Conversion API
-    const response = await fetch(
-      `https://graph.facebook.com/v18.0/${PIXEL_ID}/events?access_token=${API_TOKEN}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(eventData),
-      }
+    // Enviar para Conversion API para ambos os pixels
+    const responses = await Promise.all(
+      PIXEL_IDS.map(pixelId =>
+        fetch(
+          `https://graph.facebook.com/v18.0/${pixelId}/events?access_token=${API_TOKEN}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(eventData),
+          }
+        )
+      )
     );
 
-    const result = await response.json();
-    console.log('Facebook API Response:', JSON.stringify(result, null, 2));
+    const results = await Promise.all(responses.map(r => r.json()));
+    console.log('Facebook API Responses:', JSON.stringify(results, null, 2));
 
-    if (!response.ok) {
-      console.error('Facebook API Error:', result);
-      throw new Error(`Facebook API error: ${JSON.stringify(result)}`);
+    // Verificar se alguma resposta falhou
+    const hasError = responses.some(r => !r.ok);
+    if (hasError) {
+      console.error('Facebook API Errors:', results);
+      throw new Error(`Facebook API error: ${JSON.stringify(results)}`);
     }
 
     return new Response(
       JSON.stringify({ 
         success: true, 
-        events_received: result.events_received,
-        messages: result.messages 
+        pixels: PIXEL_IDS,
+        results: results.map((r, i) => ({
+          pixel_id: PIXEL_IDS[i],
+          events_received: r.events_received,
+          messages: r.messages
+        }))
       }),
       { 
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
