@@ -7,7 +7,7 @@ export const OfferSection = () => {
         <div className="space-y-8 md:space-y-12">
           {/* Content Section */}
           <div className="text-center space-y-6 md:space-y-8 max-w-4xl mx-auto">
-            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-foreground text-3xl drop-shadow-lg">
+            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-3xl drop-shadow-lg text-gradient-neon">
               MÉTODO DO BROWNIE PERFEITO & LUCRATIVO!
             </h2>
             
