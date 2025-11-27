@@ -42,7 +42,7 @@ export const RecipesSection = () => {
         </div>
         
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
-          {recipeCategories.map((category, idx) => <div key={idx} className="bg-background/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-neon">
+          {recipeCategories.map((category, idx) => <div key={idx} className="bg-background/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-neon shimmer-effect relative overflow-hidden">
               <div className="text-5xl mb-4 text-center">{category.emoji}</div>
               <h3 className="font-heading font-bold text-xl md:text-2xl mb-6 text-center text-accent">
                 {category.title}
