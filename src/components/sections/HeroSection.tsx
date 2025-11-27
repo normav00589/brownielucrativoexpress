@@ -71,7 +71,7 @@ export const HeroSection = () => {
             <div className="relative w-full max-w-lg mx-auto my-12">
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-neon blur-3xl opacity-50 group-hover:opacity-70 transition-opacity duration-500 rounded-full"></div>
-                <img src={browniePricing} alt="Cookie recheado gourmet delicioso" loading="lazy" width="600" height="600" className="relative w-full h-auto rounded-2xl shadow-neon-strong border-4 border-primary/40 transition-all duration-500 group-hover:scale-105 group-hover:border-accent/60 neon-glow-strong" />
+                <img alt="Cookie recheado gourmet delicioso" loading="lazy" width="600" height="600" className="relative w-full h-auto rounded-2xl shadow-neon-strong border-4 border-primary/40 transition-all duration-500 group-hover:scale-105 group-hover:border-accent/60 neon-glow-strong" src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" />
               </div>
               
               {/* Social Proof Badge */}
