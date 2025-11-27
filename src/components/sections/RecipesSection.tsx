@@ -36,8 +36,8 @@ export const RecipesSection = () => {
             VEJA ALGUMAS RECEITAS QUE TE ESPERA 
           </h2>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Com o Método 3C, você aprende do zero, mesmo sem experiência!
+          <p className="text-lg md:text-xl max-w-3xl mx-auto text-destructive-foreground">
+            Com o Método 3C, você aprende do zero, mesmo sem experiência E COM BAIXO INVESTIMENTO!
           </p>
         </div>
         
@@ -60,7 +60,7 @@ export const RecipesSection = () => {
           
           
           <div className="bg-gradient-neon backdrop-blur-sm border-2 border-primary rounded-xl p-6 max-w-2xl mx-auto shadow-neon-strong">
-            <p className="font-heading font-bold text-xl md:text-2xl text-white">
+            <p className="font-heading font-bold md:text-2xl text-white text-base">
               💰 Transforme R$60 em R$200 por fornada com técnicas comprovadas!
             </p>
           </div>
