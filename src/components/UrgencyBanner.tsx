@@ -44,6 +44,23 @@ export const UrgencyBanner = () => {
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-r from-background via-secondary to-background animate-pulse" />
       
+      {/* Energy wave effect */}
+      <div className="energy-wave" />
+      <div className="energy-wave" style={{ animationDelay: '1.5s' }} />
+      
+      {/* Floating particles */}
+      {[...Array(12)].map((_, i) => (
+        <div
+          key={i}
+          className="particle"
+          style={{
+            left: `${(i * 8) + 5}%`,
+            animationDelay: `${i * 0.3}s`,
+            animationDuration: `${3 + (i % 3)}s`
+          }}
+        />
+      ))}
+      
       {/* Glitter effect overlay */}
       <div className="absolute inset-0 shimmer-effect opacity-30" />
       
