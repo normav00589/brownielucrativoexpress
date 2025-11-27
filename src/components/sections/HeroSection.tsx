@@ -12,15 +12,15 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-fire opacity-30 -z-10" />
       
       {/* Floating brownies decoration */}
-      <div className="absolute top-20 left-10 w-24 h-24 opacity-20 brownie-float hidden md:block">
+      <div className="absolute top-20 left-4 md:left-10 w-16 md:w-24 h-16 md:h-24 opacity-15 md:opacity-20 brownie-float">
         <img src={brownie1} alt="" className="w-full h-full object-cover rounded-xl blur-sm" />
       </div>
-      <div className="absolute top-40 right-20 w-32 h-32 opacity-20 brownie-float hidden md:block" style={{
+      <div className="absolute top-40 right-4 md:right-20 w-20 md:w-32 h-20 md:h-32 opacity-15 md:opacity-20 brownie-float" style={{
       animationDelay: '2s'
     }}>
         <img src={brownie2} alt="" className="w-full h-full object-cover rounded-xl blur-sm" />
       </div>
-      <div className="absolute bottom-40 left-20 w-28 h-28 opacity-20 brownie-float hidden md:block" style={{
+      <div className="absolute bottom-40 left-4 md:left-20 w-18 md:w-28 h-18 md:h-28 opacity-15 md:opacity-20 brownie-float" style={{
       animationDelay: '4s'
     }}>
         <img src={brownie3} alt="" className="w-full h-full object-cover rounded-xl blur-sm" />
