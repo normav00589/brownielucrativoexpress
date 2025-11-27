@@ -54,15 +54,32 @@ export const HeroSection = () => {
             </div>
             
             {/* CTA Button */}
-            <Button size="lg" className="w-full md:w-auto text-lg md:text-xl px-8 py-6 font-bold shimmer-effect" onClick={() => {
-            trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
-            document.getElementById('master-plan')?.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center'
-            });
-          }}>
-              ESCOLHA SEU PLANO ABAIXO
-            </Button>
+            <button 
+              className="group relative w-full md:w-auto px-12 py-6 text-lg md:text-xl font-bold text-white rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
+              onClick={() => {
+                trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
+                document.getElementById('master-plan')?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'center'
+                });
+              }}
+            >
+              {/* Gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 animate-gradient-shift"></div>
+              
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              
+              {/* Glow effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-pink-400 via-rose-400 to-orange-400"></div>
+              
+              {/* Button content */}
+              <span className="relative flex items-center justify-center gap-2">
+                <Sparkles className="w-6 h-6 animate-pulse" />
+                ESCOLHA SEU PLANO ABAIXO
+                <Sparkles className="w-6 h-6 animate-pulse" />
+              </span>
+            </button>
             
             {/* Brownie Image with Neon Effect */}
             <div className="relative w-full max-w-lg mx-auto my-12">
