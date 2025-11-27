@@ -1,5 +1,5 @@
 import { Button } from "@/components/Button";
-import browniePricing from "@/assets/brownie-pricing-premium.webp";
+import browniePricing from "@/assets/brownie-pricing.webp";
 import brownie1 from "@/assets/brownie-1.jpg";
 import brownie2 from "@/assets/brownie-2.jpg";
 import brownie3 from "@/assets/brownie-3.jpg";
