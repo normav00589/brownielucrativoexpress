@@ -50,7 +50,7 @@ export const HeroSection = () => {
             
             {/* Price Highlight */}
             <div className="inline-block bg-secondary rounded-lg px-8 py-4">
-              <p className="text-accent font-bold text-2xl md:text-3xl mb-1">
+              <p className="text-accent font-bold md:text-3xl mb-1 text-3xl">
                 Por apenas R$ 1,90
               </p>
               <p className="text-white text-base md:text-lg">Acesso vitalício completo</p>
@@ -81,13 +81,7 @@ export const HeroSection = () => {
             </div>
             
             {/* Pain Point Copy */}
-            <div className="bg-gradient-card backdrop-blur-sm rounded-2xl p-8 shadow-strong border-2 border-muted/30 max-w-3xl mx-auto">
-              <p className="text-foreground/90 text-base md:text-lg leading-relaxed">
-                <span className="text-white font-semibold">O método testado por <span className="text-accent font-bold">+2.400 alunas</span> que transforma uma simples massa em cookies </span>
-                <span className="text-primary font-bold">lucrativos</span>
-                <span className="text-white font-semibold"> (o título não é clickbait) e vendas explodindo no WhatsApp em menos de 15 dias.</span>
-              </p>
-            </div>
+            
             
             {/* Feature Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12">
