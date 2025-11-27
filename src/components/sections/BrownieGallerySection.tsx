@@ -42,10 +42,30 @@ export const BrownieGallerySection = () => {
   ];
 
   return (
-    <section ref={ref} className={`py-16 px-4 bg-background fade-in-up ${isVisible ? 'visible' : ''}`}>
-      <div className="container mx-auto">
+    <section ref={ref} className={`py-16 px-4 bg-gradient-to-b from-background via-background/95 to-background relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
+      {/* Partículas de glitter animadas */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="particle absolute top-[10%] left-[15%] w-3 h-3 bg-accent rounded-full opacity-60" style={{ animationDelay: '0s' }} />
+        <div className="particle absolute top-[25%] right-[20%] w-2 h-2 bg-gold rounded-full opacity-70" style={{ animationDelay: '0.5s' }} />
+        <div className="particle absolute top-[60%] left-[25%] w-4 h-4 bg-primary rounded-full opacity-50" style={{ animationDelay: '1s' }} />
+        <div className="particle absolute top-[40%] right-[15%] w-3 h-3 bg-accent rounded-full opacity-60" style={{ animationDelay: '1.5s' }} />
+        <div className="particle absolute bottom-[30%] left-[10%] w-2 h-2 bg-gold rounded-full opacity-80" style={{ animationDelay: '2s' }} />
+        <div className="particle absolute bottom-[15%] right-[25%] w-3 h-3 bg-primary rounded-full opacity-50" style={{ animationDelay: '2.5s' }} />
+        <div className="particle absolute top-[70%] right-[35%] w-2 h-2 bg-accent rounded-full opacity-70" style={{ animationDelay: '0.8s' }} />
+        <div className="particle absolute top-[35%] left-[40%] w-4 h-4 bg-gold rounded-full opacity-60" style={{ animationDelay: '1.8s' }} />
+      </div>
+
+      {/* Brownies flutuantes decorativos */}
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <img src={brownie1} alt="" className="absolute top-[15%] left-[5%] w-20 h-20 object-cover rounded-lg brownie-float opacity-40 blur-sm" style={{ animationDelay: '0s' }} />
+        <img src={brownie3} alt="" className="absolute top-[10%] right-[8%] w-24 h-24 object-cover rounded-lg brownie-float opacity-30 blur-sm" style={{ animationDelay: '1s' }} />
+        <img src={brownie5} alt="" className="absolute bottom-[20%] left-[10%] w-16 h-16 object-cover rounded-lg brownie-float opacity-35 blur-sm" style={{ animationDelay: '2s' }} />
+        <img src={brownie7} alt="" className="absolute bottom-[15%] right-[5%] w-20 h-20 object-cover rounded-lg brownie-float opacity-40 blur-sm" style={{ animationDelay: '1.5s' }} />
+      </div>
+
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-neon neon-glow">
             Brownies Que <span className="text-accent">Vendem Sozinhos</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
