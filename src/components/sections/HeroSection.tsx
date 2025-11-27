@@ -1,76 +1,158 @@
 import { Button } from "@/components/Button";
-import heroBrownie from "@/assets/hero-brownie.jpg";
 import browniePricing from "@/assets/brownie-pricing.webp";
-import { Shield, Users, Sparkles, CheckCircle } from "lucide-react";
+import brownie1 from "@/assets/brownie-1.jpg";
+import brownie2 from "@/assets/brownie-2.jpg";
+import brownie3 from "@/assets/brownie-3.jpg";
+import { Shield, Users, Sparkles, CheckCircle, Clock, Flame } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
+
 export const HeroSection = () => {
-  return <section className="relative py-12 md:py-20 px-4 bg-background">
+  return (
+    <section className="relative min-h-screen py-12 md:py-20 px-4 bg-background overflow-hidden">
+      {/* Neon gradient background */}
       <div className="absolute inset-0 bg-gradient-hero -z-10" />
-      <div className="absolute inset-0 bg-gradient-fire opacity-40 -z-10" />
+      <div className="absolute inset-0 bg-gradient-fire opacity-30 -z-10" />
+      
+      {/* Floating brownies decoration */}
+      <div className="absolute top-20 left-10 w-24 h-24 opacity-20 brownie-float hidden md:block">
+        <img src={brownie1} alt="" className="w-full h-full object-cover rounded-xl blur-sm" />
+      </div>
+      <div className="absolute top-40 right-20 w-32 h-32 opacity-20 brownie-float hidden md:block" style={{ animationDelay: '2s' }}>
+        <img src={brownie2} alt="" className="w-full h-full object-cover rounded-xl blur-sm" />
+      </div>
+      <div className="absolute bottom-40 left-20 w-28 h-28 opacity-20 brownie-float hidden md:block" style={{ animationDelay: '4s' }}>
+        <img src={brownie3} alt="" className="w-full h-full object-cover rounded-xl blur-sm" />
+      </div>
+      
+      {/* Urgency Banner */}
+      <div className="container mx-auto max-w-6xl mb-8">
+        <div className="bg-gradient-neon rounded-2xl p-4 shadow-neon-strong border border-primary/30">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="bg-background/20 backdrop-blur-sm rounded-xl px-4 py-2 border border-primary/30">
+                <div className="flex items-center gap-2 text-sm font-bold text-white">
+                  <Clock className="w-4 h-4" />
+                  <span>⚠️ OFERTA EXPIRA EM:</span>
+                </div>
+              </div>
+              <div className="flex gap-2 text-white font-bold">
+                <div className="bg-background/40 backdrop-blur-sm rounded-lg px-3 py-2 min-w-[50px] text-center border border-primary/20">
+                  <div className="text-xl">23</div>
+                  <div className="text-xs opacity-80">HRS</div>
+                </div>
+                <div className="text-2xl">:</div>
+                <div className="bg-background/40 backdrop-blur-sm rounded-lg px-3 py-2 min-w-[50px] text-center border border-primary/20">
+                  <div className="text-xl">57</div>
+                  <div className="text-xs opacity-80">MIN</div>
+                </div>
+                <div className="text-2xl">:</div>
+                <div className="bg-background/40 backdrop-blur-sm rounded-lg px-3 py-2 min-w-[50px] text-center border border-primary/20">
+                  <div className="text-xl">46</div>
+                  <div className="text-xs opacity-80">SEG</div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-background/20 backdrop-blur-sm rounded-xl px-6 py-2 border border-accent/30 flex items-center gap-2">
+              <Flame className="w-5 h-5 text-accent" />
+              <span className="text-white font-bold">🔥 RESTAM APENAS 23 VAGAS!</span>
+            </div>
+          </div>
+        </div>
+      </div>
       
       <div className="container mx-auto max-w-6xl">
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-6 md:space-y-8 text-center md:text-left">
-            <h1 className="font-heading sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-chocolate text-center font-extrabold text-2xl">
-              Aprenda a fazer brownies irresistíveis, conquiste clientes e{" "}
-              <span className="text-primary">lucre de R$ 150 até R$300 por fornada</span>,
-              mesmo começando do zero.
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-8 text-center">
+            
+            {/* Main Headline */}
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight font-extrabold">
+              <span className="text-gradient-neon">
+                Fature de R$150,00 a R$350,00 por DIA e ATÉ MAIS!
+              </span>
+              <br />
+              <span className="text-white mt-4 block">
+                Vendendo Cookies Recheados Gourmet
+              </span>
             </h1>
             
-            <p className="sm:text-xl md:text-2xl font-body text-foreground leading-relaxed font-semibold text-lg">
-              🍫 Você não precisa de chocolate e materiais caríssimos para vender Brownies! <span className="text-primary font-bold">Transforme R$ 60,00 em R$ 300,00</span> a cada fornada com brownies que seus clientes vão <span className="text-primary font-bold">IMPLORAR</span> por mais!
+            <p className="text-lg sm:text-xl md:text-2xl font-body text-foreground/90 leading-relaxed font-medium">
+              <span className="text-white">(mesmo sem experiência e morando em cidade pequena)</span>
             </p>
             
-            {/* Brownie Image with Animation */}
-            <div className="relative w-full max-w-md mx-auto my-8 animate-fade-in">
+            {/* Price Highlight */}
+            <div className="inline-block bg-gradient-card backdrop-blur-sm rounded-2xl p-6 shadow-neon border-2 border-primary/40">
+              <p className="text-accent font-bold text-xl md:text-2xl mb-2">
+                Por apenas <span className="text-3xl md:text-4xl">R$ 1,90</span>
+              </p>
+              <p className="text-foreground/80 text-sm">Acesso vitalício completo</p>
+            </div>
+            
+            {/* CTA Button */}
+            <Button 
+              size="lg" 
+              className="w-full md:w-auto text-lg md:text-xl px-8 py-6 bg-gradient-neon shadow-neon-strong hover:shadow-neon border-2 border-primary/50 font-bold neon-glow-strong"
+              onClick={() => {
+                trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
+                document.getElementById('master-plan')?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'center'
+                });
+              }}
+            >
+              ESCOLHA SEU PLANO ABAIXO
+            </Button>
+            
+            {/* Brownie Image with Neon Effect */}
+            <div className="relative w-full max-w-lg mx-auto my-12">
               <div className="relative group">
-                <img src={browniePricing} alt="Brownie cremoso e delicioso" loading="lazy" width="600" height="600" className="w-full h-auto rounded-2xl shadow-premium border-4 border-primary/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-strong" />
-                {/* Subtle glow effect on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-neon blur-3xl opacity-50 group-hover:opacity-70 transition-opacity duration-500 rounded-full"></div>
+                <img 
+                  src={browniePricing} 
+                  alt="Cookie recheado gourmet delicioso" 
+                  loading="lazy" 
+                  width="600" 
+                  height="600" 
+                  className="relative w-full h-auto rounded-2xl shadow-neon-strong border-4 border-primary/40 transition-all duration-500 group-hover:scale-105 group-hover:border-accent/60 neon-glow-strong" 
+                />
+              </div>
+              
+              {/* Social Proof Badge */}
+              <div className="absolute -bottom-6 right-4 bg-accent text-background font-bold px-6 py-3 rounded-full shadow-strong text-sm md:text-base border-2 border-background">
+                +2.400 Alunos
               </div>
             </div>
             
-            <div className="space-y-6">
-              <div className="text-center md:text-left bg-gradient-card backdrop-blur-sm rounded-2xl p-8 shadow-strong border-2 border-primary/30">
-                <p className="text-base md:text-lg text-muted-foreground line-through mb-2">
-                  de R$ 97,00 por apenas
-                </p>
-                <p className="sm:text-5xl md:text-6xl font-heading font-bold text-primary text-5xl drop-shadow-lg">
-                  R$ 1,90
-                </p>
+            {/* Pain Point Copy */}
+            <div className="bg-gradient-card backdrop-blur-sm rounded-2xl p-8 shadow-strong border-2 border-muted/30 max-w-3xl mx-auto">
+              <p className="text-foreground/90 text-base md:text-lg leading-relaxed">
+                <span className="text-white font-semibold">O método testado por <span className="text-accent font-bold">+2.400 alunas</span> que transforma uma simples massa em cookies </span>
+                <span className="text-primary font-bold">lucrativos</span>
+                <span className="text-white font-semibold"> (o título não é clickbait) e vendas explodindo no WhatsApp em menos de 15 dias.</span>
+              </p>
+            </div>
+            
+            {/* Feature Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12">
+              <div className="bg-gradient-card backdrop-blur-sm px-4 py-4 rounded-xl shadow-medium border border-primary/20 hover:border-primary/50 hover:shadow-neon transition-all duration-300">
+                <Shield className="w-6 h-6 text-primary mx-auto mb-2" />
+                <span className="text-foreground font-semibold text-sm block">Acesso Vitalício</span>
               </div>
-              
-              <Button size="lg" className="w-full md:w-auto text-sm md:text-lg shadow-strong hover:shadow-premium" onClick={() => {
-              trackViewContent('Hero CTA - Brownies Lucrativos', 14.90);
-              document.getElementById('master-plan')?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-              });
-            }}>
-                🔘 Quero Começar Meu Negócio de Brownies!
-              </Button>
-              
-              <div className="grid grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm max-w-md mx-auto md:mx-0">
-                <div className="flex items-center gap-2 bg-gradient-card px-4 py-3 rounded-xl shadow-medium border border-primary/20 hover:shadow-strong transition-all duration-300">
-                  <Shield className="w-5 h-5 text-primary" />
-                  <span className="text-chocolate font-semibold">Acesso Vitalício</span>
-                </div>
-                <div className="flex items-center gap-2 bg-gradient-card px-4 py-3 rounded-xl shadow-medium border border-primary/20 hover:shadow-strong transition-all duration-300">
-                  <Sparkles className="w-5 h-5 text-accent" />
-                  <span className="text-chocolate font-semibold">App Exclusivo</span>
-                </div>
-                <div className="flex items-center gap-2 bg-gradient-card px-4 py-3 rounded-xl shadow-medium border border-primary/20 hover:shadow-strong transition-all duration-300">
-                  <Users className="w-5 h-5 text-primary" />
-                  <span className="text-chocolate font-semibold">+5000 Membros</span>
-                </div>
-                <div className="flex items-center gap-2 bg-gradient-card px-4 py-3 rounded-xl shadow-medium border border-primary/20 hover:shadow-strong transition-all duration-300">
-                  <CheckCircle className="w-5 h-5 text-accent" />
-                  <span className="text-chocolate font-semibold">14 Dias de Garantia</span>
-                </div>
+              <div className="bg-gradient-card backdrop-blur-sm px-4 py-4 rounded-xl shadow-medium border border-accent/20 hover:border-accent/50 hover:shadow-neon transition-all duration-300">
+                <Sparkles className="w-6 h-6 text-accent mx-auto mb-2" />
+                <span className="text-foreground font-semibold text-sm block">App Exclusivo</span>
+              </div>
+              <div className="bg-gradient-card backdrop-blur-sm px-4 py-4 rounded-xl shadow-medium border border-primary/20 hover:border-primary/50 hover:shadow-neon transition-all duration-300">
+                <Users className="w-6 h-6 text-primary mx-auto mb-2" />
+                <span className="text-foreground font-semibold text-sm block">+2400 Alunas</span>
+              </div>
+              <div className="bg-gradient-card backdrop-blur-sm px-4 py-4 rounded-xl shadow-medium border border-accent/20 hover:border-accent/50 hover:shadow-neon transition-all duration-300">
+                <CheckCircle className="w-6 h-6 text-accent mx-auto mb-2" />
+                <span className="text-foreground font-semibold text-sm block">14 Dias de Garantia</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
