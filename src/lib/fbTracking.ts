@@ -37,6 +37,14 @@ const generateEventId = (): string => {
   return `${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
 };
 
+// Obter cookies do Facebook para melhor matching
+const getFacebookCookies = () => {
+  const cookies = document.cookie.split(';');
+  const fbp = cookies.find(c => c.trim().startsWith('_fbp='))?.split('=')[1];
+  const fbc = cookies.find(c => c.trim().startsWith('_fbc='))?.split('=')[1];
+  return { fbp, fbc };
+};
+
 export const trackEvent = async (
   eventName: string,
   userData: UserData = {},
@@ -70,13 +78,23 @@ export const trackEvent = async (
   if (userData.zp) hashedUserData.zp = await hashData(userData.zp);
   if (userData.country) hashedUserData.country = await hashData(userData.country);
 
-  // Enviar para Conversion API via edge function
-  try {
-    // Obter a URL do Supabase do ambiente
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-    
-    if (supabaseUrl && supabaseAnonKey) {
+  // Adicionar cookies do Facebook para melhor matching
+  const { fbp, fbc } = getFacebookCookies();
+  if (fbp) hashedUserData.fbp = fbp;
+  if (fbc) hashedUserData.fbc = fbc;
+
+  // Enviar para Conversion API via edge function com retry
+  const sendToConversionAPI = async (retries = 3) => {
+    try {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+      
+      if (!supabaseUrl || !supabaseAnonKey) {
+        console.error('⚠️ CRÍTICO: Supabase não configurado! Eventos NÃO estão sendo enviados para Conversion API.');
+        console.error('Isso causa baixa cobertura de eventos no Meta. Configure Lovable Cloud para resolver.');
+        return;
+      }
+
       const response = await fetch(`${supabaseUrl}/functions/v1/facebook-conversion`, {
         method: 'POST',
         headers: {
@@ -94,17 +112,30 @@ export const trackEvent = async (
 
       if (!response.ok) {
         const error = await response.json();
-        console.error('Error sending conversion API event:', error);
-      } else {
-        const data = await response.json();
-        console.log(`Conversion API event ${eventName} sent successfully:`, data);
+        throw new Error(`Conversion API error: ${JSON.stringify(error)}`);
       }
-    } else {
-      console.warn('Supabase URL or Anon Key not configured');
+
+      const data = await response.json();
+      console.log(`✅ Conversion API event ${eventName} sent successfully:`, data);
+    } catch (error) {
+      console.error(`❌ Error sending Conversion API event (${4 - retries}/3):`, error);
+      
+      // Retry com backoff exponencial
+      if (retries > 0) {
+        const delay = (4 - retries) * 1000; // 1s, 2s, 3s
+        console.log(`Retrying in ${delay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+        return sendToConversionAPI(retries - 1);
+      } else {
+        console.error('⚠️ Failed to send event to Conversion API after 3 attempts');
+      }
     }
-  } catch (error) {
-    console.error('Error calling facebook-conversion function:', error);
-  }
+  };
+
+  // Enviar de forma assíncrona sem bloquear
+  sendToConversionAPI().catch(err => {
+    console.error('Unhandled error in Conversion API:', err);
+  });
 };
 
 // Eventos específicos
