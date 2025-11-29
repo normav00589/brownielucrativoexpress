@@ -25,6 +25,12 @@ serve(async (req) => {
 
     console.log(`Processing ${event_name} event with ID: ${event_id}`);
 
+    // Verificar se o token está configurado
+    if (!API_TOKEN) {
+      console.error('⚠️ FACEBOOK_CONVERSION_API_TOKEN não configurado!');
+      throw new Error('Facebook Conversion API token not configured');
+    }
+
     // Preparar dados do evento
     const eventData = {
       data: [{
