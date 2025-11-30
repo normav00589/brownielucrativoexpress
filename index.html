@@ -3,11 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Brownies Lucrativos - Lucre até R$300 por Fornada</title>
     <meta name="description" content="Aprenda a fazer brownies irresistíveis e lucre de R$150 até R$300 por fornada. Método 3C exclusivo com +80 receitas testadas.">
     <meta name="author" content="Brownies Lucrativos" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://connect.facebook.net">
+    <link rel="preconnect" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://fast.wistia.com">
+    <link rel="dns-prefetch" href="https://distillery.wistia.com">
+    <link rel="dns-prefetch" href="https://embed-ssl.wistia.com">
+    <link rel="modulepreload" href="/src/main.tsx">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 
@@ -18,18 +25,26 @@
     <meta name="twitter:card" content="summary_large_image" />
     
     <!-- Facebook Pixel Code -->
-    <script async>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1034279045491529');
-      fbq('init', '2025669271618388');
-      fbq('track', 'PageView');
+    <script>
+      window.fbAsyncInit = function() {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1034279045491529');
+        fbq('init', '2025669271618388');
+        fbq('track', 'PageView');
+      };
+      // Load FB pixel after page load
+      if (document.readyState === 'complete') {
+        window.fbAsyncInit();
+      } else {
+        window.addEventListener('load', window.fbAsyncInit);
+      }
     </script>
     <!-- End Facebook Pixel Code -->
     <meta property="og:title" content="Brownies Lucrativos - Lucre até R$300 por Fornada">

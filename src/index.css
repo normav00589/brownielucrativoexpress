@@ -191,6 +191,11 @@ All colors MUST be HSL.
     font-family: 'Poppins', sans-serif;
   }
   
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+  
   .neon-glow {
     box-shadow: var(--shadow-neon);
   }
@@ -198,10 +203,12 @@ All colors MUST be HSL.
   .neon-glow-strong {
     box-shadow: var(--shadow-neon-strong);
     animation: neon-pulse 2s ease-in-out infinite;
+    will-change: filter;
   }
   
   .text-glow {
     animation: glow-text 3s ease-in-out infinite;
+    will-change: text-shadow;
   }
   
   .text-gradient-neon {
@@ -213,6 +220,7 @@ All colors MUST be HSL.
   
   .float-animation {
     animation: float 3s ease-in-out infinite;
+    will-change: transform;
   }
   
   .fade-in-up {
@@ -243,6 +251,7 @@ All colors MUST be HSL.
   
   .brownie-float {
     animation: float-random 8s ease-in-out infinite;
+    will-change: transform;
   }
   
   .shimmer-effect::before {
