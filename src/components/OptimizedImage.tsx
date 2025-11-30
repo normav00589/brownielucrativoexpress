@@ -5,9 +5,16 @@ interface OptimizedImageProps {
   alt: string;
   className?: string;
   priority?: boolean;
+  sizes?: string;
 }
 
-export const OptimizedImage = ({ src, alt, className = '', priority = false }: OptimizedImageProps) => {
+export const OptimizedImage = ({ 
+  src, 
+  alt, 
+  className = '', 
+  priority = false,
+  sizes = '100vw'
+}: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -24,7 +31,7 @@ export const OptimizedImage = ({ src, alt, className = '', priority = false }: O
           }
         });
       },
-      { rootMargin: '50px' }
+      { rootMargin: '100px' }
     );
 
     if (imgRef.current) {
@@ -34,6 +41,13 @@ export const OptimizedImage = ({ src, alt, className = '', priority = false }: O
     return () => observer.disconnect();
   }, [priority]);
 
+  const generateSrcSet = (originalSrc: string) => {
+    if (originalSrc.startsWith('http')) return undefined;
+    
+    const widths = [640, 768, 1024, 1280, 1536];
+    return widths.map(width => `${originalSrc}?w=${width} ${width}w`).join(', ');
+  };
+
   return (
     <div className={`relative ${className}`}>
       {!isLoaded && (
@@ -42,9 +56,12 @@ export const OptimizedImage = ({ src, alt, className = '', priority = false }: O
       <img
         ref={imgRef}
         src={isInView ? src : undefined}
+        srcSet={isInView ? generateSrcSet(src) : undefined}
+        sizes={sizes}
         alt={alt}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
+        fetchPriority={priority ? 'high' : 'auto'}
         className={`w-full h-full object-cover transition-opacity duration-300 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
