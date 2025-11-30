@@ -41,7 +41,7 @@ export const HeroSection = () => {
                 FATURE DE R$150,00 a R$350,00 por DIA e ATÉ MAIS!
               </span>
               <br />
-              <span className="text-white mt-4 block shimmer-effect">Vendendo BROWNIES LUCRATIVOS!</span>
+              <span className="text-white mt-4 block shimmer-effect">VENDENDO BROWNIES LUCRATIVOS!</span>
             </h1>
             
             
@@ -54,16 +54,13 @@ export const HeroSection = () => {
             </div>
             
             {/* CTA Button */}
-            <button 
-              className="group relative w-full md:w-auto px-8 py-4 text-base md:text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg"
-              onClick={() => {
-                trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
-                document.getElementById('master-plan')?.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'center'
-                });
-              }}
-            >
+            <button className="group relative w-full md:w-auto px-8 py-4 text-base md:text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-lg" onClick={() => {
+            trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
+            document.getElementById('master-plan')?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+          }}>
               {/* Gradient background */}
               <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 animate-gradient-shift"></div>
               
