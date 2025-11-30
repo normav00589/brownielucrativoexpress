@@ -7,9 +7,8 @@ import { Shield, Users, Sparkles, CheckCircle, Clock, Flame } from "lucide-react
 import { trackViewContent } from "@/lib/fbTracking";
 export const HeroSection = () => {
   return <section className="relative min-h-screen py-12 md:py-20 px-4 bg-background overflow-hidden">
-      {/* Neon gradient background */}
-      <div className="absolute inset-0 bg-gradient-hero -z-10" />
-      <div className="absolute inset-0 bg-gradient-fire opacity-30 -z-10" />
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-hero opacity-30 -z-10" />
       
       {/* Floating brownies decoration */}
       <div className="absolute top-20 left-4 md:left-10 w-16 md:w-24 h-16 md:h-24 opacity-15 md:opacity-20 brownie-float">
