@@ -11,6 +11,7 @@ import { trackPageView } from "@/lib/fbTracking";
 
 // Lazy load below-the-fold sections
 const BonusSection = lazy(() => import("@/components/sections/BonusSection").then(m => ({ default: m.BonusSection })));
+const DreamCalculatorSection = lazy(() => import("@/components/sections/DreamCalculatorSection").then(m => ({ default: m.DreamCalculatorSection })));
 const TestimonialsSection = lazy(() => import("@/components/sections/TestimonialsSection").then(m => ({ default: m.TestimonialsSection })));
 const GuaranteeSection = lazy(() => import("@/components/sections/GuaranteeSection").then(m => ({ default: m.GuaranteeSection })));
 const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })));
@@ -63,9 +64,10 @@ const Index = () => {
         <Suspense fallback={<div className="min-h-[400px]" />}>
           <BrownieGallerySection />
           <BonusSection />
+          <DreamCalculatorSection />
         </Suspense>
         
-        <PricingSection />
+        <PricingSection data-section="pricing" />
         
         <Suspense fallback={<div className="min-h-[400px]" />}>
           <TestimonialsSection />
