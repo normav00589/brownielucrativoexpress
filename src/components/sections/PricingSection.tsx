@@ -62,7 +62,7 @@ export const PricingSection = () => {
             </ul>
             
             <Button className="w-full bg-white text-primary hover:bg-white/90 shadow-red shimmer-effect" asChild>
-              <a href="https://www.ggcheckout.com/checkout/v2/FB2BQbKx59cYBFvUhFWN" target="_blank" rel="noopener noreferrer" onClick={() => {
+              <a href="https://danielle-dias.mycartpanda.com/checkout/202036345:1" target="_blank" rel="noopener noreferrer" onClick={() => {
               trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan');
             }}>
                 Quero o Acesso Completo!
@@ -95,7 +95,7 @@ export const PricingSection = () => {
             </ul>
             
             <Button variant="secondary" className="w-full shimmer-effect" asChild>
-              <a href="https://www.ggcheckout.com/checkout/v2/9jwm1AUaZKjbNSzRYO1w" target="_blank" rel="noopener noreferrer" onClick={() => {
+              <a href="https://danielle-dias.mycartpanda.com/checkout/202036361:1" target="_blank" rel="noopener noreferrer" onClick={() => {
               trackInitiateCheckout(1.99, 'App Brownies Lucrativos - Basic Plan');
             }}>
                 Começar Agora
