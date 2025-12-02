@@ -4,108 +4,98 @@ import { Button } from "@/components/Button";
 import { TrendingUp, DollarSign, Package, Calendar, Sparkles } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import confetti from "canvas-confetti";
-
 const COST_PER_BATCH = 60;
 const REVENUE_PER_BATCH = 200;
 const PROFIT_PER_BATCH = 140;
 const BROWNIES_PER_BATCH = 24;
-
 export const DreamCalculatorSection = () => {
   const [monthlyGoal, setMonthlyGoal] = useState(5000);
-  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
-
+  const {
+    ref,
+    isVisible
+  } = useIntersectionObserver({
+    threshold: 0.2
+  });
   const triggerConfetti = useCallback(() => {
     const count = 50;
     const defaults = {
-      origin: { y: 0.7 },
-      zIndex: 9999,
+      origin: {
+        y: 0.7
+      },
+      zIndex: 9999
     };
-
     function fire(particleRatio: number, opts: any) {
       confetti({
         ...defaults,
         ...opts,
-        particleCount: Math.floor(count * particleRatio),
+        particleCount: Math.floor(count * particleRatio)
       });
     }
-
     fire(0.25, {
       spread: 26,
       startVelocity: 55,
-      colors: ['#10b981', '#fbbf24', '#f59e0b'],
+      colors: ['#10b981', '#fbbf24', '#f59e0b']
     });
-
     fire(0.2, {
       spread: 60,
-      colors: ['#10b981', '#fbbf24', '#f59e0b'],
+      colors: ['#10b981', '#fbbf24', '#f59e0b']
     });
-
     fire(0.35, {
       spread: 100,
       decay: 0.91,
       scalar: 0.8,
-      colors: ['#10b981', '#fbbf24', '#f59e0b'],
+      colors: ['#10b981', '#fbbf24', '#f59e0b']
     });
-
     fire(0.1, {
       spread: 120,
       startVelocity: 25,
       decay: 0.92,
       scalar: 1.2,
-      colors: ['#10b981', '#fbbf24', '#f59e0b'],
+      colors: ['#10b981', '#fbbf24', '#f59e0b']
     });
-
     fire(0.1, {
       spread: 120,
       startVelocity: 45,
-      colors: ['#10b981', '#fbbf24', '#f59e0b'],
+      colors: ['#10b981', '#fbbf24', '#f59e0b']
     });
   }, []);
-
   const handleSliderChange = useCallback((value: number[]) => {
     setMonthlyGoal(value[0]);
-    
+
     // Trigger confetti on significant milestones
     if (value[0] % 1000 === 0 && value[0] > 0) {
       triggerConfetti();
     }
   }, [triggerConfetti]);
-
   const batchesPerMonth = monthlyGoal / PROFIT_PER_BATCH;
   const batchesPerWeek = batchesPerMonth / 4;
-  const browniesPerDay = (batchesPerMonth * BROWNIES_PER_BATCH) / 30;
+  const browniesPerDay = batchesPerMonth * BROWNIES_PER_BATCH / 30;
   const monthlyCost = batchesPerMonth * COST_PER_BATCH;
-
   const getMessage = () => {
     if (monthlyGoal < 3000) return "💚 Perfeito para começar uma renda extra!";
     if (monthlyGoal < 7000) return "🚀 Você pode substituir seu salário atual!";
     return "👑 Seja sua própria chefe e domine o mercado!";
   };
-
   const scrollToPricing = () => {
     const pricingSection = document.querySelector('[data-section="pricing"]');
     if (pricingSection) {
-      pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      pricingSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
-
-  return (
-    <section
-      ref={ref}
-      className="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-background via-background/95 to-background"
-    >
+  return <section ref={ref} className="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold/10 rounded-full blur-3xl animate-float" style={{
+        animationDelay: '1s'
+      }} />
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
-        <div
-          className={`transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-neon">
@@ -128,14 +118,7 @@ export const DreamCalculatorSection = () => {
                   R$ {monthlyGoal.toLocaleString('pt-BR')}
                 </div>
               </div>
-              <Slider
-                value={[monthlyGoal]}
-                onValueChange={handleSliderChange}
-                min={0}
-                max={15000}
-                step={500}
-                className="w-full"
-              />
+              <Slider value={[monthlyGoal]} onValueChange={handleSliderChange} min={0} max={15000} step={500} className="w-full" />
               <div className="flex justify-between text-sm text-muted-foreground mt-2">
                 <span>R$ 0</span>
                 <span>R$ 15.000</span>
@@ -233,20 +216,21 @@ export const DreamCalculatorSection = () => {
             </div>
 
             {/* CTA */}
-            <Button 
-              onClick={scrollToPricing}
-              className="w-full h-16 text-xl font-bold relative overflow-hidden group animate-pulse hover:animate-none shadow-2xl hover:shadow-primary/50 transition-all duration-300"
-            >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                <Sparkles className="w-6 h-6 animate-spin" style={{ animationDuration: '3s' }} />
+            <Button onClick={scrollToPricing} className="w-full h-16 text-xl font-bold relative overflow-hidden group animate-pulse hover:animate-none shadow-2xl hover:shadow-primary/50 transition-all duration-300">
+              <span className="relative z-10 flex items-center justify-center gap-2 text-base">
+                <Sparkles className="w-6 h-6 animate-spin" style={{
+                animationDuration: '3s'
+              }} />
                 Quero Começar Agora!
-                <Sparkles className="w-6 h-6 animate-spin" style={{ animationDuration: '3s', animationDelay: '1s' }} />
+                <Sparkles className="w-6 h-6 animate-spin" style={{
+                animationDuration: '3s',
+                animationDelay: '1s'
+              }} />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-gold via-primary to-gold opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
             </Button>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
