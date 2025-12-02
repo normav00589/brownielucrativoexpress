@@ -80,6 +80,15 @@ export const DreamCalculatorSection = () => {
     playNote(1000, now + 0.1, 0.15);
     playNote(1200, now + 0.2, 0.2);
   }, []);
+  
+  // Trigger haptic feedback (vibration) on mobile
+  const triggerVibration = useCallback(() => {
+    if ('vibrate' in navigator) {
+      // Vibration pattern: vibrate 50ms, pause 50ms, vibrate 100ms
+      // Creates a pleasant "buzz-buzz" effect
+      navigator.vibrate([50, 50, 100]);
+    }
+  }, []);
   const triggerConfetti = useCallback(() => {
     const count = 50;
     const defaults = {
@@ -126,12 +135,13 @@ export const DreamCalculatorSection = () => {
   const handleSliderChange = useCallback((value: number[]) => {
     setMonthlyGoal(value[0]);
 
-    // Trigger confetti and sound on significant milestones
+    // Trigger confetti, sound, and vibration on significant milestones
     if (value[0] % 1000 === 0 && value[0] > 0) {
       triggerConfetti();
       playChaChingSound();
+      triggerVibration();
     }
-  }, [triggerConfetti, playChaChingSound]);
+  }, [triggerConfetti, playChaChingSound, triggerVibration]);
   const batchesPerMonth = monthlyGoal / PROFIT_PER_BATCH;
   const batchesPerWeek = batchesPerMonth / 4;
   const browniesPerDay = batchesPerMonth * BROWNIES_PER_BATCH / 30;
