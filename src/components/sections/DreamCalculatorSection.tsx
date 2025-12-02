@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/Button";
-import { TrendingUp, DollarSign, Package, Calendar } from "lucide-react";
+import { TrendingUp, DollarSign, Package, Calendar, Sparkles } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import confetti from "canvas-confetti";
 
 const COST_PER_BATCH = 60;
 const REVENUE_PER_BATCH = 200;
@@ -12,6 +13,63 @@ const BROWNIES_PER_BATCH = 24;
 export const DreamCalculatorSection = () => {
   const [monthlyGoal, setMonthlyGoal] = useState(5000);
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
+
+  const triggerConfetti = useCallback(() => {
+    const count = 50;
+    const defaults = {
+      origin: { y: 0.7 },
+      zIndex: 9999,
+    };
+
+    function fire(particleRatio: number, opts: any) {
+      confetti({
+        ...defaults,
+        ...opts,
+        particleCount: Math.floor(count * particleRatio),
+      });
+    }
+
+    fire(0.25, {
+      spread: 26,
+      startVelocity: 55,
+      colors: ['#10b981', '#fbbf24', '#f59e0b'],
+    });
+
+    fire(0.2, {
+      spread: 60,
+      colors: ['#10b981', '#fbbf24', '#f59e0b'],
+    });
+
+    fire(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8,
+      colors: ['#10b981', '#fbbf24', '#f59e0b'],
+    });
+
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2,
+      colors: ['#10b981', '#fbbf24', '#f59e0b'],
+    });
+
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 45,
+      colors: ['#10b981', '#fbbf24', '#f59e0b'],
+    });
+  }, []);
+
+  const handleSliderChange = useCallback((value: number[]) => {
+    setMonthlyGoal(value[0]);
+    
+    // Trigger confetti on significant milestones
+    if (value[0] % 1000 === 0 && value[0] > 0) {
+      triggerConfetti();
+    }
+  }, [triggerConfetti]);
 
   const batchesPerMonth = monthlyGoal / PROFIT_PER_BATCH;
   const batchesPerWeek = batchesPerMonth / 4;
@@ -72,7 +130,7 @@ export const DreamCalculatorSection = () => {
               </div>
               <Slider
                 value={[monthlyGoal]}
-                onValueChange={(value) => setMonthlyGoal(value[0])}
+                onValueChange={handleSliderChange}
                 min={0}
                 max={15000}
                 step={500}
@@ -177,9 +235,14 @@ export const DreamCalculatorSection = () => {
             {/* CTA */}
             <Button 
               onClick={scrollToPricing}
-              className="w-full h-14 text-lg font-bold"
+              className="w-full h-16 text-xl font-bold relative overflow-hidden group animate-pulse hover:animate-none shadow-2xl hover:shadow-primary/50 transition-all duration-300"
             >
-              Quero Começar Agora! 🎯
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                <Sparkles className="w-6 h-6 animate-spin" style={{ animationDuration: '3s' }} />
+                Quero Começar Agora!
+                <Sparkles className="w-6 h-6 animate-spin" style={{ animationDuration: '3s', animationDelay: '1s' }} />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-gold via-primary to-gold opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
             </Button>
           </div>
         </div>
