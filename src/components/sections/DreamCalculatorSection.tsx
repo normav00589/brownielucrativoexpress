@@ -13,36 +13,28 @@ const useAnimatedCounter = (targetValue: number, duration: number = 500) => {
   const [displayValue, setDisplayValue] = useState(targetValue);
   const startTimeRef = useRef<number | null>(null);
   const startValueRef = useRef(targetValue);
-
   useEffect(() => {
     startValueRef.current = displayValue;
     startTimeRef.current = null;
-    
     const animate = (currentTime: number) => {
       if (!startTimeRef.current) startTimeRef.current = currentTime;
-      
       const elapsed = currentTime - startTimeRef.current;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      
       const newValue = startValueRef.current + (targetValue - startValueRef.current) * easeOutQuart;
       setDisplayValue(newValue);
-      
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
         setDisplayValue(targetValue);
       }
     };
-    
     requestAnimationFrame(animate);
   }, [targetValue, duration]);
-
   return displayValue;
 };
-
 export const DreamCalculatorSection = () => {
   const [monthlyGoal, setMonthlyGoal] = useState(5000);
   const {
@@ -51,36 +43,31 @@ export const DreamCalculatorSection = () => {
   } = useIntersectionObserver({
     threshold: 0.2
   });
-  
+
   // Play cha-ching sound
   const playChaChingSound = useCallback(() => {
     const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-    
+
     // Create a simple "cha-ching" sound using Web Audio API
     const playNote = (frequency: number, startTime: number, duration: number) => {
       const oscillator = audioContext.createOscillator();
       const gainNode = audioContext.createGain();
-      
       oscillator.connect(gainNode);
       gainNode.connect(audioContext.destination);
-      
       oscillator.frequency.value = frequency;
       oscillator.type = 'sine';
-      
       gainNode.gain.setValueAtTime(0.3, startTime);
       gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + duration);
-      
       oscillator.start(startTime);
       oscillator.stop(startTime + duration);
     };
-    
     const now = audioContext.currentTime;
     // Create a pleasant "cha-ching" with multiple notes
     playNote(800, now, 0.1);
     playNote(1000, now + 0.1, 0.15);
     playNote(1200, now + 0.2, 0.2);
   }, []);
-  
+
   // Trigger haptic feedback (vibration) on mobile
   const triggerVibration = useCallback(() => {
     if ('vibrate' in navigator) {
@@ -146,7 +133,7 @@ export const DreamCalculatorSection = () => {
   const batchesPerWeek = batchesPerMonth / 4;
   const browniesPerDay = batchesPerMonth * BROWNIES_PER_BATCH / 30;
   const monthlyCost = batchesPerMonth * COST_PER_BATCH;
-  
+
   // Animated values for smooth counter effect
   const animatedBatchesPerWeek = useAnimatedCounter(batchesPerWeek);
   const animatedBatchesPerMonth = useAnimatedCounter(batchesPerMonth);
@@ -284,7 +271,7 @@ export const DreamCalculatorSection = () => {
                   Para alcançar R$ {monthlyGoal.toLocaleString('pt-BR')}/mês,
                 </span>
                 <br />
-                <span className="text-muted-foreground">
+                <span className="text-primary-foreground">
                   você investiria apenas{" "}
                   <span className="text-destructive font-bold">
                     R$ {animatedMonthlyCost.toFixed(0)}
