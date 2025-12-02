@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/Button";
 import { TrendingUp, DollarSign, Package, Calendar, Sparkles } from "lucide-react";
@@ -8,6 +8,41 @@ const COST_PER_BATCH = 60;
 const REVENUE_PER_BATCH = 200;
 const PROFIT_PER_BATCH = 140;
 const BROWNIES_PER_BATCH = 24;
+// Custom hook for animated counter
+const useAnimatedCounter = (targetValue: number, duration: number = 500) => {
+  const [displayValue, setDisplayValue] = useState(targetValue);
+  const startTimeRef = useRef<number | null>(null);
+  const startValueRef = useRef(targetValue);
+
+  useEffect(() => {
+    startValueRef.current = displayValue;
+    startTimeRef.current = null;
+    
+    const animate = (currentTime: number) => {
+      if (!startTimeRef.current) startTimeRef.current = currentTime;
+      
+      const elapsed = currentTime - startTimeRef.current;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      
+      const newValue = startValueRef.current + (targetValue - startValueRef.current) * easeOutQuart;
+      setDisplayValue(newValue);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setDisplayValue(targetValue);
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  }, [targetValue, duration]);
+
+  return displayValue;
+};
+
 export const DreamCalculatorSection = () => {
   const [monthlyGoal, setMonthlyGoal] = useState(5000);
   const {
@@ -16,6 +51,35 @@ export const DreamCalculatorSection = () => {
   } = useIntersectionObserver({
     threshold: 0.2
   });
+  
+  // Play cha-ching sound
+  const playChaChingSound = useCallback(() => {
+    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+    
+    // Create a simple "cha-ching" sound using Web Audio API
+    const playNote = (frequency: number, startTime: number, duration: number) => {
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.value = frequency;
+      oscillator.type = 'sine';
+      
+      gainNode.gain.setValueAtTime(0.3, startTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + duration);
+      
+      oscillator.start(startTime);
+      oscillator.stop(startTime + duration);
+    };
+    
+    const now = audioContext.currentTime;
+    // Create a pleasant "cha-ching" with multiple notes
+    playNote(800, now, 0.1);
+    playNote(1000, now + 0.1, 0.15);
+    playNote(1200, now + 0.2, 0.2);
+  }, []);
   const triggerConfetti = useCallback(() => {
     const count = 50;
     const defaults = {
@@ -62,15 +126,24 @@ export const DreamCalculatorSection = () => {
   const handleSliderChange = useCallback((value: number[]) => {
     setMonthlyGoal(value[0]);
 
-    // Trigger confetti on significant milestones
+    // Trigger confetti and sound on significant milestones
     if (value[0] % 1000 === 0 && value[0] > 0) {
       triggerConfetti();
+      playChaChingSound();
     }
-  }, [triggerConfetti]);
+  }, [triggerConfetti, playChaChingSound]);
   const batchesPerMonth = monthlyGoal / PROFIT_PER_BATCH;
   const batchesPerWeek = batchesPerMonth / 4;
   const browniesPerDay = batchesPerMonth * BROWNIES_PER_BATCH / 30;
   const monthlyCost = batchesPerMonth * COST_PER_BATCH;
+  
+  // Animated values for smooth counter effect
+  const animatedBatchesPerWeek = useAnimatedCounter(batchesPerWeek);
+  const animatedBatchesPerMonth = useAnimatedCounter(batchesPerMonth);
+  const animatedBrowniesPerDay = useAnimatedCounter(browniesPerDay);
+  const animatedBrowniesPerMonth = useAnimatedCounter(browniesPerDay * 30);
+  const animatedMonthlyCost = useAnimatedCounter(monthlyCost);
+  const animatedMonthlyGoal = useAnimatedCounter(monthlyGoal);
   const getMessage = () => {
     if (monthlyGoal < 3000) return "💚 Perfeito para começar uma renda extra!";
     if (monthlyGoal < 7000) return "🚀 Você pode substituir seu salário atual!";
@@ -141,10 +214,10 @@ export const DreamCalculatorSection = () => {
                   <h3 className="font-semibold text-foreground">Fornadas por Semana</h3>
                 </div>
                 <p className="text-3xl font-bold text-primary">
-                  {batchesPerWeek.toFixed(1)}
+                  {animatedBatchesPerWeek.toFixed(1)}
                 </p>
                 <p className="text-sm text-muted-foreground mt-2">
-                  ~{batchesPerMonth.toFixed(0)} por mês
+                  ~{animatedBatchesPerMonth.toFixed(0)} por mês
                 </p>
               </div>
 
@@ -155,10 +228,10 @@ export const DreamCalculatorSection = () => {
                   <h3 className="font-semibold text-foreground">Brownies por Dia</h3>
                 </div>
                 <p className="text-3xl font-bold text-gold">
-                  {browniesPerDay.toFixed(0)}
+                  {animatedBrowniesPerDay.toFixed(0)}
                 </p>
                 <p className="text-sm text-muted-foreground mt-2">
-                  {(browniesPerDay * 30).toFixed(0)} por mês
+                  {animatedBrowniesPerMonth.toFixed(0)} por mês
                 </p>
               </div>
 
@@ -169,7 +242,7 @@ export const DreamCalculatorSection = () => {
                   <h3 className="font-semibold text-foreground">Investimento em Ingredientes</h3>
                 </div>
                 <p className="text-3xl font-bold text-destructive">
-                  R$ {monthlyCost.toFixed(0)}
+                  R$ {animatedMonthlyCost.toFixed(0)}
                 </p>
                 <p className="text-sm text-muted-foreground mt-2">
                   Custo mensal total
@@ -185,7 +258,7 @@ export const DreamCalculatorSection = () => {
                     <h3 className="font-semibold text-foreground">Lucro Líquido Mensal</h3>
                   </div>
                   <p className="text-4xl font-bold text-primary">
-                    R$ {monthlyGoal.toLocaleString('pt-BR')}
+                    R$ {animatedMonthlyGoal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
                   </p>
                   <p className="text-sm text-muted-foreground mt-2">
                     💰 Seu objetivo de ganhos
@@ -204,7 +277,7 @@ export const DreamCalculatorSection = () => {
                 <span className="text-muted-foreground">
                   você investiria apenas{" "}
                   <span className="text-destructive font-bold">
-                    R$ {monthlyCost.toFixed(0)}
+                    R$ {animatedMonthlyCost.toFixed(0)}
                   </span>{" "}
                   em ingredientes...
                 </span>
