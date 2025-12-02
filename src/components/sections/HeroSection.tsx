@@ -37,7 +37,7 @@ export const HeroSection = () => {
             {/* Main Headline */}
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight font-extrabold">
               <span className="text-gradient-neon mx-0 my-0">
-                LUCRE  DE R$150,00 a R$350,00 por DIA e ATÉ MAIS!
+                LUCRE  DE R$150,00 a R$350,00 POR DIA e ATÉ MAIS!
               </span>
               <br />
               <span className="text-white mt-4 block shimmer-effect">VENDENDO BROWNIES LUCRATIVOS!</span>
