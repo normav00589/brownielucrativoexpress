@@ -1,7 +1,6 @@
 import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { SaleNotification } from "@/components/SaleNotification";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { DreamSection } from "@/components/sections/DreamSection";
 import { OfferSection } from "@/components/sections/OfferSection";
 import { RecipesSection } from "@/components/sections/RecipesSection";
 import { PricingSection } from "@/components/sections/PricingSection";
@@ -56,8 +55,6 @@ const Index = () => {
       <main>
         <HeroSection />
         <OfferSection />
-        
-        <DreamSection />
         
         <RecipesSection />
         

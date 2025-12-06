@@ -171,8 +171,11 @@ export const DreamCalculatorSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-neon">
               🎯 Qual é Sua Meta dos Sonhos?
             </h2>
-            <p className="text-lg md:text-xl text-primary-foreground">
+            <p className="text-lg md:text-xl text-primary-foreground mb-4">
               Descubra quanto você precisa produzir para alcançar seus objetivos
+            </p>
+            <p className="inline-block text-sm md:text-base font-semibold bg-gradient-neon px-4 py-2 rounded-full text-white shadow-neon">
+              ✨ Método 3C: Casquinha + Cremoso + Caixinha
             </p>
           </div>
 
