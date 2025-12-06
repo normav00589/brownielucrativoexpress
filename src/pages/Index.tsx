@@ -2,6 +2,7 @@ import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { SaleNotification } from "@/components/SaleNotification";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { OfferSection } from "@/components/sections/OfferSection";
+import { DreamCalculatorSection } from "@/components/sections/DreamCalculatorSection";
 import { RecipesSection } from "@/components/sections/RecipesSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { FooterSection } from "@/components/sections/FooterSection";
@@ -10,7 +11,6 @@ import { trackPageView } from "@/lib/fbTracking";
 
 // Lazy load below-the-fold sections
 const BonusSection = lazy(() => import("@/components/sections/BonusSection").then(m => ({ default: m.BonusSection })));
-const DreamCalculatorSection = lazy(() => import("@/components/sections/DreamCalculatorSection").then(m => ({ default: m.DreamCalculatorSection })));
 const TestimonialsSection = lazy(() => import("@/components/sections/TestimonialsSection").then(m => ({ default: m.TestimonialsSection })));
 const GuaranteeSection = lazy(() => import("@/components/sections/GuaranteeSection").then(m => ({ default: m.GuaranteeSection })));
 const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })));
@@ -56,12 +56,13 @@ const Index = () => {
         <HeroSection />
         <OfferSection />
         
+        <DreamCalculatorSection />
+        
         <RecipesSection />
         
         <Suspense fallback={<div className="min-h-[400px]" />}>
           <BrownieGallerySection />
           <BonusSection />
-          <DreamCalculatorSection />
         </Suspense>
         
         <PricingSection data-section="pricing" />
