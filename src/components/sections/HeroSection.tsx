@@ -1,29 +1,13 @@
 import { Button } from "@/components/Button";
-import browniePricing from "@/assets/brownie-pricing.webp";
-import brownie1 from "@/assets/brownie-1.jpg";
-import brownie2 from "@/assets/brownie-2.jpg";
-import brownie3 from "@/assets/brownie-3.jpg";
-import { Shield, Users, Sparkles, CheckCircle, Clock, Flame } from "lucide-react";
+import { Shield, Users, Sparkles, CheckCircle } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
+
 export const HeroSection = () => {
   return <section className="relative min-h-screen py-12 md:py-20 px-4 bg-background overflow-hidden">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-hero opacity-30 -z-10" />
       
-      {/* Floating brownies decoration */}
-      <div className="absolute top-20 left-4 md:left-10 w-16 md:w-24 h-16 md:h-24 opacity-15 md:opacity-20 brownie-float">
-        <img src={brownie1} alt="" className="w-full h-full object-cover rounded-xl blur-sm" />
-      </div>
-      <div className="absolute top-40 right-4 md:right-20 w-20 md:w-32 h-20 md:h-32 opacity-15 md:opacity-20 brownie-float" style={{
-      animationDelay: '2s'
-    }}>
-        <img src={brownie2} alt="" className="w-full h-full object-cover rounded-xl blur-sm" />
-      </div>
-      <div className="absolute bottom-40 left-4 md:left-20 w-18 md:w-28 h-18 md:h-28 opacity-15 md:opacity-20 brownie-float" style={{
-      animationDelay: '4s'
-    }}>
-        <img src={brownie3} alt="" className="w-full h-full object-cover rounded-xl blur-sm" />
-      </div>
+      {/* Removed floating brownies for faster LCP */}
       
       {/* Urgency Banner */}
       <div className="container mx-auto max-w-6xl mb-8">
@@ -77,11 +61,19 @@ export const HeroSection = () => {
               </span>
             </button>
             
-            {/* Brownie Image with Neon Effect */}
+            {/* Brownie Image with Neon Effect - Priority loading */}
             <div className="relative w-full max-w-md mx-auto my-8">
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-neon blur-3xl opacity-50 group-hover:opacity-70 transition-opacity duration-500 rounded-full"></div>
-                <img alt="Cookie recheado gourmet delicioso" loading="lazy" width="600" height="600" className="relative w-full h-auto rounded-2xl shadow-neon-strong border-4 border-primary/40 transition-all duration-500 group-hover:scale-105 group-hover:border-accent/60 neon-glow-strong" src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" />
+                <img 
+                  alt="Cookie recheado gourmet delicioso" 
+                  width="600" 
+                  height="600" 
+                  fetchPriority="high"
+                  decoding="async"
+                  className="relative w-full h-auto rounded-2xl shadow-neon-strong border-4 border-primary/40 transition-all duration-500 group-hover:scale-105 group-hover:border-accent/60 neon-glow-strong" 
+                  src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" 
+                />
               </div>
               
               {/* Social Proof Badge */}

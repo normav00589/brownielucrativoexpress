@@ -3,7 +3,6 @@ import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/Button";
 import { TrendingUp, DollarSign, Package, Calendar, Sparkles } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import confetti from "canvas-confetti";
 const COST_PER_BATCH = 60;
 const REVENUE_PER_BATCH = 200;
 const PROFIT_PER_BATCH = 140;
@@ -76,14 +75,16 @@ export const DreamCalculatorSection = () => {
       navigator.vibrate([50, 50, 100]);
     }
   }, []);
-  const triggerConfetti = useCallback(() => {
+  const triggerConfetti = useCallback(async () => {
+    // Lazy load confetti for better initial performance
+    const { default: confetti } = await import('canvas-confetti');
+    
     const count = 50;
     const defaults = {
-      origin: {
-        y: 0.7
-      },
+      origin: { y: 0.7 },
       zIndex: 9999
     };
+    
     function fire(particleRatio: number, opts: any) {
       confetti({
         ...defaults,
@@ -91,33 +92,12 @@ export const DreamCalculatorSection = () => {
         particleCount: Math.floor(count * particleRatio)
       });
     }
-    fire(0.25, {
-      spread: 26,
-      startVelocity: 55,
-      colors: ['#10b981', '#fbbf24', '#f59e0b']
-    });
-    fire(0.2, {
-      spread: 60,
-      colors: ['#10b981', '#fbbf24', '#f59e0b']
-    });
-    fire(0.35, {
-      spread: 100,
-      decay: 0.91,
-      scalar: 0.8,
-      colors: ['#10b981', '#fbbf24', '#f59e0b']
-    });
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 25,
-      decay: 0.92,
-      scalar: 1.2,
-      colors: ['#10b981', '#fbbf24', '#f59e0b']
-    });
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 45,
-      colors: ['#10b981', '#fbbf24', '#f59e0b']
-    });
+    
+    fire(0.25, { spread: 26, startVelocity: 55, colors: ['#10b981', '#fbbf24', '#f59e0b'] });
+    fire(0.2, { spread: 60, colors: ['#10b981', '#fbbf24', '#f59e0b'] });
+    fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8, colors: ['#10b981', '#fbbf24', '#f59e0b'] });
+    fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2, colors: ['#10b981', '#fbbf24', '#f59e0b'] });
+    fire(0.1, { spread: 120, startVelocity: 45, colors: ['#10b981', '#fbbf24', '#f59e0b'] });
   }, []);
   const handleSliderChange = useCallback((value: number[]) => {
     setMonthlyGoal(value[0]);
