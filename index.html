@@ -18,11 +18,18 @@
     <link rel="modulepreload" href="/src/main.tsx">
     
     <!-- Preload critical hero image -->
-    <link rel="preload" as="image" href="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" fetchpriority="high" type="image/webp">
     
-    <!-- Optimized font loading with font-display: swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+    <!-- Optimized font loading - only critical weights -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Inline critical CSS for faster FCP -->
+    <style>
+      body{margin:0;background:#0D0510;color:#fff;font-family:system-ui,sans-serif}
+      #root{min-height:100vh}
+      .min-h-screen{min-height:100vh}
+    </style>
 
     
     

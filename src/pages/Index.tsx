@@ -1,21 +1,24 @@
 import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { SaleNotification } from "@/components/SaleNotification";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { OfferSection } from "@/components/sections/OfferSection";
-import { DreamCalculatorSection } from "@/components/sections/DreamCalculatorSection";
-import { RecipesSection } from "@/components/sections/RecipesSection";
-import { PricingSection } from "@/components/sections/PricingSection";
 import { FooterSection } from "@/components/sections/FooterSection";
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense, memo } from "react";
 import { trackPageView } from "@/lib/fbTracking";
 
-// Lazy load below-the-fold sections
+// Lazy load all sections below hero for faster initial load
+const OfferSection = lazy(() => import("@/components/sections/OfferSection").then(m => ({ default: m.OfferSection })));
+const DreamCalculatorSection = lazy(() => import("@/components/sections/DreamCalculatorSection").then(m => ({ default: m.DreamCalculatorSection })));
+const RecipesSection = lazy(() => import("@/components/sections/RecipesSection").then(m => ({ default: m.RecipesSection })));
+const PricingSection = lazy(() => import("@/components/sections/PricingSection").then(m => ({ default: m.PricingSection })));
 const BonusSection = lazy(() => import("@/components/sections/BonusSection").then(m => ({ default: m.BonusSection })));
 const TestimonialsSection = lazy(() => import("@/components/sections/TestimonialsSection").then(m => ({ default: m.TestimonialsSection })));
 const GuaranteeSection = lazy(() => import("@/components/sections/GuaranteeSection").then(m => ({ default: m.GuaranteeSection })));
 const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })));
 const FinalCTASection = lazy(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 const BrownieGallerySection = lazy(() => import("@/components/sections/BrownieGallerySection").then(m => ({ default: m.BrownieGallerySection })));
+
+// Minimal loading skeleton
+const SectionLoader = memo(() => <div className="min-h-[200px]" />);
 
 const Index = () => {
   useEffect(() => {
@@ -54,20 +57,29 @@ const Index = () => {
       
       <main>
         <HeroSection />
-        <OfferSection />
         
-        <DreamCalculatorSection />
+        <Suspense fallback={<SectionLoader />}>
+          <OfferSection />
+        </Suspense>
         
-        <RecipesSection />
+        <Suspense fallback={<SectionLoader />}>
+          <DreamCalculatorSection />
+        </Suspense>
         
-        <Suspense fallback={<div className="min-h-[400px]" />}>
+        <Suspense fallback={<SectionLoader />}>
+          <RecipesSection />
+        </Suspense>
+        
+        <Suspense fallback={<SectionLoader />}>
           <BrownieGallerySection />
           <BonusSection />
         </Suspense>
         
-        <PricingSection data-section="pricing" />
+        <Suspense fallback={<SectionLoader />}>
+          <PricingSection data-section="pricing" />
+        </Suspense>
         
-        <Suspense fallback={<div className="min-h-[400px]" />}>
+        <Suspense fallback={<SectionLoader />}>
           <TestimonialsSection />
           <GuaranteeSection />
           <FAQSection />
