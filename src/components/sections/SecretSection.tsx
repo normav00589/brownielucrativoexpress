@@ -154,16 +154,32 @@ export const SecretSection = () => {
               </div>
             </div>
             
-            {/* CTA Button with glow */}
+            {/* Premium CTA Button */}
             <div className="relative group">
-              <div className="absolute inset-0 bg-primary rounded-lg blur-lg opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" />
-              <Button size="lg" className="relative w-full text-sm md:text-lg shadow-strong hover:shadow-premium hover:scale-[1.02] transition-all duration-300" onClick={() => {
-                document.getElementById('master-plan')?.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'center'
-                });
-              }}>
-                🔥 Quero Lucrar Com Brownie!    
+              {/* Pulsing rings */}
+              <div className="absolute inset-0 rounded-xl bg-primary/30 animate-ping opacity-20" />
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary via-accent to-gold opacity-60 blur-md group-hover:opacity-100 group-hover:blur-lg transition-all duration-500 animate-pulse" />
+              <div className="absolute -inset-[2px] rounded-xl bg-gradient-to-r from-gold via-primary to-accent animate-gradient-x opacity-80" />
+              
+              <Button 
+                size="lg" 
+                className="relative w-full text-base md:text-xl font-bold py-5 md:py-7 bg-gradient-to-r from-primary via-primary to-accent hover:from-accent hover:via-primary hover:to-primary shadow-[0_10px_40px_-10px_rgba(255,107,0,0.5)] hover:shadow-[0_20px_60px_-10px_rgba(255,107,0,0.7)] transform hover:scale-[1.03] transition-all duration-500 overflow-hidden group/btn" 
+                onClick={() => {
+                  document.getElementById('master-plan')?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                  });
+                }}
+              >
+                {/* Shimmer effect */}
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer-effect" />
+                
+                {/* Button content */}
+                <span className="relative flex items-center justify-center gap-2 md:gap-3">
+                  <span className="text-xl md:text-2xl animate-bounce">🔥</span>
+                  <span>Quero Lucrar Com Brownie!</span>
+                  <span className="text-lg md:text-xl transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
+                </span>
               </Button>
             </div>
             </div>
