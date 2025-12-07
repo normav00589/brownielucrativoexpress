@@ -7,7 +7,7 @@ import { trackPageView } from "@/lib/fbTracking";
 
 // Lazy load all sections below hero for faster initial load
 const OfferSection = lazy(() => import("@/components/sections/OfferSection").then(m => ({ default: m.OfferSection })));
-const DreamCalculatorSection = lazy(() => import("@/components/sections/DreamCalculatorSection").then(m => ({ default: m.DreamCalculatorSection })));
+const SecretSection = lazy(() => import("@/components/sections/SecretSection").then(m => ({ default: m.SecretSection })));
 const RecipesSection = lazy(() => import("@/components/sections/RecipesSection").then(m => ({ default: m.RecipesSection })));
 const PricingSection = lazy(() => import("@/components/sections/PricingSection").then(m => ({ default: m.PricingSection })));
 const BonusSection = lazy(() => import("@/components/sections/BonusSection").then(m => ({ default: m.BonusSection })));
@@ -63,7 +63,7 @@ const Index = () => {
         </Suspense>
         
         <Suspense fallback={<SectionLoader />}>
-          <DreamCalculatorSection />
+          <SecretSection />
         </Suspense>
         
         <Suspense fallback={<SectionLoader />}>
