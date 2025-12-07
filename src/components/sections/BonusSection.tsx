@@ -59,7 +59,7 @@ export const BonusSection = () => {
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-3 bg-gradient-neon px-6 py-3 rounded-full mb-6 shadow-neon-strong">
             <Gift className="w-6 h-6 text-white" />
-            <span className="font-heading font-bold text-lg text-white">6 Bônus Exclusivos</span>
+            <span className="font-heading font-bold text-lg text-white">7 Bônus Exclusivos</span>
           </div>
           
           <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground mb-6">E AINDA LEVA 7 BÔNUS 🎁</h2>
