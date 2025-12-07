@@ -62,7 +62,7 @@ export const BonusSection = () => {
             <span className="font-heading font-bold text-lg text-white">6 Bônus Exclusivos</span>
           </div>
           
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground mb-6">E AINDA LEVA 6 BÔNUS 🎁</h2>
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground mb-6">E AINDA LEVA 7 BÔNUS 🎁</h2>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Com <span className="font-bold text-primary">+70 receitas extras</span> para você diversificar e lucrar ainda mais!
