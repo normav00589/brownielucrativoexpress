@@ -1,4 +1,4 @@
-import { Gift, Star, Calendar, BookOpen, Sparkles, Award } from "lucide-react";
+import { Gift, Star, Calendar, BookOpen, Sparkles, Award, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 const bonuses = [{
@@ -37,6 +37,12 @@ const bonuses = [{
   description: "Certificado digital para comprovar sua especialização",
   highlight: "Profissionalização",
   recipes: "Documento oficial"
+}, {
+  icon: Calculator,
+  title: "CALCULADORA DE LUCRO E PRECIFICAÇÃO",
+  description: "Ferramenta exclusiva para calcular seus custos e definir preços lucrativos",
+  highlight: "Ferramenta Premium",
+  recipes: "Lucro garantido"
 }];
 export const BonusSection = () => {
   const {
