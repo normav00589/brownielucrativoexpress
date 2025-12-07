@@ -80,16 +80,42 @@ export const SecretSection = () => {
             </div>
             
             <div className="space-y-4 font-body text-sm md:text-base">
-            {/* Main value prop with glow effect */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary rounded-xl md:rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" />
-              <div className="relative bg-gradient-neon backdrop-blur-sm border-2 border-primary p-4 md:p-5 rounded-xl md:rounded-2xl shadow-neon-strong text-center md:text-left">
-                <p className="text-lg md:text-2xl font-bold text-white flex items-center justify-center md:justify-start gap-2">
-                  <Sparkles className="w-5 h-5 md:w-6 md:h-6 animate-pulse text-gold" />
-                  Casquinha + Cremoso + Caixinha
+            {/* Main value prop with premium effects */}
+            <div className="relative group perspective-1000">
+              {/* Animated gradient border */}
+              <div className="absolute -inset-[2px] bg-gradient-to-r from-gold via-accent to-primary rounded-xl md:rounded-2xl opacity-75 group-hover:opacity-100 blur-sm transition-all duration-500 animate-gradient-x" />
+              <div className="absolute -inset-[1px] bg-gradient-to-r from-primary via-gold to-accent rounded-xl md:rounded-2xl opacity-60 animate-gradient-x" style={{ animationDelay: '-1s' }} />
+              
+              {/* Floating particles inside */}
+              <div className="absolute inset-0 overflow-hidden rounded-xl md:rounded-2xl pointer-events-none">
+                <div className="absolute top-2 left-4 w-1.5 h-1.5 bg-gold rounded-full animate-float opacity-60" />
+                <div className="absolute top-4 right-6 w-1 h-1 bg-accent rounded-full animate-float" style={{ animationDelay: '0.5s' }} />
+                <div className="absolute bottom-3 left-1/3 w-1 h-1 bg-primary rounded-full animate-float" style={{ animationDelay: '1s' }} />
+              </div>
+              
+              <div className="relative bg-gradient-to-br from-secondary via-secondary/95 to-secondary/90 backdrop-blur-md p-5 md:p-6 rounded-xl md:rounded-2xl shadow-2xl text-center md:text-left transform transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-[0_20px_50px_-12px_rgba(255,107,0,0.4)]">
+                {/* Shimmer overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-xl md:rounded-2xl shimmer-effect opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <p className="relative text-xl md:text-2xl lg:text-3xl font-bold flex items-center justify-center md:justify-start gap-3">
+                  <span className="relative">
+                    <Sparkles className="w-6 h-6 md:w-7 md:h-7 text-gold animate-pulse drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]" />
+                    <Sparkles className="absolute inset-0 w-6 h-6 md:w-7 md:h-7 text-gold/50 animate-ping" />
+                  </span>
+                  <span className="bg-gradient-to-r from-gold via-accent to-gold bg-clip-text text-transparent animate-gradient-x bg-[length:200%_auto]">
+                    Casquinha + Cremoso + Caixinha
+                  </span>
                 </p>
-                <p className="text-white/80 text-sm md:text-base mt-1">
-                  A fórmula exata que transforma <span className="text-gold font-bold">R$60</span> em <span className="text-accent font-bold">R$200</span>
+                <p className="relative text-muted-foreground text-sm md:text-base lg:text-lg mt-2 md:mt-3">
+                  A fórmula exata que transforma{" "}
+                  <span className="relative inline-block">
+                    <span className="text-destructive font-bold line-through opacity-70">R$60</span>
+                  </span>
+                  {" "}em{" "}
+                  <span className="relative inline-block">
+                    <span className="text-accent font-black text-lg md:text-xl animate-pulse">R$200</span>
+                    <span className="absolute -inset-1 bg-accent/20 rounded blur-sm animate-pulse" />
+                  </span>
                 </p>
               </div>
             </div>
