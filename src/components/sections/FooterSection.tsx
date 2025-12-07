@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import logoBrownie from "@/assets/logo-brownie.png";
 
 export const FooterSection = () => {
   return (
@@ -6,7 +7,7 @@ export const FooterSection = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="font-heading font-bold text-xl mb-4">Brownies Lucrativos</h3>
+            <img src={logoBrownie} alt="Brownies Lucrativos" className="h-10 md:h-12 mb-4" />
             <p className="font-body text-sm opacity-80">
               Transformando cozinhas em negócios lucrativos desde 2020
             </p>
