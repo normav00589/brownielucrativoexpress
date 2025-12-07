@@ -2,24 +2,36 @@ import secretBrownies from "@/assets/secret-brownies.jpg";
 import { Sparkles, Lock, Clock, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-
 export const SecretSection = () => {
-  const { ref, isVisible } = useIntersectionObserver();
-  
-  return (
-    <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-card text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
+  const {
+    ref,
+    isVisible
+  } = useIntersectionObserver();
+  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-card text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating particles */}
-        <div className="absolute top-20 left-10 w-3 h-3 bg-accent/40 rounded-full animate-pulse" style={{ animationDelay: '0s' }} />
-        <div className="absolute top-40 right-20 w-2 h-2 bg-primary/50 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
-        <div className="absolute bottom-32 left-1/4 w-4 h-4 bg-gold/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-accent/60 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute bottom-20 right-10 w-3 h-3 bg-primary/40 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-20 left-10 w-3 h-3 bg-accent/40 rounded-full animate-pulse" style={{
+        animationDelay: '0s'
+      }} />
+        <div className="absolute top-40 right-20 w-2 h-2 bg-primary/50 rounded-full animate-pulse" style={{
+        animationDelay: '0.5s'
+      }} />
+        <div className="absolute bottom-32 left-1/4 w-4 h-4 bg-gold/30 rounded-full animate-pulse" style={{
+        animationDelay: '1s'
+      }} />
+        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-accent/60 rounded-full animate-pulse" style={{
+        animationDelay: '1.5s'
+      }} />
+        <div className="absolute bottom-20 right-10 w-3 h-3 bg-primary/40 rounded-full animate-pulse" style={{
+        animationDelay: '2s'
+      }} />
         
         {/* Gradient orbs */}
         <div className="absolute -top-20 -left-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse" style={{
+        animationDelay: '1s'
+      }} />
         
         {/* Shimmer line */}
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent shimmer-effect" />
@@ -35,11 +47,7 @@ export const SecretSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-primary/20 to-gold/30 rounded-2xl md:rounded-3xl blur-xl scale-105 opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
               
               {/* Image with hover effect */}
-              <img 
-                alt="Brownies com casquinha perfeita" 
-                className="relative rounded-2xl md:rounded-3xl shadow-premium w-full h-auto border-2 md:border-4 border-gold/30 transition-transform duration-500 group-hover:scale-[1.02]" 
-                src="/lovable-uploads/e3c77834-b773-424e-9ba9-2f7d215f21a1.jpg" 
-              />
+              <img alt="Brownies com casquinha perfeita" className="relative rounded-2xl md:rounded-3xl shadow-premium w-full h-auto border-2 md:border-4 border-gold/30 transition-transform duration-500 group-hover:scale-[1.02]" src="/lovable-uploads/e3c77834-b773-424e-9ba9-2f7d215f21a1.jpg" />
               
               {/* Floating badge with animation */}
               <div className="absolute -bottom-3 -right-2 md:-bottom-6 md:-right-6 bg-gold text-secondary px-4 py-2 md:px-6 md:py-3 shadow-neon-strong font-heading font-bold text-sm md:text-lg rounded-lg md:rounded-xl flex items-center gap-2 animate-pulse hover:animate-none hover:scale-105 transition-transform">
@@ -48,8 +56,12 @@ export const SecretSection = () => {
               </div>
               
               {/* Floating stars */}
-              <Star className="absolute -top-3 -left-3 w-6 h-6 text-gold fill-gold animate-pulse" style={{ animationDelay: '0.3s' }} />
-              <Star className="absolute top-1/4 -right-4 w-4 h-4 text-accent fill-accent animate-pulse" style={{ animationDelay: '0.7s' }} />
+              <Star className="absolute -top-3 -left-3 w-6 h-6 text-gold fill-gold animate-pulse" style={{
+              animationDelay: '0.3s'
+            }} />
+              <Star className="absolute top-1/4 -right-4 w-4 h-4 text-accent fill-accent animate-pulse" style={{
+              animationDelay: '0.7s'
+            }} />
             </div>
           </div>
           
@@ -119,23 +131,18 @@ export const SecretSection = () => {
             {/* CTA Button with glow */}
             <div className="relative group">
               <div className="absolute inset-0 bg-primary rounded-lg blur-lg opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" />
-              <Button 
-                size="lg" 
-                className="relative w-full text-sm md:text-lg shadow-strong hover:shadow-premium hover:scale-[1.02] transition-all duration-300" 
-                onClick={() => {
-                  document.getElementById('master-plan')?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                  });
-                }}
-              >
-                🔥 Quero Aprender o Método 3C Agora!
+              <Button size="lg" className="relative w-full text-sm md:text-lg shadow-strong hover:shadow-premium hover:scale-[1.02] transition-all duration-300" onClick={() => {
+                document.getElementById('master-plan')?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'center'
+                });
+              }}>
+                🔥 Quero Lucrar Com Brownie!    
               </Button>
             </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
