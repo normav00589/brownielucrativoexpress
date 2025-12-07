@@ -20,7 +20,8 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['lucide-react', '@radix-ui/react-accordion', '@radix-ui/react-dialog'],
+          'ui-vendor': ['lucide-react'],
+          'radix': ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-slot'],
         },
       },
     },
@@ -30,7 +31,11 @@ export default defineConfig(({ mode }) => ({
       compress: {
         drop_console: true,
         drop_debugger: true,
+        passes: 2,
       },
+      mangle: true,
     },
+    target: 'es2020',
+    chunkSizeWarningLimit: 500,
   },
 }));
