@@ -2,26 +2,19 @@ import secretBrownies from "@/assets/secret-brownies.jpg";
 import { Sparkles, Lock, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-
 export const SecretSection = () => {
-  const { ref, isVisible } = useIntersectionObserver();
-  
-  return (
-    <section 
-      ref={ref} 
-      className={`py-12 md:py-20 px-4 bg-gradient-card text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}
-    >
+  const {
+    ref,
+    isVisible
+  } = useIntersectionObserver();
+  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-card text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           
           {/* Image - appears second on mobile, first on desktop */}
           <div className="order-2 md:order-1 flex justify-center w-full">
             <div className="relative w-full max-w-sm mx-auto">
-              <img 
-                src={secretBrownies} 
-                alt="Brownies com casquinha perfeita" 
-                className="rounded-2xl md:rounded-3xl shadow-premium w-full h-auto border-2 md:border-4 border-gold/30" 
-              />
+              <img alt="Brownies com casquinha perfeita" className="rounded-2xl md:rounded-3xl shadow-premium w-full h-auto border-2 md:border-4 border-gold/30" src="/lovable-uploads/e3c77834-b773-424e-9ba9-2f7d215f21a1.jpg" />
               <div className="absolute -bottom-3 -right-2 md:-bottom-6 md:-right-6 bg-gold text-secondary px-4 py-2 md:px-6 md:py-3 shadow-neon-strong font-heading font-bold text-sm md:text-lg rounded-lg md:rounded-xl flex items-center gap-2">
                 <Lock className="w-4 h-4 md:w-5 md:h-5" />
                 Método Exclusivo
@@ -82,19 +75,17 @@ export const SecretSection = () => {
                 </p>
               </div>
               
-              <Button 
-                size="lg" 
-                className="w-full text-sm md:text-lg shadow-strong hover:shadow-premium"
-                onClick={() => {
-                  document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }}
-              >
+              <Button size="lg" className="w-full text-sm md:text-lg shadow-strong hover:shadow-premium" onClick={() => {
+              document.getElementById('master-plan')?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+              });
+            }}>
                 🔥 Quero Aprender o Método 3C Agora!
               </Button>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
