@@ -5,7 +5,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Check, Clock, AlertTriangle, Sparkles, Gift } from "lucide-react";
+import { Check, Clock, Sparkles, Gift, Flame, Trophy, Zap, Star } from "lucide-react";
 import { trackViewContent, trackInitiateCheckout } from "@/lib/fbTracking";
 
 interface DownsellModalProps {
@@ -15,10 +15,13 @@ interface DownsellModalProps {
 
 export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
   const [timeLeft, setTimeLeft] = useState({ minutes: 3, seconds: 0 });
+  const [pulsePrice, setPulsePrice] = useState(false);
+
+  const totalSeconds = timeLeft.minutes * 60 + timeLeft.seconds;
+  const progressPercent = (totalSeconds / 180) * 100; // 3 min = 180s
 
   useEffect(() => {
     if (isOpen) {
-      // Reset timer when modal opens
       setTimeLeft({ minutes: 3, seconds: 0 });
       trackViewContent('Downsell Modal Aberto', 9.70);
     }
@@ -34,7 +37,6 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
         } else if (prev.minutes > 0) {
           return { minutes: prev.minutes - 1, seconds: 59 };
         }
-        // Timer expired - close modal
         onClose();
         return prev;
       });
@@ -42,6 +44,16 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
 
     return () => clearInterval(timer);
   }, [isOpen, onClose]);
+
+  // Pulse effect for price every 5 seconds
+  useEffect(() => {
+    if (!isOpen) return;
+    const pulseInterval = setInterval(() => {
+      setPulsePrice(true);
+      setTimeout(() => setPulsePrice(false), 500);
+    }, 5000);
+    return () => clearInterval(pulseInterval);
+  }, [isOpen]);
 
   const handleProPlanClick = useCallback(() => {
     trackInitiateCheckout(9.70, 'Downsell - Plano PRO');
@@ -52,114 +64,131 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
   }, []);
 
   const benefits = [
-    { text: "+80 Receitas Profissionais", value: "R$197" },
-    { text: "Método 3C Completo", value: "R$297" },
-    { text: "Calculadora de Lucro no App", value: "R$97" },
-    { text: "Aulas de Brownies Natalinos", value: "R$147" },
-    { text: "Suporte + Certificado", value: "R$97" },
+    { text: "+80 Receitas Profissionais", value: "R$197", icon: "📚" },
+    { text: "Método 3C Completo", value: "R$297", icon: "🎯" },
+    { text: "Calculadora de Lucro", value: "R$97", icon: "💰" },
+    { text: "Aulas de Brownies Natalinos", value: "R$147", icon: "🎄" },
+    { text: "Suporte + Certificado", value: "R$97", icon: "🏆" },
   ];
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="w-[95vw] max-w-lg p-0 border-0 bg-transparent overflow-hidden max-h-[85vh] overflow-y-auto mx-auto">
+      <DialogContent className="w-[92vw] max-w-[420px] p-0 border-0 bg-transparent overflow-visible">
         <DialogTitle className="sr-only">Oferta Especial - Plano PRO</DialogTitle>
         
-        {/* Main Card */}
-        <div className="relative bg-gradient-premium border-2 border-primary/50 rounded-2xl p-4 sm:p-6 md:p-8 shadow-neon-strong">
-          {/* Animated border glow */}
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary via-accent to-primary opacity-20 blur-xl animate-gradient-x" />
-          
-          {/* Floating particles - reduced for performance */}
-          <div className="hidden md:block">
-            {[...Array(4)].map((_, i) => (
-              <div
-                key={i}
-                className="particle"
-                style={{
-                  left: `${20 + i * 20}%`,
-                  animationDelay: `${i * 0.5}s`,
-                  animationDuration: `${3 + i}s`
-                }}
-              />
-            ))}
-          </div>
-          
-          <div className="relative z-10">
-            {/* Urgency Header */}
-            <div className="text-center mb-3 sm:mb-4">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-primary/20 border border-primary/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-2 sm:mb-3">
-                <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-accent animate-pulse" />
-                <span className="font-heading font-bold text-accent text-xs sm:text-sm">
-                  ESPERE! ÚLTIMA CHANCE!
-                </span>
+        {/* Scrollable container */}
+        <div className="max-h-[80vh] overflow-y-auto overflow-x-hidden rounded-2xl">
+          {/* Main Card */}
+          <div className="relative bg-gradient-to-b from-background via-background to-primary/20 border-2 border-accent/60 rounded-2xl shadow-[0_0_60px_rgba(255,107,0,0.3)]">
+            
+            {/* Top flame decoration */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex gap-1">
+              <Flame className="w-6 h-6 text-accent animate-bounce" style={{ animationDelay: '0s' }} />
+              <Flame className="w-8 h-8 text-primary animate-bounce" style={{ animationDelay: '0.1s' }} />
+              <Flame className="w-6 h-6 text-accent animate-bounce" style={{ animationDelay: '0.2s' }} />
+            </div>
+
+            <div className="p-4 pt-6">
+              {/* Urgency Badge */}
+              <div className="text-center mb-3">
+                <div className="inline-flex items-center gap-1.5 bg-destructive/90 rounded-full px-3 py-1.5 animate-pulse">
+                  <Zap className="w-4 h-4 text-white" />
+                  <span className="font-heading font-black text-white text-xs uppercase tracking-wide">
+                    🚨 Última Chance! 🚨
+                  </span>
+                  <Zap className="w-4 h-4 text-white" />
+                </div>
               </div>
               
-              <h2 className="font-heading font-bold text-lg sm:text-xl md:text-2xl text-white mb-1.5 sm:mb-2 px-2">
-                Você estava prestes a <span className="text-accent">PERDER</span> a oportunidade de ganhar
-              </h2>
-              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient-neon">
-                R$10.000+ por mês com brownies...
-              </p>
-            </div>
-            
-            {/* Timer */}
-            <div className="bg-background/50 backdrop-blur-sm rounded-xl p-3 sm:p-4 mb-4 sm:mb-6 border border-accent/30">
-              <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2">
-                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
-                <span className="font-heading font-bold text-white text-xs sm:text-sm">
-                  ⚠️ ESSA OFERTA EXPIRA EM:
-                </span>
+              {/* Main headline */}
+              <div className="text-center mb-3">
+                <p className="text-white/80 text-xs mb-1">Você estava prestes a perder...</p>
+                <h2 className="font-heading font-black text-xl text-white leading-tight">
+                  <span className="text-accent">R$10.000+</span> por mês
+                </h2>
+                <p className="text-white/80 text-sm">vendendo brownies! 🍫</p>
               </div>
-              <div className="flex justify-center gap-2 font-heading font-bold text-2xl sm:text-3xl">
-                <span className="bg-primary text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-neon">
-                  {String(timeLeft.minutes).padStart(2, "0")}
-                </span>
-                <span className="text-accent self-center">:</span>
-                <span className="bg-primary text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-neon">
-                  {String(timeLeft.seconds).padStart(2, "0")}
-                </span>
+
+              {/* Timer with progress bar */}
+              <div className="bg-background/80 backdrop-blur rounded-xl p-3 mb-3 border border-accent/40">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Clock className="w-4 h-4 text-accent animate-spin" style={{ animationDuration: '3s' }} />
+                  <span className="font-heading font-bold text-white text-xs">
+                    OFERTA EXPIRA EM:
+                  </span>
+                </div>
+                
+                {/* Timer display */}
+                <div className="flex justify-center gap-1 font-heading font-black text-3xl mb-2">
+                  <div className="bg-primary px-3 py-1 rounded-lg shadow-[0_0_20px_rgba(139,69,19,0.5)] border border-accent/50">
+                    <span className="text-white">{String(timeLeft.minutes).padStart(2, "0")}</span>
+                  </div>
+                  <span className="text-accent self-center animate-pulse">:</span>
+                  <div className="bg-primary px-3 py-1 rounded-lg shadow-[0_0_20px_rgba(139,69,19,0.5)] border border-accent/50">
+                    <span className="text-white">{String(timeLeft.seconds).padStart(2, "0")}</span>
+                  </div>
+                </div>
+
+                {/* Progress bar */}
+                <div className="h-2 bg-background/50 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-accent via-primary to-accent transition-all duration-1000 rounded-full"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
               </div>
-            </div>
-            
-            {/* Benefits List */}
-            <div className="mb-4 sm:mb-6">
-              <p className="text-center font-heading font-bold text-white mb-3 sm:mb-4 text-sm sm:text-base">
-                📦 POR APENAS <span className="text-accent text-xl sm:text-2xl">R$9,70</span> você leva:
-              </p>
-              <ul className="space-y-1.5 sm:space-y-2">
+
+              {/* Price showcase */}
+              <div className="text-center mb-3 relative">
+                <div className="inline-block">
+                  <p className="text-muted-foreground text-xs line-through">De R$835,00</p>
+                  <div className={`transition-transform duration-300 ${pulsePrice ? 'scale-110' : 'scale-100'}`}>
+                    <span className="font-heading font-black text-4xl text-accent drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]">
+                      R$9,70
+                    </span>
+                  </div>
+                  <p className="text-white/60 text-[10px]">Economia de 98%! 🔥</p>
+                </div>
+                
+                {/* Floating stars */}
+                <Star className="absolute -left-2 top-0 w-4 h-4 text-accent animate-pulse" />
+                <Star className="absolute -right-2 top-2 w-3 h-3 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
+              </div>
+
+              {/* Benefits Grid - compact */}
+              <div className="grid grid-cols-1 gap-1.5 mb-3">
                 {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-center justify-between gap-2 bg-background/30 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2">
-                    <div className="flex items-center gap-1.5 sm:gap-2">
-                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
-                      <span className="font-body text-xs sm:text-sm text-white">{benefit.text}</span>
+                  <div 
+                    key={index} 
+                    className="flex items-center justify-between bg-white/5 rounded-lg px-2 py-1.5 border border-white/10"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-base">{benefit.icon}</span>
+                      <span className="text-white text-xs font-medium">{benefit.text}</span>
                     </div>
-                    <span className="text-muted-foreground text-[10px] sm:text-xs line-through">{benefit.value}</span>
-                  </li>
+                    <div className="flex items-center gap-1">
+                      <span className="text-muted-foreground text-[10px] line-through">{benefit.value}</span>
+                      <Check className="w-4 h-4 text-accent" />
+                    </div>
+                  </div>
                 ))}
-              </ul>
-              
-              <div className="mt-3 sm:mt-4 text-center">
-                <p className="text-muted-foreground text-xs sm:text-sm">
-                  💰 TOTAL: <span className="line-through">R$835</span>
-                </p>
-                <p className="font-heading font-bold text-xl sm:text-2xl text-accent">
-                  APENAS R$9,70
-                </p>
               </div>
-            </div>
-            
-            {/* Bonus */}
-            <div className="bg-accent/10 border border-accent/30 rounded-xl p-2.5 sm:p-3 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
-              <Gift className="w-6 h-6 sm:w-8 sm:h-8 text-accent flex-shrink-0" />
-              <p className="text-xs sm:text-sm text-white">
-                <span className="font-bold text-accent">🎁 BÔNUS EXCLUSIVO:</span> Se você clicar agora, ganha acesso ao grupo VIP de alunas!
-              </p>
-            </div>
-            
-            {/* CTA Buttons */}
-            <div className="space-y-2 sm:space-y-3">
+
+              {/* Bonus badge */}
+              <div className="bg-gradient-to-r from-accent/20 to-primary/20 border border-accent/40 rounded-lg p-2 mb-3 flex items-center gap-2">
+                <div className="bg-accent/30 rounded-full p-1.5">
+                  <Gift className="w-5 h-5 text-accent" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-accent text-xs font-bold">🎁 BÔNUS SECRETO</p>
+                  <p className="text-white/80 text-[10px]">Grupo VIP exclusivo de alunas!</p>
+                </div>
+                <Trophy className="w-5 h-5 text-accent animate-bounce" />
+              </div>
+
+              {/* CTA Button */}
               <Button 
-                className="w-full bg-gradient-to-r from-primary via-accent to-primary hover:opacity-90 text-background font-heading font-bold text-sm sm:text-lg py-4 sm:py-6 shadow-neon-strong shimmer-effect relative overflow-hidden"
+                className="w-full bg-gradient-to-r from-accent via-primary to-accent hover:brightness-110 text-white font-heading font-black text-sm py-5 rounded-xl shadow-[0_0_30px_rgba(255,107,0,0.4)] border-2 border-white/20 relative overflow-hidden group"
                 asChild
               >
                 <a 
@@ -168,18 +197,27 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                   rel="noopener noreferrer"
                   onClick={handleProPlanClick}
                 >
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" />
-                  SIM! QUERO O PLANO PRO POR R$9,70!
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 ml-1.5 sm:ml-2" />
+                  {/* Shimmer effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                  
+                  <Sparkles className="w-5 h-5 mr-2 animate-pulse" />
+                  <span className="relative z-10">QUERO POR R$9,70!</span>
+                  <Sparkles className="w-5 h-5 ml-2 animate-pulse" />
                 </a>
               </Button>
-              
+
+              {/* Guarantee text */}
+              <p className="text-center text-white/50 text-[10px] mt-2 flex items-center justify-center gap-1">
+                🔒 Compra 100% segura • Garantia de 7 dias
+              </p>
+
+              {/* Secondary link */}
               <button
                 onClick={() => {
                   handleBasicPlanClick();
                   window.open("https://danielle-dias.mycartpanda.com/checkout/202036361:1", "_blank");
                 }}
-                className="w-full text-center text-muted-foreground/60 text-[10px] sm:text-xs py-2 hover:text-muted-foreground transition-colors"
+                className="w-full text-center text-white/30 text-[10px] py-2 mt-1 hover:text-white/50 transition-colors"
               >
                 Não, prefiro o plano básico por R$1,99
               </button>
