@@ -4,15 +4,18 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 const recipeCategories = [{
   title: "BROWNIES TRADICIONAIS",
   emoji: "🍫",
-  recipes: ["Brownie Clássico - A base perfeita", "Brownie de Nutella - Cremoso e viciante", "Brownie com Nozes - O clássico atemporal", "Brownie Molhadinho - Úmido e aveludado", "Brownie de Chocolate Branco - Doce e sofisticado", "Brownie de Paçoca - Sabor brasileiro", "Brownie Red Velvet - Elegante e irresistível", "Brownie de Café - Aromático e intenso", "Brownie de Coco - Tropical e delicioso", "Brownie de Limão - Refrescante e diferente"]
+  recipes: ["Brownie Clássico - A base perfeita", "Brownie de Nutella - Cremoso e viciante", "Brownie Red Velvet - Elegante e irresistível", "Brownie Molhadinho - Úmido e aveludado"],
+  totalRecipes: 30
 }, {
   title: "BROWNIES GOURMET",
   emoji: "🎂",
-  recipes: ["Brownie Floresta Negra - Cerejas e chantilly", "Brownie 3 Camadas - Puro prazer visual", "Brownie com Whisky - Toque adulto refinado", "Brownie Sensação - Morango e chocolate", "Brownie Oreo - Crocante e cremoso", "Brownie Diamante Negro - Sofisticado", "Brownie Capuccino - Cremoso e aromático", "Brownie Sonho de Valsa - Nostálgico", "Brownie Trufado - Recheio surpresa", "Brownie com Caramelo Salgado - Doce e salgado"]
+  recipes: ["Brownie Floresta Negra - Cerejas e chantilly", "Brownie Trufado - Recheio surpresa", "Brownie Oreo - Crocante e cremoso", "Brownie com Caramelo Salgado - Doce e salgado"],
+  totalRecipes: 25
 }, {
   title: "BROWNIES ESPECIAIS",
   emoji: "🥄",
-  recipes: ["Brownie Zero Açúcar - Para todos os públicos", "Brownie Zero Lactose - Inclusivo e saboroso", "Brownie Low Carb - Opção fitness", "Brownie Vegano - Para todos", "Brownie de Caneca - Prático e rápido", "Brownie de Abobrinha - Saudável e fofinho", "Brownie de Banana - Naturalmente doce", "Brownie de Aveia - Nutritivo e saboroso", "Brownie de Micro-ondas - Emergência doce", "Brownie de Frutas Vermelhas - Antioxidante"]
+  recipes: ["Brownie Zero Açúcar - Para todos os públicos", "Brownie Vegano - Para todos", "Brownie Low Carb - Opção fitness", "Brownie de Caneca - Prático e rápido"],
+  totalRecipes: 25
 }];
 export const RecipesSection = () => {
   const {
@@ -47,12 +50,15 @@ export const RecipesSection = () => {
               <h3 className="font-heading font-bold text-xl md:text-2xl mb-6 text-center text-accent">
                 {category.title}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 mb-4">
                 {category.recipes.map((recipe, recipeIdx) => <li key={recipeIdx} className="flex items-start gap-3">
                     <Star className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
                     <span className="text-sm md:text-base text-foreground">{recipe}</span>
                   </li>)}
               </ul>
+              <div className="bg-primary/20 rounded-lg px-4 py-2 text-center">
+                <span className="text-accent font-semibold text-sm">🔥 + mais {category.totalRecipes - category.recipes.length} receitas incríveis!</span>
+              </div>
             </div>)}
         </div>
         
