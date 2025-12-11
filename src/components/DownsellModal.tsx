@@ -20,7 +20,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
     if (isOpen) {
       // Reset timer when modal opens
       setTimeLeft({ minutes: 3, seconds: 0 });
-      trackViewContent('Downsell Modal Aberto', 14.90);
+      trackViewContent('Downsell Modal Aberto', 9.70);
     }
   }, [isOpen]);
 
@@ -44,7 +44,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
   }, [isOpen, onClose]);
 
   const handleProPlanClick = useCallback(() => {
-    trackInitiateCheckout(14.90, 'Downsell - Plano PRO');
+    trackInitiateCheckout(9.70, 'Downsell - Plano PRO');
   }, []);
 
   const handleBasicPlanClick = useCallback(() => {
@@ -61,11 +61,11 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-lg p-0 border-0 bg-transparent overflow-hidden max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] max-w-lg p-0 border-0 bg-transparent overflow-hidden max-h-[85vh] overflow-y-auto mx-auto">
         <DialogTitle className="sr-only">Oferta Especial - Plano PRO</DialogTitle>
         
         {/* Main Card */}
-        <div className="relative bg-gradient-premium border-2 border-primary/50 rounded-2xl p-6 md:p-8 shadow-neon-strong">
+        <div className="relative bg-gradient-premium border-2 border-primary/50 rounded-2xl p-4 sm:p-6 md:p-8 shadow-neon-strong">
           {/* Animated border glow */}
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary via-accent to-primary opacity-20 blur-xl animate-gradient-x" />
           
@@ -86,103 +86,103 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
           
           <div className="relative z-10">
             {/* Urgency Header */}
-            <div className="text-center mb-4">
-              <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 mb-3">
-                <AlertTriangle className="w-5 h-5 text-accent animate-pulse" />
-                <span className="font-heading font-bold text-accent text-sm">
+            <div className="text-center mb-3 sm:mb-4">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-primary/20 border border-primary/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-2 sm:mb-3">
+                <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-accent animate-pulse" />
+                <span className="font-heading font-bold text-accent text-xs sm:text-sm">
                   ESPERE! ÚLTIMA CHANCE!
                 </span>
               </div>
               
-              <h2 className="font-heading font-bold text-xl md:text-2xl text-white mb-2">
+              <h2 className="font-heading font-bold text-lg sm:text-xl md:text-2xl text-white mb-1.5 sm:mb-2 px-2">
                 Você estava prestes a <span className="text-accent">PERDER</span> a oportunidade de ganhar
               </h2>
-              <p className="text-2xl md:text-3xl font-bold text-gradient-neon">
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient-neon">
                 R$10.000+ por mês com brownies...
               </p>
             </div>
             
             {/* Timer */}
-            <div className="bg-background/50 backdrop-blur-sm rounded-xl p-4 mb-6 border border-accent/30">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <Clock className="w-5 h-5 text-accent" />
-                <span className="font-heading font-bold text-white text-sm">
+            <div className="bg-background/50 backdrop-blur-sm rounded-xl p-3 sm:p-4 mb-4 sm:mb-6 border border-accent/30">
+              <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2">
+                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                <span className="font-heading font-bold text-white text-xs sm:text-sm">
                   ⚠️ ESSA OFERTA EXPIRA EM:
                 </span>
               </div>
-              <div className="flex justify-center gap-2 font-heading font-bold text-3xl">
-                <span className="bg-primary text-white px-4 py-2 rounded-lg shadow-neon">
+              <div className="flex justify-center gap-2 font-heading font-bold text-2xl sm:text-3xl">
+                <span className="bg-primary text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-neon">
                   {String(timeLeft.minutes).padStart(2, "0")}
                 </span>
                 <span className="text-accent self-center">:</span>
-                <span className="bg-primary text-white px-4 py-2 rounded-lg shadow-neon">
+                <span className="bg-primary text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-neon">
                   {String(timeLeft.seconds).padStart(2, "0")}
                 </span>
               </div>
             </div>
             
             {/* Benefits List */}
-            <div className="mb-6">
-              <p className="text-center font-heading font-bold text-white mb-4">
-                📦 POR APENAS <span className="text-accent text-2xl">R$14,90</span> você leva:
+            <div className="mb-4 sm:mb-6">
+              <p className="text-center font-heading font-bold text-white mb-3 sm:mb-4 text-sm sm:text-base">
+                📦 POR APENAS <span className="text-accent text-xl sm:text-2xl">R$9,70</span> você leva:
               </p>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5 sm:space-y-2">
                 {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-center justify-between gap-2 bg-background/30 rounded-lg px-3 py-2">
-                    <div className="flex items-center gap-2">
-                      <Check className="w-5 h-5 text-accent flex-shrink-0" />
-                      <span className="font-body text-sm text-white">{benefit.text}</span>
+                  <li key={index} className="flex items-center justify-between gap-2 bg-background/30 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
+                      <span className="font-body text-xs sm:text-sm text-white">{benefit.text}</span>
                     </div>
-                    <span className="text-muted-foreground text-xs line-through">{benefit.value}</span>
+                    <span className="text-muted-foreground text-[10px] sm:text-xs line-through">{benefit.value}</span>
                   </li>
                 ))}
               </ul>
               
-              <div className="mt-4 text-center">
-                <p className="text-muted-foreground text-sm">
+              <div className="mt-3 sm:mt-4 text-center">
+                <p className="text-muted-foreground text-xs sm:text-sm">
                   💰 TOTAL: <span className="line-through">R$835</span>
                 </p>
-                <p className="font-heading font-bold text-2xl text-accent">
-                  APENAS R$14,90
+                <p className="font-heading font-bold text-xl sm:text-2xl text-accent">
+                  APENAS R$9,70
                 </p>
               </div>
             </div>
             
             {/* Bonus */}
-            <div className="bg-accent/10 border border-accent/30 rounded-xl p-3 mb-6 flex items-center gap-3">
-              <Gift className="w-8 h-8 text-accent flex-shrink-0" />
-              <p className="text-sm text-white">
+            <div className="bg-accent/10 border border-accent/30 rounded-xl p-2.5 sm:p-3 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
+              <Gift className="w-6 h-6 sm:w-8 sm:h-8 text-accent flex-shrink-0" />
+              <p className="text-xs sm:text-sm text-white">
                 <span className="font-bold text-accent">🎁 BÔNUS EXCLUSIVO:</span> Se você clicar agora, ganha acesso ao grupo VIP de alunas!
               </p>
             </div>
             
             {/* CTA Buttons */}
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               <Button 
-                className="w-full bg-gradient-to-r from-primary via-accent to-primary hover:opacity-90 text-background font-heading font-bold text-lg py-6 shadow-neon-strong shimmer-effect relative overflow-hidden"
+                className="w-full bg-gradient-to-r from-primary via-accent to-primary hover:opacity-90 text-background font-heading font-bold text-sm sm:text-lg py-4 sm:py-6 shadow-neon-strong shimmer-effect relative overflow-hidden"
                 asChild
               >
                 <a 
-                  href="https://danielle-dias.mycartpanda.com/checkout/202036345:1" 
+                  href="https://danielle-dias.mycartpanda.com/checkout/203970596:1" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   onClick={handleProPlanClick}
                 >
-                  <Sparkles className="w-5 h-5 mr-2" />
-                  SIM! QUERO O PLANO PRO POR R$14,90!
-                  <Sparkles className="w-5 h-5 ml-2" />
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" />
+                  SIM! QUERO O PLANO PRO POR R$9,70!
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 ml-1.5 sm:ml-2" />
                 </a>
               </Button>
               
-              <a
-                href="https://danielle-dias.mycartpanda.com/checkout/202036361:1"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleBasicPlanClick}
-                className="block text-center text-muted-foreground text-sm hover:text-white transition-colors underline"
+              <button
+                onClick={() => {
+                  handleBasicPlanClick();
+                  window.open("https://danielle-dias.mycartpanda.com/checkout/202036361:1", "_blank");
+                }}
+                className="w-full text-center text-muted-foreground/60 text-[10px] sm:text-xs py-2 hover:text-muted-foreground transition-colors"
               >
                 Não, prefiro o plano básico por R$1,99
-              </a>
+              </button>
             </div>
           </div>
         </div>
