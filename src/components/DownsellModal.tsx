@@ -217,7 +217,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                   handleBasicPlanClick();
                   window.open("https://danielle-dias.mycartpanda.com/checkout/202036361:1", "_blank");
                 }}
-                className="w-full text-center text-white/30 text-[10px] py-2 mt-1 hover:text-white/50 transition-colors"
+                className="w-full text-center text-white/60 text-xs py-2 mt-2 hover:text-white/80 transition-colors underline underline-offset-2"
               >
                 Não, prefiro o plano básico por R$1,99
               </button>
