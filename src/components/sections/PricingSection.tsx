@@ -41,7 +41,7 @@ export const PricingSection = () => {
               </li>
               <li className="flex items-start gap-2">
                 <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
-                <span className="font-body font-semibold text-sm md:text-base text-white">Aulas em Vídeo d "Brownies Natalinos que Vendem"</span>
+                <span className="font-body font-semibold text-sm md:text-base text-white">Aulas em Vídeo de "Brownies que Vendem"</span>
               </li>
               <li className="flex items-start gap-2">
                 <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
