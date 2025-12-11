@@ -483,3 +483,40 @@ All colors MUST be HSL.
     opacity: 1;
   }
 }
+
+/* Mobile Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .particle,
+  .energy-wave {
+    display: none !important;
+  }
+  
+  .animate-gradient-x,
+  .neon-glow-strong,
+  .shimmer-effect::before {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .particle {
+    display: none !important;
+  }
+  
+  .energy-wave {
+    display: none !important;
+  }
+  
+  .animate-gradient-x {
+    animation-duration: 6s;
+  }
+  
+  .neon-glow-strong {
+    animation: none;
+    box-shadow: var(--shadow-neon);
+  }
+  
+  .shimmer-effect::before {
+    animation-duration: 4s;
+  }
+}
