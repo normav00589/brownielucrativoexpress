@@ -2,8 +2,10 @@ import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { SaleNotification } from "@/components/SaleNotification";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { FooterSection } from "@/components/sections/FooterSection";
-import { useEffect, lazy, Suspense, memo } from "react";
+import { DownsellModal } from "@/components/DownsellModal";
+import { useEffect, lazy, Suspense, memo, useState, useCallback, useRef } from "react";
 import { trackPageView } from "@/lib/fbTracking";
+import { useOfferExitIntent } from "@/hooks/useOfferExitIntent";
 
 // Lazy load all sections below hero for faster initial load
 const OfferSection = lazy(() => import("@/components/sections/OfferSection").then(m => ({ default: m.OfferSection })));
@@ -20,7 +22,42 @@ const BrownieGallerySection = lazy(() => import("@/components/sections/BrownieGa
 // Minimal loading skeleton
 const SectionLoader = memo(() => <div className="min-h-[200px]" />);
 
+// Wrapper component for PricingSection with exit intent
+const PricingSectionWithExitIntent = memo(({ onExitIntent }: { onExitIntent: () => void }) => {
+  const { sectionRef } = useOfferExitIntent({
+    minTimeInSection: 3000,
+    onExitIntent,
+  });
+
+  return (
+    <div ref={sectionRef as React.RefObject<HTMLDivElement>}>
+      <PricingSection />
+    </div>
+  );
+});
+
+PricingSectionWithExitIntent.displayName = 'PricingSectionWithExitIntent';
+
 const Index = () => {
+  const [showDownsell, setShowDownsell] = useState(false);
+  const modalShownThisSession = useRef(false);
+
+  const handleShowDownsell = useCallback(() => {
+    if (modalShownThisSession.current) return;
+    modalShownThisSession.current = true;
+    setShowDownsell(true);
+  }, []);
+
+  const handleCloseDownsell = useCallback(() => {
+    setShowDownsell(false);
+    // Reset the urgency timer when modal closes
+    (window as any).__resetUrgencyTimer?.();
+    // Allow modal to show again after some time
+    setTimeout(() => {
+      modalShownThisSession.current = false;
+    }, 300000); // 5 minutes cooldown
+  }, []);
+
   useEffect(() => {
     trackPageView();
     
@@ -51,9 +88,12 @@ const Index = () => {
       events.forEach(event => window.removeEventListener(event, loadWistia));
     };
   }, []);
-  return <div className="min-h-screen">
-      <UrgencyBanner />
+
+  return (
+    <div className="min-h-screen">
+      <UrgencyBanner onTimerExpire={handleShowDownsell} />
       <SaleNotification />
+      <DownsellModal isOpen={showDownsell} onClose={handleCloseDownsell} />
       
       <main>
         <HeroSection />
@@ -76,7 +116,7 @@ const Index = () => {
         </Suspense>
         
         <Suspense fallback={<SectionLoader />}>
-          <PricingSection data-section="pricing" />
+          <PricingSectionWithExitIntent onExitIntent={handleShowDownsell} />
         </Suspense>
         
         <Suspense fallback={<SectionLoader />}>
@@ -88,6 +128,8 @@ const Index = () => {
       </main>
       
       <FooterSection />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
