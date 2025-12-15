@@ -4,9 +4,10 @@ import { trackViewContent } from "@/lib/fbTracking";
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen py-12 md:py-16 px-4 bg-background overflow-hidden">
-      {/* Gradient background with pink glow */}
-      <div className="absolute inset-0 bg-gradient-hero opacity-50 -z-10" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/20 blur-[120px] rounded-full -z-10" />
+      {/* Gradient background with rose/caramel glow */}
+      <div className="absolute inset-0 bg-gradient-hero opacity-60 -z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/15 blur-[120px] rounded-full -z-10" />
+      <div className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-accent/10 blur-[100px] rounded-full -z-10" />
       
       <div className="container mx-auto max-w-3xl">
         <div className="space-y-5 text-center">
@@ -59,7 +60,7 @@ export const HeroSection = () => {
           
           {/* CTA Button */}
           <button 
-            className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg font-body" 
+            className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-background rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-caramel font-body" 
             onClick={() => {
               trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
               document.getElementById('master-plan')?.scrollIntoView({
@@ -69,13 +70,13 @@ export const HeroSection = () => {
             }}
           >
             {/* Gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-neon-magenta to-primary"></div>
+            <div className="absolute inset-0 bg-gradient-cta"></div>
             
             {/* Shimmer overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             
             {/* Button content */}
-            <span className="relative flex items-center justify-center gap-2">
+            <span className="relative flex items-center justify-center gap-2 text-background font-bold">
               🍫 Ver Oferta Exclusiva Agora
             </span>
           </button>
@@ -99,14 +100,14 @@ export const HeroSection = () => {
           {/* Brownie Image */}
           <div className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6">
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500 rounded-full"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 rounded-full"></div>
               <img 
                 alt="Brownie gourmet delicioso" 
                 width="600" 
                 height="600" 
                 fetchPriority="high" 
                 decoding="async" 
-                className="relative w-full h-auto rounded-2xl shadow-2xl border-2 border-primary/40 transition-all duration-500 group-hover:scale-[1.02]" 
+                className="relative w-full h-auto rounded-2xl shadow-2xl border-2 border-accent/30 transition-all duration-500 group-hover:scale-[1.02]" 
                 src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" 
               />
             </div>
