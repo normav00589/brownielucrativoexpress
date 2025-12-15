@@ -55,18 +55,18 @@ export const HeroSection = () => {
           </div>
           
           {/* CTA Button */}
-          <button className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg font-body" onClick={() => {
+          <button className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-xl font-body" onClick={() => {
           trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
           document.getElementById('master-plan')?.scrollIntoView({
             behavior: 'smooth',
             block: 'center'
           });
         }}>
-            {/* Gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-neon-magenta to-primary"></div>
+            {/* Gradient background - Orange/Brown */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(20,75%,35%)] via-[hsl(25,85%,50%)] to-[hsl(20,75%,35%)]"></div>
             
             {/* Shimmer overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             
             {/* Button content */}
             <span className="relative flex items-center justify-center gap-2">
