@@ -65,6 +65,9 @@ All colors MUST be HSL.
     --accent: 45 100% 55%;
     --accent-foreground: 0 0% 3%;
     
+    --cta-orange: 25 85% 50%;
+    --cta-orange-dark: 20 75% 35%;
+    
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
