@@ -21,12 +21,21 @@ export const HeroSection = () => {
           </h1>
           
           {/* Subheadline with Highlighted Values */}
-          <p className="font-body text-lg sm:text-xl md:text-2xl font-semibold leading-relaxed">
-            <span className="text-white">Como lucrar </span>
-            <span className="text-accent font-bold">R$150–R$350 por dia</span>
-            <br />
-            <span className="text-white">com brownies que vendem sozinhos</span>
-          </p>
+          <div className="space-y-2">
+            <p className="font-body text-lg sm:text-xl md:text-2xl font-bold leading-relaxed">
+              <span className="text-white/90">Como lucrar </span>
+              <span className="relative inline-block">
+                <span className="text-accent font-black text-xl sm:text-2xl md:text-3xl drop-shadow-[0_0_15px_rgba(250,204,21,0.6)] animate-pulse">
+                  R$150–R$350
+                </span>
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-accent/0 via-accent to-accent/0"></span>
+              </span>
+              <span className="text-accent font-black text-xl sm:text-2xl md:text-3xl"> por dia</span>
+            </p>
+            <p className="font-body text-base sm:text-lg md:text-xl text-white/80">
+              com brownies que <span className="text-primary font-bold">vendem sozinhos</span> ✨
+            </p>
+          </div>
           
           {/* Price Block with Strong Anchor */}
           <div className="space-y-2 py-4">
