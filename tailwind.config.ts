@@ -83,8 +83,9 @@ export default {
         premium: "var(--shadow-premium)",
       },
       fontFamily: {
-        heading: ["Poppins", "sans-serif"],
-        body: ["Nunito", "sans-serif"],
+        heading: ["Montserrat", "sans-serif"],
+        body: ["Poppins", "sans-serif"],
+        display: ["Montserrat", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
