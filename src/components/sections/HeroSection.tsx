@@ -1,9 +1,7 @@
 import { Shield, Users, Sparkles, CheckCircle, Star, Zap } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
-
 export const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen py-12 md:py-16 px-4 bg-background overflow-hidden">
+  return <section className="relative min-h-screen py-12 md:py-16 px-4 bg-background overflow-hidden">
       {/* Gradient background with pink glow */}
       <div className="absolute inset-0 bg-gradient-hero opacity-50 -z-10" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/20 blur-[120px] rounded-full -z-10" />
@@ -32,42 +30,38 @@ export const HeroSection = () => {
               </span>
               <span className="text-accent font-black text-xl sm:text-2xl md:text-3xl"> por dia</span>
             </p>
-            <p className="font-body text-base sm:text-lg md:text-xl text-white/80">
-              com brownies que <span className="text-primary font-bold">vendem sozinhos</span> ✨
+            <p className="font-body text-base sm:text-lg md:text-xl text-primary-foreground">com brownies que vendem sozinhos!<span className="text-primary font-bold">vendem sozinhos</span> ✨
             </p>
           </div>
           
           {/* Price Block */}
-          <div className="space-y-2 py-4">
+          <div className="space-y-2 py-4 text-primary-foreground">
             <div className="flex items-center justify-center gap-3">
-              <span className="text-base sm:text-lg line-through font-body text-white/50">De R$97</span>
+              <span className="text-base sm:text-lg line-through font-body text-primary-foreground">De R$97</span>
               <span className="bg-primary text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full animate-pulse">
                 -98% OFF
               </span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <span className="text-base sm:text-lg font-body text-white/70">por apenas</span>
+              <span className="text-base sm:text-lg font-body text-primary-foreground">por apenas</span>
               <span className="text-4xl sm:text-5xl md:text-6xl font-display font-black text-accent">
                 R$1,90
               </span>
             </div>
-            <p className="text-xs sm:text-sm flex items-center justify-center gap-2 font-body text-white/70">
+            <p className="text-xs sm:text-sm flex items-center justify-center gap-2 font-body text-primary-foreground">
               <CheckCircle className="w-4 h-4 text-green-400" />
               Acesso vitalício + Garantia de 14 dias
             </p>
           </div>
           
           {/* CTA Button */}
-          <button 
-            className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg font-body" 
-            onClick={() => {
-              trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
-              document.getElementById('master-plan')?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-              });
-            }}
-          >
+          <button className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg font-body" onClick={() => {
+          trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
+          document.getElementById('master-plan')?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }}>
             {/* Gradient background */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-neon-magenta to-primary"></div>
             
@@ -100,15 +94,7 @@ export const HeroSection = () => {
           <div className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6">
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500 rounded-full"></div>
-              <img 
-                alt="Brownie gourmet delicioso" 
-                width="600" 
-                height="600" 
-                fetchPriority="high" 
-                decoding="async" 
-                className="relative w-full h-auto rounded-2xl shadow-2xl border-2 border-primary/40 transition-all duration-500 group-hover:scale-[1.02]" 
-                src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" 
-              />
+              <img alt="Brownie gourmet delicioso" width="600" height="600" fetchPriority="high" decoding="async" className="relative w-full h-auto rounded-2xl shadow-2xl border-2 border-primary/40 transition-all duration-500 group-hover:scale-[1.02]" src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" />
             </div>
             
             {/* Social Proof Badge */}
@@ -118,7 +104,7 @@ export const HeroSection = () => {
           </div>
           
           {/* Empathy Copy */}
-          <p className="font-body text-sm sm:text-base max-w-lg mx-auto leading-relaxed text-white/80">
+          <p className="font-body text-sm sm:text-base max-w-lg mx-auto leading-relaxed text-primary-foreground">
             Mesmo que você já tenha tentado{" "}
             <span className="text-primary font-semibold">mil vezes e errado</span>
             {" "}— aprenda o método <span className="font-bold text-white">BROWNIE 3C</span> para fazer brownies{" "}
@@ -149,6 +135,5 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
