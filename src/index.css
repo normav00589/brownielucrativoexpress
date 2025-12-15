@@ -43,49 +43,49 @@ All colors MUST be HSL.
   :root {
     /* Caramel Rose - Deep elegant black background */
     --background: 0 0% 2%;
-    --foreground: 30 20% 95%;
+    --foreground: 35 25% 96%;
 
     --card: 25 15% 6%;
-    --card-foreground: 30 20% 95%;
+    --card-foreground: 35 25% 96%;
 
     --popover: 25 15% 6%;
-    --popover-foreground: 30 20% 95%;
+    --popover-foreground: 35 25% 96%;
 
-    /* Soft Rose - Elegant pink tones */
-    --primary: 350 50% 75%;
+    /* Soft Rose - More vibrant pink tones */
+    --primary: 350 65% 72%;
     --primary-foreground: 0 0% 5%;
 
     --secondary: 25 20% 10%;
-    --secondary-foreground: 30 20% 95%;
+    --secondary-foreground: 35 25% 96%;
 
     --muted: 25 15% 12%;
-    --muted-foreground: 30 15% 60%;
+    --muted-foreground: 35 20% 75%;
 
     /* Rich Caramel - Warm conversion color */
-    --accent: 28 55% 58%;
+    --accent: 30 70% 62%;
     --accent-foreground: 0 0% 5%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 20% 15%;
-    --input: 25 20% 15%;
-    --ring: 350 50% 75%;
+    --border: 25 25% 18%;
+    --input: 25 25% 18%;
+    --ring: 350 65% 72%;
 
     --radius: 1rem;
 
     /* Caramel Rose Color Palette */
-    --gold: 38 50% 55%;
-    --gold-dark: 35 45% 45%;
-    --gold-light: 40 55% 65%;
+    --gold: 40 75% 60%;
+    --gold-dark: 35 65% 50%;
+    --gold-light: 42 80% 70%;
     --chocolate: 25 60% 25%;
     --chocolate-light: 25 45% 40%;
-    --rose: 350 50% 75%;
-    --rose-light: 350 60% 85%;
-    --rose-dark: 350 45% 60%;
-    --caramel: 28 55% 58%;
-    --caramel-light: 30 60% 68%;
-    --caramel-dark: 25 50% 45%;
+    --rose: 350 65% 72%;
+    --rose-light: 350 75% 82%;
+    --rose-dark: 350 55% 58%;
+    --caramel: 30 70% 62%;
+    --caramel-light: 32 75% 72%;
+    --caramel-dark: 28 60% 50%;
     
     /* Caramel Rose Gradients */
     --gradient-warm: linear-gradient(135deg, hsl(350 50% 75%) 0%, hsl(28 55% 58%) 100%);
