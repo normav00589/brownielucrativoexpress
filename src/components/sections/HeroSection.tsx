@@ -30,17 +30,6 @@ export const HeroSection = () => {
             <span className="text-white">com brownies que vendem sozinhos</span>
           </p>
           
-          {/* Empathy Copy with Highlights */}
-          <p className="font-body text-sm sm:text-base text-white/80 max-w-lg mx-auto leading-relaxed">
-            Mesmo que você já tenha tentado{" "}
-            <span className="text-primary font-semibold">mil vezes e errado</span>
-            {" "}— aprenda o método <span className="font-bold text-white">BROWNIE 3C</span> para fazer brownies{" "}
-            <span className="text-primary">lindos</span>,{" "}
-            <span className="text-primary">estáveis</span>,{" "}
-            <span className="text-primary">cremosos</span> e{" "}
-            <span className="text-accent font-semibold">vendáveis</span>.
-          </p>
-          
           {/* Price Block with Strong Anchor */}
           <div className="space-y-2 py-4">
             <div className="flex items-center justify-center gap-3">
@@ -121,9 +110,15 @@ export const HeroSection = () => {
             </div>
           </div>
           
-          {/* Additional Trust Text */}
-          <p className="text-xs sm:text-sm text-white/60 font-body max-w-md mx-auto">
-            Junte-se a mais de <span className="text-accent font-semibold">2.400 alunas</span> que já transformaram suas cozinhas em negócios lucrativos.
+          {/* Empathy Copy with Highlights - Below Image */}
+          <p className="font-body text-sm sm:text-base text-white/80 max-w-lg mx-auto leading-relaxed">
+            Mesmo que você já tenha tentado{" "}
+            <span className="text-primary font-semibold">mil vezes e errado</span>
+            {" "}— aprenda o método <span className="font-bold text-white">BROWNIE 3C</span> para fazer brownies{" "}
+            <span className="text-primary">lindos</span>,{" "}
+            <span className="text-primary">estáveis</span>,{" "}
+            <span className="text-primary">cremosos</span> e{" "}
+            <span className="text-accent font-semibold">vendáveis</span>.
           </p>
           
           {/* Lighter Feature Grid */}
