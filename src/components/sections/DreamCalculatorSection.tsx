@@ -148,13 +148,13 @@ export const DreamCalculatorSection = () => {
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-neon">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-caramel bg-clip-text text-transparent">
               🎯 Qual é Sua Meta dos Sonhos?
             </h2>
             <p className="text-lg md:text-xl text-primary-foreground mb-4">
               Descubra quanto você precisa produzir para alcançar seus objetivos
             </p>
-            <p className="inline-block text-sm md:text-base font-semibold bg-gradient-neon px-4 py-2 rounded-full text-white shadow-neon">
+            <p className="inline-block text-sm md:text-base font-semibold bg-gradient-to-r from-primary via-caramel to-accent px-4 py-2 rounded-full text-cream shadow-premium">
               ✨ Método 3C: Casquinha + Cremoso + Caixinha
             </p>
           </div>

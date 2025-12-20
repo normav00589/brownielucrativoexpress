@@ -32,8 +32,8 @@ export const NightmareSection = () => {
                 É frustrante ver os outros ganhando dinheiro com sobremesas simples enquanto você ainda tenta achar o ponto certo.
               </p>
               
-              <p className="text-foreground font-bold text-lg md:text-xl bg-gradient-neon p-6 rounded-xl border-2 border-accent shadow-neon">
-                Mas e se eu te dissesse que o segredo não está em sorte ou talento, e sim em um <span className="text-white">método simples</span> que qualquer pessoa pode dominar?
+              <p className="text-foreground font-bold text-lg md:text-xl bg-gradient-to-r from-primary via-caramel to-accent p-6 rounded-xl border-2 border-accent shadow-premium">
+                Mas e se eu te dissesse que o segredo não está em sorte ou talento, e sim em um <span className="text-cream">método simples</span> que qualquer pessoa pode dominar?
               </p>
             </div>
           </div>
