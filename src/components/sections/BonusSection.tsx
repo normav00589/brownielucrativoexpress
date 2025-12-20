@@ -1,109 +1,155 @@
-import { Gift, Star, Calendar, BookOpen, Sparkles, Award, Calculator } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Gift, Star, Calendar, BookOpen, Sparkles, Award, Calculator, ChefHat } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-const bonuses = [{
-  icon: Calendar,
-  title: "BROWNIES NATALINOS",
-  description: "Receitas especiais para a época mais lucrativa do ano",
-  highlight: "Edição Limitada",
-  recipes: "15+ receitas exclusivas"
-}, {
-  icon: BookOpen,
-  title: "32 RECEITAS DE BOLOS NO POTE",
-  description: "Expanda seu negócio com outro produto campeão de vendas",
-  highlight: "Bônus Premium",
-  recipes: "32 receitas completas"
-}, {
-  icon: Sparkles,
-  title: "24 BROWNIES ESPECIAIS",
-  description: "Receitas diferenciadas para clientes exigentes",
-  highlight: "Receitas Gourmet",
-  recipes: "24 variações premium"
-}, {
-  icon: Star,
-  title: "RECEITAS EM VÍDEO DE CONFEITARIA",
-  description: "Cocada, biscoitinhos, manjar, brigadeirão, mousse e muito mais!",
-  highlight: "Alto Valor",
-  recipes: "6+ receitas em vídeo"
-}, {
-  icon: Gift,
-  title: "RECEITAS PROFISSIONAIS",
-  description: "Recheios, coberturas e ganaches de confeitaria",
-  highlight: "Segredos Profissionais",
-  recipes: "Técnicas avançadas"
-}, {
-  icon: Award,
-  title: "CERTIFICADO DE CONCLUSÃO",
-  description: "Certificado digital para comprovar sua especialização",
-  highlight: "Profissionalização",
-  recipes: "Documento oficial"
-}, {
-  icon: Calculator,
-  title: "CALCULADORA DE LUCRO E PRECIFICAÇÃO",
-  description: "Ferramenta exclusiva para calcular seus custos e definir preços lucrativos",
-  highlight: "Ferramenta Premium",
-  recipes: "Lucro garantido"
-}];
+
+const bonuses = [
+  {
+    icon: Calendar,
+    title: "BROWNIES NATALINOS",
+    description: "Receitas especiais para a época mais lucrativa do ano",
+    highlight: "Edição Limitada",
+    recipes: "15+ receitas exclusivas",
+    color: "from-red-500 to-red-700"
+  },
+  {
+    icon: BookOpen,
+    title: "32 RECEITAS DE BOLOS NO POTE",
+    description: "Expanda seu negócio com outro produto campeão de vendas",
+    highlight: "Bônus Premium",
+    recipes: "32 receitas completas",
+    color: "from-primary to-accent"
+  },
+  {
+    icon: Sparkles,
+    title: "24 BROWNIES ESPECIAIS",
+    description: "Receitas diferenciadas para clientes exigentes",
+    highlight: "Receitas Gourmet",
+    recipes: "24 variações premium",
+    color: "from-caramel to-gold"
+  },
+  {
+    icon: Star,
+    title: "RECEITAS EM VÍDEO",
+    description: "Cocada, biscoitinhos, manjar, brigadeirão, mousse e mais!",
+    highlight: "Alto Valor",
+    recipes: "6+ receitas em vídeo",
+    color: "from-amber-500 to-orange-600"
+  },
+  {
+    icon: Gift,
+    title: "RECEITAS PROFISSIONAIS",
+    description: "Recheios, coberturas e ganaches de confeitaria",
+    highlight: "Segredos Pro",
+    recipes: "Técnicas avançadas",
+    color: "from-accent to-primary"
+  },
+  {
+    icon: Award,
+    title: "CERTIFICADO",
+    description: "Certificado digital para comprovar sua especialização",
+    highlight: "Profissional",
+    recipes: "Documento oficial",
+    color: "from-gold to-caramel"
+  },
+  {
+    icon: Calculator,
+    title: "CALCULADORA DE LUCRO",
+    description: "Ferramenta para calcular custos e definir preços lucrativos",
+    highlight: "Ferramenta Premium",
+    recipes: "Lucro garantido",
+    color: "from-emerald-500 to-emerald-700"
+  }
+];
+
 export const BonusSection = () => {
-  const {
-    ref,
-    isVisible
-  } = useIntersectionObserver();
-  return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-card relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 right-20 w-64 h-64 bg-accent rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-20 w-64 h-64 bg-primary rounded-full blur-3xl" />
-      </div>
+  const { ref, isVisible } = useIntersectionObserver();
+  
+  return (
+    <section 
+      ref={ref} 
+      className={`py-16 md:py-24 px-4 relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}
+      style={{ background: 'linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--chocolate-dark)/0.5) 50%, hsl(var(--background)) 100%)' }}
+    >
+      {/* Decorative blurs */}
+      <div className="absolute top-20 right-10 w-72 h-72 bg-caramel/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
       
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary via-caramel to-accent px-6 py-3 rounded-full mb-6 shadow-premium">
-            <Gift className="w-6 h-6 text-cream" />
-            <span className="font-heading font-bold text-lg text-cream">7 Bônus Exclusivos</span>
+        {/* Header */}
+        <div className="text-center mb-14 md:mb-20">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-2 bg-gradient-to-r from-primary via-accent to-caramel px-6 py-3 rounded-full shadow-lg">
+              <Gift className="w-6 h-6 text-white" />
+              <span className="font-heading font-bold text-lg text-white">7 Bônus Exclusivos</span>
+              <Gift className="w-6 h-6 text-white" />
+            </div>
           </div>
           
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground mb-6">E AINDA LEVA 7 BÔNUS 🎁</h2>
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6">
+            <span className="bg-gradient-to-r from-caramel via-gold to-caramel bg-clip-text text-transparent">
+              E AINDA LEVA 7 BÔNUS
+            </span>
+            <span className="ml-3">🎁</span>
+          </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Com <span className="font-bold text-primary">+70 receitas extras</span> para você diversificar e lucrar ainda mais!
+            Com <span className="font-bold text-caramel">+70 receitas extras</span> para você diversificar e lucrar ainda mais!
           </p>
         </div>
         
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {bonuses.map((bonus, idx) => <div key={idx} className="group relative bg-card/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-medium hover:shadow-premium transition-all duration-500 border-2 border-primary/20 hover:border-primary/50 hover:scale-105">
-              <div className="absolute top-0 right-0 bg-gradient-to-r from-primary to-caramel px-4 py-1 rounded-bl-2xl rounded-tr-xl">
-                <span className="text-xs font-heading font-bold text-cream">{bonus.highlight}</span>
+        {/* Bonus Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+          {bonuses.map((bonus, idx) => (
+            <div 
+              key={idx} 
+              className="group relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-border/50 hover:border-caramel/50 hover:-translate-y-2"
+            >
+              {/* Highlight badge */}
+              <div className={`absolute -top-3 right-4 bg-gradient-to-r ${bonus.color} px-4 py-1.5 rounded-full shadow-md`}>
+                <span className="text-xs font-heading font-bold text-white whitespace-nowrap">{bonus.highlight}</span>
               </div>
               
-              <div className="bg-gradient-to-r from-primary to-caramel w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-medium group-hover:shadow-premium transition-all duration-300">
-                <bonus.icon className="w-8 h-8 text-cream" />
+              {/* Icon */}
+              <div className={`bg-gradient-to-br ${bonus.color} w-14 h-14 rounded-xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <bonus.icon className="w-7 h-7 text-white" />
               </div>
               
-              <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
+              {/* Content */}
+              <h3 className="font-heading font-bold text-lg md:text-xl text-foreground mb-2 leading-tight">
                 {bonus.title}
               </h3>
               
-              <p className="mb-4 text-primary-foreground">
+              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                 {bonus.description}
               </p>
               
-              <div className="flex items-center gap-2 text-primary font-semibold">
-                <Star className="w-4 h-4" />
-                <span className="text-sm">{bonus.recipes}</span>
+              {/* Recipe count */}
+              <div className="flex items-center gap-2">
+                <Star className="w-4 h-4 text-gold fill-gold" />
+                <span className="text-sm font-semibold text-caramel">{bonus.recipes}</span>
               </div>
-            </div>)}
+            </div>
+          ))}
         </div>
         
-        <div className="mt-12 text-center space-y-6">
-          <div className="inline-block bg-gradient-to-r from-primary via-caramel to-accent text-cream px-8 py-6 rounded-2xl shadow-premium">
+        {/* Bottom summary */}
+        <div className="mt-14 md:mt-20 text-center">
+          <div className="relative inline-block">
+            {/* Glow effect */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-primary via-caramel to-accent rounded-2xl blur-lg opacity-40" />
             
-            <p className="text-cream/90 mt-2">
-              Mais de 150 receitas + suporte + planilhas + acesso vitalício
-            </p>
+            <div className="relative bg-gradient-to-r from-chocolate-dark via-chocolate to-chocolate-dark border border-caramel/30 px-8 md:px-12 py-6 md:py-8 rounded-2xl shadow-xl">
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <ChefHat className="w-8 h-8 text-gold" />
+                <span className="font-heading font-bold text-2xl md:text-3xl text-cream">+150 Receitas</span>
+                <ChefHat className="w-8 h-8 text-gold" />
+              </div>
+              <p className="text-cream/80 text-sm md:text-base">
+                Suporte completo + Planilhas + Acesso Vitalício
+              </p>
+            </div>
           </div>
-          
-          
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
