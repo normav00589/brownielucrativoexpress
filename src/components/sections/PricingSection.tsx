@@ -2,18 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Check, Star, Sparkles, Crown } from "lucide-react";
 import { trackInitiateCheckout } from "@/lib/fbTracking";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-
 export const PricingSection = () => {
-  const { ref, isVisible } = useIntersectionObserver();
-  
-  return (
-    <section 
-      ref={ref} 
-      id="pricing" 
-      data-section="pricing" 
-      className={`py-16 md:py-24 px-4 relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}
-      style={{ background: 'linear-gradient(180deg, hsl(var(--chocolate-dark)) 0%, hsl(var(--background)) 50%, hsl(var(--chocolate-dark)) 100%)' }}
-    >
+  const {
+    ref,
+    isVisible
+  } = useIntersectionObserver();
+  return <section ref={ref} id="pricing" data-section="pricing" className={`py-16 md:py-24 px-4 relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`} style={{
+    background: 'linear-gradient(180deg, hsl(var(--chocolate-dark)) 0%, hsl(var(--background)) 50%, hsl(var(--chocolate-dark)) 100%)'
+  }}>
       {/* Decorative elements */}
       <div className="absolute top-10 left-10 w-20 h-20 bg-primary/20 rounded-full blur-3xl" />
       <div className="absolute bottom-10 right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl" />
@@ -33,10 +29,7 @@ export const PricingSection = () => {
         
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto items-stretch">
           {/* Master Plan - Featured */}
-          <div 
-            id="master-plan" 
-            className="relative group"
-          >
+          <div id="master-plan" className="relative group">
             {/* Glow effect behind card */}
             <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-caramel rounded-3xl blur-lg opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
             
@@ -50,9 +43,7 @@ export const PricingSection = () => {
               
               {/* Stars decoration */}
               <div className="flex justify-center gap-1 mt-4 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-gold fill-gold" />
-                ))}
+                {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-gold fill-gold" />)}
               </div>
               
               <div className="text-center mb-8">
@@ -68,34 +59,18 @@ export const PricingSection = () => {
               </div>
               
               <ul className="space-y-4 mb-10">
-                {[
-                  '+80 Receitas Profissionais',
-                  'Acesso total ao Método 3C',
-                  'Aulas em Vídeo "Brownies que Vendem"',
-                  'Calculadora de Lucro no App',
-                  'Guia dos Melhores Ingredientes',
-                  'Aulas Extras de Confeitaria',
-                  'Suporte + Acesso Vitalício + Certificado'
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 group/item">
+                {['+80 Receitas Profissionais', 'Acesso total ao Método 3C', 'Aulas em Vídeo "Brownies que Vendem"', 'Calculadora de Lucro no App', 'Guia dos Melhores Ingredientes', 'Aulas Extras de Confeitaria', 'Suporte + Acesso Vitalício + Certificado'].map((item, i) => <li key={i} className="flex items-start gap-3 group/item">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-caramel to-gold flex items-center justify-center mt-0.5">
                       <Check className="w-4 h-4 text-chocolate-dark" />
                     </div>
-                    <span className="font-body font-medium text-sm md:text-base text-cream/90 group-hover/item:text-cream transition-colors">
+                    <span className="font-body font-medium text-sm md:text-base transition-colors text-primary-foreground">
                       {item}
                     </span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
               
               {/* CTA Button - Master */}
-              <a 
-                href="https://danielle-dias.mycartpanda.com/checkout/202036345:1" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                onClick={() => trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan')}
-                className="block w-full py-4 px-8 bg-gradient-to-r from-caramel via-gold to-caramel text-chocolate-dark font-heading font-bold text-lg rounded-xl shadow-lg hover:shadow-[0_0_30px_hsl(var(--gold)/0.5)] hover:-translate-y-1 transition-all duration-300 text-center relative overflow-hidden group/btn"
-              >
+              <a href="https://danielle-dias.mycartpanda.com/checkout/202036345:1" target="_blank" rel="noopener noreferrer" onClick={() => trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan')} className="block w-full py-4 px-8 bg-gradient-to-r from-caramel via-gold to-caramel text-chocolate-dark font-heading font-bold text-lg rounded-xl shadow-lg hover:shadow-[0_0_30px_hsl(var(--gold)/0.5)] hover:-translate-y-1 transition-all duration-300 text-center relative overflow-hidden group/btn">
                 <span className="relative z-10">🍫 Quero o Acesso Completo!</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-gold via-caramel to-gold opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
               </a>
@@ -114,35 +89,22 @@ export const PricingSection = () => {
             </div>
             
             <ul className="space-y-4 mb-10">
-              {[
-                '10 Receitas base testadas',
-                'Método 3C introdutório',
-                'PDF "Casquinha Perfeita"'
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
+              {['10 Receitas base testadas', 'Método 3C introdutório', 'PDF "Casquinha Perfeita"'].map((item, i) => <li key={i} className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center mt-0.5">
                     <Check className="w-4 h-4 text-accent" />
                   </div>
                   <span className="font-body text-sm md:text-base text-foreground/80">
                     {item}
                   </span>
-                </li>
-              ))}
+                </li>)}
             </ul>
             
             {/* CTA Button - Basic */}
-            <a 
-              href="https://danielle-dias.mycartpanda.com/checkout/202036361:1" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={() => trackInitiateCheckout(1.99, 'App Brownies Lucrativos - Basic Plan')}
-              className="block w-full py-4 px-8 bg-secondary text-secondary-foreground font-heading font-bold text-lg rounded-xl shadow-md hover:shadow-lg hover:bg-secondary/90 hover:-translate-y-0.5 transition-all duration-300 text-center"
-            >
+            <a href="https://danielle-dias.mycartpanda.com/checkout/202036361:1" target="_blank" rel="noopener noreferrer" onClick={() => trackInitiateCheckout(1.99, 'App Brownies Lucrativos - Basic Plan')} className="block w-full py-4 px-8 bg-secondary text-secondary-foreground font-heading font-bold text-lg rounded-xl shadow-md hover:shadow-lg hover:bg-secondary/90 hover:-translate-y-0.5 transition-all duration-300 text-center">
               Começar Agora
             </a>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
