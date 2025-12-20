@@ -1,5 +1,4 @@
 import { UrgencyBanner } from "@/components/UrgencyBanner";
-import { SaleNotification } from "@/components/SaleNotification";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { DownsellModal } from "@/components/DownsellModal";
@@ -18,6 +17,9 @@ const GuaranteeSection = lazy(() => import("@/components/sections/GuaranteeSecti
 const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })));
 const FinalCTASection = lazy(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 const BrownieGallerySection = lazy(() => import("@/components/sections/BrownieGallerySection").then(m => ({ default: m.BrownieGallerySection })));
+
+// Lazy load SaleNotification for better initial performance
+const SaleNotification = lazy(() => import("@/components/SaleNotification").then(m => ({ default: m.SaleNotification })));
 
 // Minimal loading skeleton
 const SectionLoader = memo(() => <div className="min-h-[200px]" />);
@@ -60,39 +62,17 @@ const Index = () => {
 
   useEffect(() => {
     trackPageView();
-    
-    // Lazy load Wistia script after user interaction or 3s delay
-    let loaded = false;
-    const loadWistia = () => {
-      if (loaded) return;
-      loaded = true;
-      
-      const script1 = document.createElement('script');
-      script1.src = 'https://fast.wistia.com/assets/external/E-v1.js';
-      script1.async = true;
-      document.body.appendChild(script1);
-
-      const script2 = document.createElement('script');
-      script2.src = 'https://fast.wistia.com/embed/medias/m38gxr4r4u.jsonp';
-      script2.async = true;
-      document.body.appendChild(script2);
-    };
-
-    const timer = setTimeout(loadWistia, 3000);
-    
-    const events = ['scroll', 'mousemove', 'touchstart'];
-    events.forEach(event => window.addEventListener(event, loadWistia, { once: true, passive: true }));
-
-    return () => {
-      clearTimeout(timer);
-      events.forEach(event => window.removeEventListener(event, loadWistia));
-    };
   }, []);
 
   return (
     <div className="min-h-screen">
       <UrgencyBanner onTimerExpire={handleShowDownsell} />
-      <SaleNotification />
+      
+      {/* Lazy load SaleNotification */}
+      <Suspense fallback={null}>
+        <SaleNotification />
+      </Suspense>
+      
       <DownsellModal isOpen={showDownsell} onClose={handleCloseDownsell} />
       
       <main>

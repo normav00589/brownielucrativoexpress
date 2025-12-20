@@ -539,8 +539,24 @@ All colors MUST be HSL.
   }
 }
 
-/* Mobile Performance Optimizations */
+/* Performance Optimizations */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .particle,
+  .energy-wave {
+    display: none !important;
+  }
+}
+
+/* Mobile Performance - Disable heavy animations */
+@media (max-width: 768px) {
   .particle,
   .energy-wave {
     display: none !important;
@@ -548,30 +564,30 @@ All colors MUST be HSL.
   
   .animate-gradient-x,
   .neon-glow-strong,
+  .float-animation,
+  .brownie-float {
+    animation: none !important;
+  }
+  
   .shimmer-effect::before {
     animation: none !important;
   }
-}
-
-@media (max-width: 768px) {
-  .particle {
-    display: none !important;
+  
+  /* Reduce box shadows on mobile */
+  .shadow-neon,
+  .shadow-neon-strong {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
   }
   
-  .energy-wave {
-    display: none !important;
+  /* Simplify transitions on mobile */
+  .hover-lift,
+  .card-hover,
+  .hover-glow {
+    transition: transform 0.2s ease !important;
   }
   
-  .animate-gradient-x {
-    animation-duration: 6s;
-  }
-  
-  .neon-glow-strong {
-    animation: none;
-    box-shadow: var(--shadow-neon);
-  }
-  
-  .shimmer-effect::before {
-    animation-duration: 4s;
+  .hover-lift:hover,
+  .card-hover:hover {
+    transform: none !important;
   }
 }

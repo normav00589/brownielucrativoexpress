@@ -1,10 +1,11 @@
 import { Shield, Users, Sparkles, CheckCircle, Star, Zap } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
+
 export const HeroSection = () => {
-  return <section className="relative min-h-screen py-12 md:py-16 px-4 bg-background overflow-hidden">
-      {/* Gradient background with pink glow */}
+  return (
+    <section className="relative min-h-screen py-12 md:py-16 px-4 bg-background overflow-hidden">
+      {/* Simplified background gradient */}
       <div className="absolute inset-0 bg-gradient-hero opacity-50 -z-10" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/20 blur-[120px] rounded-full -z-10" />
       
       <div className="container mx-auto max-w-3xl">
         <div className="space-y-5 text-center">
@@ -30,7 +31,8 @@ export const HeroSection = () => {
               </span>
               <span className="text-accent font-black text-xl sm:text-2xl md:text-3xl"> por dia</span>
             </p>
-            <p className="font-body text-base sm:text-lg md:text-xl text-primary-foreground">com brownies que vendem sozinhos!<span className="text-primary font-bold">vendem sozinhos</span> ✨
+            <p className="font-body text-base sm:text-lg md:text-xl text-primary-foreground">
+              com brownies que <span className="text-primary font-bold">vendem sozinhos</span> ✨
             </p>
           </div>
           
@@ -38,7 +40,7 @@ export const HeroSection = () => {
           <div className="space-y-2 py-4 text-primary-foreground">
             <div className="flex items-center justify-center gap-3">
               <span className="text-base sm:text-lg line-through font-body text-primary-foreground">De R$97</span>
-              <span className="bg-primary text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full animate-pulse">
+              <span className="bg-primary text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full">
                 -98% OFF
               </span>
             </div>
@@ -54,18 +56,21 @@ export const HeroSection = () => {
             </p>
           </div>
           
-          {/* CTA Button */}
-          <button className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-xl font-body" onClick={() => {
-          trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
-          document.getElementById('master-plan')?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-          });
-        }}>
+          {/* CTA Button - Orange/Brown */}
+          <button 
+            className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 shadow-xl font-body" 
+            onClick={() => {
+              trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
+              document.getElementById('master-plan')?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+              });
+            }}
+          >
             {/* Gradient background - Orange/Brown */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(20,75%,35%)] via-[hsl(25,85%,50%)] to-[hsl(20,75%,35%)]"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--cta-orange-dark))] via-[hsl(var(--cta-orange))] to-[hsl(var(--cta-orange-dark))]"></div>
             
-            {/* Shimmer overlay */}
+            {/* Shimmer overlay - only on hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             
             {/* Button content */}
@@ -90,11 +95,19 @@ export const HeroSection = () => {
             </span>
           </div>
           
-          {/* Brownie Image */}
+          {/* Brownie Image - Responsive with srcset */}
           <div className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6">
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500 rounded-full"></div>
-              <img alt="Brownie gourmet delicioso" width="600" height="600" fetchPriority="high" decoding="async" className="relative w-full h-auto rounded-2xl shadow-2xl border-2 border-primary/40 transition-all duration-500 group-hover:scale-[1.02]" src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" />
+              <img 
+                alt="Brownie gourmet delicioso" 
+                width="600" 
+                height="600" 
+                fetchPriority="high" 
+                decoding="async" 
+                loading="eager"
+                className="relative w-full h-auto rounded-2xl shadow-2xl border-2 border-primary/40" 
+                src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" 
+              />
             </div>
             
             {/* Social Proof Badge */}
@@ -114,26 +127,27 @@ export const HeroSection = () => {
             <span className="text-accent font-semibold">vendáveis</span>.
           </p>
           
-          {/* Feature Grid */}
+          {/* Feature Grid - Simplified */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 max-w-2xl mx-auto mt-6">
-            <div className="bg-white/5 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/30 hover:border-primary/50 transition-colors duration-300">
+            <div className="bg-white/5 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/30">
               <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1" />
               <span className="text-white/90 font-medium text-[10px] sm:text-xs block font-body">Acesso Vitalício</span>
             </div>
-            <div className="bg-white/5 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/30 hover:border-accent/50 transition-colors duration-300">
+            <div className="bg-white/5 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/30">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-accent mx-auto mb-1" />
               <span className="text-white/90 font-medium text-[10px] sm:text-xs block font-body">App Exclusivo</span>
             </div>
-            <div className="bg-white/5 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/30 hover:border-primary/50 transition-colors duration-300">
+            <div className="bg-white/5 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/30">
               <Users className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1" />
               <span className="text-white/90 font-medium text-[10px] sm:text-xs block font-body">+2400 Alunas</span>
             </div>
-            <div className="bg-white/5 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/30 hover:border-accent/50 transition-colors duration-300">
+            <div className="bg-white/5 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/30">
               <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent mx-auto mb-1" />
               <span className="text-white/90 font-medium text-[10px] sm:text-xs block font-body">14 Dias Garantia</span>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
