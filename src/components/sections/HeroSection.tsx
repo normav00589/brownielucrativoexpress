@@ -1,41 +1,28 @@
+import { memo } from "react";
 import { Shield, Users, Sparkles, CheckCircle, Star, Zap } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
 
-export const HeroSection = () => {
+export const HeroSection = memo(() => {
   return (
     <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden">
-      {/* Warm chocolate gradient background */}
+      {/* Simplified gradient background */}
       <div className="absolute inset-0 bg-gradient-hero -z-10" />
-      
-      {/* Subtle warm glow at top */}
-      <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] -z-10 opacity-40"
-        style={{
-          background: 'radial-gradient(ellipse, hsl(30 70% 45% / 0.4) 0%, transparent 70%)'
-        }}
-      />
       
       <div className="container mx-auto max-w-3xl">
         <div className="space-y-5 text-center">
           
-          {/* Main Headline */}
+          {/* Main Headline - Simplified for mobile */}
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] font-black tracking-tight">
-            <span className="block text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <span className="block text-white">
               Brownies
             </span>
-            <span 
-              className="block bg-gradient-to-r from-gold via-white to-caramel bg-clip-text text-transparent animate-text-shine"
-            >
+            <span className="block bg-gradient-to-r from-gold via-white to-caramel bg-clip-text text-transparent md:animate-text-shine">
               Lucrativos
             </span>
             <span className="block mt-2">
-              <span className="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                em{" "}
-              </span>
+              <span className="text-white">em </span>
               <span className="relative inline-block">
-                <span 
-                  className="bg-gradient-to-r from-accent via-gold to-caramel bg-clip-text text-transparent animate-text-gradient"
-                >
+                <span className="bg-gradient-to-r from-accent via-gold to-caramel bg-clip-text text-transparent md:animate-text-gradient">
                   40 Minutos
                 </span>
                 <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-accent to-gold rounded-full"></span>
@@ -47,7 +34,7 @@ export const HeroSection = () => {
           <div className="space-y-2">
             <p className="font-body text-lg sm:text-xl md:text-2xl font-bold leading-relaxed">
               <span className="text-white">Como lucrar </span>
-              <span className="bg-gradient-to-r from-gold via-accent to-gold bg-clip-text text-transparent font-black text-xl sm:text-2xl md:text-3xl animate-text-gradient">
+              <span className="bg-gradient-to-r from-gold via-accent to-gold bg-clip-text text-transparent font-black text-xl sm:text-2xl md:text-3xl">
                 R$150–R$350
               </span>
               <span className="text-white font-black text-xl sm:text-2xl md:text-3xl"> por dia</span>
@@ -61,15 +48,13 @@ export const HeroSection = () => {
           <div className="space-y-2 py-4">
             <div className="flex items-center justify-center gap-3">
               <span className="text-base sm:text-lg line-through font-body text-white/70">De R$97</span>
-              <span className="bg-gradient-to-r from-primary to-caramel text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-lg">
+              <span className="bg-gradient-to-r from-primary to-caramel text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full">
                 -98% OFF
               </span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <span className="text-base sm:text-lg font-body text-white">por apenas</span>
-              <span 
-                className="text-4xl sm:text-5xl md:text-6xl font-display font-black bg-gradient-to-r from-gold via-white to-gold bg-clip-text text-transparent animate-text-shine"
-              >
+              <span className="text-4xl sm:text-5xl md:text-6xl font-display font-black bg-gradient-to-r from-gold via-white to-gold bg-clip-text text-transparent md:animate-text-shine">
                 R$1,90
               </span>
             </div>
@@ -79,33 +64,21 @@ export const HeroSection = () => {
             </p>
           </div>
           
-          {/* CTA Button - Rich chocolate/caramel */}
+          {/* CTA Button - Simplified */}
           <button 
-            className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 font-body" 
-            style={{
-              boxShadow: '0 8px 30px rgba(200, 140, 60, 0.4), 0 4px 15px rgba(180, 100, 40, 0.3)'
-            }}
+            className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-transform duration-200 hover:scale-105 font-body bg-gradient-to-r from-[hsl(20,80%,35%)] via-[hsl(28,90%,50%)] to-[hsl(35,85%,52%)]" 
+            style={{ boxShadow: '0 6px 20px rgba(200, 140, 60, 0.35)' }}
             onClick={() => {
               trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
-              document.getElementById('master-plan')?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-              });
+              document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }}
           >
-            {/* Gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(20,80%,35%)] via-[hsl(28,90%,50%)] to-[hsl(35,85%,52%)]"></div>
-            
-            {/* Shimmer overlay - only on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-            
-            {/* Button content */}
             <span className="relative flex items-center justify-center gap-2">
               🍫 Ver Oferta Exclusiva Agora
             </span>
           </button>
           
-          {/* Minimalist Social Proof */}
+          {/* Social Proof */}
           <div className="flex items-center justify-center gap-4 text-xs sm:text-sm text-white font-body">
             <span className="flex items-center gap-1">
               <Star className="w-3.5 h-3.5 text-accent fill-accent" />
@@ -121,39 +94,24 @@ export const HeroSection = () => {
             </span>
           </div>
           
-          {/* Brownie Image */}
+          {/* Hero Image - Optimized with explicit dimensions */}
           <div className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6">
-            <div className="relative group">
-              {/* Warm glow behind image */}
-              <div 
-                className="absolute inset-0 -z-10 rounded-2xl opacity-60"
-                style={{
-                  background: 'radial-gradient(circle, hsl(30 70% 40% / 0.5) 0%, transparent 70%)',
-                  transform: 'scale(1.1)'
-                }}
-              />
+            <div className="relative">
               <img 
                 alt="Brownie gourmet delicioso" 
-                width="600" 
-                height="600" 
+                width="400" 
+                height="400" 
                 fetchPriority="high" 
                 decoding="async" 
                 loading="eager"
                 className="relative w-full h-auto rounded-2xl border-2 border-primary/50" 
-                style={{
-                  boxShadow: '0 15px 40px rgba(120, 70, 30, 0.5), 0 8px 20px rgba(160, 100, 40, 0.3)'
-                }}
+                style={{ aspectRatio: '1/1' }}
                 src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" 
               />
             </div>
             
-            {/* Social Proof Badge */}
-            <div 
-              className="absolute -bottom-3 right-2 sm:right-4 bg-gradient-to-r from-accent to-gold-light text-chocolate-dark font-bold px-4 py-2 rounded-full text-xs sm:text-sm border-2 border-cream/30 font-display"
-              style={{
-                boxShadow: '0 4px 15px rgba(200, 150, 60, 0.5)'
-              }}
-            >
+            {/* Badge */}
+            <div className="absolute -bottom-3 right-2 sm:right-4 bg-gradient-to-r from-accent to-gold-light text-chocolate-dark font-bold px-4 py-2 rounded-full text-xs sm:text-sm border-2 border-cream/30 font-display">
               +2.400 Alunas
             </div>
           </div>
@@ -169,21 +127,21 @@ export const HeroSection = () => {
             <span className="text-accent font-semibold">vendáveis</span>.
           </p>
           
-          {/* Feature Grid */}
+          {/* Feature Grid - Simplified */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 max-w-2xl mx-auto mt-6">
-            <div className="bg-chocolate/60 backdrop-blur-sm px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/40">
+            <div className="bg-chocolate/60 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/40">
               <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-accent mx-auto mb-1" />
               <span className="text-white font-medium text-[10px] sm:text-xs block font-body">Acesso Vitalício</span>
             </div>
-            <div className="bg-chocolate/60 backdrop-blur-sm px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/40">
+            <div className="bg-chocolate/60 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/40">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-accent mx-auto mb-1" />
               <span className="text-white font-medium text-[10px] sm:text-xs block font-body">App Exclusivo</span>
             </div>
-            <div className="bg-chocolate/60 backdrop-blur-sm px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/40">
+            <div className="bg-chocolate/60 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/40">
               <Users className="w-4 h-4 sm:w-5 sm:h-5 text-accent mx-auto mb-1" />
               <span className="text-white font-medium text-[10px] sm:text-xs block font-body">+2400 Alunas</span>
             </div>
-            <div className="bg-chocolate/60 backdrop-blur-sm px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/40">
+            <div className="bg-chocolate/60 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/40">
               <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent mx-auto mb-1" />
               <span className="text-white font-medium text-[10px] sm:text-xs block font-body">14 Dias Garantia</span>
             </div>
@@ -192,4 +150,6 @@ export const HeroSection = () => {
       </div>
     </section>
   );
-};
+});
+
+HeroSection.displayName = 'HeroSection';

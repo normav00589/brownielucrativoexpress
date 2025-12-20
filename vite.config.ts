@@ -19,23 +19,35 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['lucide-react'],
-          'radix': ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-slot'],
+          'react-vendor': ['react', 'react-dom'],
+          'router': ['react-router-dom'],
+          'ui-core': ['lucide-react', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+          'radix-core': ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-slot'],
         },
       },
     },
     cssCodeSplit: true,
+    cssMinify: true,
     minify: 'terser',
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
-        passes: 2,
+        passes: 3,
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+        dead_code: true,
+        unused: true,
       },
-      mangle: true,
+      mangle: {
+        safari10: true,
+      },
+      format: {
+        comments: false,
+      },
     },
     target: 'es2020',
-    chunkSizeWarningLimit: 500,
+    chunkSizeWarningLimit: 400,
+    reportCompressedSize: false,
+    sourcemap: false,
   },
 }));
