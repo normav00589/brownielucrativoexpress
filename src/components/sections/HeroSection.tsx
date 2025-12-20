@@ -20,36 +20,25 @@ export const HeroSection = () => {
           
           {/* Main Headline */}
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] font-black tracking-tight">
-            <span 
-              className="block text-white drop-shadow-lg"
-              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 40px rgba(255,255,255,0.1)' }}
-            >
+            <span className="block text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Brownies
             </span>
             <span 
-              className="block bg-gradient-to-r from-gold via-caramel to-gold bg-clip-text text-transparent"
-              style={{ 
-                filter: 'drop-shadow(0 4px 8px rgba(200,150,50,0.4))',
-                WebkitTextStroke: '1px rgba(255,215,0,0.3)'
-              }}
+              className="block bg-gradient-to-r from-gold via-white to-caramel bg-clip-text text-transparent animate-text-shine"
             >
               Lucrativos
             </span>
             <span className="block mt-2">
-              <span 
-                className="text-white drop-shadow-lg"
-                style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
-              >
-                em{' '}
+              <span className="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                em{" "}
               </span>
               <span className="relative inline-block">
                 <span 
-                  className="bg-gradient-to-r from-accent via-gold to-accent bg-clip-text text-transparent"
-                  style={{ filter: 'drop-shadow(0 4px 8px rgba(255,180,50,0.5))' }}
+                  className="bg-gradient-to-r from-accent via-gold to-caramel bg-clip-text text-transparent animate-text-gradient"
                 >
                   40 Minutos
                 </span>
-                <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-accent to-gold rounded-full shadow-lg"></span>
+                <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-accent to-gold rounded-full"></span>
               </span>
             </span>
           </h1>
@@ -57,35 +46,34 @@ export const HeroSection = () => {
           {/* Subheadline */}
           <div className="space-y-2">
             <p className="font-body text-lg sm:text-xl md:text-2xl font-bold leading-relaxed">
-              <span className="text-cream/90">Como lucrar </span>
-              <span className="text-accent font-black text-xl sm:text-2xl md:text-3xl" style={{ textShadow: '0 0 20px hsl(38 95% 58% / 0.5)' }}>
+              <span className="text-white">Como lucrar </span>
+              <span className="bg-gradient-to-r from-gold via-accent to-gold bg-clip-text text-transparent font-black text-xl sm:text-2xl md:text-3xl animate-text-gradient">
                 R$150–R$350
               </span>
-              <span className="text-accent font-black text-xl sm:text-2xl md:text-3xl"> por dia</span>
+              <span className="text-white font-black text-xl sm:text-2xl md:text-3xl"> por dia</span>
             </p>
-            <p className="font-body text-base sm:text-lg md:text-xl text-cream/80">
-              com brownies que <span className="text-primary font-bold">vendem sozinhos</span> 🍫
+            <p className="font-body text-base sm:text-lg md:text-xl text-white">
+              com brownies que <span className="text-accent font-bold">vendem sozinhos</span> 🍫
             </p>
           </div>
           
-          {/* Price Block - Warm tones */}
+          {/* Price Block */}
           <div className="space-y-2 py-4">
             <div className="flex items-center justify-center gap-3">
-              <span className="text-base sm:text-lg line-through font-body text-cream/60">De R$97</span>
+              <span className="text-base sm:text-lg line-through font-body text-white/70">De R$97</span>
               <span className="bg-gradient-to-r from-primary to-caramel text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-lg">
                 -98% OFF
               </span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <span className="text-base sm:text-lg font-body text-cream/80">por apenas</span>
+              <span className="text-base sm:text-lg font-body text-white">por apenas</span>
               <span 
-                className="text-4xl sm:text-5xl md:text-6xl font-display font-black text-accent"
-                style={{ textShadow: '0 0 30px hsl(38 95% 58% / 0.6), 0 0 60px hsl(38 95% 58% / 0.3)' }}
+                className="text-4xl sm:text-5xl md:text-6xl font-display font-black bg-gradient-to-r from-gold via-white to-gold bg-clip-text text-transparent animate-text-shine"
               >
                 R$1,90
               </span>
             </div>
-            <p className="text-xs sm:text-sm flex items-center justify-center gap-2 font-body text-cream/70">
+            <p className="text-xs sm:text-sm flex items-center justify-center gap-2 font-body text-white">
               <CheckCircle className="w-4 h-4 text-accent" />
               Acesso vitalício + Garantia de 14 dias
             </p>
@@ -118,18 +106,18 @@ export const HeroSection = () => {
           </button>
           
           {/* Minimalist Social Proof */}
-          <div className="flex items-center justify-center gap-4 text-xs sm:text-sm text-cream/70 font-body">
+          <div className="flex items-center justify-center gap-4 text-xs sm:text-sm text-white font-body">
             <span className="flex items-center gap-1">
               <Star className="w-3.5 h-3.5 text-accent fill-accent" />
               <Star className="w-3.5 h-3.5 text-accent fill-accent" />
               <Star className="w-3.5 h-3.5 text-accent fill-accent" />
               <Star className="w-3.5 h-3.5 text-accent fill-accent" />
               <Star className="w-3.5 h-3.5 text-accent fill-accent" />
-              <span className="ml-1 font-semibold text-cream">4.9/5</span>
+              <span className="ml-1 font-semibold text-white">4.9/5</span>
             </span>
             <span className="flex items-center gap-1">
               <Zap className="w-3.5 h-3.5 text-accent" />
-              <span className="text-cream/80">Acesso Imediato</span>
+              <span className="text-white">Acesso Imediato</span>
             </span>
           </div>
           
@@ -171,33 +159,33 @@ export const HeroSection = () => {
           </div>
           
           {/* Empathy Copy */}
-          <p className="font-body text-sm sm:text-base max-w-lg mx-auto leading-relaxed text-cream/80">
+          <p className="font-body text-sm sm:text-base max-w-lg mx-auto leading-relaxed text-white">
             Mesmo que você já tenha tentado{" "}
-            <span className="text-primary font-semibold">mil vezes e errado</span>
-            {" "}— aprenda o método <span className="font-bold text-cream">BROWNIE 3C</span> para fazer brownies{" "}
-            <span className="text-caramel-light">lindos</span>,{" "}
-            <span className="text-caramel-light">estáveis</span>,{" "}
-            <span className="text-caramel-light">cremosos</span> e{" "}
+            <span className="text-accent font-semibold">mil vezes e errado</span>
+            {" "}— aprenda o método <span className="font-bold text-white">BROWNIE 3C</span> para fazer brownies{" "}
+            <span className="text-caramel">lindos</span>,{" "}
+            <span className="text-caramel">estáveis</span>,{" "}
+            <span className="text-caramel">cremosos</span> e{" "}
             <span className="text-accent font-semibold">vendáveis</span>.
           </p>
           
-          {/* Feature Grid - Warm chocolate theme */}
+          {/* Feature Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 max-w-2xl mx-auto mt-6">
-            <div className="bg-chocolate/40 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/40">
-              <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1" />
-              <span className="text-cream/90 font-medium text-[10px] sm:text-xs block font-body">Acesso Vitalício</span>
+            <div className="bg-chocolate/60 backdrop-blur-sm px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/40">
+              <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-accent mx-auto mb-1" />
+              <span className="text-white font-medium text-[10px] sm:text-xs block font-body">Acesso Vitalício</span>
             </div>
-            <div className="bg-chocolate/40 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/40">
+            <div className="bg-chocolate/60 backdrop-blur-sm px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/40">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-accent mx-auto mb-1" />
-              <span className="text-cream/90 font-medium text-[10px] sm:text-xs block font-body">App Exclusivo</span>
+              <span className="text-white font-medium text-[10px] sm:text-xs block font-body">App Exclusivo</span>
             </div>
-            <div className="bg-chocolate/40 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/40">
-              <Users className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1" />
-              <span className="text-cream/90 font-medium text-[10px] sm:text-xs block font-body">+2400 Alunas</span>
+            <div className="bg-chocolate/60 backdrop-blur-sm px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-primary/40">
+              <Users className="w-4 h-4 sm:w-5 sm:h-5 text-accent mx-auto mb-1" />
+              <span className="text-white font-medium text-[10px] sm:text-xs block font-body">+2400 Alunas</span>
             </div>
-            <div className="bg-chocolate/40 px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/40">
+            <div className="bg-chocolate/60 backdrop-blur-sm px-2 sm:px-3 py-2.5 sm:py-3 rounded-lg border border-accent/40">
               <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent mx-auto mb-1" />
-              <span className="text-cream/90 font-medium text-[10px] sm:text-xs block font-body">14 Dias Garantia</span>
+              <span className="text-white font-medium text-[10px] sm:text-xs block font-body">14 Dias Garantia</span>
             </div>
           </div>
         </div>

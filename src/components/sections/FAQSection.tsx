@@ -45,7 +45,7 @@ export const FAQSection = () => {
               <AccordionTrigger className="font-heading font-semibold text-lg text-left">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="font-body text-muted-foreground">
+              <AccordionContent className="font-body text-white">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
