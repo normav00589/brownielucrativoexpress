@@ -1,18 +1,51 @@
 import { Smartphone, Play } from "lucide-react";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
+
+// Preload Wistia scripts without showing the player
+const preloadWistia = () => {
+  if (document.querySelector('script[src*="fast.wistia.com"]')) return;
+  
+  const script1 = document.createElement('script');
+  script1.src = 'https://fast.wistia.com/player.js';
+  script1.async = true;
+  document.body.appendChild(script1);
+  
+  // Preload the video metadata
+  const link = document.createElement('link');
+  link.rel = 'preconnect';
+  link.href = 'https://fast.wistia.com';
+  document.head.appendChild(link);
+};
 
 export const OfferSection = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [preloaded, setPreloaded] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Preload Wistia when user scrolls 50% of the page
+  useEffect(() => {
+    if (preloaded) return;
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercentage = (scrollPosition / documentHeight) * 100;
+
+      if (scrollPercentage >= 50) {
+        preloadWistia();
+        setPreloaded(true);
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [preloaded]);
 
   const handlePlayClick = useCallback(() => {
     setVideoLoaded(true);
-    // Load Wistia scripts if not already loaded
-    if (!document.querySelector('script[src*="fast.wistia.com"]')) {
-      const script1 = document.createElement('script');
-      script1.src = 'https://fast.wistia.com/player.js';
-      script1.async = true;
-      document.body.appendChild(script1);
-    }
+    // Load Wistia scripts if not already loaded (fallback)
+    preloadWistia();
   }, []);
 
   return (
