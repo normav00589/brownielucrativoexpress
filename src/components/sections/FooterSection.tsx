@@ -1,13 +1,11 @@
 import { Mail } from "lucide-react";
 import logoBrownie from "@/assets/logo-brownie.png";
-
 export const FooterSection = () => {
-  return (
-    <footer className="bg-gradient-card text-foreground py-12 px-4 border-t border-primary/20">
+  return <footer className="bg-gradient-card text-foreground py-12 px-4 border-t border-primary/20">
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <img src={logoBrownie} alt="Brownies Lucrativos" className="h-10 md:h-12 mb-4" />
+            
             <p className="font-body text-sm opacity-80">
               Transformando cozinhas em negócios lucrativos desde 2020
             </p>
@@ -40,6 +38,5 @@ export const FooterSection = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
