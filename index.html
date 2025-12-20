@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,74 +7,75 @@
     <title>Brownies Lucrativos - Lucre até R$300 por Fornada</title>
     <meta name="description" content="Aprenda a fazer brownies irresistíveis e lucre de R$150 até R$300 por fornada. Método 3C exclusivo com +80 receitas testadas.">
     <meta name="author" content="Brownies Lucrativos" />
+    
+    <!-- DNS Prefetch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://connect.facebook.net">
-    <link rel="preconnect" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
     <link rel="dns-prefetch" href="https://fast.wistia.com">
-    <link rel="dns-prefetch" href="https://distillery.wistia.com">
-    <link rel="dns-prefetch" href="https://embed-ssl.wistia.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="modulepreload" href="/src/main.tsx">
     
     <!-- Preload critical hero image -->
     <link rel="preload" as="image" href="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" fetchpriority="high" type="image/webp">
     
-    <!-- Optimized font loading - only critical weights -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Poppins:wght@400;600;700;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Poppins:wght@400;600;700;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    <!-- Optimized fonts - Only Poppins and Nunito -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito:wght@400;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet"></noscript>
     
     <!-- Inline critical CSS for faster FCP -->
     <style>
-      body{margin:0;background:#0D0510;color:#fff;font-family:system-ui,sans-serif}
+      body{margin:0;background:#080808;color:#fff;font-family:system-ui,-apple-system,sans-serif}
       #root{min-height:100vh}
       .min-h-screen{min-height:100vh}
     </style>
 
-    
-    
     <meta property="og:type" content="website" />
-
     <meta name="twitter:card" content="summary_large_image" />
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KDW38BW6');</script>
+    <!-- Google Tag Manager - deferred -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-KDW38BW6');
+        }, 2000);
+      });
+    </script>
     <!-- End Google Tag Manager -->
 
-    <!-- Facebook Pixel Code -->
+    <!-- Facebook Pixel Code - deferred -->
     <script>
-      window.fbAsyncInit = function() {
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1034279045491529');
-        fbq('init', '2025669271618388');
-        fbq('track', 'PageView');
-      };
-      // Load FB pixel after page load
-      if (document.readyState === 'complete') {
-        window.fbAsyncInit();
-      } else {
-        window.addEventListener('load', window.fbAsyncInit);
-      }
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1034279045491529');
+          fbq('init', '2025669271618388');
+          fbq('track', 'PageView');
+        }, 1500);
+      });
     </script>
     <!-- End Facebook Pixel Code -->
+    
     <meta property="og:title" content="Brownies Lucrativos - Lucre até R$300 por Fornada">
-  <meta name="twitter:title" content="Brownies Lucrativos - Lucre até R$300 por Fornada">
-  <meta property="og:description" content="Aprenda a fazer brownies irresistíveis e lucre de R$150 até R$300 por fornada. Método 3C exclusivo com +80 receitas testadas.">
-  <meta name="twitter:description" content="Aprenda a fazer brownies irresistíveis e lucre de R$150 até R$300 por fornada. Método 3C exclusivo com +80 receitas testadas.">
-  <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/9DCFsekugLccgPL2Owgech1OAzC3/social-images/social-1762573715550-ChatGPT Image 7 de nov. de 2025, 23_24_23.png">
-  <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/9DCFsekugLccgPL2Owgech1OAzC3/social-images/social-1762573715550-ChatGPT Image 7 de nov. de 2025, 23_24_23.png">
-</head>
+    <meta name="twitter:title" content="Brownies Lucrativos - Lucre até R$300 por Fornada">
+    <meta property="og:description" content="Aprenda a fazer brownies irresistíveis e lucre de R$150 até R$300 por fornada. Método 3C exclusivo com +80 receitas testadas.">
+    <meta name="twitter:description" content="Aprenda a fazer brownies irresistíveis e lucre de R$150 até R$300 por fornada. Método 3C exclusivo com +80 receitas testadas.">
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/9DCFsekugLccgPL2Owgech1OAzC3/social-images/social-1762573715550-ChatGPT Image 7 de nov. de 2025, 23_24_23.png">
+    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/9DCFsekugLccgPL2Owgech1OAzC3/social-images/social-1762573715550-ChatGPT Image 7 de nov. de 2025, 23_24_23.png">
+  </head>
 
   <body>
     <!-- Facebook Pixel Noscript -->

@@ -1,7 +1,22 @@
 import { Smartphone, Play } from "lucide-react";
+import { useState, useCallback } from "react";
 
 export const OfferSection = () => {
-  return <section className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  const handlePlayClick = useCallback(() => {
+    setVideoLoaded(true);
+    // Load Wistia scripts if not already loaded
+    if (!document.querySelector('script[src*="fast.wistia.com"]')) {
+      const script1 = document.createElement('script');
+      script1.src = 'https://fast.wistia.com/player.js';
+      script1.async = true;
+      document.body.appendChild(script1);
+    }
+  }, []);
+
+  return (
+    <section className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-fire opacity-20 -z-10" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -18,19 +33,19 @@ export const OfferSection = () => {
               </p>
               
               <div className="grid sm:grid-cols-2 gap-4">
-                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 hover:shadow-strong transition-all duration-300">
+                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 transition-colors duration-300">
                   <p className="font-heading font-bold text-primary text-lg">⏱️ Fornada pronta</p>
                   <p className="text-primary-foreground">em menos de 40 minutos</p>
                 </div>
-                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 hover:shadow-strong transition-all duration-300">
+                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 transition-colors duration-300">
                   <p className="font-heading font-bold text-primary text-lg">💰 Transforme</p>
                   <p className="text-primary-foreground">R$60 em R$200 por fornada!</p>
                 </div>
-                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 hover:shadow-strong transition-all duration-300">
+                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 transition-colors duration-300">
                   <p className="font-heading font-bold text-primary text-lg">📆 Validade</p>
                   <p className="text-primary-foreground">de 10 dias – venda sem perdas!</p>
                 </div>
-                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 hover:shadow-strong transition-all duration-300">
+                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 transition-colors duration-300">
                   <p className="font-heading font-bold text-primary text-lg">✅ Acesso</p>
                   <p className="text-primary-foreground">Vitalício ao conteúdo!</p>
                 </div>
@@ -38,7 +53,7 @@ export const OfferSection = () => {
             </div>
             
             <div className="flex flex-col items-center gap-4 mt-8">
-              <a href="#pricing" className="relative inline-block w-full sm:max-w-md px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-accent to-accent/80 text-background font-heading font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 text-center border-2 border-accent/50 shimmer-effect overflow-hidden group">
+              <a href="#pricing" className="relative inline-block w-full sm:max-w-md px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-[hsl(var(--cta-orange-dark))] via-[hsl(var(--cta-orange))] to-[hsl(var(--cta-orange-dark))] text-white font-heading font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 text-center border-2 border-accent/30 overflow-hidden group">
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   🔥 BAIXE SUAS RECEITAS E APROVEITE!
                 </span>
@@ -53,52 +68,69 @@ export const OfferSection = () => {
             </div>
           </div>
           
-          {/* iPhone Mockup Below Button */}
+          {/* iPhone Mockup with Click-to-Play Video */}
           <div className="flex justify-center">
             <div className="relative">
               {/* iPhone Mockup */}
               <div className="relative w-[280px] md:w-[320px] mx-auto">
-                {/* Glow effect behind phone */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-accent/20 to-primary/30 blur-3xl animate-pulse" />
-                
                 {/* iPhone Frame */}
                 <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-slate-700/50">
                   {/* Screen */}
-                  <div className="relative bg-black rounded-[2.5rem] overflow-hidden" style={{
-                  aspectRatio: '0.549618320610687'
-                }}>
-                    {/* Notch - more realistic */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl z-10 shadow-lg">
-                      {/* Camera */}
+                  <div className="relative bg-black rounded-[2.5rem] overflow-hidden" style={{ aspectRatio: '0.549618320610687' }}>
+                    {/* Notch */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl z-10">
                       <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-900 rounded-full border border-slate-700" />
                     </div>
                     
                     {/* Video Content */}
                     <div className="absolute inset-0 bg-gradient-to-br from-chocolate to-secondary">
                       <div className="w-full h-full flex items-center justify-center p-2 pt-8">
-                        <div className="w-full h-full rounded-[2rem] overflow-hidden shadow-inner" dangerouslySetInnerHTML={{
-                        __html: '<wistia-player media-id="pt22c9q3y0" seo="false" style="width: 100%; height: 100%; object-fit: cover;"></wistia-player>'
-                      }} />
+                        {videoLoaded ? (
+                          <div 
+                            className="w-full h-full rounded-[2rem] overflow-hidden"
+                            dangerouslySetInnerHTML={{
+                              __html: '<wistia-player media-id="pt22c9q3y0" seo="false" style="width: 100%; height: 100%; object-fit: cover;"></wistia-player>'
+                            }}
+                          />
+                        ) : (
+                          <button
+                            onClick={handlePlayClick}
+                            className="w-full h-full rounded-[2rem] overflow-hidden relative group cursor-pointer bg-gradient-to-br from-chocolate/80 to-secondary flex items-center justify-center"
+                            aria-label="Assistir vídeo"
+                          >
+                            {/* Play button overlay */}
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
+                            
+                            {/* Play icon */}
+                            <div className="relative z-10 flex flex-col items-center gap-3">
+                              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-[hsl(var(--cta-orange-dark))] via-[hsl(var(--cta-orange))] to-[hsl(var(--cta-orange-dark))] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
+                              </div>
+                              <span className="text-white font-heading font-bold text-sm md:text-base drop-shadow-lg">
+                                CLIQUE PARA ASSISTIR
+                              </span>
+                            </div>
+                          </button>
+                        )}
                       </div>
                     </div>
                     
-                    {/* Glass reflection overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-40 pointer-events-none z-20" />
-                    <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-gradient-to-br from-white/30 to-transparent opacity-50 blur-2xl pointer-events-none z-20" />
+                    {/* Glass reflection */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-40 pointer-events-none z-20" />
                   </div>
                   
-                  {/* iPhone Buttons - more realistic */}
-                  <div className="absolute right-0 top-24 w-1 h-12 bg-slate-900 rounded-l shadow-inner" />
-                  <div className="absolute right-0 top-40 w-1 h-16 bg-slate-900 rounded-l shadow-inner" />
-                  <div className="absolute right-0 top-60 w-1 h-16 bg-slate-900 rounded-l shadow-inner" />
-                  <div className="absolute left-0 top-32 w-1 h-8 bg-slate-900 rounded-r shadow-inner" />
+                  {/* iPhone Buttons */}
+                  <div className="absolute right-0 top-24 w-1 h-12 bg-slate-900 rounded-l" />
+                  <div className="absolute right-0 top-40 w-1 h-16 bg-slate-900 rounded-l" />
+                  <div className="absolute right-0 top-60 w-1 h-16 bg-slate-900 rounded-l" />
+                  <div className="absolute left-0 top-32 w-1 h-8 bg-slate-900 rounded-r" />
                 </div>
                 
                 {/* Floating badge */}
-                <div className="absolute -top-4 -right-4 bg-gradient-neon px-4 py-2 rounded-full shadow-neon-strong animate-neon-pulse z-20">
-                  <p className="font-heading font-bold text-secondary flex items-center gap-2">
+                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-[hsl(var(--cta-orange-dark))] to-[hsl(var(--cta-orange))] px-4 py-2 rounded-full shadow-lg z-20">
+                  <p className="font-heading font-bold text-white flex items-center gap-2 text-sm">
                     <Play className="w-4 h-4" />
-                    Assista Agora
+                    Veja Como Funciona
                   </p>
                 </div>
               </div>
@@ -106,5 +138,6 @@ export const OfferSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
