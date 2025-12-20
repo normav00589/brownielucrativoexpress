@@ -588,39 +588,68 @@ All colors MUST be HSL.
   }
 }
 
-/* Mobile Performance - Disable heavy animations */
+/* AGGRESSIVE Mobile Performance - Critical for PageSpeed */
 @media (max-width: 768px) {
+  /* Disable ALL heavy animations on mobile */
   .particle,
-  .energy-wave {
+  .energy-wave,
+  .brownie-float {
     display: none !important;
   }
   
   .animate-gradient-x,
+  .animate-text-gradient,
+  .animate-text-shine,
   .neon-glow-strong,
   .float-animation,
-  .brownie-float {
+  .warm-glow-strong,
+  .text-glow-caramel,
+  .text-glow-gold,
+  .price-glow {
     animation: none !important;
   }
   
-  .shimmer-effect::before {
-    animation: none !important;
+  .shimmer-effect::before,
+  .hover-glow::before,
+  .btn-magnetic::before {
+    display: none !important;
   }
   
-  /* Reduce box shadows on mobile */
+  /* Remove heavy shadows on mobile */
   .shadow-neon,
-  .shadow-neon-strong {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  .shadow-neon-strong,
+  .warm-glow,
+  .warm-glow-strong {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    filter: none !important;
   }
   
-  /* Simplify transitions on mobile */
-  .hover-lift,
-  .card-hover,
-  .hover-glow {
-    transition: transform 0.2s ease !important;
+  /* Simplify all transitions */
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.15s !important;
   }
   
+  /* Disable hover effects on mobile */
   .hover-lift:hover,
-  .card-hover:hover {
+  .card-hover:hover,
+  .hover-glow:hover {
     transform: none !important;
+    box-shadow: inherit !important;
+  }
+  
+  /* Simpler backdrop blur */
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  /* Content visibility for below-fold sections */
+  section:not(:first-of-type) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
   }
 }
