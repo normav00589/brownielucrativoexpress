@@ -19,14 +19,38 @@ export const HeroSection = () => {
         <div className="space-y-5 text-center">
           
           {/* Main Headline */}
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight font-black tracking-tight">
-            <span className="text-cream-warm">Brownies </span>
-            <span className="text-primary" style={{ textShadow: '0 0 30px hsl(25 80% 55% / 0.5)' }}>Lucrativos</span>
-            <br />
-            <span className="text-cream-warm">em </span>
-            <span className="relative inline-block">
-              <span className="text-accent" style={{ textShadow: '0 0 25px hsl(38 95% 58% / 0.6)' }}>40 Minutos</span>
-              <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] font-black tracking-tight">
+            <span 
+              className="block text-white drop-shadow-lg"
+              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 40px rgba(255,255,255,0.1)' }}
+            >
+              Brownies
+            </span>
+            <span 
+              className="block bg-gradient-to-r from-gold via-caramel to-gold bg-clip-text text-transparent"
+              style={{ 
+                filter: 'drop-shadow(0 4px 8px rgba(200,150,50,0.4))',
+                WebkitTextStroke: '1px rgba(255,215,0,0.3)'
+              }}
+            >
+              Lucrativos
+            </span>
+            <span className="block mt-2">
+              <span 
+                className="text-white drop-shadow-lg"
+                style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
+              >
+                em{' '}
+              </span>
+              <span className="relative inline-block">
+                <span 
+                  className="bg-gradient-to-r from-accent via-gold to-accent bg-clip-text text-transparent"
+                  style={{ filter: 'drop-shadow(0 4px 8px rgba(255,180,50,0.5))' }}
+                >
+                  40 Minutos
+                </span>
+                <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-accent to-gold rounded-full shadow-lg"></span>
+              </span>
             </span>
           </h1>
           
