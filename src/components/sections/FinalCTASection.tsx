@@ -19,7 +19,7 @@ export const FinalCTASection = () => {
             Está a um clique de mudar sua renda com o doce mais vendido do Brasil!
           </h2>
           
-          <p className="text-lg md:text-2xl font-body max-w-2xl mx-auto text-foreground/90">
+          <p className="text-lg md:text-2xl font-body max-w-2xl mx-auto text-white">
             Aprenda o segredo do <span className="text-accent font-bold">Método 3C</span> e comece hoje mesmo a lucrar com brownies irresistíveis.
           </p>
           
@@ -34,7 +34,7 @@ export const FinalCTASection = () => {
             🔘 Quero Lucrar com Brownies Agora!
           </Button>
           
-          <p className="text-xs md:text-sm text-white/80">
+          <p className="text-xs md:text-sm text-white">
             Acesso instantâneo • Garantia de 7 dias • Suporte incluso
           </p>
         </div>

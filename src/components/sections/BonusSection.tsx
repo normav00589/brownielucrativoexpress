@@ -91,7 +91,7 @@ export const BonusSection = () => {
             <span className="ml-3">🎁</span>
           </h2>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-white max-w-3xl mx-auto">
             Com <span className="font-bold text-caramel">+70 receitas extras</span> para você diversificar e lucrar ainda mais!
           </p>
         </div>
@@ -118,7 +118,7 @@ export const BonusSection = () => {
                 {bonus.title}
               </h3>
               
-              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+              <p className="text-sm text-white mb-4 leading-relaxed">
                 {bonus.description}
               </p>
               
@@ -143,7 +143,7 @@ export const BonusSection = () => {
                 <span className="font-heading font-bold text-2xl md:text-3xl text-cream">+150 Receitas</span>
                 <ChefHat className="w-8 h-8 text-gold" />
               </div>
-              <p className="text-cream/80 text-sm md:text-base">
+              <p className="text-white text-sm md:text-base">
                 Suporte completo + Planilhas + Acesso Vitalício
               </p>
             </div>

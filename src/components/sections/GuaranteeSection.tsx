@@ -13,7 +13,7 @@ export const GuaranteeSection = () => {
           
           <h2 className="font-heading font-bold sm:text-3xl md:text-4xl mb-4 md:mb-6 bg-gradient-to-r from-primary via-accent to-caramel bg-clip-text text-transparent text-xl">Garantia de 14 Dias – Satisfação Total</h2>
           
-          <div className="space-y-3 md:space-y-4 font-body text-base md:text-lg text-foreground/90 max-w-2xl mx-auto">
+          <div className="space-y-3 md:space-y-4 font-body text-base md:text-lg text-white max-w-2xl mx-auto">
             <p>
               Você tem <span className="text-accent font-bold text-xl">14 dias de garantia total</span>.
             </p>

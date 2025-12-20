@@ -29,7 +29,7 @@ export const TestimonialsSection = () => {
           <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-foreground mb-4 text-glow">
             Mais de <span className="text-primary">3.000 alunos</span> já estão lucrando com o Método 3C!
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-white">
             Veja o que nossas alunas reais estão compartilhando nas redes sociais
           </p>
         </div>

@@ -106,7 +106,7 @@ export const SecretSection = () => {
                     Casquinha + Cremoso + Caixinha
                   </span>
                 </p>
-                <p className="relative text-muted-foreground text-sm md:text-base lg:text-lg mt-2 md:mt-3">
+                <p className="relative text-white text-sm md:text-base lg:text-lg mt-2 md:mt-3">
                   A fórmula exata que transforma{" "}
                   <span className="relative inline-block">
                     <span className="text-destructive font-bold line-through opacity-70">R$60</span>
@@ -130,7 +130,7 @@ export const SecretSection = () => {
               </div>
               
               {/* Social proof mini */}
-              <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground text-xs md:text-sm">
+              <div className="flex items-center justify-center md:justify-start gap-2 text-white text-xs md:text-sm">
                 <div className="flex -space-x-2">
                   <div className="w-6 h-6 md:w-7 md:h-7 rounded-full bg-primary/20 border-2 border-background flex items-center justify-center text-xs">👩</div>
                   <div className="w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/20 border-2 border-background flex items-center justify-center text-xs">👩</div>
