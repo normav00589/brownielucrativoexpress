@@ -34,7 +34,7 @@ export const BenefitsSection = () => {
   return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-hero relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient-neon">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-caramel bg-clip-text text-transparent">
             O Que Você Vai Receber
           </h2>
           <p className="text-foreground/80 text-lg">
@@ -46,7 +46,7 @@ export const BenefitsSection = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="bg-gradient-card border border-accent/20 rounded-xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-neon hover:border-accent/50 cursor-pointer group"
+              className="bg-gradient-card border border-accent/20 rounded-xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-premium hover:border-accent/50 cursor-pointer group"
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 {benefit.icon}
@@ -65,7 +65,7 @@ export const BenefitsSection = () => {
           <img 
             src={varietyBrownies} 
             alt="Variedade de brownies gourmet deliciosos" 
-            className="rounded-2xl shadow-neon-strong border-2 border-accent/30 mx-auto max-w-2xl w-full hover:scale-105 transition-transform duration-500"
+            className="rounded-2xl shadow-premium border-2 border-accent/30 mx-auto max-w-2xl w-full hover:scale-105 transition-transform duration-500"
           />
         </div>
       </div>

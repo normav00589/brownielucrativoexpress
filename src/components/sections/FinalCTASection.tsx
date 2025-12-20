@@ -15,7 +15,7 @@ export const FinalCTASection = () => {
             <Sparkles className="text-accent" />
           </div>
           
-          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight text-gradient-neon">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight bg-gradient-to-r from-primary via-accent to-caramel bg-clip-text text-transparent">
             Está a um clique de mudar sua renda com o doce mais vendido do Brasil!
           </h2>
           

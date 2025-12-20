@@ -105,7 +105,7 @@ export const BrownieGallerySection = () => {
 
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-neon neon-glow">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-caramel bg-clip-text text-transparent">
             Brownies Que <span className="text-accent">Vendem Sozinhos</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-primary-foreground">
