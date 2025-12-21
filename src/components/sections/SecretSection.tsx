@@ -42,26 +42,35 @@ export const SecretSection = () => {
           
           {/* Image - appears second on mobile, first on desktop */}
           <div className="order-2 md:order-1 flex justify-center w-full">
-            <div className="relative w-full max-w-sm mx-auto group">
-              {/* Glow effect behind image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-primary/20 to-gold/30 rounded-2xl md:rounded-3xl blur-xl scale-105 opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="relative w-full max-w-xs md:max-w-md mx-auto group">
+              {/* Glow effect behind image - simplified for mobile */}
+              <div className="absolute inset-0 bg-accent/20 rounded-2xl md:rounded-3xl blur-lg scale-105 opacity-50" />
               
-              {/* Image with hover effect */}
-              <img alt="Brownies com casquinha perfeita" className="relative rounded-2xl md:rounded-3xl shadow-premium w-full h-auto border-2 md:border-4 border-gold/30 transition-transform duration-500 group-hover:scale-[1.02]" src="/lovable-uploads/5e88750b-42e2-43d5-816e-6d9503a59595.webp" />
+              {/* Image with optimization */}
+              <img 
+                alt="Brownies com casquinha perfeita criados pela Chef Gabriella" 
+                className="relative rounded-2xl md:rounded-3xl shadow-lg w-full h-auto border-2 border-gold/40 aspect-[4/3] object-cover" 
+                src="/lovable-uploads/5e88750b-42e2-43d5-816e-6d9503a59595.webp"
+                loading="lazy"
+                decoding="async"
+                width={400}
+                height={300}
+              />
               
-              {/* Floating badge with animation */}
-              <div className="absolute -bottom-3 -right-2 md:-bottom-6 md:-right-6 bg-gold text-secondary px-4 py-2 md:px-6 md:py-3 shadow-neon-strong font-heading font-bold text-sm md:text-lg rounded-lg md:rounded-xl flex items-center gap-2 animate-pulse hover:animate-none hover:scale-105 transition-transform">
-                <Lock className="w-4 h-4 md:w-5 md:h-5" />
-                Método Exclusivo
+              {/* Chef name badge - eye-catching */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold via-accent to-gold px-4 py-1.5 md:px-5 md:py-2 rounded-full shadow-lg">
+                <span className="font-heading font-bold text-secondary text-xs md:text-sm whitespace-nowrap flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
+                  Chef Gabriella Castro
+                  <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
+                </span>
               </div>
               
-              {/* Floating stars */}
-              <Star className="absolute -top-3 -left-3 w-6 h-6 text-gold fill-gold animate-pulse" style={{
-              animationDelay: '0.3s'
-            }} />
-              <Star className="absolute top-1/4 -right-4 w-4 h-4 text-accent fill-accent animate-pulse" style={{
-              animationDelay: '0.7s'
-            }} />
+              {/* Floating badge with animation */}
+              <div className="absolute -bottom-3 -right-2 md:-bottom-4 md:-right-4 bg-gold text-secondary px-3 py-1.5 md:px-4 md:py-2 shadow-lg font-heading font-bold text-xs md:text-sm rounded-lg flex items-center gap-1.5">
+                <Lock className="w-3 h-3 md:w-4 md:h-4" />
+                Método Exclusivo
+              </div>
             </div>
           </div>
           
