@@ -47,7 +47,7 @@ export const SecretSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-primary/20 to-gold/30 rounded-2xl md:rounded-3xl blur-xl scale-105 opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
               
               {/* Image with hover effect */}
-              <img alt="Brownies com casquinha perfeita" className="relative rounded-2xl md:rounded-3xl shadow-premium w-full h-auto border-2 md:border-4 border-gold/30 transition-transform duration-500 group-hover:scale-[1.02]" src="/lovable-uploads/e3c77834-b773-424e-9ba9-2f7d215f21a1.jpg" />
+              <img alt="Brownies com casquinha perfeita" className="relative rounded-2xl md:rounded-3xl shadow-premium w-full h-auto border-2 md:border-4 border-gold/30 transition-transform duration-500 group-hover:scale-[1.02]" src="/lovable-uploads/5e88750b-42e2-43d5-816e-6d9503a59595.webp" />
               
               {/* Floating badge with animation */}
               <div className="absolute -bottom-3 -right-2 md:-bottom-6 md:-right-6 bg-gold text-secondary px-4 py-2 md:px-6 md:py-3 shadow-neon-strong font-heading font-bold text-sm md:text-lg rounded-lg md:rounded-xl flex items-center gap-2 animate-pulse hover:animate-none hover:scale-105 transition-transform">
@@ -84,13 +84,19 @@ export const SecretSection = () => {
             <div className="relative group perspective-1000">
               {/* Animated gradient border */}
               <div className="absolute -inset-[2px] bg-gradient-to-r from-gold via-accent to-primary rounded-xl md:rounded-2xl opacity-75 group-hover:opacity-100 blur-sm transition-all duration-500 animate-gradient-x" />
-              <div className="absolute -inset-[1px] bg-gradient-to-r from-primary via-gold to-accent rounded-xl md:rounded-2xl opacity-60 animate-gradient-x" style={{ animationDelay: '-1s' }} />
+              <div className="absolute -inset-[1px] bg-gradient-to-r from-primary via-gold to-accent rounded-xl md:rounded-2xl opacity-60 animate-gradient-x" style={{
+                animationDelay: '-1s'
+              }} />
               
               {/* Floating particles inside */}
               <div className="absolute inset-0 overflow-hidden rounded-xl md:rounded-2xl pointer-events-none">
                 <div className="absolute top-2 left-4 w-1.5 h-1.5 bg-gold rounded-full animate-float opacity-60" />
-                <div className="absolute top-4 right-6 w-1 h-1 bg-accent rounded-full animate-float" style={{ animationDelay: '0.5s' }} />
-                <div className="absolute bottom-3 left-1/3 w-1 h-1 bg-primary rounded-full animate-float" style={{ animationDelay: '1s' }} />
+                <div className="absolute top-4 right-6 w-1 h-1 bg-accent rounded-full animate-float" style={{
+                  animationDelay: '0.5s'
+                }} />
+                <div className="absolute bottom-3 left-1/3 w-1 h-1 bg-primary rounded-full animate-float" style={{
+                  animationDelay: '1s'
+                }} />
               </div>
               
               <div className="relative bg-gradient-to-br from-secondary via-secondary/95 to-secondary/90 backdrop-blur-md p-5 md:p-6 rounded-xl md:rounded-2xl shadow-2xl text-center md:text-left transform transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-[0_20px_50px_-12px_rgba(255,107,0,0.4)]">
@@ -161,16 +167,12 @@ export const SecretSection = () => {
               <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary via-accent to-gold opacity-60 blur-md group-hover:opacity-100 group-hover:blur-lg transition-all duration-500 animate-pulse" />
               <div className="absolute -inset-[2px] rounded-xl bg-gradient-to-r from-gold via-primary to-accent animate-gradient-x opacity-80" />
               
-              <Button 
-                size="lg" 
-                className="relative w-full text-base md:text-xl font-bold py-5 md:py-7 bg-gradient-to-r from-primary via-primary to-accent hover:from-accent hover:via-primary hover:to-primary shadow-[0_10px_40px_-10px_rgba(255,107,0,0.5)] hover:shadow-[0_20px_60px_-10px_rgba(255,107,0,0.7)] transform hover:scale-[1.03] transition-all duration-500 overflow-hidden group/btn" 
-                onClick={() => {
-                  document.getElementById('master-plan')?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                  });
-                }}
-              >
+              <Button size="lg" className="relative w-full text-base md:text-xl font-bold py-5 md:py-7 bg-gradient-to-r from-primary via-primary to-accent hover:from-accent hover:via-primary hover:to-primary shadow-[0_10px_40px_-10px_rgba(255,107,0,0.5)] hover:shadow-[0_20px_60px_-10px_rgba(255,107,0,0.7)] transform hover:scale-[1.03] transition-all duration-500 overflow-hidden group/btn" onClick={() => {
+                document.getElementById('master-plan')?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'center'
+                });
+              }}>
                 {/* Shimmer effect */}
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer-effect" />
                 
