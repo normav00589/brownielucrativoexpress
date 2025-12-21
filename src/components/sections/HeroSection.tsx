@@ -1,10 +1,8 @@
 import { memo } from "react";
 import { Shield, Users, Sparkles, CheckCircle, Star, Zap } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
-
 export const HeroSection = memo(() => {
-  return (
-    <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden">
+  return <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden">
       {/* Simplified gradient background */}
       <div className="absolute inset-0 bg-gradient-hero -z-10" />
       
@@ -47,7 +45,7 @@ export const HeroSection = memo(() => {
           {/* Price Block */}
           <div className="space-y-2 py-4">
             <div className="flex items-center justify-center gap-3">
-              <span className="text-base sm:text-lg line-through font-body text-white/70">De R$97</span>
+              <span className="text-base sm:text-lg line-through font-body text-primary-foreground">De R$97</span>
               <span className="bg-gradient-to-r from-primary to-caramel text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full">
                 -98% OFF
               </span>
@@ -65,14 +63,15 @@ export const HeroSection = memo(() => {
           </div>
           
           {/* CTA Button - Simplified */}
-          <button 
-            className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-transform duration-200 hover:scale-105 font-body bg-gradient-to-r from-[hsl(20,80%,35%)] via-[hsl(28,90%,50%)] to-[hsl(35,85%,52%)]" 
-            style={{ boxShadow: '0 6px 20px rgba(200, 140, 60, 0.35)' }}
-            onClick={() => {
-              trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
-              document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }}
-          >
+          <button className="group relative w-full md:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-transform duration-200 hover:scale-105 font-body bg-gradient-to-r from-[hsl(20,80%,35%)] via-[hsl(28,90%,50%)] to-[hsl(35,85%,52%)]" style={{
+          boxShadow: '0 6px 20px rgba(200, 140, 60, 0.35)'
+        }} onClick={() => {
+          trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
+          document.getElementById('master-plan')?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }}>
             <span className="relative flex items-center justify-center gap-2">
               🍫 Ver Oferta Exclusiva Agora
             </span>
@@ -97,17 +96,9 @@ export const HeroSection = memo(() => {
           {/* Hero Image - Optimized with explicit dimensions */}
           <div className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6">
             <div className="relative">
-              <img 
-                alt="Brownie gourmet delicioso" 
-                width="400" 
-                height="400" 
-                fetchPriority="high" 
-                decoding="async" 
-                loading="eager"
-                className="relative w-full h-auto rounded-2xl border-2 border-primary/50" 
-                style={{ aspectRatio: '1/1' }}
-                src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" 
-              />
+              <img alt="Brownie gourmet delicioso" width="400" height="400" fetchPriority="high" decoding="async" loading="eager" className="relative w-full h-auto rounded-2xl border-2 border-primary/50" style={{
+              aspectRatio: '1/1'
+            }} src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" />
             </div>
             
             {/* Badge */}
@@ -148,8 +139,6 @@ export const HeroSection = memo(() => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 });
-
 HeroSection.displayName = 'HeroSection';
