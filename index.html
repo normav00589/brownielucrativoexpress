@@ -9,20 +9,24 @@
     <meta name="author" content="Brownies Lucrativos" />
     
     <!-- Critical DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://fast.wistia.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fghbbqckqezadyfheaby.supabase.co" crossorigin>
     
     <!-- Preload critical hero image with high priority -->
     <link rel="preload" as="image" href="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" fetchpriority="high" type="image/webp">
     
-    <!-- Optimized fonts - swap for immediate text render -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Nunito:wght@400;700&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <!-- Optimized fonts - optional for non-critical, swap for critical -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=optional&family=Nunito:wght@400;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=optional&family=Nunito:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet"></noscript>
     
     <!-- Inline critical CSS for instant FCP -->
     <style>
-      *{box-sizing:border-box}body{margin:0;background:#100b08;color:#fff;font-family:'Nunito',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}#root{min-height:100vh}.min-h-screen{min-height:100vh}h1,h2,h3{font-family:'Poppins',system-ui,sans-serif}img{max-width:100%;height:auto;display:block}
+      *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;background:#100b08;color:#fff;font-family:'Nunito',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed}#root{min-height:100vh;contain:layout style}.min-h-screen{min-height:100vh}h1,h2,h3{font-family:'Poppins',system-ui,sans-serif}img{max-width:100%;height:auto;display:block;content-visibility:auto}section{contain:layout style;content-visibility:auto}@media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
     </style>
 
     <meta property="og:type" content="website" />
@@ -38,6 +42,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Register Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .catch(function() {});
+        });
+      }
+    </script>
     
     <!-- Defer all third-party scripts after page is interactive -->
     <script>

@@ -23,6 +23,8 @@ export default defineConfig(({ mode }) => ({
           'router': ['react-router-dom'],
           'ui-core': ['lucide-react', 'class-variance-authority', 'clsx', 'tailwind-merge'],
           'radix-core': ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-slot'],
+          'carousel': ['embla-carousel-react'],
+          'query': ['@tanstack/react-query'],
         },
       },
     },
