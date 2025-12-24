@@ -73,13 +73,13 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="w-[92vw] max-w-[420px] p-0 border-0 bg-transparent overflow-visible">
+      <DialogContent className="w-[92vw] max-w-[420px] p-0 border-0 bg-transparent overflow-visible will-change-transform">
         <DialogTitle className="sr-only">Oferta Especial - Plano PRO</DialogTitle>
         
-        {/* Scrollable container */}
-        <div className="max-h-[80vh] overflow-y-auto overflow-x-hidden rounded-2xl">
-          {/* Main Card */}
-          <div className="relative bg-gradient-to-b from-background via-background to-primary/20 border-2 border-accent/60 rounded-2xl shadow-[0_0_60px_rgba(255,107,0,0.3)]">
+        {/* Scrollable container - optimized for mobile */}
+        <div className="max-h-[80vh] overflow-y-auto overflow-x-hidden rounded-2xl overscroll-contain touch-pan-y">
+          {/* Main Card - simplified shadows for mobile performance */}
+          <div className="relative bg-gradient-to-b from-background via-background to-primary/20 border-2 border-accent/60 rounded-2xl shadow-lg md:shadow-[0_0_60px_rgba(255,107,0,0.3)]">
             
             {/* Top flame decoration */}
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex gap-1">
@@ -110,7 +110,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
               </div>
 
               {/* Timer with progress bar */}
-              <div className="bg-background/80 backdrop-blur rounded-xl p-3 mb-3 border border-accent/40">
+              <div className="bg-background/90 rounded-xl p-3 mb-3 border border-accent/40">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Clock className="w-4 h-4 text-accent animate-spin" style={{ animationDuration: '3s' }} />
                   <span className="font-heading font-bold text-white text-xs">
