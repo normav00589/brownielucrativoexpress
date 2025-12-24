@@ -43,7 +43,7 @@ export const PricingSection = memo(() => {
               </div>
               
               <ul className="space-y-4 mb-10">
-                {['+80 Receitas Profissionais', 'Acesso total ao Método 3C', 'Aulas em Vídeo "Brownies que Vendem"', 'Calculadora de Lucro no App', 'Guia dos Melhores Ingredientes', 'Aulas Extras de Confeitaria', 'Suporte + Acesso Vitalício + Certificado'].map((item, i) => <li key={i} className="flex items-start gap-3">
+                {['Aplicativo exclusivo com + 80 Receitas Profissionais e ferramentas para alta lucratividade!', 'Acesso total ao Método 3C', 'Aulas em Vídeo "Brownies que Vendem"', 'Calculadora de Lucro no App', 'Guia dos Melhores Ingredientes', 'Aulas Extras de Confeitaria', 'Suporte + Acesso Vitalício + Certificado'].map((item, i) => <li key={i} className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-caramel to-gold flex items-center justify-center mt-0.5">
                       <Check className="w-4 h-4 text-chocolate-dark" />
                     </div>
