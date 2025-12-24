@@ -37,8 +37,7 @@ export const HeroSection = memo(() => {
               </span>
               <span className="text-white font-black text-xl sm:text-2xl md:text-3xl"> por dia</span>
             </p>
-            <p className="font-body text-base sm:text-lg md:text-xl text-white">
-              com brownies que <span className="text-accent font-bold">vendem sozinhos</span> 🍫
+            <p className="font-body text-base sm:text-lg md:text-xl text-white">com brownies que vendem sozinhos!<span className="text-accent font-bold">vendem sozinhos</span> 🍫
             </p>
           </div>
           
