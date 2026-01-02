@@ -2,8 +2,7 @@ import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { DownsellModal } from "@/components/DownsellModal";
-import { useEffect, lazy, Suspense, memo, useState, useCallback, useRef } from "react";
-import { trackPageView } from "@/lib/fbTracking";
+import { lazy, Suspense, memo, useState, useCallback, useRef } from "react";
 import { useOfferExitIntent } from "@/hooks/useOfferExitIntent";
 
 // Lazy load all sections below hero for faster initial load
@@ -60,9 +59,6 @@ const Index = () => {
     }, 300000); // 5 minutes cooldown
   }, []);
 
-  useEffect(() => {
-    trackPageView();
-  }, []);
 
   return (
     <div className="min-h-screen">
