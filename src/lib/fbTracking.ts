@@ -25,6 +25,10 @@ interface CustomData {
   num_items?: number;
 }
 
+// Cache para evitar eventos duplicados na mesma sessão
+const eventCache = new Map<string, number>();
+const DEBOUNCE_MS = 2000; // 2 segundos entre eventos iguais
+
 const hashData = async (data: string): Promise<string> => {
   const encoder = new TextEncoder();
   const dataBuffer = encoder.encode(data.toLowerCase().trim());
@@ -34,7 +38,7 @@ const hashData = async (data: string): Promise<string> => {
 };
 
 const generateEventId = (): string => {
-  return `${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+  return `${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
 };
 
 const getFacebookCookies = () => {
@@ -44,15 +48,36 @@ const getFacebookCookies = () => {
   return { fbp, fbc };
 };
 
+// Verifica se evento deve ser disparado (debounce)
+const shouldFireEvent = (eventKey: string): boolean => {
+  const now = Date.now();
+  const lastFired = eventCache.get(eventKey);
+  
+  if (lastFired && now - lastFired < DEBOUNCE_MS) {
+    return false; // Evento duplicado, ignorar
+  }
+  
+  eventCache.set(eventKey, now);
+  return true;
+};
+
 export const trackEvent = async (
   eventName: string,
   userData: UserData = {},
   customData: CustomData = {}
 ) => {
+  // Criar chave única para debounce baseada no evento + valor
+  const eventKey = `${eventName}_${customData.value || ''}_${customData.content_name || ''}`;
+  
+  if (!shouldFireEvent(eventKey)) {
+    return; // Ignorar evento duplicado
+  }
+
+  // Gerar event_id único que será usado TANTO no Pixel quanto na CAPI
   const eventId = generateEventId();
   const eventSourceUrl = window.location.href;
 
-  // Track com Pixel (client-side) - silencioso
+  // Track com Pixel (client-side) - MESMO event_id para deduplicação
   if (window.fbq) {
     try {
       window.fbq('track', eventName, customData, { eventID: eventId });
@@ -70,14 +95,14 @@ export const trackEvent = async (
   if (userData.zp) hashedUserData.zp = await hashData(userData.zp);
   if (userData.country) hashedUserData.country = await hashData(userData.country);
 
-  // Cookies do Facebook
+  // Cookies do Facebook para melhor matching
   const { fbp, fbc } = getFacebookCookies();
   if (fbp) hashedUserData.fbp = fbp;
   if (fbc) hashedUserData.fbc = fbc;
 
   const payload = JSON.stringify({
     event_name: eventName,
-    event_id: eventId,
+    event_id: eventId, // MESMO event_id usado no Pixel
     user_data: hashedUserData,
     custom_data: customData,
     event_source_url: eventSourceUrl,
