@@ -37,7 +37,6 @@ const generateEventId = (): string => {
   return `${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
 };
 
-// Obter cookies do Facebook para melhor matching
 const getFacebookCookies = () => {
   const cookies = document.cookie.split(';');
   const fbp = cookies.find(c => c.trim().startsWith('_fbp='))?.split('=')[1];
@@ -53,21 +52,14 @@ export const trackEvent = async (
   const eventId = generateEventId();
   const eventSourceUrl = window.location.href;
 
-  console.log(`Tracking ${eventName} with event_id: ${eventId}`);
-
-  // Track com Pixel (client-side)
+  // Track com Pixel (client-side) - silencioso
   if (window.fbq) {
     try {
-      window.fbq('track', eventName, customData, {
-        eventID: eventId,
-      });
-      console.log(`Pixel event ${eventName} sent successfully`);
-    } catch (error) {
-      console.error('Error sending pixel event:', error);
-    }
+      window.fbq('track', eventName, customData, { eventID: eventId });
+    } catch (_) {}
   }
 
-  // Hash dados sensíveis se fornecidos
+  // Hash dados sensíveis
   const hashedUserData: any = {};
   if (userData.em) hashedUserData.em = await hashData(userData.em);
   if (userData.ph) hashedUserData.ph = await hashData(userData.ph);
@@ -78,64 +70,43 @@ export const trackEvent = async (
   if (userData.zp) hashedUserData.zp = await hashData(userData.zp);
   if (userData.country) hashedUserData.country = await hashData(userData.country);
 
-  // Adicionar cookies do Facebook para melhor matching
+  // Cookies do Facebook
   const { fbp, fbc } = getFacebookCookies();
   if (fbp) hashedUserData.fbp = fbp;
   if (fbc) hashedUserData.fbc = fbc;
 
-  // Enviar para Conversion API via edge function com retry
-  const sendToConversionAPI = async (retries = 3) => {
-    try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-      
-      if (!supabaseUrl || !supabaseAnonKey) {
-        console.error('⚠️ CRÍTICO: Supabase não configurado! Eventos NÃO estão sendo enviados para Conversion API.');
-        console.error('Isso causa baixa cobertura de eventos no Meta. Configure Lovable Cloud para resolver.');
-        return;
-      }
-
-      const response = await fetch(`${supabaseUrl}/functions/v1/facebook-conversion`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${supabaseAnonKey}`,
-        },
-        body: JSON.stringify({
-          event_name: eventName,
-          event_id: eventId,
-          user_data: hashedUserData,
-          custom_data: customData,
-          event_source_url: eventSourceUrl,
-        }),
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(`Conversion API error: ${JSON.stringify(error)}`);
-      }
-
-      const data = await response.json();
-      console.log(`✅ Conversion API event ${eventName} sent successfully:`, data);
-    } catch (error) {
-      console.error(`❌ Error sending Conversion API event (${4 - retries}/3):`, error);
-      
-      // Retry com backoff exponencial
-      if (retries > 0) {
-        const delay = (4 - retries) * 1000; // 1s, 2s, 3s
-        console.log(`Retrying in ${delay}ms...`);
-        await new Promise(resolve => setTimeout(resolve, delay));
-        return sendToConversionAPI(retries - 1);
-      } else {
-        console.error('⚠️ Failed to send event to Conversion API after 3 attempts');
-      }
-    }
-  };
-
-  // Enviar de forma assíncrona sem bloquear
-  sendToConversionAPI().catch(err => {
-    console.error('Unhandled error in Conversion API:', err);
+  const payload = JSON.stringify({
+    event_name: eventName,
+    event_id: eventId,
+    user_data: hashedUserData,
+    custom_data: customData,
+    event_source_url: eventSourceUrl,
   });
+
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+  const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey) return;
+
+  const url = `${supabaseUrl}/functions/v1/facebook-conversion`;
+
+  // Usar sendBeacon para não bloquear navegação
+  if (navigator.sendBeacon) {
+    const blob = new Blob([payload], { type: 'application/json' });
+    const sent = navigator.sendBeacon(url, blob);
+    if (sent) return;
+  }
+
+  // Fallback para fetch não-bloqueante
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${supabaseAnonKey}`,
+    },
+    body: payload,
+    keepalive: true,
+  }).catch(() => {});
 };
 
 // Eventos específicos

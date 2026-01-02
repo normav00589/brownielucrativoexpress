@@ -53,18 +53,14 @@
       }
     </script>
     
-    <!-- Defer all third-party scripts after page is interactive -->
+    <!-- Load third-party scripts ONLY after user interaction for maximum speed -->
     <script>
-      // Load GTM and FB Pixel only after page is fully loaded and idle
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(function() {
-          loadThirdPartyScripts();
-        }, { timeout: 4000 });
-      } else {
-        setTimeout(loadThirdPartyScripts, 3000);
-      }
+      var scriptsLoaded = false;
       
       function loadThirdPartyScripts() {
+        if (scriptsLoaded) return;
+        scriptsLoaded = true;
+        
         // Google Tag Manager
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -72,7 +68,7 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-KDW38BW6');
         
-        // Facebook Pixel
+        // Facebook Pixel - loaded after interaction
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -85,9 +81,17 @@
         fbq('init', '2025669271618388');
         fbq('track', 'PageView');
       }
+      
+      // Load on first user interaction (scroll, click, touch, mousemove)
+      ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'].forEach(function(event) {
+        window.addEventListener(event, loadThirdPartyScripts, { once: true, passive: true });
+      });
+      
+      // Fallback: load after 5 seconds if no interaction
+      setTimeout(loadThirdPartyScripts, 5000);
     </script>
     
-    <!-- Facebook Pixel Noscript - moved to bottom -->
+    <!-- Facebook Pixel Noscript -->
     <noscript>
       <img height="1" width="1" style="display:none" loading="lazy"
            src="https://www.facebook.com/tr?id=1034279045491529&ev=PageView&noscript=1"/>

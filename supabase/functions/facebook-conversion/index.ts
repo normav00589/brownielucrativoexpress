@@ -1,5 +1,4 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -15,23 +14,15 @@ serve(async (req) => {
   }
 
   try {
-    const { 
-      event_name, 
-      event_id, 
-      user_data, 
-      custom_data, 
-      event_source_url 
-    } = await req.json();
+    const { event_name, event_id, user_data, custom_data, event_source_url } = await req.json();
 
-    console.log(`Processing ${event_name} event with ID: ${event_id}`);
-
-    // Verificar se o token está configurado
     if (!API_TOKEN) {
-      console.error('⚠️ FACEBOOK_CONVERSION_API_TOKEN não configurado!');
-      throw new Error('Facebook Conversion API token not configured');
+      return new Response(
+        JSON.stringify({ error: 'Token not configured', success: false }),
+        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
     }
 
-    // Preparar dados do evento
     const eventData = {
       data: [{
         event_name,
@@ -48,18 +39,13 @@ serve(async (req) => {
       }],
     };
 
-    console.log('Sending event to Facebook Conversion API:', JSON.stringify(eventData, null, 2));
-
-    // Enviar para Conversion API para ambos os pixels
     const responses = await Promise.all(
       PIXEL_IDS.map(pixelId =>
         fetch(
           `https://graph.facebook.com/v18.0/${pixelId}/events?access_token=${API_TOKEN}`,
           {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(eventData),
           }
         )
@@ -67,42 +53,23 @@ serve(async (req) => {
     );
 
     const results = await Promise.all(responses.map(r => r.json()));
-    console.log('Facebook API Responses:', JSON.stringify(results, null, 2));
-
-    // Verificar se alguma resposta falhou
     const hasError = responses.some(r => !r.ok);
+
     if (hasError) {
-      console.error('Facebook API Errors:', results);
-      throw new Error(`Facebook API error: ${JSON.stringify(results)}`);
+      return new Response(
+        JSON.stringify({ error: 'API error', success: false }),
+        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
     }
 
     return new Response(
-      JSON.stringify({ 
-        success: true, 
-        pixels: PIXEL_IDS,
-        results: results.map((r, i) => ({
-          pixel_id: PIXEL_IDS[i],
-          events_received: r.events_received,
-          messages: r.messages
-        }))
-      }),
-      { 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        status: 200 
-      }
+      JSON.stringify({ success: true, events_received: results[0]?.events_received || 1 }),
+      { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 200 }
     );
   } catch (error) {
-    console.error('Error in facebook-conversion function:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return new Response(
-      JSON.stringify({ 
-        error: errorMessage,
-        success: false 
-      }),
-      {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      }
+      JSON.stringify({ error: 'Server error', success: false }),
+      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
 });
