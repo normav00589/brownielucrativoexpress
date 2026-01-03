@@ -9,35 +9,42 @@ export const HeroSection = memo(() => {
       <div className="container mx-auto max-w-3xl">
         <div className="space-y-5 text-center">
           
-          {/* Main Headline - Simplified for mobile */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] font-black tracking-tight">
+          {/* Main Headline */}
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15] font-black tracking-tight uppercase">
             <span className="block text-white">
-              Brownies
+              Brownie que{" "}
+              <span className="bg-gradient-to-r from-gold via-white to-caramel bg-clip-text text-transparent md:animate-text-shine">
+                dá certo
+              </span>
             </span>
-            <span className="block bg-gradient-to-r from-gold via-white to-caramel bg-clip-text text-transparent md:animate-text-shine">
-              Lucrativos
-            </span>
-            <span className="block mt-2">
-              <span className="text-white">em </span>
+            <span className="block mt-1">
+              <span className="text-white">desde a </span>
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-accent via-gold to-caramel bg-clip-text text-transparent md:animate-text-gradient">
-                  40 Minutos
+                  primeira fornada.
                 </span>
-                <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-accent to-gold rounded-full"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-gold rounded-full"></span>
               </span>
             </span>
           </h1>
           
           {/* Subheadline */}
           <div className="space-y-2">
-            <p className="font-body text-lg sm:text-xl md:text-2xl font-bold leading-relaxed">
-              <span className="text-white">Como lucrar </span>
-              <span className="bg-gradient-to-r from-gold via-accent to-gold bg-clip-text text-transparent font-black text-xl sm:text-2xl md:text-3xl">
-                R$150–R$350
+            <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-white">
+              Receitas de brownies{" "}
+              <span className="text-accent font-bold">fáceis</span>, prontas em até{" "}
+              <span className="bg-gradient-to-r from-gold via-accent to-gold bg-clip-text text-transparent font-black">
+                40 minutos
               </span>
-              <span className="text-white font-black text-xl sm:text-2xl md:text-3xl"> por dia</span>
+              , pensadas pra quem quer{" "}
+              <span className="text-accent font-bold">vender sem medo</span>.
             </p>
-            <p className="font-body text-base sm:text-lg md:text-xl text-white">com brownies que vendem sozinhos!<span className="text-accent font-bold">vendem sozinhos</span> 🍫
+            <p className="font-body text-lg sm:text-xl md:text-2xl font-bold leading-relaxed">
+              <span className="text-white">E pode faturar de </span>
+              <span className="bg-gradient-to-r from-gold via-accent to-gold bg-clip-text text-transparent font-black text-xl sm:text-2xl md:text-3xl">
+                R$150 a R$350
+              </span>
+              <span className="text-white font-black text-xl sm:text-2xl md:text-3xl"> por dia.</span>
             </p>
           </div>
           
@@ -72,7 +79,7 @@ export const HeroSection = memo(() => {
           });
         }}>
             <span className="relative flex items-center justify-center gap-2">
-              🍫 Ver Oferta Exclusiva Agora
+              🍫 QUERO FAZER BROWNIES QUE VENDEM!
             </span>
           </button>
           
