@@ -50,51 +50,58 @@ export const OfferSection = () => {
 
   return (
     <section className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-fire opacity-20 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-hot-pink/10 via-transparent to-vibrant-orange/10 -z-10" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="space-y-8 md:space-y-12">
           {/* Content Section */}
           <div className="text-center space-y-6 md:space-y-8 max-w-4xl mx-auto">
-            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-3xl bg-gradient-to-r from-primary via-accent to-caramel bg-clip-text text-transparent">
-              MÉTODO DO BROWNIE PERFEITO & LUCRATIVO!
+            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-3xl">
+              <span className="text-white">MÉTODO DO </span>
+              <span className="bg-gradient-to-r from-hot-pink via-vibrant-orange to-gold bg-clip-text text-transparent">BROWNIE PERFEITO</span>
+              <span className="text-white"> & </span>
+              <span className="text-vibrant-orange">LUCRATIVO!</span>
             </h2>
             
             <div className="space-y-4">
-              <p className="text-lg md:text-xl text-primary-foreground">
+              <p className="text-lg md:text-xl text-white">
                 ✨ Vou te ensinar o meu método que faz sucesso:
               </p>
               
               <div className="grid sm:grid-cols-2 gap-4">
-                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 transition-colors duration-300">
-                  <p className="font-heading font-bold text-primary text-lg">⏱️ Fornada pronta</p>
-                  <p className="text-primary-foreground">em menos de 40 minutos</p>
+                <div className="bg-[hsl(20,20%,12%)] p-5 rounded-xl shadow-medium border-2 border-hot-pink/30 transition-colors duration-300 hover:border-hot-pink/60">
+                  <p className="font-heading font-bold text-hot-pink text-lg">⏱️ Fornada pronta</p>
+                  <p className="text-white">em menos de 40 minutos</p>
                 </div>
-                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 transition-colors duration-300">
-                  <p className="font-heading font-bold text-primary text-lg">💰 Transforme</p>
-                  <p className="text-primary-foreground">R$60 em R$200 por fornada!</p>
+                <div className="bg-[hsl(20,20%,12%)] p-5 rounded-xl shadow-medium border-2 border-vibrant-orange/30 transition-colors duration-300 hover:border-vibrant-orange/60">
+                  <p className="font-heading font-bold text-vibrant-orange text-lg">💰 Transforme</p>
+                  <p className="text-white">R$60 em R$200 por fornada!</p>
                 </div>
-                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 transition-colors duration-300">
-                  <p className="font-heading font-bold text-primary text-lg">📆 Validade</p>
-                  <p className="text-primary-foreground">de 10 dias – venda sem perdas!</p>
+                <div className="bg-[hsl(20,20%,12%)] p-5 rounded-xl shadow-medium border-2 border-[hsl(174,72%,56%)]/30 transition-colors duration-300 hover:border-[hsl(174,72%,56%)]/60">
+                  <p className="font-heading font-bold text-[hsl(174,72%,56%)] text-lg">📆 Validade</p>
+                  <p className="text-white">de 10 dias – venda sem perdas!</p>
                 </div>
-                <div className="bg-gradient-card p-5 rounded-xl shadow-medium border-2 border-primary/20 transition-colors duration-300">
-                  <p className="font-heading font-bold text-primary text-lg">✅ Acesso</p>
-                  <p className="text-primary-foreground">Vitalício ao conteúdo!</p>
+                <div className="bg-[hsl(20,20%,12%)] p-5 rounded-xl shadow-medium border-2 border-gold/30 transition-colors duration-300 hover:border-gold/60">
+                  <p className="font-heading font-bold text-gold text-lg">✅ Acesso</p>
+                  <p className="text-white">Vitalício ao conteúdo!</p>
                 </div>
               </div>
             </div>
             
             <div className="flex flex-col items-center gap-4 mt-8">
-              <a href="#pricing" className="relative inline-block w-full sm:max-w-md px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-[hsl(var(--cta-orange-dark))] via-[hsl(var(--cta-orange))] to-[hsl(var(--cta-orange-dark))] text-white font-heading font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 text-center border-2 border-accent/30 overflow-hidden group">
+              <a 
+                href="#pricing" 
+                className="relative inline-block w-full sm:max-w-md px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-vibrant-orange via-hot-pink to-vibrant-orange text-white font-heading font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 text-center border-2 border-hot-pink/30 overflow-hidden group"
+                style={{ boxShadow: '0 0 30px rgba(255, 107, 107, 0.4)' }}
+              >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   🔥 BAIXE SUAS RECEITAS E APROVEITE!
                 </span>
               </a>
               
               <div className="flex items-center justify-center gap-2">
-                <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
-                <p className="font-heading font-bold text-accent text-sm sm:text-base md:text-lg">
+                <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-[hsl(174,72%,56%)]" />
+                <p className="font-heading font-bold text-[hsl(174,72%,56%)] text-sm sm:text-base md:text-lg">
                   Disponível para Android e iOS
                 </p>
               </div>
@@ -107,7 +114,7 @@ export const OfferSection = () => {
               {/* iPhone Mockup */}
               <div className="relative w-[280px] md:w-[320px] mx-auto">
                 {/* iPhone Frame */}
-                <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-slate-700/50">
+                <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-hot-pink/30">
                   {/* Screen */}
                   <div className="relative bg-black rounded-[2.5rem] overflow-hidden" style={{ aspectRatio: '0.549618320610687' }}>
                     {/* Notch */}
@@ -136,7 +143,7 @@ export const OfferSection = () => {
                             
                             {/* Play icon */}
                             <div className="relative z-10 flex flex-col items-center gap-3">
-                              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-[hsl(var(--cta-orange-dark))] via-[hsl(var(--cta-orange))] to-[hsl(var(--cta-orange-dark))] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-hot-pink via-vibrant-orange to-hot-pink flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                                 <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
                               </div>
                               <span className="text-white font-heading font-bold text-sm md:text-base drop-shadow-lg">
@@ -160,7 +167,7 @@ export const OfferSection = () => {
                 </div>
                 
                 {/* Floating badge */}
-                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-[hsl(var(--cta-orange-dark))] to-[hsl(var(--cta-orange))] px-4 py-2 rounded-full shadow-lg z-20">
+                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-hot-pink to-vibrant-orange px-4 py-2 rounded-full shadow-lg z-20">
                   <p className="font-heading font-bold text-white flex items-center gap-2 text-sm">
                     <Play className="w-4 h-4" />
                     Veja Como Funciona
