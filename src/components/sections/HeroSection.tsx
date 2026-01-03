@@ -1,10 +1,8 @@
 import { memo } from "react";
 import { Shield, Users, Sparkles, CheckCircle, Star, Zap, Circle } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
-
 export const HeroSection = memo(() => {
-  return (
-    <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden">
+  return <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden">
       {/* Dark gradient background */}
       <div className="absolute inset-0 bg-gradient-hero -z-10" />
       
@@ -65,10 +63,10 @@ export const HeroSection = memo(() => {
           <div className="relative mx-auto max-w-md">
             <div className="bg-[hsl(20,15%,10%)] rounded-2xl px-8 py-6 shadow-2xl border border-white/5">
               <div className="flex items-center justify-center gap-2 mb-2">
-                <span className="text-base font-body text-white/60">Por apenas</span>
+                <span className="text-base font-body text-primary-foreground">Por apenas</span>
               </div>
               <div className="flex items-center justify-center gap-4 mb-2">
-                <span className="text-xl line-through font-body text-white/40">R$ 47</span>
+                <span className="text-xl line-through font-body text-secondary-foreground">R$ 47</span>
                 <span className="text-5xl sm:text-6xl md:text-7xl font-display font-black text-vibrant-orange">
                   R$ 1,90
                 </span>
@@ -83,19 +81,15 @@ export const HeroSection = memo(() => {
           </div>
           
           {/* CTA Button - Vibrant Orange Glow */}
-          <button 
-            className="group relative w-full md:w-auto px-10 sm:px-14 py-5 sm:py-6 text-lg sm:text-xl font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,120,50,0.6)] font-body bg-gradient-to-r from-vibrant-orange via-[hsl(30,100%,55%)] to-gold"
-            style={{
-              boxShadow: '0 8px 30px rgba(255, 120, 50, 0.5), 0 0 20px rgba(255, 140, 60, 0.3)'
-            }}
-            onClick={() => {
-              trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
-              document.getElementById('master-plan')?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-              });
-            }}
-          >
+          <button className="group relative w-full md:w-auto px-10 sm:px-14 py-5 sm:py-6 text-lg sm:text-xl font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,120,50,0.6)] font-body bg-gradient-to-r from-vibrant-orange via-[hsl(30,100%,55%)] to-gold" style={{
+          boxShadow: '0 8px 30px rgba(255, 120, 50, 0.5), 0 0 20px rgba(255, 140, 60, 0.3)'
+        }} onClick={() => {
+          trackViewContent('Hero CTA - Brownies Lucrativos', 1.90);
+          document.getElementById('master-plan')?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }}>
             <span className="relative flex items-center justify-center gap-2">
               🍫 QUERO FAZER BROWNIES QUE VENDEM!
             </span>
@@ -121,17 +115,9 @@ export const HeroSection = memo(() => {
           <div className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6">
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-hot-pink via-vibrant-orange to-gold rounded-2xl blur-sm opacity-60"></div>
-              <img 
-                alt="Brownie gourmet delicioso" 
-                width="400" 
-                height="400" 
-                fetchPriority="high" 
-                decoding="async" 
-                loading="eager" 
-                className="relative w-full h-auto rounded-2xl border-2 border-white/20"
-                style={{ aspectRatio: '1/1' }}
-                src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" 
-              />
+              <img alt="Brownie gourmet delicioso" width="400" height="400" fetchPriority="high" decoding="async" loading="eager" className="relative w-full h-auto rounded-2xl border-2 border-white/20" style={{
+              aspectRatio: '1/1'
+            }} src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" />
             </div>
           </div>
           
@@ -167,8 +153,6 @@ export const HeroSection = memo(() => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 });
-
 HeroSection.displayName = 'HeroSection';
