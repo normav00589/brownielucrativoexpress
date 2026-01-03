@@ -61,24 +61,24 @@ export const HeroSection = memo(() => {
             </p>
           </div>
           
-          {/* Price Block - Dark Card */}
-          <div className="relative mx-auto max-w-sm">
-            <div className="bg-[hsl(20,20%,12%)] rounded-2xl p-6 shadow-2xl border border-white/10">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <span className="text-base font-body text-white/70">Por apenas</span>
+          {/* Price Block - Dark Card (Sanduíche Sem Medo style) */}
+          <div className="relative mx-auto max-w-md">
+            <div className="bg-[hsl(20,15%,10%)] rounded-2xl px-8 py-6 shadow-2xl border border-white/5">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-base font-body text-white/60">Por apenas</span>
               </div>
-              <div className="flex items-center justify-center gap-3 mb-1">
-                <span className="text-lg line-through font-body text-white/50">R$47</span>
-                <span className="text-5xl sm:text-6xl md:text-7xl font-display font-black bg-gradient-to-r from-vibrant-orange via-gold to-hot-pink bg-clip-text text-transparent">
-                  R$1,90
+              <div className="flex items-center justify-center gap-4 mb-2">
+                <span className="text-xl line-through font-body text-white/40">R$ 47</span>
+                <span className="text-5xl sm:text-6xl md:text-7xl font-display font-black text-vibrant-orange">
+                  R$ 1,90
                 </span>
+                <div className="bg-teal-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                  -98% OFF
+                </div>
               </div>
-              <p className="text-sm font-body text-white/80 mb-3">
+              <p className="text-sm font-body text-vibrant-orange">
                 Acesso vitalício completo
               </p>
-              <div className="inline-block bg-gradient-to-r from-teal-500 to-teal-400 text-white text-sm font-bold px-4 py-1.5 rounded-full">
-                -98% OFF
-              </div>
             </div>
           </div>
           
