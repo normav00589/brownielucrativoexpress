@@ -61,25 +61,24 @@ export const HeroSection = memo(() => {
             </p>
           </div>
           
-          {/* Price Block - Vibrant Card */}
+          {/* Price Block - Dark Card */}
           <div className="relative mx-auto max-w-sm">
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border-2 border-vibrant-orange/30">
-              <div className="flex items-center justify-center gap-3 mb-2">
-                <span className="text-base sm:text-lg line-through font-body text-gray-500">De R$97</span>
-                <span className="bg-gradient-to-r from-gray-900 to-gray-800 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full">
-                  -98% OFF
+            <div className="bg-[hsl(20,20%,12%)] rounded-2xl p-6 shadow-2xl border border-white/10">
+              <div className="flex items-center justify-center gap-2 mb-1">
+                <span className="text-base font-body text-white/70">Por apenas</span>
+              </div>
+              <div className="flex items-center justify-center gap-3 mb-1">
+                <span className="text-lg line-through font-body text-white/50">R$47</span>
+                <span className="text-5xl sm:text-6xl md:text-7xl font-display font-black bg-gradient-to-r from-vibrant-orange via-gold to-hot-pink bg-clip-text text-transparent">
+                  R$1,90
                 </span>
               </div>
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-base sm:text-lg font-body text-gray-600">por apenas</span>
-              </div>
-              <div className="text-5xl sm:text-6xl md:text-7xl font-display font-black text-vibrant-orange drop-shadow-sm">
-                R$1,90
-              </div>
-              <p className="text-sm flex items-center justify-center gap-2 font-body text-gray-700 mt-2">
-                <CheckCircle className="w-4 h-4 text-neon-green" />
-                Acesso vitalício + Garantia de 14 dias
+              <p className="text-sm font-body text-white/80 mb-3">
+                Acesso vitalício completo
               </p>
+              <div className="inline-block bg-gradient-to-r from-teal-500 to-teal-400 text-white text-sm font-bold px-4 py-1.5 rounded-full">
+                -98% OFF
+              </div>
             </div>
           </div>
           
