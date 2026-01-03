@@ -10,41 +10,46 @@ export const HeroSection = memo(() => {
         <div className="space-y-5 text-center">
           
           {/* Main Headline */}
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15] font-black tracking-tight uppercase">
-            <span className="block text-white">
-              Brownie que{" "}
-              <span className="bg-gradient-to-r from-gold via-white to-caramel bg-clip-text text-transparent md:animate-text-shine">
-                dá certo
+          <div className="relative">
+            <h1 className="font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.2] font-black tracking-tight">
+              <span className="block text-white/90 mb-1">
+                BROWNIE QUE
               </span>
-            </span>
-            <span className="block mt-1">
-              <span className="text-white">desde a </span>
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-accent via-gold to-caramel bg-clip-text text-transparent md:animate-text-gradient">
-                  primeira fornada.
+              <span className="block">
+                <span className="relative inline-block bg-gradient-to-r from-gold via-amber-200 to-caramel bg-clip-text text-transparent drop-shadow-lg">
+                  DÁ CERTO
                 </span>
-                <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-gold rounded-full"></span>
               </span>
-            </span>
-          </h1>
+              <span className="block text-white/90 mt-1">
+                DESDE A
+              </span>
+              <span className="block mt-1">
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-accent via-gold to-amber-300 bg-clip-text text-transparent">
+                    PRIMEIRA FORNADA.
+                  </span>
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[80%] h-1 bg-gradient-to-r from-transparent via-gold/80 to-transparent rounded-full"></span>
+                </span>
+              </span>
+            </h1>
+          </div>
           
           {/* Subheadline */}
-          <div className="space-y-2">
-            <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-white">
+          <div className="max-w-xl mx-auto space-y-4 pt-2">
+            <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-white/85">
               Receitas de brownies{" "}
-              <span className="text-accent font-bold">fáceis</span>, prontas em até{" "}
-              <span className="bg-gradient-to-r from-gold via-accent to-gold bg-clip-text text-transparent font-black">
-                40 minutos
-              </span>
-              , pensadas pra quem quer{" "}
-              <span className="text-accent font-bold">vender sem medo</span>.
+              <span className="text-gold font-semibold">fáceis</span>, prontas em até{" "}
+              <span className="text-accent font-bold">40 minutos</span>, pensadas pra quem quer{" "}
+              <span className="text-gold font-semibold">vender sem medo</span>.
             </p>
-            <p className="font-body text-lg sm:text-xl md:text-2xl font-bold leading-relaxed">
-              <span className="text-white">E pode faturar de </span>
-              <span className="bg-gradient-to-r from-gold via-accent to-gold bg-clip-text text-transparent font-black text-xl sm:text-2xl md:text-3xl">
-                R$150 a R$350
+            <p className="font-body text-lg sm:text-xl md:text-2xl font-medium leading-relaxed">
+              <span className="text-white/80">E pode faturar de </span>
+              <span className="inline-flex items-center gap-1">
+                <span className="bg-gradient-to-r from-gold via-amber-300 to-gold bg-clip-text text-transparent font-black text-xl sm:text-2xl md:text-3xl">
+                  R$150 a R$350
+                </span>
               </span>
-              <span className="text-white font-black text-xl sm:text-2xl md:text-3xl"> por dia.</span>
+              <span className="text-white font-bold text-xl sm:text-2xl md:text-3xl"> por dia.</span>
             </p>
           </div>
           
