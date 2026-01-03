@@ -36,14 +36,14 @@ export const HeroSection = memo(() => {
           
           {/* Subheadline */}
           <div className="max-w-xl mx-auto space-y-4 pt-2">
-            <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-white/85">
+            <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-white">
               Receitas de brownies{" "}
               <span className="text-gold font-semibold">fáceis</span>, prontas em até{" "}
               <span className="text-accent font-bold">40 minutos</span>, pensadas pra quem quer{" "}
               <span className="text-gold font-semibold">vender sem medo</span>.
             </p>
             <p className="font-body text-lg sm:text-xl md:text-2xl font-medium leading-relaxed">
-              <span className="text-white/80">E pode faturar de </span>
+              <span className="text-white">E pode faturar de </span>
               <span className="inline-flex items-center gap-1">
                 <span className="bg-gradient-to-r from-gold via-amber-300 to-gold bg-clip-text text-transparent font-black text-xl sm:text-2xl md:text-3xl">
                   R$150 a R$350
