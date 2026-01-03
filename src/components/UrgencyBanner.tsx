@@ -46,30 +46,30 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
   }, [resetTimer]);
 
   return (
-    <div className="py-3 md:py-4 px-4 sticky top-0 z-50 border-b border-accent/30 bg-background">
+    <div className="py-3 md:py-4 px-4 sticky top-0 z-50 border-b border-hot-pink/30 bg-background">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 text-foreground">
         <div className="flex items-center gap-2">
-          <Zap className="w-5 h-5 md:w-6 md:h-6 text-accent" />
-          <span className="font-heading font-bold text-sm md:text-lg text-accent">
+          <Zap className="w-5 h-5 md:w-6 md:h-6 text-vibrant-orange" />
+          <span className="font-heading font-bold text-sm md:text-lg text-vibrant-orange">
             ⚡ OFERTA RELÂMPAGO:
           </span>
         </div>
         
         <div className="flex items-center gap-2">
-          <Clock className="w-5 h-5 md:w-6 md:h-6 text-accent" />
+          <Clock className="w-5 h-5 md:w-6 md:h-6 text-hot-pink" />
           <div className="flex gap-2 md:gap-3 font-heading font-bold text-lg md:text-2xl">
-            <span className="bg-accent text-background px-3 py-2 rounded-lg">
+            <span className="bg-vibrant-orange text-white px-3 py-2 rounded-lg">
               {String(timeLeft.minutes).padStart(2, "0")}
             </span>
-            <span className="text-accent">:</span>
-            <span className="bg-accent text-background px-3 py-2 rounded-lg">
+            <span className="text-hot-pink">:</span>
+            <span className="bg-vibrant-orange text-white px-3 py-2 rounded-lg">
               {String(timeLeft.seconds).padStart(2, "0")}
             </span>
           </div>
         </div>
         
         <div className="font-heading font-bold text-sm md:text-lg">
-          <span className="text-primary">🔥 Restam apenas {spotsLeft} vagas!</span>
+          <span className="text-hot-pink">🔥 Restam apenas {spotsLeft} vagas!</span>
         </div>
       </div>
     </div>

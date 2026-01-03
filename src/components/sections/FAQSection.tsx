@@ -35,17 +35,22 @@ export const FAQSection = () => {
   return (
     <section ref={ref} className={`py-20 px-4 bg-background fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-4xl">
-        <h2 className="font-heading font-bold text-3xl md:text-4xl text-center mb-12 text-foreground">
-          Perguntas Frequentes
+        <h2 className="font-heading font-bold text-3xl md:text-4xl text-center mb-12">
+          <span className="text-white">Perguntas </span>
+          <span className="bg-gradient-to-r from-hot-pink to-vibrant-orange bg-clip-text text-transparent">Frequentes</span>
         </h2>
         
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="font-heading font-semibold text-lg text-left">
+            <AccordionItem 
+              key={index} 
+              value={`item-${index}`}
+              className="bg-[hsl(20,20%,12%)] border border-hot-pink/20 rounded-xl px-6 data-[state=open]:border-hot-pink/50"
+            >
+              <AccordionTrigger className="font-heading font-semibold text-lg text-left text-white hover:text-hot-pink transition-colors">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="font-body text-white">
+              <AccordionContent className="font-body text-white/80">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
