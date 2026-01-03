@@ -67,6 +67,15 @@ export default {
         },
         cocoa: "hsl(var(--cocoa))",
         hazelnut: "hsl(var(--hazelnut))",
+        "hot-pink": {
+          DEFAULT: "hsl(var(--hot-pink))",
+          light: "hsl(var(--hot-pink-light))",
+        },
+        "vibrant-orange": {
+          DEFAULT: "hsl(var(--vibrant-orange))",
+          light: "hsl(var(--vibrant-orange-light))",
+        },
+        "neon-green": "hsl(var(--neon-green))",
       },
       backgroundImage: {
         "gradient-warm": "var(--gradient-warm)",

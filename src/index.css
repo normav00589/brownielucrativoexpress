@@ -123,6 +123,13 @@ All colors MUST be HSL.
     --cocoa: 15 45% 22%;
     --hazelnut: 28 55% 45%;
     
+    /* Vibrant Accent Colors - HOT PINK & ORANGE */
+    --hot-pink: 330 85% 60%;
+    --hot-pink-light: 330 90% 70%;
+    --vibrant-orange: 25 100% 55%;
+    --vibrant-orange-light: 30 100% 60%;
+    --neon-green: 140 75% 50%;
+    
     /* Confectionery Gradients */
     --gradient-warm: linear-gradient(135deg, hsl(25 80% 55%) 0%, hsl(38 95% 58%) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(42 100% 68%) 0%, hsl(38 95% 58%) 50%, hsl(35 90% 50%) 100%);
@@ -130,10 +137,12 @@ All colors MUST be HSL.
     --gradient-caramel: linear-gradient(135deg, hsl(35 80% 60%) 0%, hsl(38 95% 58%) 50%, hsl(30 75% 50%) 100%);
     --gradient-premium: linear-gradient(135deg, hsl(20 30% 6%) 0%, hsl(20 35% 12%) 50%, hsl(25 40% 15%) 100%);
     --gradient-cream: linear-gradient(135deg, hsl(20 25% 10%) 0%, hsl(25 30% 14%) 100%);
-    --gradient-hero: radial-gradient(ellipse at top, hsl(25 45% 18%) 0%, hsl(20 30% 8%) 50%, hsl(20 30% 6%) 100%);
+    --gradient-hero: radial-gradient(ellipse at top, hsl(0 0% 8%) 0%, hsl(0 0% 4%) 50%, hsl(0 0% 2%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(20 25% 10%) 0%, hsl(25 30% 12%) 100%);
     --gradient-fire: radial-gradient(ellipse at top, hsl(30 85% 50%) 0%, hsl(25 70% 40%) 40%, transparent 70%);
-    --gradient-cta: linear-gradient(135deg, hsl(28 90% 48%) 0%, hsl(25 85% 55%) 50%, hsl(30 80% 50%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(25 100% 50%) 0%, hsl(30 100% 55%) 50%, hsl(35 95% 52%) 100%);
+    --gradient-hot-pink: linear-gradient(135deg, hsl(330 85% 55%) 0%, hsl(330 90% 65%) 100%);
+    --gradient-vibrant: linear-gradient(135deg, hsl(25 100% 55%) 0%, hsl(35 100% 60%) 100%);
     
     /* Warm Glow Shadows */
     --shadow-soft: 0 4px 20px rgba(180, 100, 40, 0.2);
