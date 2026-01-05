@@ -7,7 +7,7 @@ export const PricingSection = memo(() => {
   const { ref, isVisible } = useIntersectionObserver();
   
   return (
-    <section ref={ref} id="pricing" data-section="pricing" className={`py-16 md:py-24 px-4 bg-section-dark relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
+    <section ref={ref} id="pricing" data-section="pricing" className={`py-16 md:py-24 px-4 bg-gradient-to-b from-[hsl(20,30%,12%)] via-[hsl(20,25%,10%)] to-[hsl(0,0%,5%)] relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Title */}
         <div className="text-center mb-12 md:mb-16">

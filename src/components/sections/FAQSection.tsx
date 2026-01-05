@@ -33,7 +33,7 @@ export const FAQSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
   
   return (
-    <section ref={ref} className={`py-20 px-4 bg-section-light fade-in-up ${isVisible ? 'visible' : ''}`}>
+    <section ref={ref} className={`py-20 px-4 bg-gradient-to-b from-[hsl(0,0%,5%)] via-[hsl(20,25%,10%)] to-[hsl(20,30%,12%)] fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-4xl">
         <h2 className="font-heading font-bold text-3xl md:text-4xl text-center mb-12">
           <span className="text-white">Perguntas </span>

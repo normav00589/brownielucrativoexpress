@@ -66,8 +66,7 @@ export const BonusSection = () => {
   return (
     <section 
       ref={ref} 
-      className={`py-16 md:py-24 px-4 relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}
-      style={{ background: 'linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--chocolate-dark)/0.5) 50%, hsl(var(--background)) 100%)' }}
+      className={`py-16 md:py-24 px-4 relative overflow-hidden fade-in-up bg-gradient-to-b from-[hsl(0,0%,5%)] via-[hsl(20,25%,10%)] to-[hsl(20,30%,12%)] ${isVisible ? 'visible' : ''}`}
     >
       {/* Decorative blurs */}
       <div className="absolute top-20 right-10 w-72 h-72 bg-caramel/20 rounded-full blur-3xl" />
