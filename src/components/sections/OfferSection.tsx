@@ -48,7 +48,7 @@ export const OfferSection = () => {
   }, []);
 
   return (
-    <section className="py-12 md:py-20 px-4 bg-section-light relative overflow-hidden">
+    <section className="py-12 md:py-20 px-4 bg-gradient-to-b from-[hsl(0,0%,5%)] via-[hsl(20,25%,10%)] to-[hsl(20,30%,12%)] relative overflow-hidden">
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="space-y-8 md:space-y-12">
           {/* Content Section */}
@@ -59,16 +59,16 @@ export const OfferSection = () => {
               <span>CONHEÇA O APLICATIVO</span>
             </div>
             
-            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-3xl leading-tight">
-              <span className="text-gold">O Segredo Que</span>
+            <h2 className="font-['Poppins',sans-serif] font-bold sm:text-4xl md:text-5xl text-3xl leading-tight">
+              <span className="text-gold drop-shadow-[0_0_20px_rgba(218,165,32,0.3)]">O Segredo Que</span>
               <br />
-              <span className="text-gold">Você Sempre Procurou</span>
+              <span className="text-gold drop-shadow-[0_0_20px_rgba(218,165,32,0.3)]">Você Sempre Procurou</span>
               <br />
-              <span className="text-gold">Agora </span>
-              <span className="text-white">no Seu Bolso</span>
+              <span className="text-gold drop-shadow-[0_0_20px_rgba(218,165,32,0.3)]">Agora </span>
+              <span className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">no Seu Bolso</span>
             </h2>
             
-            <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-white max-w-2xl mx-auto font-['Poppins',sans-serif]">
               Você merece ter acesso a receitas exclusivas, passo a passo em vídeo e suporte direto.{" "}
               <span className="text-gold">Tudo para você finalmente lucrar.</span>
             </p>
@@ -77,10 +77,12 @@ export const OfferSection = () => {
           {/* iPhone Mockup with Click-to-Play Video */}
           <div className="flex justify-center">
             <div className="relative">
+              {/* Glow Effect behind iPhone */}
+              <div className="absolute inset-0 bg-gradient-radial from-gold/20 via-gold/5 to-transparent blur-3xl scale-150 opacity-60" />
               {/* iPhone Mockup */}
               <div className="relative w-[280px] md:w-[320px] mx-auto">
                 {/* iPhone Frame */}
-                <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10">
+                <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_40px_rgba(218,165,32,0.15)] border border-white/10">
                   {/* Screen */}
                   <div className="relative bg-black rounded-[2.5rem] overflow-hidden" style={{ aspectRatio: '0.549618320610687' }}>
                     {/* Notch */}
@@ -137,21 +139,21 @@ export const OfferSection = () => {
           
           {/* Features Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <div className="bg-section-dark p-5 rounded-xl border border-white/10 text-center">
-              <p className="font-heading font-bold text-gold text-lg">⏱️ Fornada pronta</p>
-              <p className="text-white/70 text-sm">em menos de 40 minutos</p>
+            <div className="bg-gradient-to-b from-[hsl(20,25%,12%)] to-[hsl(20,30%,8%)] p-5 rounded-xl border border-gold/20 text-center shadow-[0_0_20px_rgba(218,165,32,0.08)]">
+              <p className="font-['Poppins',sans-serif] font-bold text-gold text-lg">⏱️ Fornada pronta</p>
+              <p className="text-white text-sm font-['Poppins',sans-serif]">em menos de 40 minutos</p>
             </div>
-            <div className="bg-section-dark p-5 rounded-xl border border-white/10 text-center">
-              <p className="font-heading font-bold text-gold text-lg">💰 Transforme</p>
-              <p className="text-white/70 text-sm">R$60 em R$200 por fornada!</p>
+            <div className="bg-gradient-to-b from-[hsl(20,25%,12%)] to-[hsl(20,30%,8%)] p-5 rounded-xl border border-gold/20 text-center shadow-[0_0_20px_rgba(218,165,32,0.08)]">
+              <p className="font-['Poppins',sans-serif] font-bold text-gold text-lg">💰 Transforme</p>
+              <p className="text-white text-sm font-['Poppins',sans-serif]">R$60 em R$200 por fornada!</p>
             </div>
-            <div className="bg-section-dark p-5 rounded-xl border border-white/10 text-center">
-              <p className="font-heading font-bold text-gold text-lg">📆 Validade</p>
-              <p className="text-white/70 text-sm">de 10 dias – venda sem perdas!</p>
+            <div className="bg-gradient-to-b from-[hsl(20,25%,12%)] to-[hsl(20,30%,8%)] p-5 rounded-xl border border-gold/20 text-center shadow-[0_0_20px_rgba(218,165,32,0.08)]">
+              <p className="font-['Poppins',sans-serif] font-bold text-gold text-lg">📆 Validade</p>
+              <p className="text-white text-sm font-['Poppins',sans-serif]">de 10 dias – venda sem perdas!</p>
             </div>
-            <div className="bg-section-dark p-5 rounded-xl border border-white/10 text-center">
-              <p className="font-heading font-bold text-gold text-lg">✅ Acesso</p>
-              <p className="text-white/70 text-sm">Vitalício ao conteúdo!</p>
+            <div className="bg-gradient-to-b from-[hsl(20,25%,12%)] to-[hsl(20,30%,8%)] p-5 rounded-xl border border-gold/20 text-center shadow-[0_0_20px_rgba(218,165,32,0.08)]">
+              <p className="font-['Poppins',sans-serif] font-bold text-gold text-lg">✅ Acesso</p>
+              <p className="text-white text-sm font-['Poppins',sans-serif]">Vitalício ao conteúdo!</p>
             </div>
           </div>
           
