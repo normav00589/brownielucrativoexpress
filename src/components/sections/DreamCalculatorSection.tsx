@@ -135,7 +135,7 @@ export const DreamCalculatorSection = () => {
       });
     }
   };
-  return <section ref={ref} className="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
+  return <section ref={ref} className="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-[hsl(0,0%,5%)] via-[hsl(20,25%,10%)] to-[hsl(20,30%,12%)]">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
