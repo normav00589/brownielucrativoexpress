@@ -48,23 +48,36 @@ export const HeroSection = memo(() => {
             </p>
           </div>
           
-          {/* Price Block - Vulcão Style */}
-          <div className="relative mx-auto max-w-md pt-4">
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <span className="text-base line-through text-white/50 font-body">De R$29</span>
-              <span className="bg-[hsl(10,70%,55%)] text-white text-xs font-bold px-3 py-1 rounded-md">
-                -93% OFF
-              </span>
-            </div>
-            <div className="flex items-baseline justify-center gap-2">
-              <span className="text-base font-body text-white/70">por apenas</span>
-              <span className="text-5xl sm:text-6xl md:text-7xl font-display font-black text-gold">
-                R$ 1,99
-              </span>
-            </div>
-            <div className="flex items-center justify-center gap-2 mt-3 text-sm text-white/70">
-              <CheckCircle className="w-4 h-4 text-neon-green" />
-              <span>Acesso vitalício + Garantia de 14 dias</span>
+          {/* Price Block - Premium Card Style */}
+          <div className="relative mx-auto max-w-sm pt-6">
+            <div className="relative bg-gradient-to-br from-[hsl(20,20%,12%)] to-[hsl(20,25%,8%)] border border-gold/20 rounded-2xl p-6 shadow-lg" style={{ boxShadow: '0 0 40px rgba(218,165,32,0.1)' }}>
+              {/* Discount Badge */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="bg-gradient-to-r from-[hsl(10,70%,50%)] to-[hsl(10,80%,45%)] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                  🔥 -93% OFF
+                </span>
+              </div>
+              
+              {/* Original Price */}
+              <div className="flex items-center justify-center gap-2 mb-3 pt-2">
+                <span className="text-sm text-white/40 font-body">De</span>
+                <span className="text-lg line-through text-white/40 font-body">R$29,00</span>
+              </div>
+              
+              {/* Current Price */}
+              <div className="text-center mb-3">
+                <span className="text-sm font-body text-white/60 block mb-1">por apenas</span>
+                <div className="flex items-baseline justify-center gap-1">
+                  <span className="text-2xl font-bold text-gold">R$</span>
+                  <span className="text-6xl sm:text-7xl font-display font-black text-gold leading-none">1,99</span>
+                </div>
+              </div>
+              
+              {/* Guarantee */}
+              <div className="flex items-center justify-center gap-2 text-sm text-white/70 border-t border-white/10 pt-3">
+                <CheckCircle className="w-4 h-4 text-neon-green flex-shrink-0" />
+                <span>Acesso vitalício + Garantia 14 dias</span>
+              </div>
             </div>
           </div>
           
