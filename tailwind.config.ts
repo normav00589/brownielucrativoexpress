@@ -67,6 +67,10 @@ export default {
         },
         cocoa: "hsl(var(--cocoa))",
         hazelnut: "hsl(var(--hazelnut))",
+        section: {
+          dark: "hsl(var(--section-dark))",
+          light: "hsl(var(--section-light))",
+        },
         "hot-pink": {
           DEFAULT: "hsl(var(--hot-pink))",
           light: "hsl(var(--hot-pink-light))",

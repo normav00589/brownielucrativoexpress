@@ -1,13 +1,12 @@
 import { Mail } from "lucide-react";
-import logoBrownie from "@/assets/logo-brownie.png";
 
 export const FooterSection = () => {
   return (
-    <footer className="bg-[hsl(20,22%,6%)] text-foreground py-12 px-4 border-t border-gold/15">
+    <footer className="bg-section-dark text-foreground py-12 px-4 border-t border-white/10">
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <p className="font-body text-sm text-white/70">
+            <p className="font-body text-sm text-white/60">
               Transformando cozinhas em negócios lucrativos desde 2020
             </p>
           </div>
@@ -15,26 +14,26 @@ export const FooterSection = () => {
           <div>
             <h4 className="font-heading font-semibold mb-4 text-gold">Links Úteis</h4>
             <ul className="space-y-2 font-body text-sm">
-              <li><a href="#" className="text-white/60 hover:text-gold transition-colors">Termos de Uso</a></li>
-              <li><a href="#" className="text-white/60 hover:text-gold transition-colors">Política de Privacidade</a></li>
-              <li><a href="#" className="text-white/60 hover:text-gold transition-colors">Contato</a></li>
+              <li><a href="#" className="text-white/50 hover:text-gold transition-colors">Termos de Uso</a></li>
+              <li><a href="#" className="text-white/50 hover:text-gold transition-colors">Política de Privacidade</a></li>
+              <li><a href="#" className="text-white/50 hover:text-gold transition-colors">Contato</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-heading font-semibold mb-4 text-vibrant-orange">Contato</h4>
-            <div className="flex items-center gap-2 font-body text-sm text-white/60">
-              <Mail className="w-4 h-4 text-vibrant-orange" />
+            <h4 className="font-heading font-semibold mb-4 text-gold">Contato</h4>
+            <div className="flex items-center gap-2 font-body text-sm text-white/50">
+              <Mail className="w-4 h-4 text-gold" />
               <span>suporte@brownieslucrativos.com</span>
             </div>
           </div>
         </div>
         
-        <div className="border-t border-gold/15 pt-8 text-center">
-          <p className="font-body text-sm text-white/70 mb-4">
+        <div className="border-t border-white/10 pt-8 text-center">
+          <p className="font-body text-sm text-white/60 mb-4">
             📜 <span className="font-semibold text-white">Missão:</span> Tornar o brownie uma fonte de liberdade financeira para milhares de pessoas.
           </p>
-          <p className="font-body text-xs text-white/50">
+          <p className="font-body text-xs text-white/40">
             © {new Date().getFullYear()} Brownies Lucrativos. Todos os direitos reservados.
           </p>
         </div>

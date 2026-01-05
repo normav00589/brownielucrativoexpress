@@ -7,14 +7,12 @@ export const PricingSection = memo(() => {
   const { ref, isVisible } = useIntersectionObserver();
   
   return (
-    <section ref={ref} id="pricing" data-section="pricing" className={`py-16 md:py-24 px-4 relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`} style={{
-      background: 'linear-gradient(180deg, hsl(20,22%,6%) 0%, hsl(20,22%,10%) 50%, hsl(20,22%,6%) 100%)'
-    }}>
+    <section ref={ref} id="pricing" data-section="pricing" className={`py-16 md:py-24 px-4 bg-section-dark relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Title */}
         <div className="text-center mb-12 md:mb-16">
           <span className="text-gold font-heading text-sm uppercase tracking-widest mb-4 block">Oferta Especial</span>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-gold via-vibrant-orange to-gold bg-clip-text text-transparent">
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gold">
             ESCOLHA SEU PLANO!
           </h2>
         </div>
@@ -22,13 +20,13 @@ export const PricingSection = memo(() => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto items-stretch">
           {/* Master Plan - Featured */}
           <div id="master-plan" className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-gold via-vibrant-orange to-gold rounded-3xl blur-lg opacity-50 md:opacity-50" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold rounded-3xl blur-lg opacity-40" />
             
-            <div className="relative h-full bg-[hsl(20,22%,10%)] border border-gold/40 rounded-3xl p-8 md:p-10">
+            <div className="relative h-full bg-section-light border border-gold/30 rounded-3xl p-8 md:p-10">
               {/* Popular badge */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-gradient-to-r from-gold via-vibrant-orange to-gold px-6 py-2 rounded-full">
-                <Crown className="w-4 h-4 text-white" />
-                <span className="font-heading font-bold text-sm text-white whitespace-nowrap">MAIS POPULAR</span>
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold px-6 py-2 rounded-full">
+                <Crown className="w-4 h-4 text-[hsl(20,30%,15%)]" />
+                <span className="font-heading font-bold text-sm text-[hsl(20,30%,15%)] whitespace-nowrap">MAIS POPULAR</span>
               </div>
               
               {/* Stars */}
@@ -41,8 +39,8 @@ export const PricingSection = memo(() => {
                 <p className="text-sm font-medium text-gold/80 mb-4">(Plano Master)</p>
                 
                 {/* Price block */}
-                <div className="bg-[hsl(20,22%,6%)] rounded-2xl p-6 border border-gold/20 relative">
-                  <div className="absolute -top-3 right-4 bg-coral text-white text-xs font-bold px-3 py-1 rounded-full">
+                <div className="bg-section-dark rounded-2xl p-6 border border-white/10 relative">
+                  <div className="absolute -top-3 right-4 bg-[hsl(10,70%,55%)] text-white text-xs font-bold px-3 py-1 rounded-md">
                     -98% OFF
                   </div>
                   <span className="text-5xl md:text-6xl font-heading font-bold text-gold">R$13,90</span>
@@ -52,8 +50,8 @@ export const PricingSection = memo(() => {
               <ul className="space-y-4 mb-10">
                 {['Aplicativo exclusivo com + 80 Receitas Profissionais e ferramentas para alta lucratividade!', 'Acesso total ao Método 3C', 'Aulas em Vídeo "Brownies que Vendem"', 'Calculadora de Lucro no App', 'Guia dos Melhores Ingredientes', 'Aulas Extras de Confeitaria', 'Suporte + Acesso Vitalício + Certificado'].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-gold to-vibrant-orange flex items-center justify-center mt-0.5">
-                      <Check className="w-4 h-4 text-white" />
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-gold to-[hsl(42,95%,60%)] flex items-center justify-center mt-0.5">
+                      <Check className="w-4 h-4 text-[hsl(20,30%,15%)]" />
                     </div>
                     <span className="font-body font-medium text-sm md:text-base text-white/90">{item}</span>
                   </li>
@@ -65,8 +63,8 @@ export const PricingSection = memo(() => {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 onClick={() => trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan')} 
-                className="block w-full py-4 px-8 bg-gradient-to-r from-vibrant-orange via-gold to-vibrant-orange text-white font-heading font-bold text-lg rounded-xl text-center hover:scale-105 transition-transform duration-300"
-                style={{ boxShadow: '0 0 35px rgba(255, 180, 80, 0.35)' }}
+                className="block w-full py-4 px-8 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] font-heading font-bold text-lg rounded-xl text-center hover:scale-105 transition-transform duration-300"
+                style={{ boxShadow: '0 4px 30px rgba(255, 200, 100, 0.3)' }}
               >
                 🍫 Quero o Acesso Completo!
               </a>
@@ -74,7 +72,7 @@ export const PricingSection = memo(() => {
           </div>
           
           {/* Basic Plan */}
-          <div className="relative h-full bg-[hsl(20,22%,10%)] border border-white/15 rounded-3xl p-8 md:p-10">
+          <div className="relative h-full bg-section-light border border-white/15 rounded-3xl p-8 md:p-10">
             <div className="text-center mb-8 pt-4">
               <h3 className="font-heading font-bold text-2xl md:text-3xl mb-2 text-white">Receita Brownies Lucrativos</h3>
               <div className="text-5xl md:text-6xl font-heading font-bold text-neon-green mt-4">R$1,99</div>

@@ -82,6 +82,10 @@ All colors MUST be HSL.
     --popover: 20 22% 8%;
     --popover-foreground: 40 30% 92%;
 
+    /* Section backgrounds for alternating pattern */
+    --section-dark: 20 25% 5%;
+    --section-light: 20 22% 12%;
+
     /* Golden Yellow Primary */
     --primary: 42 90% 55%;
     --primary-foreground: 20 30% 10%;
