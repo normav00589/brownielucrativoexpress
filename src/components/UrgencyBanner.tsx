@@ -1,17 +1,17 @@
 import { useEffect, useState, useCallback, memo } from "react";
-import { Clock, Zap } from "lucide-react";
+import { Clock, Flame } from "lucide-react";
 
 interface UrgencyBannerProps {
   onTimerExpire?: () => void;
 }
 
 export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
-  const [timeLeft, setTimeLeft] = useState({ minutes: 5, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState({ hours: 4, minutes: 57, seconds: 55 });
   const [spotsLeft, setSpotsLeft] = useState(23);
   const [hasExpired, setHasExpired] = useState(false);
 
   const resetTimer = useCallback(() => {
-    setTimeLeft({ minutes: 5, seconds: 0 });
+    setTimeLeft({ hours: 4, minutes: 57, seconds: 55 });
     setHasExpired(false);
   }, []);
 
@@ -21,7 +21,9 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
         if (prev.seconds > 0) {
           return { ...prev, seconds: prev.seconds - 1 };
         } else if (prev.minutes > 0) {
-          return { minutes: prev.minutes - 1, seconds: 59 };
+          return { hours: prev.hours, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
         }
         if (!hasExpired) {
           setHasExpired(true);
@@ -46,30 +48,31 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
   }, [resetTimer]);
 
   return (
-    <div className="py-3 md:py-4 px-4 sticky top-0 z-50 border-b border-hot-pink/30 bg-background">
+    <div className="py-3 md:py-4 px-4 sticky top-0 z-50 bg-background border-b border-gold/20">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 text-foreground">
         <div className="flex items-center gap-2">
-          <Zap className="w-5 h-5 md:w-6 md:h-6 text-vibrant-orange" />
-          <span className="font-heading font-bold text-sm md:text-lg text-vibrant-orange">
-            ⚡ OFERTA RELÂMPAGO:
+          <span className="text-coral">⚠️</span>
+          <span className="font-heading font-bold text-sm md:text-base text-white">
+            OFERTA EXPIRA EM:
           </span>
         </div>
         
         <div className="flex items-center gap-2">
-          <Clock className="w-5 h-5 md:w-6 md:h-6 text-hot-pink" />
-          <div className="flex gap-2 md:gap-3 font-heading font-bold text-lg md:text-2xl">
-            <span className="bg-vibrant-orange text-white px-3 py-2 rounded-lg">
-              {String(timeLeft.minutes).padStart(2, "0")}
-            </span>
-            <span className="text-hot-pink">:</span>
-            <span className="bg-vibrant-orange text-white px-3 py-2 rounded-lg">
-              {String(timeLeft.seconds).padStart(2, "0")}
-            </span>
+          <Clock className="w-4 h-4 md:w-5 md:h-5 text-coral" />
+          <div className="flex items-center gap-1 font-heading font-bold text-base md:text-xl text-coral border border-coral/40 rounded-lg px-3 py-1.5">
+            <span>{String(timeLeft.hours).padStart(2, "0")}</span>
+            <span>:</span>
+            <span>{String(timeLeft.minutes).padStart(2, "0")}</span>
+            <span>:</span>
+            <span>{String(timeLeft.seconds).padStart(2, "0")}</span>
           </div>
         </div>
         
-        <div className="font-heading font-bold text-sm md:text-lg">
-          <span className="text-hot-pink">🔥 Restam apenas {spotsLeft} vagas!</span>
+        <div className="flex items-center gap-2 border border-white/20 rounded-full px-4 py-1.5">
+          <Flame className="w-4 h-4 text-gold" />
+          <span className="font-heading font-bold text-sm md:text-base text-white">
+            RESTAM APENAS <span className="text-coral">{spotsLeft}</span> VAGAS!
+          </span>
         </div>
       </div>
     </div>
