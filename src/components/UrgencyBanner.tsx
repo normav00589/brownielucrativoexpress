@@ -50,7 +50,7 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
   const formatTime = `${String(timeLeft.hours).padStart(2, "0")}:${String(timeLeft.minutes).padStart(2, "0")}:${String(timeLeft.seconds).padStart(2, "0")}`;
 
   return (
-    <div className="py-3 md:py-4 px-4 sticky top-0 z-50 bg-[hsl(20,22%,6%)] border-b border-white/10">
+    <div className="py-3 md:py-4 px-4 sticky top-0 z-50 bg-section-dark border-b border-white/10">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 text-foreground">
         <div className="flex items-center gap-2">
           <span className="text-[hsl(10,70%,55%)]">⚠️</span>

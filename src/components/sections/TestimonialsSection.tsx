@@ -24,13 +24,13 @@ export const TestimonialsSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
   
   return (
-    <section ref={ref} className={`py-12 md:py-20 px-4 bg-[hsl(20,22%,8%)] fade-in-up ${isVisible ? 'visible' : ''}`}>
+    <section ref={ref} className={`py-12 md:py-20 px-4 bg-section-light fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-4">
-            Mais de <span className="bg-gradient-to-r from-gold to-vibrant-orange bg-clip-text text-transparent">3.000 alunos</span> já estão lucrando com o Método 3C!
+            Mais de <span className="text-gold">3.000 alunos</span> já estão lucrando com o Método 3C!
           </h2>
-          <p className="text-lg text-white/70">
+          <p className="text-lg text-white/60">
             Veja o que nossas alunas reais estão compartilhando nas redes sociais
           </p>
         </div>
@@ -47,7 +47,7 @@ export const TestimonialsSection = () => {
               {realTestimonials.map((image, index) => (
                 <CarouselItem key={index}>
                   <div className="p-2">
-                    <div className="bg-[hsl(20,22%,10%)] rounded-2xl shadow-lg border border-gold/30 overflow-hidden">
+                    <div className="bg-section-dark rounded-2xl shadow-lg border border-white/10 overflow-hidden">
                       <img 
                         src={image} 
                         alt={`Depoimento real ${index + 1}`}
@@ -58,8 +58,8 @@ export const TestimonialsSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-2 md:left-4 h-12 w-12 bg-gold/20 border-gold/50 text-gold hover:bg-gold hover:text-white" />
-            <CarouselNext className="right-2 md:right-4 h-12 w-12 bg-gold/20 border-gold/50 text-gold hover:bg-gold hover:text-white" />
+            <CarouselPrevious className="left-2 md:left-4 h-12 w-12 bg-gold/20 border-gold/50 text-gold hover:bg-gold hover:text-[hsl(20,30%,15%)]" />
+            <CarouselNext className="right-2 md:right-4 h-12 w-12 bg-gold/20 border-gold/50 text-gold hover:bg-gold hover:text-[hsl(20,30%,15%)]" />
           </Carousel>
         </div>
       </div>

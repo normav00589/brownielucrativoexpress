@@ -1,13 +1,10 @@
 import { memo } from "react";
-import { Shield, Users, Sparkles, CheckCircle, Star, Zap, Circle, Clock } from "lucide-react";
+import { Shield, Users, Sparkles, CheckCircle, Star, Clock } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
 
 export const HeroSection = memo(() => {
   return (
-    <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden">
-      {/* Dark gradient background */}
-      <div className="absolute inset-0 bg-gradient-hero -z-10" />
-      
+    <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden bg-section-dark">
       <div className="container mx-auto max-w-3xl">
         <div className="space-y-5 text-center">
           
@@ -125,36 +122,26 @@ export const HeroSection = memo(() => {
             </div>
           </div>
           
-          {/* Empathy Copy */}
-          <p className="font-body text-sm sm:text-base max-w-lg mx-auto leading-relaxed text-white/70">
-            Mesmo que você já tenha tentado{" "}
-            <span className="text-gold font-semibold">mil vezes e errado</span>
-            {" "}— aprenda o método <span className="font-bold text-white">BROWNIE 3C</span> para fazer brownies{" "}
-            <span className="text-gold font-semibold">lindos</span>,{" "}
-            <span className="text-gold font-semibold">estáveis</span>,{" "}
-            <span className="text-gold font-semibold">cremosos</span> e{" "}
-            <span className="text-gold font-bold">vendáveis</span>.
-          </p>
-          
-          {/* Feature Grid - Subtle borders */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto mt-6">
-            <div className="bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-3 sm:py-4 rounded-xl border border-white/10 hover:border-gold/40 transition-colors">
-              <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-gold mx-auto mb-1.5" />
-              <span className="text-white/80 font-medium text-xs sm:text-sm block font-body">Acesso Vitalício</span>
+          {/* Stats Section */}
+          <div className="flex items-center justify-center gap-8 py-6">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-display font-bold text-gold">30</div>
+              <div className="text-sm text-white/60">minutos</div>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-3 sm:py-4 rounded-xl border border-white/10 hover:border-gold/40 transition-colors">
-              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-gold mx-auto mb-1.5" />
-              <span className="text-white/80 font-medium text-xs sm:text-sm block font-body">App Exclusivo</span>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-3 sm:py-4 rounded-xl border border-white/10 hover:border-gold/40 transition-colors">
-              <Users className="w-5 h-5 sm:w-6 sm:h-6 text-gold mx-auto mb-1.5" />
-              <span className="text-white/80 font-medium text-xs sm:text-sm block font-body">+500 Alunas</span>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-3 sm:py-4 rounded-xl border border-white/10 hover:border-neon-green/40 transition-colors">
-              <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-neon-green mx-auto mb-1.5" />
-              <span className="text-white/80 font-medium text-xs sm:text-sm block font-body">14 Dias Garantia</span>
+            <div className="w-px h-12 bg-white/20"></div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-display font-bold text-gold">+500</div>
+              <div className="text-sm text-white/60">Alunas</div>
             </div>
           </div>
+          
+          {/* Empathy Copy */}
+          <p className="font-body text-sm sm:text-base max-w-lg mx-auto leading-relaxed text-white/70 italic">
+            Você já tem{" "}
+            <span className="text-gold font-semibold">tudo o que precisa dentro de você</span>
+            {" "}— só faltava{" "}
+            <span className="text-gold font-semibold italic">a técnica certa.</span>
+          </p>
         </div>
       </div>
     </section>

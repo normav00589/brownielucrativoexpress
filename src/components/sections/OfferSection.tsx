@@ -44,68 +44,34 @@ export const OfferSection = () => {
 
   const handlePlayClick = useCallback(() => {
     setVideoLoaded(true);
-    // Load Wistia scripts if not already loaded (fallback)
     preloadWistia();
   }, []);
 
   return (
-    <section className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-gold/5 via-transparent to-vibrant-orange/5 -z-10" />
-      
+    <section className="py-12 md:py-20 px-4 bg-section-light relative overflow-hidden">
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="space-y-8 md:space-y-12">
           {/* Content Section */}
           <div className="text-center space-y-6 md:space-y-8 max-w-4xl mx-auto">
-            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-3xl">
-              <span className="text-white">MÉTODO DO </span>
-              <span className="bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">BROWNIE PERFEITO</span>
-              <span className="text-white"> & </span>
-              <span className="text-vibrant-orange">LUCRATIVO!</span>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 text-gold text-sm font-medium">
+              <Smartphone className="w-4 h-4" />
+              <span>CONHEÇA O APLICATIVO</span>
+            </div>
+            
+            <h2 className="font-heading font-bold sm:text-4xl md:text-5xl text-3xl leading-tight">
+              <span className="text-gold">O Segredo Que</span>
+              <br />
+              <span className="text-gold">Você Sempre Procurou</span>
+              <br />
+              <span className="text-gold">Agora </span>
+              <span className="text-white">no Seu Bolso</span>
             </h2>
             
-            <div className="space-y-4">
-              <p className="text-lg md:text-xl text-white">
-                ✨ Vou te ensinar o meu método que faz sucesso:
-              </p>
-              
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="bg-[hsl(20,22%,10%)] p-5 rounded-xl shadow-medium border border-gold/30 transition-colors duration-300 hover:border-gold/60">
-                  <p className="font-heading font-bold text-gold text-lg">⏱️ Fornada pronta</p>
-                  <p className="text-white/80">em menos de 40 minutos</p>
-                </div>
-                <div className="bg-[hsl(20,22%,10%)] p-5 rounded-xl shadow-medium border border-vibrant-orange/30 transition-colors duration-300 hover:border-vibrant-orange/60">
-                  <p className="font-heading font-bold text-vibrant-orange text-lg">💰 Transforme</p>
-                  <p className="text-white/80">R$60 em R$200 por fornada!</p>
-                </div>
-                <div className="bg-[hsl(20,22%,10%)] p-5 rounded-xl shadow-medium border border-neon-green/30 transition-colors duration-300 hover:border-neon-green/60">
-                  <p className="font-heading font-bold text-neon-green text-lg">📆 Validade</p>
-                  <p className="text-white/80">de 10 dias – venda sem perdas!</p>
-                </div>
-                <div className="bg-[hsl(20,22%,10%)] p-5 rounded-xl shadow-medium border border-gold/30 transition-colors duration-300 hover:border-gold/60">
-                  <p className="font-heading font-bold text-gold text-lg">✅ Acesso</p>
-                  <p className="text-white/80">Vitalício ao conteúdo!</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="flex flex-col items-center gap-4 mt-8">
-              <a 
-                href="#pricing" 
-                className="relative inline-block w-full sm:max-w-md px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-vibrant-orange via-gold to-vibrant-orange text-white font-heading font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 text-center overflow-hidden group"
-                style={{ boxShadow: '0 0 35px rgba(255, 180, 80, 0.35)' }}
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  🔥 BAIXE SUAS RECEITAS E APROVEITE!
-                </span>
-              </a>
-              
-              <div className="flex items-center justify-center gap-2">
-                <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-neon-green" />
-                <p className="font-heading font-bold text-neon-green text-sm sm:text-base md:text-lg">
-                  Disponível para Android e iOS
-                </p>
-              </div>
-            </div>
+            <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto">
+              Você merece ter acesso a receitas exclusivas, passo a passo em vídeo e suporte direto.{" "}
+              <span className="text-gold">Tudo para você finalmente lucrar.</span>
+            </p>
           </div>
           
           {/* iPhone Mockup with Click-to-Play Video */}
@@ -114,7 +80,7 @@ export const OfferSection = () => {
               {/* iPhone Mockup */}
               <div className="relative w-[280px] md:w-[320px] mx-auto">
                 {/* iPhone Frame */}
-                <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-gold/20">
+                <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10">
                   {/* Screen */}
                   <div className="relative bg-black rounded-[2.5rem] overflow-hidden" style={{ aspectRatio: '0.549618320610687' }}>
                     {/* Notch */}
@@ -143,8 +109,8 @@ export const OfferSection = () => {
                             
                             {/* Play icon */}
                             <div className="relative z-10 flex flex-col items-center gap-3">
-                              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-vibrant-orange via-gold to-vibrant-orange flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
+                              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <Play className="w-8 h-8 md:w-10 md:h-10 text-[hsl(20,30%,15%)] fill-[hsl(20,30%,15%)] ml-1" />
                               </div>
                               <span className="text-white font-heading font-bold text-sm md:text-base drop-shadow-lg">
                                 CLIQUE PARA ASSISTIR
@@ -165,15 +131,46 @@ export const OfferSection = () => {
                   <div className="absolute right-0 top-60 w-1 h-16 bg-slate-900 rounded-l" />
                   <div className="absolute left-0 top-32 w-1 h-8 bg-slate-900 rounded-r" />
                 </div>
-                
-                {/* Floating badge */}
-                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-vibrant-orange to-gold px-4 py-2 rounded-full shadow-lg z-20">
-                  <p className="font-heading font-bold text-white flex items-center gap-2 text-sm">
-                    <Play className="w-4 h-4" />
-                    Veja Como Funciona
-                  </p>
-                </div>
               </div>
+            </div>
+          </div>
+          
+          {/* Features Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div className="bg-section-dark p-5 rounded-xl border border-white/10 text-center">
+              <p className="font-heading font-bold text-gold text-lg">⏱️ Fornada pronta</p>
+              <p className="text-white/70 text-sm">em menos de 40 minutos</p>
+            </div>
+            <div className="bg-section-dark p-5 rounded-xl border border-white/10 text-center">
+              <p className="font-heading font-bold text-gold text-lg">💰 Transforme</p>
+              <p className="text-white/70 text-sm">R$60 em R$200 por fornada!</p>
+            </div>
+            <div className="bg-section-dark p-5 rounded-xl border border-white/10 text-center">
+              <p className="font-heading font-bold text-gold text-lg">📆 Validade</p>
+              <p className="text-white/70 text-sm">de 10 dias – venda sem perdas!</p>
+            </div>
+            <div className="bg-section-dark p-5 rounded-xl border border-white/10 text-center">
+              <p className="font-heading font-bold text-gold text-lg">✅ Acesso</p>
+              <p className="text-white/70 text-sm">Vitalício ao conteúdo!</p>
+            </div>
+          </div>
+          
+          <div className="flex flex-col items-center gap-4">
+            <a 
+              href="#pricing" 
+              className="relative inline-block w-full sm:max-w-md px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] font-heading font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-xl shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 text-center overflow-hidden group"
+              style={{ boxShadow: '0 4px 30px rgba(255, 200, 100, 0.3)' }}
+            >
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                🔥 BAIXE SUAS RECEITAS E APROVEITE!
+              </span>
+            </a>
+            
+            <div className="flex items-center justify-center gap-2">
+              <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-neon-green" />
+              <p className="font-heading font-bold text-neon-green text-sm sm:text-base md:text-lg">
+                Disponível para Android e iOS
+              </p>
             </div>
           </div>
         </div>
