@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 
 interface OptimizedImageProps {
   src: string;
@@ -6,21 +6,34 @@ interface OptimizedImageProps {
   className?: string;
   priority?: boolean;
   sizes?: string;
+  width?: number;
+  height?: number;
 }
 
-export const OptimizedImage = ({ 
+export const OptimizedImage = memo(({ 
   src, 
   alt, 
   className = '', 
   priority = false,
-  sizes = '100vw'
+  sizes = '100vw',
+  width,
+  height,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (priority) return;
+    if (priority) {
+      setIsInView(true);
+      return;
+    }
+
+    // Use native lazy loading for non-priority images
+    if ('loading' in HTMLImageElement.prototype) {
+      setIsInView(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,7 +44,7 @@ export const OptimizedImage = ({
           }
         });
       },
-      { rootMargin: '100px' }
+      { rootMargin: '200px' }
     );
 
     if (imgRef.current) {
@@ -41,32 +54,27 @@ export const OptimizedImage = ({
     return () => observer.disconnect();
   }, [priority]);
 
-  const generateSrcSet = (originalSrc: string) => {
-    if (originalSrc.startsWith('http')) return undefined;
-    
-    const widths = [640, 768, 1024, 1280, 1536];
-    return widths.map(width => `${originalSrc}?w=${width} ${width}w`).join(', ');
-  };
-
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative ${className}`} style={width && height ? { aspectRatio: `${width}/${height}` } : undefined}>
       {!isLoaded && (
-        <div className="absolute inset-0 bg-muted animate-pulse" />
+        <div className="absolute inset-0 bg-[hsl(20,15%,10%)]" />
       )}
       <img
         ref={imgRef}
         src={isInView ? src : undefined}
-        srcSet={isInView ? generateSrcSet(src) : undefined}
-        sizes={sizes}
         alt={alt}
+        width={width}
+        height={height}
         loading={priority ? 'eager' : 'lazy'}
-        decoding="async"
+        decoding={priority ? 'sync' : 'async'}
         fetchPriority={priority ? 'high' : 'auto'}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${
+        className={`w-full h-full object-cover transition-opacity duration-200 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
         onLoad={() => setIsLoaded(true)}
       />
     </div>
   );
-};
+});
+
+OptimizedImage.displayName = 'OptimizedImage';
