@@ -2,8 +2,9 @@ import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { DownsellModal } from "@/components/DownsellModal";
-import { lazy, Suspense, memo, useState, useCallback, useRef } from "react";
+import { lazy, Suspense, memo, useState, useCallback, useRef, useEffect } from "react";
 import { useOfferExitIntent } from "@/hooks/useOfferExitIntent";
+import { useLazySection } from "@/hooks/useLazySection";
 
 // Lazy load all sections below hero for faster initial load
 const OfferSection = lazy(() => import("@/components/sections/OfferSection").then(m => ({ default: m.OfferSection })));
@@ -20,8 +21,23 @@ const BrownieGallerySection = lazy(() => import("@/components/sections/BrownieGa
 // Lazy load SaleNotification for better initial performance
 const SaleNotification = lazy(() => import("@/components/SaleNotification").then(m => ({ default: m.SaleNotification })));
 
-// Minimal loading skeleton
-const SectionLoader = memo(() => <div className="min-h-[200px]" />);
+// Minimal placeholder - no height jump
+const SectionPlaceholder = memo(() => (
+  <div className="min-h-[100px]" aria-hidden="true" />
+));
+
+// Smart lazy wrapper that only renders when near viewport
+const LazyWrapper = memo(({ children, rootMargin = "300px" }: { children: React.ReactNode; rootMargin?: string }) => {
+  const { ref, shouldRender } = useLazySection({ rootMargin });
+  
+  return (
+    <div ref={ref}>
+      {shouldRender ? children : <SectionPlaceholder />}
+    </div>
+  );
+});
+
+LazyWrapper.displayName = 'LazyWrapper';
 
 // Wrapper component for PricingSection with exit intent
 const PricingSectionWithExitIntent = memo(({ onExitIntent }: { onExitIntent: () => void }) => {
@@ -43,6 +59,22 @@ const Index = () => {
   const [showDownsell, setShowDownsell] = useState(false);
   const modalShownThisSession = useRef(false);
 
+  // Preload critical chunks after initial render
+  useEffect(() => {
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(() => {
+        // Preload first few sections
+        import("@/components/sections/OfferSection");
+        import("@/components/sections/SecretSection");
+      }, { timeout: 2000 });
+    } else {
+      setTimeout(() => {
+        import("@/components/sections/OfferSection");
+        import("@/components/sections/SecretSection");
+      }, 1000);
+    }
+  }, []);
+
   const handleShowDownsell = useCallback(() => {
     if (modalShownThisSession.current) return;
     modalShownThisSession.current = true;
@@ -51,20 +83,17 @@ const Index = () => {
 
   const handleCloseDownsell = useCallback(() => {
     setShowDownsell(false);
-    // Reset the urgency timer when modal closes
     (window as any).__resetUrgencyTimer?.();
-    // Allow modal to show again after some time
     setTimeout(() => {
       modalShownThisSession.current = false;
-    }, 300000); // 5 minutes cooldown
+    }, 300000);
   }, []);
-
 
   return (
     <div className="min-h-screen">
       <UrgencyBanner onTimerExpire={handleShowDownsell} />
       
-      {/* Lazy load SaleNotification */}
+      {/* Lazy load SaleNotification - non-critical */}
       <Suspense fallback={null}>
         <SaleNotification />
       </Suspense>
@@ -72,35 +101,69 @@ const Index = () => {
       <DownsellModal isOpen={showDownsell} onClose={handleCloseDownsell} />
       
       <main>
+        {/* Hero loads immediately - critical */}
         <HeroSection />
         
-        <Suspense fallback={<SectionLoader />}>
-          <OfferSection />
-        </Suspense>
+        {/* First sections - load early with smaller margin */}
+        <LazyWrapper rootMargin="400px">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <OfferSection />
+          </Suspense>
+        </LazyWrapper>
         
-        <Suspense fallback={<SectionLoader />}>
-          <SecretSection />
-        </Suspense>
+        <LazyWrapper rootMargin="350px">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <SecretSection />
+          </Suspense>
+        </LazyWrapper>
         
-        <Suspense fallback={<SectionLoader />}>
-          <RecipesSection />
-        </Suspense>
+        <LazyWrapper rootMargin="300px">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <RecipesSection />
+          </Suspense>
+        </LazyWrapper>
         
-        <Suspense fallback={<SectionLoader />}>
-          <BrownieGallerySection />
-          <BonusSection />
-        </Suspense>
+        <LazyWrapper rootMargin="250px">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <BrownieGallerySection />
+          </Suspense>
+        </LazyWrapper>
         
-        <Suspense fallback={<SectionLoader />}>
-          <PricingSectionWithExitIntent onExitIntent={handleShowDownsell} />
-        </Suspense>
+        <LazyWrapper rootMargin="250px">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <BonusSection />
+          </Suspense>
+        </LazyWrapper>
         
-        <Suspense fallback={<SectionLoader />}>
-          <TestimonialsSection />
-          <GuaranteeSection />
-          <FAQSection />
-          <FinalCTASection />
-        </Suspense>
+        <LazyWrapper rootMargin="300px">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <PricingSectionWithExitIntent onExitIntent={handleShowDownsell} />
+          </Suspense>
+        </LazyWrapper>
+        
+        <LazyWrapper rootMargin="200px">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <TestimonialsSection />
+          </Suspense>
+        </LazyWrapper>
+        
+        <LazyWrapper rootMargin="200px">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <GuaranteeSection />
+          </Suspense>
+        </LazyWrapper>
+        
+        <LazyWrapper rootMargin="200px">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <FAQSection />
+          </Suspense>
+        </LazyWrapper>
+        
+        <LazyWrapper rootMargin="200px">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <FinalCTASection />
+          </Suspense>
+        </LazyWrapper>
       </main>
       
       <FooterSection />
