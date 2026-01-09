@@ -2,7 +2,7 @@ import { Mail } from "lucide-react";
 
 export const FooterSection = () => {
   return (
-    <footer className="bg-gradient-to-b from-[hsl(0,0%,5%)] via-[hsl(20,25%,8%)] to-[hsl(0,0%,3%)] text-foreground py-12 px-4 border-t border-white/10">
+    <footer className="bg-gradient-to-b from-section-dark via-[hsl(15,30%,5%)] to-[hsl(10,25%,3%)] text-foreground py-12 px-4 border-t border-gold/10">
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>

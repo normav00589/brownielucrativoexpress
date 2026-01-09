@@ -27,7 +27,7 @@ export const RecipesSection = memo(() => {
   const { ref, isVisible } = useIntersectionObserver();
   
   return (
-    <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-to-b from-[hsl(20,30%,12%)] via-[hsl(20,25%,10%)] to-[hsl(0,0%,5%)] text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
+    <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-section-3 text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold px-6 py-3 rounded-full mb-6">

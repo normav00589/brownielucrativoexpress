@@ -70,7 +70,10 @@ export default {
         section: {
           dark: "hsl(var(--section-dark))",
           light: "hsl(var(--section-light))",
+          warm: "hsl(var(--section-warm))",
         },
+        espresso: "hsl(var(--espresso))",
+        mocha: "hsl(var(--mocha))",
         "hot-pink": {
           DEFAULT: "hsl(var(--hot-pink))",
           light: "hsl(var(--hot-pink-light))",
@@ -92,6 +95,10 @@ export default {
         "gradient-card": "var(--gradient-card)",
         "gradient-fire": "var(--gradient-fire)",
         "gradient-cta": "var(--gradient-cta)",
+        "gradient-section-1": "var(--gradient-section-1)",
+        "gradient-section-2": "var(--gradient-section-2)",
+        "gradient-section-3": "var(--gradient-section-3)",
+        "gradient-divider": "var(--gradient-divider)",
       },
       boxShadow: {
         soft: "var(--shadow-soft)",
@@ -100,6 +107,7 @@ export default {
         neon: "var(--shadow-neon)",
         "neon-strong": "var(--shadow-neon-strong)",
         premium: "var(--shadow-premium)",
+        "inner-glow": "var(--shadow-inner-glow)",
       },
       fontFamily: {
         heading: ["Montserrat", "sans-serif"],

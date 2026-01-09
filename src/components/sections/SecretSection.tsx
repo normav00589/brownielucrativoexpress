@@ -6,7 +6,7 @@ export const SecretSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
   
   return (
-    <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-to-b from-[hsl(20,30%,12%)] via-[hsl(20,25%,10%)] to-[hsl(0,0%,5%)] text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
+    <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-section-2 text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           

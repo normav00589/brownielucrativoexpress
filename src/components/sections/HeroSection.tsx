@@ -4,7 +4,7 @@ import { trackViewContent } from "@/lib/fbTracking";
 
 export const HeroSection = memo(() => {
   return (
-    <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden bg-gradient-to-b from-[hsl(0,0%,5%)] via-[hsl(20,25%,10%)] to-[hsl(20,30%,12%)]">
+    <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden bg-gradient-hero">
       <div className="container mx-auto max-w-3xl">
         <div className="space-y-5 text-center">
           
