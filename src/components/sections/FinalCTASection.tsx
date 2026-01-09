@@ -1,10 +1,8 @@
 import { Button } from "@/components/Button";
 import { Sparkles } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
-
 export const FinalCTASection = () => {
-  return (
-    <section className="py-16 md:py-24 px-4 bg-gradient-section-2 text-white relative overflow-hidden">
+  return <section className="py-16 md:py-24 px-4 bg-gradient-section-2 text-white relative overflow-hidden">
       <div className="container mx-auto max-w-4xl text-center relative z-10">
         <div className="space-y-6 md:space-y-8">
           <div className="inline-flex items-center gap-2 text-4xl md:text-6xl float-animation">
@@ -18,19 +16,19 @@ export const FinalCTASection = () => {
             <span className="text-gold">doce mais vendido do Brasil!</span>
           </h2>
           
-          <p className="text-lg md:text-2xl font-body max-w-2xl mx-auto text-white/70">
+          <p className="text-lg md:text-2xl font-body max-w-2xl mx-auto text-secondary-foreground">
             Aprenda o segredo do <span className="text-gold font-bold">Método 3C</span> e comece hoje mesmo a lucrar com brownies irresistíveis.
           </p>
           
-          <Button 
-            size="lg" 
-            className="mt-8 text-lg md:text-2xl px-8 md:px-12 py-4 md:py-6 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] hover:scale-105 transition-transform duration-300 shadow-lg relative overflow-hidden"
-            style={{ boxShadow: '0 4px 35px rgba(255, 200, 100, 0.3)' }}
-            onClick={() => {
-              trackViewContent('Final CTA - Brownies Lucrativos', 14.90);
-              document.getElementById('master-plan')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }}
-          >
+          <Button size="lg" className="mt-8 text-lg md:text-2xl px-8 md:px-12 py-4 md:py-6 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] hover:scale-105 transition-transform duration-300 shadow-lg relative overflow-hidden" style={{
+          boxShadow: '0 4px 35px rgba(255, 200, 100, 0.3)'
+        }} onClick={() => {
+          trackViewContent('Final CTA - Brownies Lucrativos', 14.90);
+          document.getElementById('master-plan')?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }}>
             🔘 Quero Lucrar com Brownies Agora!
           </Button>
           
@@ -39,6 +37,5 @@ export const FinalCTASection = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
