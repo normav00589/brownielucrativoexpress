@@ -137,7 +137,7 @@ export const HeroSection = memo(() => {
           </div>
           
           {/* Empathy Copy */}
-          <p className="font-body text-sm sm:text-base max-w-lg mx-auto leading-relaxed text-white/70 italic">
+          <p className="font-body text-sm sm:text-base max-w-lg mx-auto leading-relaxed italic text-secondary-foreground">
             Você já tem{" "}
             <span className="text-gold font-semibold">tudo o que precisa dentro de você</span>
             {" "}— só faltava{" "}
