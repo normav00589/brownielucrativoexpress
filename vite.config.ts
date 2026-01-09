@@ -29,7 +29,6 @@ export default defineConfig(({ mode }) => ({
       },
     },
     cssCodeSplit: true,
-    cssMinify: 'lightningcss',
     minify: 'terser',
     terserOptions: {
       compress: {
