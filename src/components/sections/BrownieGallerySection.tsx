@@ -3,27 +3,27 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import type { CarouselApi } from "@/components/ui/carousel";
 
-// Lazy import brownie images only when section is visible
+// Lazy import brownie images only when section is visible (all WebP for max performance)
 const brownieImages = [{
-  src: () => import("@/assets/brownie-1.jpg"),
+  src: () => import("@/assets/brownie-1.webp"),
   alt: "Brownie caseiro irresistível com textura úmida"
 }, {
-  src: () => import("@/assets/brownie-2.jpg"),
+  src: () => import("@/assets/brownie-2.webp"),
   alt: "Brownies gourmet empilhados com cobertura de chocolate"
 }, {
-  src: () => import("@/assets/brownie-3.jpg"),
+  src: () => import("@/assets/brownie-3.webp"),
   alt: "Brownie artesanal com gotas de chocolate"
 }, {
-  src: () => import("@/assets/brownie-4.jpg"),
+  src: () => import("@/assets/brownie-4.webp"),
   alt: "Brownies premium empilhados mostrando textura interna"
 }, {
-  src: () => import("@/assets/brownie-5.jpg"),
+  src: () => import("@/assets/brownie-5.webp"),
   alt: "Brownie feito com receita profissional"
 }, {
-  src: () => import("@/assets/brownie-6.jpg"),
+  src: () => import("@/assets/brownie-6.webp"),
   alt: "Variedade de brownies artesanais"
 }, {
-  src: () => import("@/assets/brownie-7.jpg"),
+  src: () => import("@/assets/brownie-7.webp"),
   alt: "Brownie de chocolate intenso cortado ao meio"
 }, {
   src: () => import("@/assets/brownie-8.webp"),
@@ -32,7 +32,7 @@ const brownieImages = [{
   src: () => import("@/assets/brownie-9.webp"),
   alt: "Brownies gourmet em embalagens individuais"
 }, {
-  src: () => import("@/assets/brownie-10.jpg"),
+  src: () => import("@/assets/brownie-10.webp"),
   alt: "Brownie caseiro mostrando textura perfeita"
 }];
 export const BrownieGallerySection = memo(() => {
