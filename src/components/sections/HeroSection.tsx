@@ -60,13 +60,13 @@ export const HeroSection = memo(() => {
               
               {/* Original Price */}
               <div className="flex items-center justify-center gap-2 mb-3 pt-2">
-                <span className="text-sm text-white/40 font-body">De</span>
-                <span className="text-lg line-through text-white/40 font-body">R$29,00</span>
+                <span className="text-sm font-body text-secondary-foreground">De</span>
+                <span className="text-lg line-through font-body text-secondary-foreground">R$29,00</span>
               </div>
               
               {/* Current Price */}
               <div className="text-center mb-3">
-                <span className="text-sm font-body text-white/60 block mb-1">por apenas</span>
+                <span className="text-sm font-body block mb-1 text-secondary-foreground">por apenas</span>
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="text-2xl font-bold text-gold">R$</span>
                   <span className="text-6xl sm:text-7xl font-display font-black text-gold leading-none">1,99</span>
@@ -76,7 +76,7 @@ export const HeroSection = memo(() => {
               {/* Guarantee */}
               <div className="flex items-center justify-center gap-2 text-sm text-white/70 border-t border-white/10 pt-3">
                 <CheckCircle className="w-4 h-4 text-neon-green flex-shrink-0" />
-                <span>Acesso vitalício + Garantia 14 dias</span>
+                <span className="text-secondary-foreground">Acesso vitalício + Garantia 14 dias</span>
               </div>
             </div>
           </div>
