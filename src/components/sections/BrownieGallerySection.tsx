@@ -42,7 +42,7 @@ export const BrownieGallerySection = memo(() => {
 
   if (!isVisible && loadedImages.length === 0) {
     return (
-      <section ref={ref} className="py-16 px-4 bg-gradient-to-b from-[hsl(0,0%,5%)] via-[hsl(20,25%,10%)] to-[hsl(20,30%,12%)] min-h-[400px]">
+      <section ref={ref} className="py-16 px-4 bg-gradient-section-2 min-h-[400px]">
         <div className="container mx-auto text-center">
           <div className="h-8 w-64 mx-auto bg-muted animate-pulse rounded mb-4" />
           <div className="h-4 w-96 mx-auto bg-muted animate-pulse rounded" />
@@ -52,7 +52,7 @@ export const BrownieGallerySection = memo(() => {
   }
 
   return (
-    <section ref={ref} className="py-16 px-4 bg-gradient-to-b from-[hsl(0,0%,5%)] via-[hsl(20,25%,10%)] to-[hsl(20,30%,12%)] relative overflow-hidden">
+    <section ref={ref} className="py-16 px-4 bg-gradient-section-2 relative overflow-hidden">
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-caramel bg-clip-text text-transparent">

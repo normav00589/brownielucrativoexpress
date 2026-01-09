@@ -48,7 +48,7 @@ export const OfferSection = () => {
   }, []);
 
   return (
-    <section className="py-12 md:py-20 px-4 bg-gradient-to-b from-[hsl(0,0%,5%)] via-[hsl(20,25%,10%)] to-[hsl(20,30%,12%)] relative overflow-hidden">
+    <section className="py-12 md:py-20 px-4 bg-gradient-section-1 relative overflow-hidden">
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="space-y-8 md:space-y-12">
           {/* Content Section */}

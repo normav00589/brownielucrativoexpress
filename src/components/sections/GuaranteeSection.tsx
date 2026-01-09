@@ -5,7 +5,7 @@ export const GuaranteeSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
   
   return (
-    <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-to-b from-[hsl(20,30%,12%)] via-[hsl(20,25%,10%)] to-[hsl(0,0%,5%)] fade-in-up ${isVisible ? 'visible' : ''}`}>
+    <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-section-3 fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-4xl">
         <div className="bg-section-light backdrop-blur-sm rounded-2xl p-6 md:p-12 shadow-lg text-center border border-neon-green/20 relative overflow-hidden">
           <div className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-neon-green/15 rounded-full mb-4 md:mb-6 float-animation">

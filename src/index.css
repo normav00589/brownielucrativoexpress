@@ -74,28 +74,29 @@ All colors MUST be HSL.
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
   
   :root {
-    /* Vulcão Master Pro - Deep dark brown background */
-    --background: 20 25% 5%;
+    /* Premium Chocolate & Black Theme */
+    --background: 15 30% 4%;
     --foreground: 40 30% 92%;
 
-    --card: 20 22% 8%;
+    --card: 18 28% 7%;
     --card-foreground: 40 30% 92%;
 
-    --popover: 20 22% 8%;
+    --popover: 18 28% 7%;
     --popover-foreground: 40 30% 92%;
 
-    /* Section backgrounds for alternating pattern */
-    --section-dark: 20 25% 5%;
-    --section-light: 20 22% 12%;
+    /* Section backgrounds - rich gradients */
+    --section-dark: 12 35% 3%;
+    --section-light: 18 28% 9%;
+    --section-warm: 22 32% 7%;
 
     /* Golden Yellow Primary */
     --primary: 42 90% 55%;
     --primary-foreground: 20 30% 10%;
 
-    --secondary: 20 18% 12%;
+    --secondary: 18 25% 10%;
     --secondary-foreground: 40 30% 92%;
 
-    --muted: 20 15% 15%;
+    --muted: 18 20% 12%;
     --muted-foreground: 35 20% 65%;
 
     /* Rich Golden Accent */
@@ -109,27 +110,29 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 18% 18%;
-    --input: 25 18% 18%;
+    --border: 22 22% 14%;
+    --input: 22 22% 14%;
     --ring: 42 90% 55%;
 
     --radius: 1rem;
 
-    /* Vulcão Color Palette */
+    /* Premium Color Palette */
     --gold: 42 95% 60%;
     --gold-dark: 38 90% 50%;
     --gold-light: 45 100% 70%;
-    --chocolate: 20 50% 20%;
-    --chocolate-light: 25 45% 35%;
-    --chocolate-dark: 18 50% 12%;
+    --chocolate: 18 55% 18%;
+    --chocolate-light: 22 50% 28%;
+    --chocolate-dark: 15 55% 10%;
     --caramel: 32 70% 50%;
     --caramel-light: 36 75% 60%;
     --cream: 42 35% 88%;
     --cream-warm: 38 40% 94%;
-    --cocoa: 18 40% 20%;
+    --cocoa: 15 45% 16%;
     --hazelnut: 30 50% 42%;
+    --espresso: 12 40% 8%;
+    --mocha: 18 35% 12%;
     
-    /* Vulcão Accent Colors - Golden Yellow & Coral */
+    /* Accent Colors */
     --hot-pink: 10 75% 60%;
     --hot-pink-light: 10 80% 68%;
     --vibrant-orange: 35 100% 55%;
@@ -138,29 +141,36 @@ All colors MUST be HSL.
     --coral: 10 75% 58%;
     --coral-light: 12 80% 65%;
     
-    /* Vulcão Gradients */
+    /* Premium Gradients - Smooth chocolate to black transitions */
     --gradient-warm: linear-gradient(135deg, hsl(35 100% 55%) 0%, hsl(42 95% 60%) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(45 100% 70%) 0%, hsl(42 95% 60%) 50%, hsl(38 90% 50%) 100%);
-    --gradient-chocolate: linear-gradient(135deg, hsl(20 50% 20%) 0%, hsl(25 45% 35%) 50%, hsl(32 70% 50%) 100%);
+    --gradient-chocolate: linear-gradient(180deg, hsl(18 35% 10%) 0%, hsl(15 40% 7%) 50%, hsl(12 35% 4%) 100%);
     --gradient-caramel: linear-gradient(135deg, hsl(36 75% 60%) 0%, hsl(42 95% 60%) 50%, hsl(32 70% 50%) 100%);
-    --gradient-premium: linear-gradient(135deg, hsl(20 25% 5%) 0%, hsl(20 28% 10%) 50%, hsl(22 32% 12%) 100%);
-    --gradient-cream: linear-gradient(135deg, hsl(20 22% 8%) 0%, hsl(22 25% 11%) 100%);
-    --gradient-hero: radial-gradient(ellipse at top, hsl(20 22% 10%) 0%, hsl(20 25% 6%) 50%, hsl(20 25% 4%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(20 22% 8%) 0%, hsl(22 25% 10%) 100%);
+    --gradient-premium: linear-gradient(180deg, hsl(15 35% 5%) 0%, hsl(18 30% 8%) 25%, hsl(20 35% 6%) 50%, hsl(15 30% 4%) 75%, hsl(10 25% 3%) 100%);
+    --gradient-cream: linear-gradient(180deg, hsl(18 28% 7%) 0%, hsl(15 32% 5%) 100%);
+    --gradient-hero: radial-gradient(ellipse 150% 100% at 50% 0%, hsl(22 35% 12%) 0%, hsl(18 30% 7%) 35%, hsl(15 28% 5%) 60%, hsl(12 25% 3%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(20 30% 9%) 0%, hsl(18 28% 7%) 50%, hsl(15 25% 5%) 100%);
     --gradient-fire: radial-gradient(ellipse at top, hsl(35 90% 52%) 0%, hsl(30 75% 42%) 40%, transparent 70%);
     --gradient-cta: linear-gradient(135deg, hsl(35 100% 52%) 0%, hsl(40 100% 55%) 50%, hsl(42 95% 55%) 100%);
     --gradient-hot-pink: linear-gradient(135deg, hsl(10 75% 55%) 0%, hsl(10 80% 65%) 100%);
     --gradient-vibrant: linear-gradient(135deg, hsl(35 100% 55%) 0%, hsl(42 100% 60%) 100%);
     
+    /* Premium Section Gradients */
+    --gradient-section-1: linear-gradient(180deg, hsl(15 30% 4%) 0%, hsl(18 35% 6%) 50%, hsl(20 32% 8%) 100%);
+    --gradient-section-2: linear-gradient(180deg, hsl(20 32% 8%) 0%, hsl(18 30% 6%) 50%, hsl(15 28% 4%) 100%);
+    --gradient-section-3: linear-gradient(180deg, hsl(15 28% 4%) 0%, hsl(12 32% 5%) 50%, hsl(18 35% 7%) 100%);
+    --gradient-divider: linear-gradient(90deg, transparent 0%, hsl(35 60% 30% / 0.3) 50%, transparent 100%);
+    
     /* Warm Glow Shadows */
-    --shadow-soft: 0 4px 20px rgba(200, 150, 60, 0.15);
-    --shadow-medium: 0 8px 30px rgba(200, 150, 60, 0.25);
-    --shadow-strong: 0 12px 40px rgba(200, 150, 60, 0.35);
-    --shadow-neon: 0 0 20px rgba(255, 200, 100, 0.4), 0 0 40px rgba(220, 160, 60, 0.25);
-    --shadow-neon-strong: 0 0 30px rgba(255, 200, 100, 0.5), 0 0 60px rgba(220, 160, 60, 0.35), 0 0 90px rgba(255, 220, 120, 0.2);
-    --shadow-premium: 0 20px 60px rgba(180, 120, 50, 0.3), 0 10px 30px rgba(220, 160, 80, 0.18);
-    --shadow-gold: 0 0 25px rgba(255, 210, 110, 0.55), 0 0 50px rgba(230, 180, 70, 0.28);
-    --shadow-caramel: 0 0 25px rgba(220, 160, 70, 0.55), 0 0 50px rgba(200, 130, 50, 0.28);
+    --shadow-soft: 0 4px 20px rgba(180, 130, 50, 0.12);
+    --shadow-medium: 0 8px 30px rgba(180, 130, 50, 0.2);
+    --shadow-strong: 0 12px 40px rgba(180, 130, 50, 0.28);
+    --shadow-neon: 0 0 20px rgba(255, 200, 100, 0.35), 0 0 40px rgba(220, 160, 60, 0.2);
+    --shadow-neon-strong: 0 0 30px rgba(255, 200, 100, 0.45), 0 0 60px rgba(220, 160, 60, 0.3), 0 0 90px rgba(255, 220, 120, 0.15);
+    --shadow-premium: 0 25px 80px rgba(0, 0, 0, 0.5), 0 15px 40px rgba(180, 120, 50, 0.15);
+    --shadow-gold: 0 0 25px rgba(255, 210, 110, 0.5), 0 0 50px rgba(230, 180, 70, 0.25);
+    --shadow-caramel: 0 0 25px rgba(220, 160, 70, 0.5), 0 0 50px rgba(200, 130, 50, 0.25);
+    --shadow-inner-glow: inset 0 1px 0 rgba(255, 255, 255, 0.03), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -313,8 +323,25 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: 'Nunito', sans-serif;
+    background: 
+      /* Subtle noise texture overlay */
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"),
+      /* Main gradient - chocolate to deep black */
+      linear-gradient(
+        180deg,
+        hsl(18 35% 6%) 0%,
+        hsl(15 30% 5%) 15%,
+        hsl(12 28% 4%) 30%,
+        hsl(10 25% 3%) 50%,
+        hsl(15 32% 5%) 70%,
+        hsl(18 30% 6%) 85%,
+        hsl(12 25% 4%) 100%
+      );
+    background-attachment: fixed;
+    background-size: 200px 200px, 100% 100%;
+    background-blend-mode: overlay, normal;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -324,6 +351,24 @@ All colors MUST be HSL.
   section {
     content-visibility: auto;
     contain-intrinsic-size: auto 500px;
+    position: relative;
+  }
+  
+  /* Premium section dividers */
+  section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(80%, 600px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, hsl(35 50% 25% / 0.4) 20%, hsl(42 60% 40% / 0.3) 50%, hsl(35 50% 25% / 0.4) 80%, transparent 100%);
+    opacity: 0.6;
+  }
+  
+  section:first-of-type::before {
+    display: none;
   }
   
   .warm-glow {
