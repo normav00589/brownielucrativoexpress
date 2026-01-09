@@ -1,10 +1,8 @@
 import { memo } from "react";
 import { Shield, Users, Sparkles, CheckCircle, Star, Clock } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
-
 export const HeroSection = memo(() => {
-  return (
-    <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden bg-gradient-hero">
+  return <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden bg-gradient-hero">
       <div className="container mx-auto max-w-3xl">
         <div className="space-y-5 text-center">
           
@@ -34,11 +32,11 @@ export const HeroSection = memo(() => {
           
           {/* Subheadline - Vulcão Style */}
           <div className="max-w-2xl mx-auto space-y-2 pt-4">
-            <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-white/80">
+            <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-secondary-foreground">
               Faça Brownie{" "}
               <span className="text-gold font-semibold">do jeito certo</span>, mesmo começando do zero.
             </p>
-            <p className="font-body text-base sm:text-lg text-white/70">
+            <p className="font-body text-base sm:text-lg text-secondary-foreground">
               Sem errar{" "}
               <span className="text-gold font-semibold">forma</span>,{" "}
               <span className="text-gold font-semibold">recheio</span>,{" "}
@@ -50,7 +48,9 @@ export const HeroSection = memo(() => {
           
           {/* Price Block - Premium Card Style */}
           <div className="relative mx-auto max-w-sm pt-6">
-            <div className="relative bg-gradient-to-br from-[hsl(20,20%,12%)] to-[hsl(20,25%,8%)] border border-gold/20 rounded-2xl p-6 shadow-lg" style={{ boxShadow: '0 0 40px rgba(218,165,32,0.1)' }}>
+            <div className="relative bg-gradient-to-br from-[hsl(20,20%,12%)] to-[hsl(20,25%,8%)] border border-gold/20 rounded-2xl p-6 shadow-lg" style={{
+            boxShadow: '0 0 40px rgba(218,165,32,0.1)'
+          }}>
               {/* Discount Badge */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span className="bg-gradient-to-r from-[hsl(10,70%,50%)] to-[hsl(10,80%,45%)] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
@@ -82,19 +82,15 @@ export const HeroSection = memo(() => {
           </div>
           
           {/* CTA Button - Vulcão Amber/Gold style */}
-          <button 
-            className="group relative w-full md:w-auto px-10 sm:px-16 py-4 sm:py-5 text-base sm:text-lg font-bold text-[hsl(20,30%,15%)] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 font-body bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)]" 
-            style={{
-              boxShadow: '0 4px 25px rgba(255, 200, 100, 0.35)'
-            }} 
-            onClick={() => {
-              trackViewContent('Hero CTA - Brownies Lucrativos', 1.99);
-              document.getElementById('master-plan')?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-              });
-            }}
-          >
+          <button className="group relative w-full md:w-auto px-10 sm:px-16 py-4 sm:py-5 text-base sm:text-lg font-bold text-[hsl(20,30%,15%)] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 font-body bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)]" style={{
+          boxShadow: '0 4px 25px rgba(255, 200, 100, 0.35)'
+        }} onClick={() => {
+          trackViewContent('Hero CTA - Brownies Lucrativos', 1.99);
+          document.getElementById('master-plan')?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }}>
             <span className="relative flex items-center justify-center gap-2">
               🔥 EU MEREÇO APRENDER ISSO!
             </span>
@@ -119,19 +115,11 @@ export const HeroSection = memo(() => {
           {/* Hero Image - Warm glow */}
           <div className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6">
             <div className="relative rounded-2xl overflow-hidden" style={{
-              boxShadow: '0 0 60px rgba(255, 150, 50, 0.25), 0 0 100px rgba(200, 100, 30, 0.15)'
-            }}>
-              <img 
-                alt="Brownie gourmet delicioso" 
-                width="400" 
-                height="400" 
-                fetchPriority="high" 
-                decoding="async" 
-                loading="eager" 
-                className="w-full h-auto rounded-2xl" 
-                style={{ aspectRatio: '1/1' }} 
-                src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" 
-              />
+            boxShadow: '0 0 60px rgba(255, 150, 50, 0.25), 0 0 100px rgba(200, 100, 30, 0.15)'
+          }}>
+              <img alt="Brownie gourmet delicioso" width="400" height="400" fetchPriority="high" decoding="async" loading="eager" className="w-full h-auto rounded-2xl" style={{
+              aspectRatio: '1/1'
+            }} src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" />
             </div>
           </div>
           
@@ -157,8 +145,6 @@ export const HeroSection = memo(() => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 });
-
 HeroSection.displayName = 'HeroSection';
