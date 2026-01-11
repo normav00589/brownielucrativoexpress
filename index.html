@@ -8,25 +8,37 @@
     <meta name="description" content="Aprenda a fazer brownies irresistíveis e lucre de R$150 até R$300 por fornada. Método 3C exclusivo com +80 receitas testadas.">
     <meta name="author" content="Brownies Lucrativos" />
     
-    <!-- Critical DNS Prefetch & Preconnect -->
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//connect.facebook.net">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <!-- Critical DNS Prefetch & Preconnect - minimal blocking -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fghbbqckqezadyfheaby.supabase.co" crossorigin>
     
     <!-- Preload critical hero image with high priority for LCP -->
     <link rel="preload" as="image" href="/src/assets/hero-brownie.webp" fetchpriority="high" type="image/webp">
     
-    <!-- Optimized fonts - swap for faster text rendering -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap&family=Nunito:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
-    
-    <!-- Inline critical CSS for instant FCP -->
+    <!-- ULTRA-FAST font loading: preload only critical weights, inline font-face -->
     <style>
-      *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;background:#100b08;color:#fff;font-family:'Nunito',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed;overscroll-behavior:none;-webkit-overflow-scrolling:touch}#root{min-height:100vh;contain:layout style}.min-h-screen{min-height:100vh}h1,h2,h3{font-family:'Poppins',system-ui,sans-serif}img{max-width:100%;height:auto;display:block;content-visibility:auto}section{contain:layout style paint;content-visibility:auto;contain-intrinsic-size:0 450px}@media(max-width:640px){section{contain-intrinsic-size:0 350px}}@media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+      /* Critical font-face definitions with local fallback and swap */
+      @font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:local('Poppins Bold'),url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLCz7V1s.woff2) format('woff2')}
+      @font-face{font-family:'Nunito';font-style:normal;font-weight:400;font-display:swap;src:local('Nunito Regular'),url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTo3jw.woff2) format('woff2')}
+      @font-face{font-family:'Nunito';font-style:normal;font-weight:600;font-display:swap;src:local('Nunito SemiBold'),url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDGUmdTo3jw.woff2) format('woff2')}
+      @font-face{font-family:'Nunito';font-style:normal;font-weight:700;font-display:swap;src:local('Nunito Bold'),url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDFwmdTo3jw.woff2) format('woff2')}
+    </style>
+    
+    <!-- Inline critical CSS for instant FCP - with CLS fix for banner -->
+    <style>
+      *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+      body{margin:0;background:#100b08;color:#fff;font-family:'Nunito',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed;overscroll-behavior:none}
+      #root{min-height:100vh;contain:layout style}
+      .min-h-screen{min-height:100vh}
+      h1,h2,h3{font-family:'Poppins',system-ui,sans-serif}
+      img{max-width:100%;height:auto;display:block}
+      /* CLS fix: Reserve space for urgency banner */
+      .sticky.top-0{min-height:56px}
+      @media(min-width:768px){.sticky.top-0{min-height:64px}}
+      /* Hero section optimization */
+      section:first-of-type{contain:layout}
+      section:not(:first-of-type){contain:layout style paint;content-visibility:auto;contain-intrinsic-size:0 400px}
+      @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
     </style>
 
     <!-- Theme color for mobile browsers -->
@@ -52,12 +64,12 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Register Service Worker immediately -->
+    <!-- Register Service Worker - deferred -->
     <script>
-      if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(()=>{})}
+      if('serviceWorker' in navigator){setTimeout(()=>navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(()=>{}),1000)}
     </script>
     
-    <!-- Load third-party scripts ONLY after user interaction for maximum speed -->
+    <!-- Load third-party scripts ONLY after user interaction or 5s delay for maximum speed -->
     <script>
       var scriptsLoaded = false;
       
@@ -86,13 +98,11 @@
         fbq('track', 'PageView');
       }
       
-      // Load on first user interaction (scroll, click, touch)
-      ['scroll', 'touchstart', 'click'].forEach(function(event) {
-        window.addEventListener(event, loadThirdPartyScripts, { once: true, passive: true });
-      });
+      // Load on scroll (most common first interaction) - passive for performance
+      window.addEventListener('scroll', loadThirdPartyScripts, { once: true, passive: true });
       
-      // Fallback: load after 3 seconds if no interaction
-      setTimeout(loadThirdPartyScripts, 3000);
+      // Fallback: load after 5 seconds if no interaction (extended for better initial load)
+      setTimeout(loadThirdPartyScripts, 5000);
     </script>
     
     <!-- Facebook Pixel Noscript -->
