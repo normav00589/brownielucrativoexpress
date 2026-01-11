@@ -4,7 +4,6 @@ import { FooterSection } from "@/components/sections/FooterSection";
 import { DownsellModal } from "@/components/DownsellModal";
 import { lazy, Suspense, memo, useState, useCallback, useRef, useEffect } from "react";
 import { useOfferExitIntent } from "@/hooks/useOfferExitIntent";
-import { useLazySection } from "@/hooks/useLazySection";
 
 // Lazy load all sections below hero for faster initial load
 const OfferSection = lazy(() => import("@/components/sections/OfferSection").then(m => ({ default: m.OfferSection })));
@@ -18,26 +17,16 @@ const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m 
 const FinalCTASection = lazy(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 const BrownieGallerySection = lazy(() => import("@/components/sections/BrownieGallerySection").then(m => ({ default: m.BrownieGallerySection })));
 
-// Lazy load SaleNotification for better initial performance
+// Lazy load SaleNotification - only after user interaction
 const SaleNotification = lazy(() => import("@/components/SaleNotification").then(m => ({ default: m.SaleNotification })));
 
-// Minimal placeholder - no height jump
-const SectionPlaceholder = memo(() => (
-  <div className="min-h-[100px]" aria-hidden="true" />
+// Minimal placeholder with fixed height to prevent CLS
+const SectionPlaceholder = memo(({ height = 400 }: { height?: number }) => (
+  <div 
+    style={{ minHeight: height, contain: 'layout style' }} 
+    aria-hidden="true" 
+  />
 ));
-
-// Smart lazy wrapper that only renders when near viewport
-const LazyWrapper = memo(({ children, rootMargin = "300px" }: { children: React.ReactNode; rootMargin?: string }) => {
-  const { ref, shouldRender } = useLazySection({ rootMargin });
-  
-  return (
-    <div ref={ref}>
-      {shouldRender ? children : <SectionPlaceholder />}
-    </div>
-  );
-});
-
-LazyWrapper.displayName = 'LazyWrapper';
 
 // Wrapper component for PricingSection with exit intent
 const PricingSectionWithExitIntent = memo(({ onExitIntent }: { onExitIntent: () => void }) => {
@@ -93,7 +82,7 @@ const Index = () => {
     <div className="min-h-screen">
       <UrgencyBanner onTimerExpire={handleShowDownsell} />
       
-      {/* Lazy load SaleNotification - non-critical */}
+      {/* SaleNotification - deferred, non-blocking */}
       <Suspense fallback={null}>
         <SaleNotification />
       </Suspense>
@@ -101,69 +90,49 @@ const Index = () => {
       <DownsellModal isOpen={showDownsell} onClose={handleCloseDownsell} />
       
       <main>
-        {/* Hero loads immediately - critical */}
+        {/* Hero loads immediately - critical for LCP */}
         <HeroSection />
         
-        {/* First sections - load early with smaller margin */}
-        <LazyWrapper rootMargin="400px">
-          <Suspense fallback={<SectionPlaceholder />}>
-            <OfferSection />
-          </Suspense>
-        </LazyWrapper>
+        {/* All sections lazy loaded with proper fallback heights */}
+        <Suspense fallback={<SectionPlaceholder height={500} />}>
+          <OfferSection />
+        </Suspense>
         
-        <LazyWrapper rootMargin="350px">
-          <Suspense fallback={<SectionPlaceholder />}>
-            <SecretSection />
-          </Suspense>
-        </LazyWrapper>
+        <Suspense fallback={<SectionPlaceholder height={400} />}>
+          <SecretSection />
+        </Suspense>
         
-        <LazyWrapper rootMargin="300px">
-          <Suspense fallback={<SectionPlaceholder />}>
-            <RecipesSection />
-          </Suspense>
-        </LazyWrapper>
+        <Suspense fallback={<SectionPlaceholder height={450} />}>
+          <RecipesSection />
+        </Suspense>
         
-        <LazyWrapper rootMargin="250px">
-          <Suspense fallback={<SectionPlaceholder />}>
-            <BrownieGallerySection />
-          </Suspense>
-        </LazyWrapper>
+        <Suspense fallback={<SectionPlaceholder height={350} />}>
+          <BrownieGallerySection />
+        </Suspense>
         
-        <LazyWrapper rootMargin="250px">
-          <Suspense fallback={<SectionPlaceholder />}>
-            <BonusSection />
-          </Suspense>
-        </LazyWrapper>
+        <Suspense fallback={<SectionPlaceholder height={400} />}>
+          <BonusSection />
+        </Suspense>
         
-        <LazyWrapper rootMargin="300px">
-          <Suspense fallback={<SectionPlaceholder />}>
-            <PricingSectionWithExitIntent onExitIntent={handleShowDownsell} />
-          </Suspense>
-        </LazyWrapper>
+        <Suspense fallback={<SectionPlaceholder height={600} />}>
+          <PricingSectionWithExitIntent onExitIntent={handleShowDownsell} />
+        </Suspense>
         
-        <LazyWrapper rootMargin="200px">
-          <Suspense fallback={<SectionPlaceholder />}>
-            <TestimonialsSection />
-          </Suspense>
-        </LazyWrapper>
+        <Suspense fallback={<SectionPlaceholder height={400} />}>
+          <TestimonialsSection />
+        </Suspense>
         
-        <LazyWrapper rootMargin="200px">
-          <Suspense fallback={<SectionPlaceholder />}>
-            <GuaranteeSection />
-          </Suspense>
-        </LazyWrapper>
+        <Suspense fallback={<SectionPlaceholder height={350} />}>
+          <GuaranteeSection />
+        </Suspense>
         
-        <LazyWrapper rootMargin="200px">
-          <Suspense fallback={<SectionPlaceholder />}>
-            <FAQSection />
-          </Suspense>
-        </LazyWrapper>
+        <Suspense fallback={<SectionPlaceholder height={500} />}>
+          <FAQSection />
+        </Suspense>
         
-        <LazyWrapper rootMargin="200px">
-          <Suspense fallback={<SectionPlaceholder />}>
-            <FinalCTASection />
-          </Suspense>
-        </LazyWrapper>
+        <Suspense fallback={<SectionPlaceholder height={400} />}>
+          <FinalCTASection />
+        </Suspense>
       </main>
       
       <FooterSection />

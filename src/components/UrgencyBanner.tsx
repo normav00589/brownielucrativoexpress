@@ -5,6 +5,10 @@ interface UrgencyBannerProps {
   onTimerExpire?: () => void;
 }
 
+// Fixed height to prevent CLS - CRITICAL for PageSpeed
+const BANNER_HEIGHT = "56px"; // Mobile
+const BANNER_HEIGHT_MD = "64px"; // Desktop
+
 export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
   const [timeLeft, setTimeLeft] = useState({ hours: 4, minutes: 57, seconds: 55 });
   const [spotsLeft, setSpotsLeft] = useState(23);
@@ -50,27 +54,40 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
   const formatTime = `${String(timeLeft.hours).padStart(2, "0")}:${String(timeLeft.minutes).padStart(2, "0")}:${String(timeLeft.seconds).padStart(2, "0")}`;
 
   return (
-    <div className="py-3 md:py-4 px-4 sticky top-0 z-50 bg-section-dark border-b border-white/10">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 text-foreground">
-        <div className="flex items-center gap-2">
-          <span className="text-[hsl(10,70%,55%)]">⚠️</span>
-          <span className="font-heading font-semibold text-sm md:text-base text-white/90">
-            OFERTA EXPIRA EM:
-          </span>
-        </div>
-        
-        <div className="flex items-center gap-2">
-          <Clock className="w-4 h-4 md:w-5 md:h-5 text-[hsl(10,70%,55%)]" />
-          <span className="font-heading font-bold text-base md:text-xl text-[hsl(10,70%,55%)] border border-[hsl(10,70%,55%)]/40 rounded-lg px-3 py-1.5">
-            {formatTime}
-          </span>
-        </div>
-        
-        <div className="flex items-center gap-2 border border-white/20 rounded-full px-4 py-1.5">
-          <Flame className="w-4 h-4 text-gold" />
-          <span className="font-heading font-semibold text-sm md:text-base text-white/90">
-            RESTAM APENAS <span className="text-gold">{spotsLeft}</span> VAGAS!
-          </span>
+    <div 
+      className="sticky top-0 z-50 bg-section-dark border-b border-white/10"
+      style={{ 
+        minHeight: BANNER_HEIGHT,
+        height: BANNER_HEIGHT,
+        contain: 'layout style',
+      }}
+    >
+      <div 
+        className="hidden md:block"
+        style={{ minHeight: BANNER_HEIGHT_MD, height: BANNER_HEIGHT_MD }}
+      />
+      <div className="h-full flex items-center justify-center px-4">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-1 md:gap-8 text-foreground">
+          <div className="flex items-center gap-2">
+            <span className="text-[hsl(10,70%,55%)]">⚠️</span>
+            <span className="font-heading font-semibold text-xs md:text-base text-white/90">
+              OFERTA EXPIRA EM:
+            </span>
+          </div>
+          
+          <div className="flex items-center gap-2">
+            <Clock className="w-3.5 h-3.5 md:w-5 md:h-5 text-[hsl(10,70%,55%)]" />
+            <span className="font-heading font-bold text-sm md:text-xl text-[hsl(10,70%,55%)] border border-[hsl(10,70%,55%)]/40 rounded-lg px-2 py-1 md:px-3 md:py-1.5 tabular-nums">
+              {formatTime}
+            </span>
+          </div>
+          
+          <div className="hidden md:flex items-center gap-2 border border-white/20 rounded-full px-4 py-1.5">
+            <Flame className="w-4 h-4 text-gold" />
+            <span className="font-heading font-semibold text-sm md:text-base text-white/90">
+              RESTAM APENAS <span className="text-gold tabular-nums">{spotsLeft}</span> VAGAS!
+            </span>
+          </div>
         </div>
       </div>
     </div>

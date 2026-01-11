@@ -114,19 +114,23 @@ export const HeroSection = memo(() => {
             </span>
           </div>
           
-          {/* Hero Image - Warm glow - LCP optimized */}
-          <div className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6">
-            <div className="relative rounded-2xl overflow-hidden" style={{
-            boxShadow: '0 0 60px rgba(255, 150, 50, 0.25), 0 0 100px rgba(200, 100, 30, 0.15)'
-          }}>
+          {/* Hero Image - LCP OPTIMIZED with fixed dimensions */}
+          <div 
+            className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6"
+            style={{ aspectRatio: '1/1', contain: 'layout' }}
+          >
+            <div 
+              className="relative rounded-2xl overflow-hidden"
+              style={{ boxShadow: '0 0 40px rgba(255, 150, 50, 0.2)' }}
+            >
               <img 
-                alt="Brownie gourmet delicioso com cobertura de chocolate e baunilha" 
-                width="400" 
-                height="400" 
+                alt="Brownie gourmet delicioso" 
+                width={400} 
+                height={400} 
                 fetchPriority="high" 
-                decoding="async" 
+                decoding="sync" 
                 loading="eager" 
-                className="w-full h-auto rounded-2xl" 
+                className="w-full h-full rounded-2xl object-cover" 
                 style={{ aspectRatio: '1/1' }} 
                 src={heroBrownie} 
               />
