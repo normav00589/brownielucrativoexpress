@@ -1,6 +1,8 @@
 import { memo } from "react";
-import { Shield, Users, Sparkles, CheckCircle, Star, Clock } from "lucide-react";
+import { CheckCircle, Star, Clock } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
+import heroBrownie from "@/assets/hero-brownie.webp";
+
 export const HeroSection = memo(() => {
   return <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden bg-gradient-hero">
       <div className="container mx-auto max-w-3xl">
@@ -112,14 +114,22 @@ export const HeroSection = memo(() => {
             </span>
           </div>
           
-          {/* Hero Image - Warm glow */}
+          {/* Hero Image - Warm glow - LCP optimized */}
           <div className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6">
             <div className="relative rounded-2xl overflow-hidden" style={{
             boxShadow: '0 0 60px rgba(255, 150, 50, 0.25), 0 0 100px rgba(200, 100, 30, 0.15)'
           }}>
-              <img alt="Brownie gourmet delicioso" width="400" height="400" fetchPriority="high" decoding="async" loading="eager" className="w-full h-auto rounded-2xl" style={{
-              aspectRatio: '1/1'
-            }} src="/lovable-uploads/7fcb8994-e661-40a5-9820-75fc8dda8741.webp" />
+              <img 
+                alt="Brownie gourmet delicioso com cobertura de chocolate e baunilha" 
+                width="400" 
+                height="400" 
+                fetchPriority="high" 
+                decoding="async" 
+                loading="eager" 
+                className="w-full h-auto rounded-2xl" 
+                style={{ aspectRatio: '1/1' }} 
+                src={heroBrownie} 
+              />
             </div>
           </div>
           
