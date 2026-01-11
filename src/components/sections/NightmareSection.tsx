@@ -1,5 +1,6 @@
 import problemBrownies from "@/assets/problem-brownies.jpg";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 export const NightmareSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
@@ -10,10 +11,13 @@ export const NightmareSection = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="order-2 md:order-1">
-            <img 
+            <OptimizedImage 
               src={problemBrownies} 
-              alt="Brownies com problemas" 
+              alt="Brownies com problemas comuns - secos e sem graça" 
               className="rounded-2xl shadow-strong w-full h-auto border-2 border-primary/30"
+              width={600}
+              height={400}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           

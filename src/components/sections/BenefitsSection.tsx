@@ -1,5 +1,6 @@
 import varietyBrownies from "@/assets/variety-brownies.jpg";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 const benefits = [{
   icon: "📃",
@@ -63,11 +64,14 @@ export const BenefitsSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <img 
+          <OptimizedImage 
             src={varietyBrownies} 
-            alt="Variedade de brownies gourmet deliciosos" 
+            alt="Variedade de brownies gourmet deliciosos prontos para vender" 
             className="rounded-2xl shadow-lg border border-white/10 mx-auto max-w-2xl w-full hover:scale-105 transition-transform duration-500"
             style={{ boxShadow: '0 0 50px rgba(255, 150, 50, 0.15)' }}
+            width={800}
+            height={500}
+            sizes="(max-width: 768px) 100vw, 672px"
           />
         </div>
       </div>
