@@ -69,40 +69,18 @@
       if('serviceWorker' in navigator){setTimeout(()=>navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(()=>{}),1000)}
     </script>
     
-    <!-- Load third-party scripts ONLY after user interaction or 5s delay for maximum speed -->
+    <!-- Facebook Pixel ONLY - GTM removed for performance -->
     <script>
-      var scriptsLoaded = false;
-      
-      function loadThirdPartyScripts() {
-        if (scriptsLoaded) return;
-        scriptsLoaded = true;
-        
-        // Google Tag Manager
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-KDW38BW6');
-        
-        // Facebook Pixel - loaded after interaction
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1034279045491529');
-        fbq('init', '2025669271618388');
-        fbq('track', 'PageView');
+      var fbLoaded=false;
+      function loadFBPixel(){
+        if(fbLoaded)return;fbLoaded=true;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init','1034279045491529');
+        fbq('init','2025669271618388');
+        fbq('track','PageView');
       }
-      
-      // Load on scroll (most common first interaction) - passive for performance
-      window.addEventListener('scroll', loadThirdPartyScripts, { once: true, passive: true });
-      
-      // Fallback: load after 5 seconds if no interaction (extended for better initial load)
-      setTimeout(loadThirdPartyScripts, 5000);
+      window.addEventListener('scroll',loadFBPixel,{once:true,passive:true});
+      setTimeout(loadFBPixel,3000);
     </script>
     
     <!-- Facebook Pixel Noscript -->
