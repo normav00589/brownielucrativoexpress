@@ -69,18 +69,47 @@
       if('serviceWorker' in navigator){setTimeout(()=>navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(()=>{}),1000)}
     </script>
     
-    <!-- Facebook Pixel ONLY - GTM removed for performance -->
+    <!-- Facebook Pixel + Utmify - Deferred loading for performance -->
     <script>
-      var fbLoaded=false;
-      function loadFBPixel(){
-        if(fbLoaded)return;fbLoaded=true;
+      var trackersLoaded=false;
+      function loadTrackers(){
+        if(trackersLoaded)return;trackersLoaded=true;
+        
+        // Facebook Pixel
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
         fbq('init','1034279045491529');
         fbq('init','2025669271618388');
         fbq('track','PageView');
+        
+        // Utmify Pixel
+        window.pixelId="6967bc39e0a8dde6a52e8452";
+        var p=document.createElement("script");
+        p.async=true;p.defer=true;
+        p.src="https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+        document.head.appendChild(p);
+        
+        // Utmify UTM Tracking
+        var u=document.createElement("script");
+        u.async=true;u.defer=true;
+        u.src="https://cdn.utmify.com.br/scripts/utms/latest.js";
+        u.setAttribute("data-utmify-prevent-xcod-sck","");
+        u.setAttribute("data-utmify-prevent-subids","");
+        u.setAttribute("data-utmify-ignore-iframe","");
+        u.setAttribute("data-utmify-is-cartpanda","");
+        document.head.appendChild(u);
       }
-      window.addEventListener('scroll',loadFBPixel,{once:true,passive:true});
-      setTimeout(loadFBPixel,3000);
+      window.addEventListener('scroll',loadTrackers,{once:true,passive:true});
+      setTimeout(loadTrackers,3000);
+      
+      // Back Redirect (runs immediately but doesn't block rendering)
+      (function(){
+        var link='https://planofitpro.com/';
+        var urlBackRedirect=link.trim()+(link.indexOf('?')>0?'&':'?')+location.search.replace('?','');
+        history.pushState({},'',location.href);
+        history.pushState({},'',location.href);
+        history.pushState({},'',location.href);
+        window.addEventListener('popstate',function(){setTimeout(function(){location.href=urlBackRedirect},1)});
+      })();
     </script>
     
     <!-- Facebook Pixel Noscript -->
