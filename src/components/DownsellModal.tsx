@@ -192,7 +192,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                 asChild
               >
                 <a 
-                  href="https://danielle-dias.mycartpanda.com/checkout/203970596:1" 
+                  href="https://www.ggcheckout.com/checkout/v2/7OPzDqPI0Ma6G0I1oISl" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   onClick={handleProPlanClick}
@@ -215,7 +215,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
               <button
                 onClick={() => {
                   handleBasicPlanClick();
-                  window.open("https://danielle-dias.mycartpanda.com/checkout/202036361:1", "_blank");
+                  window.open("https://www.ggcheckout.com/checkout/v2/bi4rE4iOdJz77kLNWHrb", "_blank");
                 }}
                 className="w-full text-center text-white/60 text-xs py-2 mt-2 hover:text-white/80 transition-colors underline underline-offset-2"
               >
