@@ -59,10 +59,10 @@ export const PricingSection = memo(() => {
               </ul>
               
               <a 
-                href="https://danielle-dias.mycartpanda.com/checkout/202036345:1" 
+                href="https://www.ggcheckout.com/checkout/v2/dGUJ8Ztwl0ct036P2mcl" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                onClick={() => trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan')} 
+                onClick={() => trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan')}
                 className="block w-full py-4 px-8 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] font-heading font-bold text-lg rounded-xl text-center hover:scale-105 transition-transform duration-300"
                 style={{ boxShadow: '0 4px 30px rgba(255, 200, 100, 0.3)' }}
               >
@@ -90,10 +90,10 @@ export const PricingSection = memo(() => {
             </ul>
             
             <a 
-              href="https://danielle-dias.mycartpanda.com/checkout/202036361:1" 
+              href="https://www.ggcheckout.com/checkout/v2/bi4rE4iOdJz77kLNWHrb" 
               target="_blank" 
               rel="noopener noreferrer" 
-              onClick={() => trackInitiateCheckout(1.99, 'App Brownies Lucrativos - Basic Plan')} 
+              onClick={() => trackInitiateCheckout(1.99, 'App Brownies Lucrativos - Basic Plan')}
               className="block w-full py-4 px-8 bg-white/10 border border-white/25 text-white font-heading font-bold text-lg rounded-xl text-center hover:bg-white/15 transition-colors duration-300"
             >
               Começar Agora
