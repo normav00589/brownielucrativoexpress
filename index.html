@@ -15,13 +15,14 @@
     <!-- Preload critical hero image with high priority for LCP -->
     <link rel="preload" as="image" href="/src/assets/hero-brownie.webp" fetchpriority="high" type="image/webp">
     
-    <!-- ULTRA-FAST font loading: preload only critical weights, inline font-face -->
+    <!-- Preload only ONE critical font - Poppins Bold for headings -->
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLCz7V1s.woff2" type="font/woff2" crossorigin>
+    
+    <!-- Inline critical font-face definitions with swap -->
     <style>
-      /* Critical font-face definitions with local fallback and swap */
       @font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:local('Poppins Bold'),url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLCz7V1s.woff2) format('woff2')}
-      @font-face{font-family:'Nunito';font-style:normal;font-weight:400;font-display:swap;src:local('Nunito Regular'),url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTo3jw.woff2) format('woff2')}
+      @font-face{font-family:'Nunito';font-style:normal;font-weight:400;font-display:swap;src:local('Nunito'),url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTo3jw.woff2) format('woff2')}
       @font-face{font-family:'Nunito';font-style:normal;font-weight:600;font-display:swap;src:local('Nunito SemiBold'),url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDGUmdTo3jw.woff2) format('woff2')}
-      @font-face{font-family:'Nunito';font-style:normal;font-weight:700;font-display:swap;src:local('Nunito Bold'),url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDFwmdTo3jw.woff2) format('woff2')}
     </style>
     
     <!-- Inline critical CSS for instant FCP - with CLS fix for banner -->
@@ -98,8 +99,11 @@
         u.setAttribute("data-utmify-is-cartpanda","");
         document.head.appendChild(u);
       }
+      // Load trackers on first interaction OR after 5s (increased from 3s for better LCP)
       window.addEventListener('scroll',loadTrackers,{once:true,passive:true});
-      setTimeout(loadTrackers,3000);
+      window.addEventListener('click',loadTrackers,{once:true,passive:true});
+      window.addEventListener('touchstart',loadTrackers,{once:true,passive:true});
+      setTimeout(loadTrackers,5000);
       
       // Back Redirect (runs immediately but doesn't block rendering)
       (function(){
