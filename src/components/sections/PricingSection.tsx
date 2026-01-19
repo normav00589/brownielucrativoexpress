@@ -2,12 +2,12 @@ import { memo } from "react";
 import { Check, Star, Crown } from "lucide-react";
 import { trackInitiateCheckout } from "@/lib/fbTracking";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-
 export const PricingSection = memo(() => {
-  const { ref, isVisible } = useIntersectionObserver();
-  
-  return (
-    <section ref={ref} id="pricing" data-section="pricing" className={`py-16 md:py-24 px-4 bg-gradient-section-2 relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
+  const {
+    ref,
+    isVisible
+  } = useIntersectionObserver();
+  return <section ref={ref} id="pricing" data-section="pricing" className={`py-16 md:py-24 px-4 bg-gradient-section-2 relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Title */}
         <div className="text-center mb-12 md:mb-16">
@@ -48,24 +48,17 @@ export const PricingSection = memo(() => {
               </div>
               
               <ul className="space-y-4 mb-10">
-                {['Aplicativo exclusivo com + 80 Receitas Profissionais e ferramentas para alta lucratividade!', 'Acesso total ao Método 3C', 'Aulas em Vídeo "Brownies que Vendem"', 'Calculadora de Lucro no App', 'Guia dos Melhores Ingredientes', 'Aulas Extras de Confeitaria', 'Suporte + Acesso Vitalício + Certificado'].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                {['Aplicativo exclusivo com + 80 Receitas Profissionais e ferramentas para alta lucratividade!', 'Acesso total ao Método 3C', 'Aulas em Vídeo "Brownies que Vendem"', 'Calculadora de Lucro no App', 'Guia dos Melhores Ingredientes', 'Aulas Extras de Confeitaria', 'Suporte + Acesso Vitalício + Certificado'].map((item, i) => <li key={i} className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-gold to-[hsl(42,95%,60%)] flex items-center justify-center mt-0.5">
                       <Check className="w-4 h-4 text-[hsl(20,30%,15%)]" />
                     </div>
                     <span className="font-body font-medium text-sm md:text-base text-white/90">{item}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
               
-              <a 
-                href="https://www.ggcheckout.com/checkout/v2/dGUJ8Ztwl0ct036P2mcl" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                onClick={() => trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan')}
-                className="block w-full py-4 px-8 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] font-heading font-bold text-lg rounded-xl text-center hover:scale-105 transition-transform duration-300"
-                style={{ boxShadow: '0 4px 30px rgba(255, 200, 100, 0.3)' }}
-              >
+              <a href="https://www.ggcheckout.com/checkout/v2/dGUJ8Ztwl0ct036P2mcl" target="_blank" rel="noopener noreferrer" onClick={() => trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan')} className="block w-full py-4 px-8 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] font-heading font-bold text-lg rounded-xl text-center hover:scale-105 transition-transform duration-300" style={{
+              boxShadow: '0 4px 30px rgba(255, 200, 100, 0.3)'
+            }}>
                 🍫 Quero o Acesso Completo!
               </a>
             </div>
@@ -75,34 +68,24 @@ export const PricingSection = memo(() => {
           <div className="relative h-full bg-section-light border border-white/15 rounded-3xl p-8 md:p-10">
             <div className="text-center mb-8 pt-4">
               <h3 className="font-heading font-bold text-2xl md:text-3xl mb-2 text-white">Receita Brownies Lucrativos</h3>
-              <div className="text-5xl md:text-6xl font-heading font-bold text-neon-green mt-4">R$1,99</div>
+              <div className="text-5xl md:text-6xl font-heading font-bold text-neon-green mt-4">R$2,90</div>
             </div>
             
             <ul className="space-y-4 mb-10">
-              {['10 Receitas base testadas', 'Método 3C introdutório', 'PDF "Casquinha Perfeita"'].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
+              {['10 Receitas base testadas', 'Método 3C introdutório', 'PDF "Casquinha Perfeita"'].map((item, i) => <li key={i} className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-neon-green/20 flex items-center justify-center mt-0.5">
                     <Check className="w-4 h-4 text-neon-green" />
                   </div>
                   <span className="font-body text-sm md:text-base text-white/70">{item}</span>
-                </li>
-              ))}
+                </li>)}
             </ul>
             
-            <a 
-              href="https://www.ggcheckout.com/checkout/v2/bi4rE4iOdJz77kLNWHrb" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              onClick={() => trackInitiateCheckout(1.99, 'App Brownies Lucrativos - Basic Plan')}
-              className="block w-full py-4 px-8 bg-white/10 border border-white/25 text-white font-heading font-bold text-lg rounded-xl text-center hover:bg-white/15 transition-colors duration-300"
-            >
+            <a href="https://www.ggcheckout.com/checkout/v2/bi4rE4iOdJz77kLNWHrb" target="_blank" rel="noopener noreferrer" onClick={() => trackInitiateCheckout(1.99, 'App Brownies Lucrativos - Basic Plan')} className="block w-full py-4 px-8 bg-white/10 border border-white/25 text-white font-heading font-bold text-lg rounded-xl text-center hover:bg-white/15 transition-colors duration-300">
               Começar Agora
             </a>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 });
-
 PricingSection.displayName = 'PricingSection';
