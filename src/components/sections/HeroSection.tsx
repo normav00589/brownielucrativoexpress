@@ -2,7 +2,6 @@ import { memo } from "react";
 import { CheckCircle, Star, Clock } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
 import heroBrownie from "@/assets/hero-brownie.webp";
-
 export const HeroSection = memo(() => {
   return <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden bg-gradient-hero">
       <div className="container mx-auto max-w-3xl">
@@ -71,7 +70,7 @@ export const HeroSection = memo(() => {
                 <span className="text-sm font-body block mb-1 text-secondary-foreground">por apenas</span>
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="text-2xl font-bold text-gold">R$</span>
-                  <span className="text-6xl sm:text-7xl font-display font-black text-gold leading-none">1,99</span>
+                  <span className="text-6xl sm:text-7xl font-display font-black text-gold leading-none">2,90</span>
                 </div>
               </div>
               
@@ -115,25 +114,16 @@ export const HeroSection = memo(() => {
           </div>
           
           {/* Hero Image - LCP OPTIMIZED with fixed dimensions */}
-          <div 
-            className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6"
-            style={{ aspectRatio: '1/1', contain: 'layout' }}
-          >
-            <div 
-              className="relative rounded-2xl overflow-hidden"
-              style={{ boxShadow: '0 0 40px rgba(255, 150, 50, 0.2)' }}
-            >
-              <img 
-                alt="Brownie gourmet delicioso" 
-                width={400} 
-                height={400} 
-                fetchPriority="high" 
-                decoding="sync" 
-                loading="eager" 
-                className="w-full h-full rounded-2xl object-cover" 
-                style={{ aspectRatio: '1/1' }} 
-                src={heroBrownie} 
-              />
+          <div className="relative w-full max-w-xs sm:max-w-sm mx-auto my-6" style={{
+          aspectRatio: '1/1',
+          contain: 'layout'
+        }}>
+            <div className="relative rounded-2xl overflow-hidden" style={{
+            boxShadow: '0 0 40px rgba(255, 150, 50, 0.2)'
+          }}>
+              <img alt="Brownie gourmet delicioso" width={400} height={400} fetchPriority="high" decoding="sync" loading="eager" className="w-full h-full rounded-2xl object-cover" style={{
+              aspectRatio: '1/1'
+            }} src={heroBrownie} />
             </div>
           </div>
           
