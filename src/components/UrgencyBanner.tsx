@@ -55,18 +55,13 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
 
   return (
     <div 
-      className="sticky top-0 z-50 bg-section-dark border-b border-white/10"
+      className="sticky top-0 z-50 bg-gradient-to-r from-[hsl(18,35%,8%)] via-[hsl(15,30%,6%)] to-[hsl(18,35%,8%)] border-b border-gold/20"
       style={{ 
         minHeight: BANNER_HEIGHT,
-        height: BANNER_HEIGHT,
         contain: 'layout style',
       }}
     >
-      <div 
-        className="hidden md:block"
-        style={{ minHeight: BANNER_HEIGHT_MD, height: BANNER_HEIGHT_MD }}
-      />
-      <div className="h-full flex items-center justify-center px-4">
+      <div className="h-14 md:h-16 flex items-center justify-center px-4">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-1 md:gap-8 text-foreground">
           <div className="flex items-center gap-2">
             <span className="text-[hsl(10,70%,55%)]">⚠️</span>
