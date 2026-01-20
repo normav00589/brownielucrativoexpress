@@ -89,3 +89,5 @@ export const PricingSection = memo(() => {
     </section>;
 });
 PricingSection.displayName = 'PricingSection';
+
+export default PricingSection;
