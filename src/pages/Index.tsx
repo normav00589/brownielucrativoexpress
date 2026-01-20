@@ -2,10 +2,10 @@ import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { DownsellModal } from "@/components/DownsellModal";
-import { lazy, Suspense, memo, useState, useCallback, useRef, useEffect } from "react";
+import { lazy, Suspense, memo, useState, useCallback, useRef } from "react";
 import { useOfferExitIntent } from "@/hooks/useOfferExitIntent";
 
-// Lazy load all sections below hero for faster initial load
+// Lazy load all sections below hero - ultra aggressive chunking
 const OfferSection = lazy(() => import("@/components/sections/OfferSection").then(m => ({ default: m.OfferSection })));
 const SecretSection = lazy(() => import("@/components/sections/SecretSection").then(m => ({ default: m.SecretSection })));
 const RecipesSection = lazy(() => import("@/components/sections/RecipesSection").then(m => ({ default: m.RecipesSection })));
@@ -17,18 +17,15 @@ const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m 
 const FinalCTASection = lazy(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 const BrownieGallerySection = lazy(() => import("@/components/sections/BrownieGallerySection").then(m => ({ default: m.BrownieGallerySection })));
 
-// Lazy load SaleNotification - only after user interaction
+// Deferred - only after user engagement
 const SaleNotification = lazy(() => import("@/components/SaleNotification").then(m => ({ default: m.SaleNotification })));
 
-// Minimal placeholder with fixed height to prevent CLS
+// Ultra-minimal placeholder - no animation, just height reservation
 const SectionPlaceholder = memo(({ height = 400 }: { height?: number }) => (
-  <div 
-    style={{ minHeight: height, contain: 'layout style' }} 
-    aria-hidden="true" 
-  />
+  <div style={{ minHeight: height }} aria-hidden="true" />
 ));
 
-// Wrapper component for PricingSection with exit intent
+// Wrapper for PricingSection with exit intent
 const PricingSectionWithExitIntent = memo(({ onExitIntent }: { onExitIntent: () => void }) => {
   const { sectionRef } = useOfferExitIntent({
     minTimeInSection: 3000,
@@ -48,22 +45,6 @@ const Index = () => {
   const [showDownsell, setShowDownsell] = useState(false);
   const modalShownThisSession = useRef(false);
 
-  // Preload critical chunks after initial render
-  useEffect(() => {
-    if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(() => {
-        // Preload first few sections
-        import("@/components/sections/OfferSection");
-        import("@/components/sections/SecretSection");
-      }, { timeout: 2000 });
-    } else {
-      setTimeout(() => {
-        import("@/components/sections/OfferSection");
-        import("@/components/sections/SecretSection");
-      }, 1000);
-    }
-  }, []);
-
   const handleShowDownsell = useCallback(() => {
     if (modalShownThisSession.current) return;
     modalShownThisSession.current = true;
@@ -81,12 +62,6 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <UrgencyBanner onTimerExpire={handleShowDownsell} />
-      
-      {/* SaleNotification - deferred, non-blocking */}
-      <Suspense fallback={null}>
-        <SaleNotification />
-      </Suspense>
-      
       <DownsellModal isOpen={showDownsell} onClose={handleCloseDownsell} />
       
       <main>
@@ -134,6 +109,11 @@ const Index = () => {
           <FinalCTASection />
         </Suspense>
       </main>
+      
+      {/* SaleNotification - deferred until after main content */}
+      <Suspense fallback={null}>
+        <SaleNotification />
+      </Suspense>
       
       <FooterSection />
     </div>

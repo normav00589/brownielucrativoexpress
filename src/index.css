@@ -1,14 +1,9 @@
 @tailwind base;
 
-/* Premium Animations */
+/* Minimal animations - most are disabled on mobile via CSS */
 @keyframes gradient-x {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
-  50% { transform: translateY(-10px) rotate(180deg); opacity: 1; }
 }
 
 .animate-gradient-x {
@@ -16,54 +11,8 @@
   background-size: 200% 200%;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
 .perspective-1000 {
   perspective: 1000px;
-}
-@tailwind components;
-@tailwind utilities;
-
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes text-gradient-flow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes text-shine {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.animate-text-gradient {
-  background-size: 200% auto;
-  animation: text-gradient-flow 4s ease-in-out infinite;
-}
-
-.animate-text-shine {
-  background-size: 200% auto;
-  animation: text-shine 3s linear infinite;
 }
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
@@ -647,68 +596,85 @@ All colors MUST be HSL.
   }
 }
 
-/* AGGRESSIVE Mobile Performance - Critical for PageSpeed */
+/* ULTRA-AGGRESSIVE Mobile Performance - Critical for PageSpeed */
 @media (max-width: 768px) {
-  /* Disable ALL heavy animations on mobile */
-  .particle,
-  .energy-wave,
-  .brownie-float {
-    display: none !important;
-  }
-  
-  .animate-gradient-x,
-  .animate-text-gradient,
-  .animate-text-shine,
-  .neon-glow-strong,
-  .float-animation,
-  .warm-glow-strong,
-  .text-glow-caramel,
-  .text-glow-gold,
-  .price-glow {
-    animation: none !important;
-  }
-  
-  .shimmer-effect::before,
-  .hover-glow::before,
-  .btn-magnetic::before {
-    display: none !important;
-  }
-  
-  /* Remove heavy shadows on mobile */
-  .shadow-neon,
-  .shadow-neon-strong,
-  .warm-glow,
-  .warm-glow-strong {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-    filter: none !important;
-  }
-  
-  /* Simplify all transitions */
+  /* Kill ALL animations on mobile - zero tolerance */
   *,
   *::before,
   *::after {
-    transition-duration: 0.15s !important;
+    animation: none !important;
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    transition-duration: 0.1s !important;
   }
   
-  /* Disable hover effects on mobile */
-  .hover-lift:hover,
-  .card-hover:hover,
-  .hover-glow:hover {
-    transform: none !important;
-    box-shadow: inherit !important;
+  /* Remove ALL decorative pseudo-elements */
+  .shimmer-effect::before,
+  .hover-glow::before,
+  .btn-magnetic::before,
+  .card-hover::after,
+  .image-hover-zoom::after,
+  section::before {
+    display: none !important;
+    content: none !important;
   }
   
-  /* Simpler backdrop blur */
-  .backdrop-blur-sm,
-  .backdrop-blur-md,
-  .backdrop-blur-lg {
+  /* Flatten ALL shadows to minimal */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+  }
+  
+  /* Re-enable essential shadows only */
+  .bg-card,
+  [class*="rounded"] {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+  }
+  
+  /* Kill backdrop blur everywhere - major GPU drain */
+  * {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
   
-  /* Content visibility for below-fold sections */
-  section:not(:first-of-type) {
+  /* Disable all transforms on hover */
+  *:hover {
+    transform: none !important;
+  }
+  
+  /* Force GPU layer promotion only for essential elements */
+  .sticky {
+    will-change: scroll-position;
+  }
+  
+  /* Aggressive content containment */
+  section {
+    contain: layout style paint;
     content-visibility: auto;
-    contain-intrinsic-size: auto 600px;
+    contain-intrinsic-size: auto 500px;
+  }
+  
+  /* First section (Hero) should always be visible */
+  section:first-of-type {
+    content-visibility: visible;
+    contain-intrinsic-size: none;
+  }
+  
+  /* Reduce paint complexity */
+  .bg-gradient-hero,
+  .bg-gradient-section-1,
+  .bg-gradient-section-2,
+  .bg-gradient-section-3 {
+    background: hsl(15 30% 5%) !important;
+  }
+  
+  /* Hide decorative elements */
+  .particle,
+  .energy-wave,
+  .brownie-float,
+  [class*="glow"],
+  [class*="float"] {
+    display: none !important;
   }
 }
