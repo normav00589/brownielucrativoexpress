@@ -1,7 +1,14 @@
 import { memo } from "react";
 import { CheckCircle, Star, Clock } from "lucide-react";
-import { trackViewContent } from "@/lib/fbTracking";
 import heroBrownie from "@/assets/hero-brownie.webp";
+
+// Track view content only on CTA click - no tracking lib import overhead
+const trackViewContent = (name: string, value: number) => {
+  if (typeof (window as any).fbq === 'function') {
+    (window as any).fbq('track', 'ViewContent', { content_name: name, value });
+  }
+};
+
 export const HeroSection = memo(() => {
   return <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden bg-gradient-hero">
       <div className="container mx-auto max-w-3xl">

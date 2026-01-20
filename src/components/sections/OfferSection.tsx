@@ -1,54 +1,22 @@
 import { Smartphone, Play } from "lucide-react";
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useCallback, memo } from "react";
 
-// Preload Wistia scripts without showing the player
-const preloadWistia = () => {
-  if (document.querySelector('script[src*="fast.wistia.com"]')) return;
-  
-  const script1 = document.createElement('script');
-  script1.src = 'https://fast.wistia.com/player.js';
-  script1.async = true;
-  document.body.appendChild(script1);
-  
-  // Preload the video metadata
-  const link = document.createElement('link');
-  link.rel = 'preconnect';
-  link.href = 'https://fast.wistia.com';
-  document.head.appendChild(link);
-};
-
-export const OfferSection = () => {
+export const OfferSection = memo(() => {
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const [preloaded, setPreloaded] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  // Preload Wistia when user scrolls 50% of the page
-  useEffect(() => {
-    if (preloaded) return;
-
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercentage = (scrollPosition / documentHeight) * 100;
-
-      if (scrollPercentage >= 50) {
-        preloadWistia();
-        setPreloaded(true);
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [preloaded]);
 
   const handlePlayClick = useCallback(() => {
+    // Load Wistia on demand
+    if (!document.querySelector('script[src*="fast.wistia.com"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://fast.wistia.com/player.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
     setVideoLoaded(true);
-    preloadWistia();
   }, []);
 
   return (
-    <section className="py-12 md:py-20 px-4 bg-gradient-section-1 relative overflow-hidden">
+    <section className="py-12 md:py-20 px-4 bg-[hsl(15,30%,5%)] relative overflow-hidden">
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="space-y-8 md:space-y-12">
           {/* Content Section */}
@@ -179,4 +147,6 @@ export const OfferSection = () => {
       </div>
     </section>
   );
-};
+});
+
+OfferSection.displayName = 'OfferSection';
