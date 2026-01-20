@@ -25,23 +25,18 @@
       @font-face{font-family:'Nunito';font-style:normal;font-weight:600;font-display:swap;src:local('Nunito SemiBold'),url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDGUmdTo3jw.woff2) format('woff2')}
     </style>
     
-    <!-- Inline critical CSS for instant FCP - ULTRA optimized for mobile -->
+    <!-- Inline critical CSS for instant FCP -->
     <style>
       *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
       body{margin:0;background:#100b08;color:#fff;font-family:'Nunito',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed;overscroll-behavior-y:none}
       #root{min-height:100vh;min-height:100dvh}
       .min-h-screen{min-height:100vh;min-height:100dvh}
       h1,h2,h3{font-family:'Poppins',system-ui,sans-serif}
-      img{max-width:100%;height:auto;display:block;content-visibility:auto}
+      img{max-width:100%;height:auto;display:block}
       /* CLS fix: Reserve space for urgency banner */
       .sticky.top-0{min-height:56px}
       @media(min-width:768px){.sticky.top-0{min-height:64px}}
-      /* Hero section - immediate visibility */
-      section:first-of-type{contain:layout}
-      /* Below-fold sections - aggressive deferral */
-      section:not(:first-of-type){contain:layout style paint;content-visibility:auto;contain-intrinsic-size:0 500px}
-      /* Mobile: kill ALL animations */
-      @media(max-width:768px){*{animation:none!important;transition-duration:.1s!important}*::before,*::after{animation:none!important}}
+      /* Reduced motion preference */
       @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
     </style>
 

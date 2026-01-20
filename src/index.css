@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Minimal animations - most are disabled on mobile via CSS */
 @keyframes gradient-x {
@@ -596,61 +598,37 @@ All colors MUST be HSL.
   }
 }
 
-/* ULTRA-AGGRESSIVE Mobile Performance - Critical for PageSpeed */
+/* BALANCED Mobile Performance - Fast but preserves design */
 @media (max-width: 768px) {
-  /* Kill ALL animations on mobile - zero tolerance */
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    animation-delay: 0s !important;
-    animation-duration: 0s !important;
-    transition-duration: 0.1s !important;
-  }
-  
-  /* Remove ALL decorative pseudo-elements */
+  /* Reduce animation complexity - don't kill completely */
   .shimmer-effect::before,
   .hover-glow::before,
   .btn-magnetic::before,
-  .card-hover::after,
-  .image-hover-zoom::after,
-  section::before {
+  .particle,
+  .energy-wave,
+  .brownie-float {
     display: none !important;
-    content: none !important;
   }
   
-  /* Flatten ALL shadows to minimal */
-  * {
-    box-shadow: none !important;
-    text-shadow: none !important;
-    filter: none !important;
+  /* Disable expensive animations only */
+  .animate-gradient-x,
+  .text-glow-caramel,
+  .text-glow-gold,
+  .price-glow,
+  .float-animation {
+    animation: none !important;
   }
   
-  /* Re-enable essential shadows only */
-  .bg-card,
-  [class*="rounded"] {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
-  }
-  
-  /* Kill backdrop blur everywhere - major GPU drain */
-  * {
+  /* Disable backdrop blur - major GPU drain */
+  .backdrop-blur,
+  [class*="backdrop-blur"] {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
   
-  /* Disable all transforms on hover */
-  *:hover {
-    transform: none !important;
-  }
-  
-  /* Force GPU layer promotion only for essential elements */
-  .sticky {
-    will-change: scroll-position;
-  }
-  
-  /* Aggressive content containment */
+  /* Aggressive content containment for below-fold sections */
   section {
-    contain: layout style paint;
+    contain: layout style;
     content-visibility: auto;
     contain-intrinsic-size: auto 500px;
   }
@@ -659,22 +637,5 @@ All colors MUST be HSL.
   section:first-of-type {
     content-visibility: visible;
     contain-intrinsic-size: none;
-  }
-  
-  /* Reduce paint complexity */
-  .bg-gradient-hero,
-  .bg-gradient-section-1,
-  .bg-gradient-section-2,
-  .bg-gradient-section-3 {
-    background: hsl(15 30% 5%) !important;
-  }
-  
-  /* Hide decorative elements */
-  .particle,
-  .energy-wave,
-  .brownie-float,
-  [class*="glow"],
-  [class*="float"] {
-    display: none !important;
   }
 }
