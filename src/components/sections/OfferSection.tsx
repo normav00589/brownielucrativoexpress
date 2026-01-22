@@ -142,6 +142,18 @@ export const OfferSection = memo(() => {
                 Disponível para Android e iOS
               </p>
             </div>
+            
+            {/* WhatsApp Trust Badge */}
+            <div className="mt-2 bg-gradient-to-r from-[hsl(20,25%,10%)] to-[hsl(20,30%,8%)] border border-neon-green/30 rounded-xl px-6 py-4 max-w-md">
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="flex items-center gap-2">
+                  <span className="text-neon-green text-lg">📲</span>
+                  <span className="text-white font-medium">Acesso enviado automaticamente pelo <span className="text-neon-green font-bold">WhatsApp</span></span>
+                </div>
+                <p className="text-white/70 text-sm">Material liberado após a confirmação do pagamento</p>
+                <p className="text-white/50 text-xs">Sem e-mails perdidos. Sem links confusos.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
