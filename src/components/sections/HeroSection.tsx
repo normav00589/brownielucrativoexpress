@@ -105,12 +105,24 @@ export const HeroSection = memo(() => {
           </button>
           
           {/* WhatsApp Trust Badge */}
-          <div className="flex flex-col items-center gap-2 text-sm text-white/80 font-body">
-            <div className="flex items-center gap-2">
-              <span className="text-neon-green">📲</span>
-              <span>Acesso enviado automaticamente pelo <span className="text-neon-green font-semibold">WhatsApp</span></span>
+          <div className="relative max-w-sm mx-auto">
+            <div className="absolute inset-0 bg-gradient-to-r from-neon-green/20 via-neon-green/10 to-neon-green/20 rounded-2xl blur-xl" />
+            <div className="relative bg-gradient-to-r from-[hsl(20,20%,10%)] to-[hsl(20,25%,8%)] border border-neon-green/30 rounded-2xl px-6 py-4 shadow-[0_0_20px_rgba(74,222,128,0.15)]">
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-neon-green to-emerald-500 flex items-center justify-center shadow-lg">
+                  <span className="text-lg">📲</span>
+                </div>
+                <span className="text-white font-medium text-sm">
+                  Acesso pelo <span className="text-neon-green font-bold">WhatsApp</span>
+                </span>
+              </div>
+              <div className="flex items-center justify-center gap-2 text-white/60 text-xs">
+                <span className="w-1 h-1 rounded-full bg-neon-green/60" />
+                <span>Sem e-mails perdidos</span>
+                <span className="w-1 h-1 rounded-full bg-neon-green/60" />
+                <span>Sem links confusos</span>
+              </div>
             </div>
-            <span className="text-white/60 text-xs">Sem e-mails perdidos. Sem links confusos.</span>
           </div>
           
           {/* Social Proof */}
