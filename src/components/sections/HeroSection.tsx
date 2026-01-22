@@ -104,6 +104,15 @@ export const HeroSection = memo(() => {
             </span>
           </button>
           
+          {/* WhatsApp Trust Badge */}
+          <div className="flex flex-col items-center gap-2 text-sm text-white/80 font-body">
+            <div className="flex items-center gap-2">
+              <span className="text-neon-green">📲</span>
+              <span>Acesso enviado automaticamente pelo <span className="text-neon-green font-semibold">WhatsApp</span></span>
+            </div>
+            <span className="text-white/60 text-xs">Sem e-mails perdidos. Sem links confusos.</span>
+          </div>
+          
           {/* Social Proof */}
           <div className="flex items-center justify-center gap-6 text-sm text-white/70 font-body">
             <span className="flex items-center gap-1">

@@ -142,9 +142,18 @@ export const BonusSection = () => {
                 <span className="font-heading font-bold text-2xl md:text-3xl text-cream">+150 Receitas</span>
                 <ChefHat className="w-8 h-8 text-gold" />
               </div>
-              <p className="text-white text-sm md:text-base">
+              <p className="text-white text-sm md:text-base mb-3">
                 Suporte completo + Planilhas + Acesso Vitalício
               </p>
+              
+              {/* WhatsApp Trust Badge */}
+              <div className="flex flex-col items-center gap-1 pt-3 border-t border-white/10">
+                <div className="flex items-center gap-2 text-sm">
+                  <span className="text-neon-green">📲</span>
+                  <span className="text-white/90">Receba no <span className="text-neon-green font-semibold">WhatsApp</span></span>
+                </div>
+                <span className="text-white/60 text-xs">Sem e-mails perdidos. Sem links confusos.</span>
+              </div>
             </div>
           </div>
         </div>
