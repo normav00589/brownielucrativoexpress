@@ -192,7 +192,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                 asChild
               >
                 <a 
-                  href="https://www.ggcheckout.com/checkout/v3/7OPzDqPI0Ma6G0I1oISl" 
+                  href="https://www.ggcheckout.com/checkout/v5/7OPzDqPI0Ma6G0I1oISl" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   onClick={handleProPlanClick}
@@ -215,7 +215,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
               <button
                 onClick={() => {
                   handleBasicPlanClick();
-                  window.open("https://www.ggcheckout.com/checkout/v3/bi4rE4iOdJz77kLNWHrb", "_blank");
+                  window.open("https://www.ggcheckout.com/checkout/v5/bi4rE4iOdJz77kLNWHrb", "_blank");
                 }}
                 className="w-full text-center text-white/60 text-xs py-2 mt-2 hover:text-white/80 transition-colors underline underline-offset-2"
               >
