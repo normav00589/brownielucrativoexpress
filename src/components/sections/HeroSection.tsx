@@ -22,76 +22,57 @@ export const HeroSection = memo(() => {
             </div>
           </div>
           
-          {/* Main Headline - Vulcão Style */}
+          {/* Main Headline - Reference Style */}
           <div className="relative pt-2">
-            <h1 className="font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] font-black tracking-tight">
-              <span className="text-white">O </span>
-              <span className="text-gold">Brownie Perfeito</span>
-              <span className="text-white"> que</span>
+            <h1 className="font-display text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl leading-[1.2] font-black tracking-tight">
+              <span className="text-white">Brownies que </span>
+              <span className="text-[hsl(25,95%,55%)]">dão certo</span>
+              <span className="text-white">,</span>
               <br />
-              <span className="text-white">até quem </span>
-              <span className="italic">
-                <span className="text-gold underline decoration-gold/60 underline-offset-4 decoration-2">nunca vendeu</span>
-              </span>
-              <br />
-              <span className="italic text-gold underline decoration-gold/60 underline-offset-4 decoration-2">consegue acertar.</span>
+              <span className="text-white">mesmo pra quem </span>
+              <br className="sm:hidden" />
+              <span className="text-white">está </span>
+              <span className="text-[hsl(25,95%,55%)]">começando.</span>
             </h1>
           </div>
           
-          {/* Subheadline - Vulcão Style */}
-          <div className="max-w-2xl mx-auto space-y-2 pt-4">
-            <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-secondary-foreground">
-              Faça Brownie{" "}
-              <span className="text-gold font-semibold">do jeito certo</span>, mesmo começando do zero.
-            </p>
-            <p className="font-body text-base sm:text-lg text-secondary-foreground">
-              Sem errar{" "}
-              <span className="text-gold font-semibold">forma</span>,{" "}
-              <span className="text-gold font-semibold">recheio</span>,{" "}
-              <span className="text-gold font-semibold">ponto</span>,{" "}
-              <span className="text-gold font-semibold">preço</span> ou{" "}
-              <span className="text-gold font-semibold">armazenamento</span>.
+          {/* Subheadline - Reference Style with underline */}
+          <div className="max-w-xl mx-auto pt-4">
+            <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-white">
+              Receitas de brownie que{" "}
+              <span className="font-bold">não dão errado</span>, prontas em até{" "}
+              <span className="text-[hsl(25,95%,55%)] underline underline-offset-4 decoration-2">30 minutos</span>{" "}
+              e que podem gerar{" "}
+              <span className="text-[hsl(25,95%,55%)] font-semibold">R$150 a R$300 por dia</span>.
             </p>
           </div>
           
-          {/* Price Block - Premium Card Style */}
-          <div className="relative mx-auto max-w-sm pt-6">
-            <div className="relative bg-gradient-to-br from-[hsl(20,20%,12%)] to-[hsl(20,25%,8%)] border border-gold/20 rounded-2xl p-6 shadow-lg" style={{
-            boxShadow: '0 0 40px rgba(218,165,32,0.1)'
-          }}>
-              {/* Discount Badge */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="bg-gradient-to-r from-[hsl(10,70%,50%)] to-[hsl(10,80%,45%)] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
-                  🔥 -93% OFF
-                </span>
-              </div>
-              
-              {/* Original Price */}
-              <div className="flex items-center justify-center gap-2 mb-3 pt-2">
-                <span className="text-sm font-body text-secondary-foreground">De</span>
-                <span className="text-lg line-through font-body text-secondary-foreground">R$29,00</span>
-              </div>
-              
-              {/* Current Price */}
-              <div className="text-center mb-3">
-                <span className="text-sm font-body block mb-1 text-secondary-foreground">por apenas</span>
-                <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-2xl font-bold text-gold">R$</span>
-                  <span className="text-6xl sm:text-7xl font-display font-black text-gold leading-none">2,90</span>
-                </div>
-              </div>
-              
-              {/* Guarantee */}
-              <div className="flex items-center justify-center gap-2 text-sm text-white/70 border-t border-white/10 pt-3">
-                <CheckCircle className="w-4 h-4 text-neon-green flex-shrink-0" />
-                <span className="text-secondary-foreground">Acesso vitalício + Garantia 14 dias</span>
-              </div>
+          {/* Price Block - Clean Reference Style */}
+          <div className="relative mx-auto max-w-xs pt-6">
+            {/* Original Price with OFF badge */}
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <span className="text-base line-through text-white/50 font-body">De R$29</span>
+              <span className="bg-[hsl(25,95%,55%)] text-white text-xs font-bold px-3 py-1 rounded-md">
+                -93% OFF
+              </span>
+            </div>
+            
+            {/* Current Price */}
+            <div className="text-center mb-4">
+              <span className="text-base font-body text-white/70">por apenas </span>
+              <span className="text-5xl sm:text-6xl font-display font-black text-white tracking-tight">R$ 2,90</span>
+            </div>
+            
+            {/* Guarantee */}
+            <div className="flex items-center justify-center gap-2 text-sm text-white/80">
+              <CheckCircle className="w-4 h-4 text-neon-green flex-shrink-0" />
+              <span>Acesso vitalício + Garantia de 14 dias</span>
             </div>
           </div>
           
-          {/* CTA Button - Vulcão Amber/Gold style */}
-          <button className="group relative w-full md:w-auto px-10 sm:px-16 py-4 sm:py-5 text-base sm:text-lg font-bold text-[hsl(20,30%,15%)] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 font-body bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)]" style={{
-          boxShadow: '0 4px 25px rgba(255, 200, 100, 0.35)'
+          {/* CTA Button - Reference Amber style */}
+          <button className="group relative w-full md:w-auto px-10 sm:px-16 py-4 sm:py-5 text-base sm:text-lg font-bold text-[hsl(20,30%,12%)] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 font-body bg-gradient-to-r from-[hsl(38,90%,50%)] via-[hsl(42,95%,55%)] to-[hsl(38,90%,50%)]" style={{
+          boxShadow: '0 4px 25px rgba(255, 180, 50, 0.4)'
         }} onClick={() => {
           trackViewContent('Hero CTA - Brownies Lucrativos', 1.99);
           document.getElementById('master-plan')?.scrollIntoView({
@@ -100,29 +81,19 @@ export const HeroSection = memo(() => {
           });
         }}>
             <span className="relative flex items-center justify-center gap-2">
-              🔥 EU MEREÇO APRENDER ISSO!
+              🔥 QUERO COMEÇAR AGORA!
             </span>
           </button>
           
-          {/* WhatsApp Trust Badge */}
-          <div className="relative max-w-sm mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-green/20 via-neon-green/10 to-neon-green/20 rounded-2xl blur-xl" />
-            <div className="relative bg-gradient-to-r from-[hsl(20,20%,10%)] to-[hsl(20,25%,8%)] border border-neon-green/30 rounded-2xl px-6 py-4 shadow-[0_0_20px_rgba(74,222,128,0.15)]">
-              <div className="flex items-center justify-center gap-3 mb-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-neon-green to-emerald-500 flex items-center justify-center shadow-lg">
-                  <span className="text-lg">📲</span>
-                </div>
-                <span className="text-white font-medium text-sm">
-                  Acesso pelo <span className="text-neon-green font-bold">WhatsApp</span>
-                </span>
-              </div>
-              <div className="flex items-center justify-center gap-2 text-white/60 text-xs">
-                <span className="w-1 h-1 rounded-full bg-neon-green/60" />
-                <span>Sem e-mails perdidos</span>
-                <span className="w-1 h-1 rounded-full bg-neon-green/60" />
-                <span>Sem links confusos</span>
-              </div>
+          {/* WhatsApp Trust Badge - Reference Style */}
+          <div className="max-w-xs mx-auto">
+            <div className="bg-[hsl(145,60%,35%)] border border-[hsl(145,70%,45%)]/50 rounded-xl px-5 py-3 flex items-center justify-center gap-2">
+              <CheckCircle className="w-4 h-4 text-white" />
+              <span className="text-white font-medium text-sm">Acesso enviado pelo WhatsApp</span>
             </div>
+            <p className="text-center text-white/50 text-xs mt-2">
+              Material liberado após confirmação do pagamento
+            </p>
           </div>
           
           {/* Social Proof */}
