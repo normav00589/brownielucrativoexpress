@@ -40,9 +40,9 @@ export const HeroSection = memo(() => {
           <div className="max-w-xl mx-auto pt-4">
             <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-white">
               Receitas de brownie que{" "}
-              <span className="font-bold">não dão errado</span>, prontas em até{" "}
+              <span className="font-bold">não fica seca, molenga ou até mesmo aquela massa crua</span>, e fica pronta em{" "}
               <span className="text-[hsl(25,95%,55%)] underline underline-offset-4 decoration-2">30 minutos</span>{" "}
-              e que podem gerar{" "}
+              — podendo gerar{" "}
               <span className="text-[hsl(25,95%,55%)] font-semibold">R$150 a R$300 por dia</span>.
             </p>
           </div>
