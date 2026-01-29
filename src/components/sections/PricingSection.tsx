@@ -48,7 +48,7 @@ export const PricingSection = memo(() => {
               </div>
               
               <ul className="space-y-4 mb-10">
-                {['Aplicativo exclusivo com + 80 Receitas Profissionais e ferramentas para alta lucratividade!', 'Acesso total ao Método 3C', 'Aulas em Vídeo "Brownies que Vendem"', 'Calculadora de Lucro no App', 'Guia dos Melhores Ingredientes', 'Aulas Extras de Confeitaria', 'Suporte + Acesso Vitalício + Certificado'].map((item, i) => <li key={i} className="flex items-start gap-3">
+                {['Aplicativo exclusivo com + 80 Receitas Profissionais e ferramentas para alta lucratividade!', 'Acesso total ao Método 3C', 'Aulas em Vídeo "Brownies que Vendem"', 'Calculadora de Lucro no App', 'Guia dos Melhores Ingredientes', 'Aulas Extras de Confeitaria', '🎨 Aula Canva: Crie seu Logotipo Profissional', '📱 Aula Canva: Monte seu Catálogo de Vendas', 'Suporte + Acesso Vitalício + Certificado'].map((item, i) => <li key={i} className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-gold to-[hsl(42,95%,60%)] flex items-center justify-center mt-0.5">
                       <Check className="w-4 h-4 text-[hsl(20,30%,15%)]" />
                     </div>

@@ -57,6 +57,22 @@ const bonuses = [
     highlight: "Ferramenta Premium",
     recipes: "Lucro garantido",
     color: "from-emerald-500 to-emerald-700"
+  },
+  {
+    icon: Sparkles,
+    title: "AULA DE LOGOTIPO NO CANVA",
+    description: "Você sempre quis ter uma marca profissional que transmite confiança? Crie seu logotipo único sem pagar designer!",
+    highlight: "🔥 Exclusivo",
+    recipes: "Marca profissional grátis",
+    color: "from-violet-500 to-purple-700"
+  },
+  {
+    icon: BookOpen,
+    title: "AULA DE CATÁLOGO DE VENDAS",
+    description: "Aquele catálogo lindo que você vê nas redes e pensa 'queria fazer igual'? Agora você vai criar o seu!",
+    highlight: "🚀 Novidade",
+    recipes: "Venda pelo WhatsApp",
+    color: "from-pink-500 to-rose-600"
   }
 ];
 
@@ -78,14 +94,14 @@ export const BonusSection = () => {
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="flex items-center gap-2 bg-gradient-to-r from-primary via-accent to-caramel px-6 py-3 rounded-full shadow-lg">
               <Gift className="w-6 h-6 text-white" />
-              <span className="font-heading font-bold text-lg text-white">7 Bônus Exclusivos</span>
+              <span className="font-heading font-bold text-lg text-white">9 Bônus Exclusivos</span>
               <Gift className="w-6 h-6 text-white" />
             </div>
           </div>
           
           <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6">
             <span className="bg-gradient-to-r from-caramel via-gold to-caramel bg-clip-text text-transparent">
-              E AINDA LEVA 7 BÔNUS
+              E AINDA LEVA 9 BÔNUS
             </span>
             <span className="ml-3">🎁</span>
           </h2>
