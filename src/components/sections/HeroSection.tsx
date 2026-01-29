@@ -60,7 +60,7 @@ export const HeroSection = memo(() => {
             {/* Current Price */}
             <div className="text-center mb-4">
               <span className="text-base font-body text-white/70">por apenas </span>
-              <span className="text-5xl sm:text-6xl font-display font-black text-white tracking-tight">R$ 2,90</span>
+              <span className="text-5xl sm:text-6xl font-display font-black tracking-tight bg-gradient-to-r from-[hsl(38,95%,60%)] via-[hsl(25,100%,55%)] to-[hsl(38,95%,60%)] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-flow">R$ 2,90</span>
             </div>
             
             {/* Guarantee */}
