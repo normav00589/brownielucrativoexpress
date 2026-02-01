@@ -106,7 +106,7 @@ export const OfferSection = memo(() => {
           </div>
           
           {/* Features Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
             <div className="bg-gradient-to-b from-[hsl(20,25%,12%)] to-[hsl(20,30%,8%)] p-5 rounded-xl border border-gold/20 text-center shadow-[0_0_20px_rgba(218,165,32,0.08)]">
               <p className="font-['Poppins',sans-serif] font-bold text-gold text-lg">⏱️ Fornada pronta</p>
               <p className="text-white text-sm font-['Poppins',sans-serif]">em menos de 40 minutos</p>
@@ -122,6 +122,11 @@ export const OfferSection = memo(() => {
             <div className="bg-gradient-to-b from-[hsl(20,25%,12%)] to-[hsl(20,30%,8%)] p-5 rounded-xl border border-gold/20 text-center shadow-[0_0_20px_rgba(218,165,32,0.08)]">
               <p className="font-['Poppins',sans-serif] font-bold text-gold text-lg">✅ Acesso</p>
               <p className="text-white text-sm font-['Poppins',sans-serif]">Vitalício ao conteúdo!</p>
+            </div>
+            {/* WhatsApp Group - Featured */}
+            <div className="bg-gradient-to-b from-[hsl(145,40%,12%)] to-[hsl(145,50%,8%)] p-5 rounded-xl border-2 border-neon-green/50 text-center shadow-[0_0_25px_rgba(0,255,128,0.15)] ring-1 ring-neon-green/20">
+              <p className="font-['Poppins',sans-serif] font-bold text-neon-green text-lg">📲 Grupo VIP</p>
+              <p className="text-white text-sm font-['Poppins',sans-serif]">no WhatsApp com alunas!</p>
             </div>
           </div>
           

@@ -1,7 +1,17 @@
 import { Gift, Star, Calendar, BookOpen, Sparkles, Award, Calculator, ChefHat } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
-const bonuses = [
+interface Bonus {
+  icon: typeof Calendar;
+  title: string;
+  description: string;
+  highlight: string;
+  recipes: string;
+  color: string;
+  featured?: boolean;
+}
+
+const bonuses: Bonus[] = [
   {
     icon: Calendar,
     title: "BROWNIES NATALINOS",
@@ -73,6 +83,15 @@ const bonuses = [
     highlight: "🚀 Novidade",
     recipes: "Venda pelo WhatsApp",
     color: "from-pink-500 to-rose-600"
+  },
+  {
+    icon: Star,
+    title: "GRUPO VIP NO WHATSAPP",
+    description: "Comunidade exclusiva com alunas para trocar experiências, tirar dúvidas e crescer juntas!",
+    highlight: "⭐ EXCLUSIVO",
+    recipes: "Suporte direto",
+    color: "from-neon-green to-emerald-500",
+    featured: true
   }
 ];
 
@@ -94,7 +113,7 @@ export const BonusSection = () => {
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="flex items-center gap-2 bg-gradient-to-r from-primary via-accent to-caramel px-6 py-3 rounded-full shadow-lg">
               <Gift className="w-6 h-6 text-white" />
-              <span className="font-heading font-bold text-lg text-white">9 Bônus Exclusivos</span>
+              <span className="font-heading font-bold text-lg text-white">10 Bônus Exclusivos</span>
               <Gift className="w-6 h-6 text-white" />
             </div>
           </div>
@@ -116,10 +135,14 @@ export const BonusSection = () => {
           {bonuses.map((bonus, idx) => (
             <div 
               key={idx} 
-              className="group relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-border/50 hover:border-caramel/50 hover:-translate-y-2"
+              className={`group relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border hover:-translate-y-2 ${
+                bonus.featured 
+                  ? 'border-neon-green/50 hover:border-neon-green ring-2 ring-neon-green/30 shadow-[0_0_20px_rgba(0,255,128,0.15)]' 
+                  : 'border-border/50 hover:border-caramel/50'
+              }`}
             >
               {/* Highlight badge */}
-              <div className={`absolute -top-3 right-4 bg-gradient-to-r ${bonus.color} px-4 py-1.5 rounded-full shadow-md`}>
+              <div className={`absolute -top-3 right-4 bg-gradient-to-r ${bonus.color} px-4 py-1.5 rounded-full shadow-md ${bonus.featured ? 'animate-pulse' : ''}`}>
                 <span className="text-xs font-heading font-bold text-white whitespace-nowrap">{bonus.highlight}</span>
               </div>
               
@@ -129,7 +152,7 @@ export const BonusSection = () => {
               </div>
               
               {/* Content */}
-              <h3 className="font-heading font-bold text-lg md:text-xl text-foreground mb-2 leading-tight">
+              <h3 className={`font-heading font-bold text-lg md:text-xl mb-2 leading-tight ${bonus.featured ? 'text-neon-green' : 'text-foreground'}`}>
                 {bonus.title}
               </h3>
               
@@ -139,8 +162,8 @@ export const BonusSection = () => {
               
               {/* Recipe count */}
               <div className="flex items-center gap-2">
-                <Star className="w-4 h-4 text-gold fill-gold" />
-                <span className="text-sm font-semibold text-caramel">{bonus.recipes}</span>
+                <Star className={`w-4 h-4 ${bonus.featured ? 'text-neon-green fill-neon-green' : 'text-gold fill-gold'}`} />
+                <span className={`text-sm font-semibold ${bonus.featured ? 'text-neon-green' : 'text-caramel'}`}>{bonus.recipes}</span>
               </div>
             </div>
           ))}
