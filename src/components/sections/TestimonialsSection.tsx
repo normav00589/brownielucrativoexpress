@@ -1,8 +1,9 @@
 import { memo, useState, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { MessageCircle, Users, Sparkles } from "lucide-react";
 
-// Lazy load testimonial images
+// Lazy load testimonial images - now 10 images
 const testimonialPaths = [
   () => import("@/assets/testimonial-real-1.webp"),
   () => import("@/assets/testimonial-real-2.webp"),
@@ -12,6 +13,8 @@ const testimonialPaths = [
   () => import("@/assets/testimonial-real-6.webp"),
   () => import("@/assets/testimonial-real-7.webp"),
   () => import("@/assets/testimonial-real-8.webp"),
+  () => import("@/assets/testimonial-real-9.webp"),
+  () => import("@/assets/testimonial-real-10.webp"),
 ];
 
 export const TestimonialsSection = memo(() => {
@@ -43,12 +46,32 @@ export const TestimonialsSection = memo(() => {
   return (
     <section ref={ref} className="py-12 md:py-20 px-4 bg-[hsl(15,30%,5%)]">
       <div className="container mx-auto max-w-6xl">
+        {/* Header with Barnum Effect Copy */}
         <div className="text-center mb-8 md:mb-12">
+          {/* Trust Badge */}
+          <div className="inline-flex items-center gap-2 bg-neon-green/10 border border-neon-green/30 rounded-full px-4 py-2 mb-6">
+            <MessageCircle className="w-4 h-4 text-neon-green" />
+            <span className="text-neon-green text-sm font-medium">
+              Direto do Grupo VIP de Alunas
+            </span>
+            <Users className="w-4 h-4 text-neon-green" />
+          </div>
+          
           <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-4">
-            Mais de <span className="text-gold">3.000 alunos</span> já estão lucrando com o Método 3C!
+            <Sparkles className="inline w-6 h-6 text-gold mr-2" />
+            Você também pode ser a{" "}
+            <span className="text-gold">próxima história de sucesso</span>
           </h2>
-          <p className="text-lg text-white/80">
-            Veja o que nossas alunas reais estão compartilhando nas redes sociais
+          
+          {/* Barnum Effect Subheadline - universal statements that feel personal */}
+          <p className="text-lg text-white/80 max-w-2xl mx-auto mb-4">
+            Assim como você, elas também tinham <span className="text-gold font-semibold">medo de não dar certo</span>, 
+            achavam que precisavam de muito dinheiro pra começar, e duvidavam de si mesmas...
+          </p>
+          
+          <p className="text-base text-white/60 max-w-xl mx-auto">
+            Veja o que elas estão compartilhando no nosso{" "}
+            <span className="text-neon-green font-semibold">Grupo VIP de Confeitaria</span>:
           </p>
         </div>
         
@@ -59,11 +82,11 @@ export const TestimonialsSection = memo(() => {
                 {loadedImages.map((image, index) => (
                   <CarouselItem key={index}>
                     <div className="p-2">
-                      <div className="bg-[hsl(18,28%,7%)] rounded-2xl border border-white/10 overflow-hidden">
+                      <div className="bg-[hsl(18,28%,7%)] rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
                         <img 
                           src={image} 
-                          alt={`Depoimento real ${index + 1}`} 
-                          className="w-full h-auto object-contain"
+                          alt={`Resultado real de aluna ${index + 1} no Grupo VIP`} 
+                          className="w-full h-auto object-contain max-h-[70vh]"
                           loading="lazy"
                           decoding="async"
                         />
@@ -77,6 +100,13 @@ export const TestimonialsSection = memo(() => {
             </Carousel>
           </div>
         )}
+        
+        {/* Bottom Barnum CTA */}
+        <div className="text-center mt-8 md:mt-12">
+          <p className="text-white/70 text-sm md:text-base">
+            💬 <span className="text-gold">Imagine você</span> compartilhando suas conquistas aqui daqui a alguns dias...
+          </p>
+        </div>
       </div>
     </section>
   );
