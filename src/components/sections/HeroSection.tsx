@@ -5,10 +5,12 @@ import heroBrownie from "@/assets/hero-brownie.webp";
 // Track view content only on CTA click - no tracking lib import overhead
 const trackViewContent = (name: string, value: number) => {
   if (typeof (window as any).fbq === 'function') {
-    (window as any).fbq('track', 'ViewContent', { content_name: name, value });
+    (window as any).fbq('track', 'ViewContent', {
+      content_name: name,
+      value
+    });
   }
 };
-
 export const HeroSection = memo(() => {
   return <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden bg-gradient-hero">
       <div className="container mx-auto max-w-3xl">
@@ -122,7 +124,7 @@ export const HeroSection = memo(() => {
           }}>
               <img alt="Brownie gourmet delicioso" width={400} height={400} fetchPriority="high" decoding="sync" loading="eager" className="w-full h-full rounded-2xl object-cover" style={{
               aspectRatio: '1/1'
-            }} src={heroBrownie} />
+            }} src="/lovable-uploads/07a3efbf-03fd-47f1-82dc-1751876ea886.webp" />
             </div>
           </div>
           
