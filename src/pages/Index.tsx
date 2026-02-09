@@ -6,51 +6,76 @@ import { lazy, Suspense, memo, useState, useCallback, useRef } from "react";
 import { useOfferExitIntent } from "@/hooks/useOfferExitIntent";
 
 // Lazy load all sections below hero - ultra aggressive chunking
-const OfferSection = lazy(() => import("@/components/sections/OfferSection").then(m => ({ default: m.OfferSection })));
-const SecretSection = lazy(() => import("@/components/sections/SecretSection").then(m => ({ default: m.SecretSection })));
-const RecipesSection = lazy(() => import("@/components/sections/RecipesSection").then(m => ({ default: m.RecipesSection })));
-const PricingSection = lazy(() => import("@/components/sections/PricingSection").then(m => ({ default: m.PricingSection })));
-const BonusSection = lazy(() => import("@/components/sections/BonusSection").then(m => ({ default: m.BonusSection })));
-const TestimonialsSection = lazy(() => import("@/components/sections/TestimonialsSection").then(m => ({ default: m.TestimonialsSection })));
-const GuaranteeSection = lazy(() => import("@/components/sections/GuaranteeSection").then(m => ({ default: m.GuaranteeSection })));
-const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })));
-const FinalCTASection = lazy(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
-const BrownieGallerySection = lazy(() => import("@/components/sections/BrownieGallerySection").then(m => ({ default: m.BrownieGallerySection })));
+const OfferSection = lazy(() => import("@/components/sections/OfferSection").then(m => ({
+  default: m.OfferSection
+})));
+const SecretSection = lazy(() => import("@/components/sections/SecretSection").then(m => ({
+  default: m.SecretSection
+})));
+const RecipesSection = lazy(() => import("@/components/sections/RecipesSection").then(m => ({
+  default: m.RecipesSection
+})));
+const PricingSection = lazy(() => import("@/components/sections/PricingSection").then(m => ({
+  default: m.PricingSection
+})));
+const BonusSection = lazy(() => import("@/components/sections/BonusSection").then(m => ({
+  default: m.BonusSection
+})));
+const TestimonialsSection = lazy(() => import("@/components/sections/TestimonialsSection").then(m => ({
+  default: m.TestimonialsSection
+})));
+const GuaranteeSection = lazy(() => import("@/components/sections/GuaranteeSection").then(m => ({
+  default: m.GuaranteeSection
+})));
+const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({
+  default: m.FAQSection
+})));
+const FinalCTASection = lazy(() => import("@/components/sections/FinalCTASection").then(m => ({
+  default: m.FinalCTASection
+})));
+const BrownieGallerySection = lazy(() => import("@/components/sections/BrownieGallerySection").then(m => ({
+  default: m.BrownieGallerySection
+})));
 
 // Deferred - only after user engagement
-const SaleNotification = lazy(() => import("@/components/SaleNotification").then(m => ({ default: m.SaleNotification })));
+const SaleNotification = lazy(() => import("@/components/SaleNotification").then(m => ({
+  default: m.SaleNotification
+})));
 
 // Ultra-minimal placeholder - no animation, just height reservation
-const SectionPlaceholder = memo(({ height = 400 }: { height?: number }) => (
-  <div style={{ minHeight: height }} aria-hidden="true" />
-));
+const SectionPlaceholder = memo(({
+  height = 400
+}: {
+  height?: number;
+}) => <div style={{
+  minHeight: height
+}} aria-hidden="true" />);
 
 // Wrapper for PricingSection with exit intent
-const PricingSectionWithExitIntent = memo(({ onExitIntent }: { onExitIntent: () => void }) => {
-  const { sectionRef } = useOfferExitIntent({
+const PricingSectionWithExitIntent = memo(({
+  onExitIntent
+}: {
+  onExitIntent: () => void;
+}) => {
+  const {
+    sectionRef
+  } = useOfferExitIntent({
     minTimeInSection: 3000,
-    onExitIntent,
+    onExitIntent
   });
-
-  return (
-    <div ref={sectionRef as React.RefObject<HTMLDivElement>}>
+  return <div ref={sectionRef as React.RefObject<HTMLDivElement>}>
       <PricingSection />
-    </div>
-  );
+    </div>;
 });
-
 PricingSectionWithExitIntent.displayName = 'PricingSectionWithExitIntent';
-
 const Index = () => {
   const [showDownsell, setShowDownsell] = useState(false);
   const modalShownThisSession = useRef(false);
-
   const handleShowDownsell = useCallback(() => {
     if (modalShownThisSession.current) return;
     modalShownThisSession.current = true;
     setShowDownsell(true);
   }, []);
-
   const handleCloseDownsell = useCallback(() => {
     setShowDownsell(false);
     (window as any).__resetUrgencyTimer?.();
@@ -58,9 +83,7 @@ const Index = () => {
       modalShownThisSession.current = false;
     }, 300000);
   }, []);
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <UrgencyBanner onTimerExpire={handleShowDownsell} />
       <DownsellModal isOpen={showDownsell} onClose={handleCloseDownsell} />
       
@@ -74,7 +97,7 @@ const Index = () => {
         </Suspense>
         
         <Suspense fallback={<SectionPlaceholder height={400} />}>
-          <SecretSection />
+          
         </Suspense>
         
         <Suspense fallback={<SectionPlaceholder height={450} />}>
@@ -116,8 +139,6 @@ const Index = () => {
       </Suspense>
       
       <FooterSection />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
