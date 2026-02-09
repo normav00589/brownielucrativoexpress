@@ -8,6 +8,13 @@ const testimonialPaths = [
   () => import("@/assets/testimonial-real-1.webp"),
   () => import("@/assets/testimonial-real-2.webp"),
   () => import("@/assets/testimonial-real-3.webp"),
+  () => import("@/assets/testimonial-real-4.webp"),
+  () => import("@/assets/testimonial-real-5.webp"),
+  () => import("@/assets/testimonial-real-6.webp"),
+  () => import("@/assets/testimonial-real-7.webp"),
+  () => import("@/assets/testimonial-real-8.webp"),
+  () => import("@/assets/testimonial-real-9.webp"),
+  () => import("@/assets/testimonial-real-10.webp"),
 ];
 
 export const TestimonialsSection = memo(() => {
