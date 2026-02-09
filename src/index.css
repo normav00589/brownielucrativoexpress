@@ -622,11 +622,19 @@ All colors MUST be HSL.
   
   /* Disable expensive animations only */
   .animate-gradient-x,
+  .animate-gradient-flow,
+  .animate-glow-text,
   .text-glow-caramel,
   .text-glow-gold,
   .price-glow,
   .float-animation {
     animation: none !important;
+  }
+  
+  /* Remove heavy decorative elements on mobile */
+  [class*="blur-[100px]"],
+  [class*="blur-[80px]"] {
+    display: none !important;
   }
   
   /* Disable backdrop blur - major GPU drain */

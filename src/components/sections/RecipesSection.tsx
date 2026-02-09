@@ -24,15 +24,15 @@ export const RecipesSection = memo(() => {
     isVisible
   } = useIntersectionObserver();
   return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-section-3 text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
-      {/* Background brownie image with overlay */}
-      <div className="absolute inset-0 z-0">
+      {/* Background brownie image with overlay - hidden on mobile for performance */}
+      <div className="absolute inset-0 z-0 hidden md:block">
         <img src={brownieBg} alt="" aria-hidden="true" loading="lazy" className="w-full h-full object-cover opacity-[0.06]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[hsl(20,15%,5%)] via-transparent to-[hsl(20,15%,5%)]" />
       </div>
 
-      {/* Decorative glow orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* Decorative glow orbs - hidden on mobile */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-gold/5 rounded-full blur-[100px] pointer-events-none hidden md:block" />
+      <div className="absolute bottom-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none hidden md:block" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-12 md:mb-16">
@@ -53,7 +53,7 @@ export const RecipesSection = memo(() => {
         </div>
         
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
-          {recipeCategories.map((category, idx) => <div key={idx} className="bg-section-dark/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_0_30px_rgba(234,193,123,0.15)] hover:-translate-y-1 group">
+          {recipeCategories.map((category, idx) => <div key={idx} className="bg-section-dark rounded-2xl p-6 md:p-8 border border-white/10 md:transition-all md:duration-500 md:hover:border-gold/40 md:hover:shadow-[0_0_30px_rgba(234,193,123,0.15)] md:hover:-translate-y-1 group md:bg-section-dark/80 md:backdrop-blur-sm">
               <div className="text-5xl mb-4 text-center group-hover:scale-110 transition-transform duration-300">{category.emoji}</div>
               <h3 className="font-heading font-bold text-xl md:text-2xl mb-6 text-center text-gold">
                 {category.title}
