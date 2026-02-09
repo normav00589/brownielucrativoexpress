@@ -126,6 +126,17 @@ export const HeroSection = memo(() => {
               aspectRatio: '1/1'
             }} src="/lovable-uploads/07a3efbf-03fd-47f1-82dc-1751876ea886.webp" />
             </div>
+            
+            {/* Social Proof Badge - Student Result */}
+            <div className="absolute -bottom-3 -right-2 sm:right-0 bg-[hsl(20,20%,10%)] border-2 border-gold/60 rounded-2xl px-4 py-3 shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300" style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.4)' }}>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">💰</span>
+                <div className="text-left">
+                  <p className="text-gold font-display font-bold text-sm leading-tight">R$280 em 1 dia</p>
+                  <p className="text-white/60 text-[10px] font-body">— Aluna do grupo VIP</p>
+                </div>
+              </div>
+            </div>
           </div>
           
           {/* Stats Section */}
