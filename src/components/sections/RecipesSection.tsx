@@ -1,6 +1,7 @@
 import { memo } from "react";
-import { ChefHat, Star } from "lucide-react";
+import { ChefHat, Star, Sparkles } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import brownieBg from "@/assets/testimonial-brownie-first.webp";
 const recipeCategories = [{
   title: "BROWNIES TRADICIONAIS",
   emoji: "🍫",
@@ -23,16 +24,27 @@ export const RecipesSection = memo(() => {
     isVisible
   } = useIntersectionObserver();
   return <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-section-3 text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
+      {/* Background brownie image with overlay */}
+      <div className="absolute inset-0 z-0">
+        <img src={brownieBg} alt="" aria-hidden="true" loading="lazy" className="w-full h-full object-cover opacity-[0.06]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(20,15%,5%)] via-transparent to-[hsl(20,15%,5%)]" />
+      </div>
+
+      {/* Decorative glow orbs */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold px-6 py-3 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold px-6 py-3 rounded-full mb-6 shadow-[0_0_20px_rgba(234,193,123,0.3)]">
             <ChefHat className="w-6 h-6 text-[hsl(20,30%,15%)]" />
             <span className="font-heading font-bold text-lg text-[hsl(20,30%,15%)]">+80 Receitas Incríveis</span>
+            <Sparkles className="w-5 h-5 text-[hsl(20,30%,15%)]" />
           </div>
           
           <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl mb-6">
             <span className="text-white">VEJA ALGUMAS RECEITAS </span>
-            <span className="text-gold">QUE TE ESPERA</span>
+            <span className="text-gold animate-glow-text">QUE TE ESPERA</span>
           </h2>
           
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-secondary-foreground">
@@ -41,8 +53,8 @@ export const RecipesSection = memo(() => {
         </div>
         
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
-          {recipeCategories.map((category, idx) => <div key={idx} className="bg-section-dark rounded-2xl p-6 md:p-8 border border-white/10 transition-all duration-300 hover:border-gold/30">
-              <div className="text-5xl mb-4 text-center">{category.emoji}</div>
+          {recipeCategories.map((category, idx) => <div key={idx} className="bg-section-dark/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_0_30px_rgba(234,193,123,0.15)] hover:-translate-y-1 group">
+              <div className="text-5xl mb-4 text-center group-hover:scale-110 transition-transform duration-300">{category.emoji}</div>
               <h3 className="font-heading font-bold text-xl md:text-2xl mb-6 text-center text-gold">
                 {category.title}
               </h3>
@@ -52,14 +64,14 @@ export const RecipesSection = memo(() => {
                     <span className="text-sm md:text-base text-secondary-foreground">{recipe}</span>
                   </li>)}
               </ul>
-              <div className="rounded-lg px-4 py-2 text-center bg-gold/10">
+              <div className="rounded-lg px-4 py-2 text-center bg-gold/10 group-hover:bg-gold/20 transition-colors duration-300">
                 <span className="font-semibold text-sm text-gold">🔥 + mais {category.totalRecipes - category.recipes.length} receitas incríveis!</span>
               </div>
             </div>)}
         </div>
         
         <div className="text-center">
-          <div className="bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold rounded-xl p-6 max-w-2xl mx-auto">
+          <div className="bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold rounded-xl p-6 max-w-2xl mx-auto shadow-[0_0_40px_rgba(234,193,123,0.25)] hover:shadow-[0_0_50px_rgba(234,193,123,0.4)] transition-shadow duration-500">
             <p className="font-heading font-bold md:text-2xl text-[hsl(20,30%,15%)] text-base">
               💰 Transforme R$60 em R$200 por fornada com técnicas comprovadas!
             </p>
