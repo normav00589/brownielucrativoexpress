@@ -5,6 +5,9 @@ import { MessageCircle, Users, Sparkles } from "lucide-react";
 
 // Lazy load testimonial images - now 10 images
 const testimonialPaths = [
+  () => import("@/assets/testimonial-brownie-first.webp"),
+  () => import("@/assets/testimonial-brownie-second.webp"),
+  () => import("@/assets/testimonial-brownie-third.webp"),
   () => import("@/assets/testimonial-real-1.webp"),
   () => import("@/assets/testimonial-real-2.webp"),
   () => import("@/assets/testimonial-real-3.webp"),
