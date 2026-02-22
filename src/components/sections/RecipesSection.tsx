@@ -71,8 +71,8 @@ export const RecipesSection = memo(() => {
         </div>
         
         <div className="text-center">
-          <div className="bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold rounded-xl p-6 max-w-2xl mx-auto shadow-[0_0_40px_rgba(234,193,123,0.25)] hover:shadow-[0_0_50px_rgba(234,193,123,0.4)] transition-shadow duration-500">
-            <p className="font-heading font-bold md:text-2xl text-[hsl(20,30%,15%)] text-base">
+          <div className="bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold rounded-xl p-4 sm:p-6 max-w-2xl mx-auto shadow-[0_0_40px_rgba(234,193,123,0.25)] hover:shadow-[0_0_50px_rgba(234,193,123,0.4)] transition-shadow duration-500">
+            <p className="font-heading font-bold text-sm sm:text-base md:text-2xl text-[hsl(20,30%,15%)]">
               💰 Transforme R$60 em R$200 por fornada com técnicas comprovadas!
             </p>
           </div>
