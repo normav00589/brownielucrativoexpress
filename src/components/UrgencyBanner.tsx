@@ -43,32 +43,32 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
 
   return (
     <div 
-      className="sticky top-0 z-50 bg-[hsl(0,75%,45%)] border-b border-white/10"
+      className="sticky top-0 z-50 bg-gradient-to-r from-[hsl(18,35%,8%)] via-[hsl(15,30%,6%)] to-[hsl(18,35%,8%)] border-b border-gold/20"
       style={{ contain: 'layout style' }}
     >
       <div className="py-2.5 md:py-3 px-3">
         <div className="container mx-auto flex flex-col items-center gap-1.5 md:gap-2">
           {/* Copy line */}
           <div className="flex items-center gap-1.5 flex-wrap justify-center">
-            <Flame className="w-4 h-4 text-yellow-300 animate-pulse flex-shrink-0" />
-            <span className="font-heading font-bold text-xs md:text-sm text-white text-center leading-tight">
-              O preço de <span className="text-yellow-300 font-black">R$2,90</span> vai expirar — depois volta pra <span className="line-through text-white/70">R$29,90</span>
+            <Flame className="w-4 h-4 text-[hsl(25,95%,55%)] animate-pulse flex-shrink-0" />
+            <span className="font-heading font-bold text-xs md:text-sm text-white/90 text-center leading-tight">
+              O preço de <span className="text-gold font-black">R$2,90</span> vai expirar — depois volta pra <span className="line-through text-white/50">R$29,90</span>
             </span>
-            <Flame className="w-4 h-4 text-yellow-300 animate-pulse flex-shrink-0 hidden sm:block" />
+            <Flame className="w-4 h-4 text-[hsl(25,95%,55%)] animate-pulse flex-shrink-0 hidden sm:block" />
           </div>
           
           {/* Timer blocks */}
           <div className="flex items-center gap-1.5">
-            <div className="bg-[hsl(0,0%,8%)] rounded-md px-2.5 py-1 min-w-[40px] text-center border border-white/10">
-              <span className="font-heading font-black text-lg md:text-xl text-white tabular-nums">{pad(timeLeft.hours)}</span>
+            <div className="bg-[hsl(20,20%,10%)] rounded-md px-2.5 py-1 min-w-[40px] text-center border border-gold/20">
+              <span className="font-heading font-black text-lg md:text-xl text-gold tabular-nums">{pad(timeLeft.hours)}</span>
             </div>
-            <span className="font-heading font-black text-white text-lg">:</span>
-            <div className="bg-[hsl(0,0%,8%)] rounded-md px-2.5 py-1 min-w-[40px] text-center border border-white/10">
-              <span className="font-heading font-black text-lg md:text-xl text-white tabular-nums">{pad(timeLeft.minutes)}</span>
+            <span className="font-heading font-black text-gold/60 text-lg">:</span>
+            <div className="bg-[hsl(20,20%,10%)] rounded-md px-2.5 py-1 min-w-[40px] text-center border border-gold/20">
+              <span className="font-heading font-black text-lg md:text-xl text-gold tabular-nums">{pad(timeLeft.minutes)}</span>
             </div>
-            <span className="font-heading font-black text-white text-lg">:</span>
-            <div className="bg-[hsl(0,0%,8%)] rounded-md px-2.5 py-1 min-w-[40px] text-center border border-white/10">
-              <span className="font-heading font-black text-lg md:text-xl text-white tabular-nums">{pad(timeLeft.seconds)}</span>
+            <span className="font-heading font-black text-gold/60 text-lg">:</span>
+            <div className="bg-[hsl(20,20%,10%)] rounded-md px-2.5 py-1 min-w-[40px] text-center border border-gold/20">
+              <span className="font-heading font-black text-lg md:text-xl text-[hsl(10,70%,55%)] tabular-nums">{pad(timeLeft.seconds)}</span>
             </div>
           </div>
         </div>
