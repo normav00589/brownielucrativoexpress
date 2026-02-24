@@ -17,7 +17,7 @@ const trackViewContent = (name: string, value: number) => {
 export const HeroSection = memo(() => {
   return (
     <section className="relative overflow-hidden" style={{ background: 'hsl(20,20%,6%)' }}>
-      <div className="container mx-auto max-w-3xl px-4 pt-6 pb-10">
+      <div className="container mx-auto max-w-3xl px-4 pt-2 pb-10">
         <div className="space-y-5 text-center">
           
           {/* Live Badge */}
