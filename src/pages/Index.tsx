@@ -1,9 +1,10 @@
 import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { FooterSection } from "@/components/sections/FooterSection";
-import { DownsellModal } from "@/components/DownsellModal";
 import { lazy, Suspense, memo, useState, useCallback, useRef } from "react";
 import { useOfferExitIntent } from "@/hooks/useOfferExitIntent";
+
+const FooterSection = lazy(() => import("@/components/sections/FooterSection").then(m => ({ default: m.FooterSection })));
+const DownsellModal = lazy(() => import("@/components/DownsellModal").then(m => ({ default: m.DownsellModal })));
 
 // Lazy load all sections below hero - ultra aggressive chunking
 const OfferSection = lazy(() => import("@/components/sections/OfferSection").then(m => ({
@@ -85,7 +86,9 @@ const Index = () => {
   }, []);
   return <div className="min-h-screen">
       <UrgencyBanner onTimerExpire={handleShowDownsell} />
-      <DownsellModal isOpen={showDownsell} onClose={handleCloseDownsell} />
+      <Suspense fallback={null}>
+        <DownsellModal isOpen={showDownsell} onClose={handleCloseDownsell} />
+      </Suspense>
       
       <main>
         {/* Hero loads immediately - critical for LCP */}
@@ -96,9 +99,6 @@ const Index = () => {
           <OfferSection />
         </Suspense>
         
-        <Suspense fallback={<SectionPlaceholder height={400} />}>
-          
-        </Suspense>
         
         <Suspense fallback={<SectionPlaceholder height={450} />}>
           <RecipesSection />
@@ -138,7 +138,9 @@ const Index = () => {
         <SaleNotification />
       </Suspense>
       
-      <FooterSection />
+      <Suspense fallback={null}>
+        <FooterSection />
+      </Suspense>
     </div>;
 };
 export default Index;

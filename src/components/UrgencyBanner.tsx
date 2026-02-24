@@ -1,5 +1,4 @@
 import { useEffect, useState, useCallback, memo } from "react";
-import { Flame } from "lucide-react";
 
 interface UrgencyBannerProps {
   onTimerExpire?: () => void;
@@ -50,11 +49,11 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
         <div className="container mx-auto flex flex-col items-center gap-1.5 md:gap-2">
           {/* Copy line */}
           <div className="flex items-center gap-1.5 flex-wrap justify-center">
-            <Flame className="w-4 h-4 text-[hsl(25,95%,55%)] animate-pulse flex-shrink-0" />
+            <span className="text-[hsl(25,95%,55%)] animate-pulse flex-shrink-0">🔥</span>
             <span className="font-heading font-bold text-xs md:text-sm text-white/90 text-center leading-tight">
               O preço de <span className="text-gold font-black">R$2,90</span> vai expirar — depois volta pra <span className="line-through text-white/50">R$29,90</span>
             </span>
-            <Flame className="w-4 h-4 text-[hsl(25,95%,55%)] animate-pulse flex-shrink-0 hidden sm:block" />
+            <span className="text-[hsl(25,95%,55%)] animate-pulse flex-shrink-0 hidden sm:block">🔥</span>
           </div>
           
           {/* Timer blocks */}
