@@ -16,9 +16,9 @@ const trackViewContent = (name: string, value: number) => {
 
 export const HeroSection = memo(() => {
   return (
-    <section className="relative min-h-screen py-12 md:py-16 px-4 overflow-hidden bg-gradient-hero">
+    <section className="relative min-h-screen py-10 md:py-14 px-4 overflow-hidden bg-gradient-hero">
       <div className="container mx-auto max-w-3xl">
-        <div className="space-y-5 text-center">
+        <div className="space-y-4 text-center">
           
           {/* Live Badge */}
           <div className="flex justify-center">
@@ -28,8 +28,70 @@ export const HeroSection = memo(() => {
             </div>
           </div>
           
-          {/* Main Headline */}
-          <div className="relative pt-2">
+          {/* Expert Photo Section — Reference style: big centered, floating products */}
+          <div className="relative w-full max-w-xs sm:max-w-sm mx-auto pt-2 pb-4">
+            {/* Subtle glow behind photo */}
+            <div className="absolute inset-0 rounded-full bg-gold/5 blur-3xl scale-90 pointer-events-none" />
+            
+            {/* Main expert image — circular/rounded like reference */}
+            <div className="relative mx-auto w-64 h-72 sm:w-72 sm:h-80 rounded-[2rem] overflow-hidden border-2 border-gold/20" style={{ boxShadow: '0 0 60px rgba(200, 150, 50, 0.12)' }}>
+              <img
+                alt="Chef Gabriella Castro segurando bandeja de brownies gourmet"
+                width={288}
+                height={320}
+                fetchPriority="high"
+                decoding="sync"
+                loading="eager"
+                className="w-full h-full object-cover object-top"
+                src={chefGabriella}
+              />
+            </div>
+
+            {/* Chef name badge — overlapping bottom of photo */}
+            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 z-10">
+              <div className="bg-[hsl(20,20%,8%)]/95 border border-gold/40 rounded-full px-5 py-2 shadow-lg">
+                <span className="text-gold font-display font-bold text-sm tracking-wide whitespace-nowrap">✨ Chef Gabriella Castro</span>
+              </div>
+            </div>
+
+            {/* Floating brownie — top left */}
+            <div
+              className="absolute -top-2 -left-2 sm:-left-6 w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] rounded-2xl overflow-hidden border-[3px] border-white/25 shadow-xl transform -rotate-6"
+              style={{ boxShadow: '0 10px 25px rgba(0,0,0,0.5)' }}
+            >
+              <img src={brownie1} alt="Brownie gourmet" width={88} height={88} loading="eager" decoding="async" className="w-full h-full object-cover" />
+            </div>
+
+            {/* Floating brownie — right */}
+            <div
+              className="absolute top-12 -right-2 sm:-right-6 w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] rounded-2xl overflow-hidden border-[3px] border-white/25 shadow-xl transform rotate-6"
+              style={{ boxShadow: '0 10px 25px rgba(0,0,0,0.5)' }}
+            >
+              <img src={brownie2} alt="Brownie recheado" width={88} height={88} loading="eager" decoding="async" className="w-full h-full object-cover" />
+            </div>
+
+            {/* Floating brownie — bottom left */}
+            <div
+              className="absolute bottom-12 -left-4 sm:-left-8 w-[68px] h-[68px] sm:w-[80px] sm:h-[80px] rounded-2xl overflow-hidden border-[3px] border-white/25 shadow-xl transform rotate-3"
+              style={{ boxShadow: '0 10px 25px rgba(0,0,0,0.5)' }}
+            >
+              <img src={brownie3} alt="Brownie premium" width={80} height={80} loading="eager" decoding="async" className="w-full h-full object-cover" />
+            </div>
+
+            {/* Earnings badge — bottom right */}
+            <div className="absolute bottom-10 -right-3 sm:-right-4 bg-[hsl(20,20%,10%)] border-2 border-gold/60 rounded-2xl px-3 py-2 shadow-lg transform rotate-3 z-10" style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.5)' }}>
+              <div className="flex items-center gap-1.5">
+                <span className="text-xl">💰</span>
+                <div className="text-left">
+                  <p className="text-gold font-display font-bold text-xs leading-tight">R$280 em 1 dia</p>
+                  <p className="text-white/60 text-[9px] font-body">— Aluna VIP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Headline BELOW photo — reference style */}
+          <div className="pt-2">
             <h1 className="font-display text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl leading-[1.2] font-black tracking-tight">
               <span className="text-[hsl(25,95%,55%)]">Brownies Lucrativos </span>
               <span className="text-white">Mesmo Para Quem </span>
@@ -37,68 +99,6 @@ export const HeroSection = memo(() => {
               <span className="text-white">Está </span>
               <span className="text-[hsl(25,95%,55%)]">Começando</span>
             </h1>
-          </div>
-          
-          {/* Expert Photo Section with floating brownies */}
-          <div className="relative w-full max-w-sm mx-auto my-4" style={{ aspectRatio: '3/4', contain: 'layout' }}>
-            {/* Main expert image */}
-            <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 50px rgba(255, 150, 50, 0.15)' }}>
-              <img
-                alt="Chef Gabriella Castro segurando bandeja de brownies gourmet"
-                width={400}
-                height={533}
-                fetchPriority="high"
-                decoding="sync"
-                loading="eager"
-                className="w-full h-full rounded-2xl object-cover"
-                style={{ aspectRatio: '3/4' }}
-                src={chefGabriella}
-              />
-              {/* Gradient overlay at bottom for text readability */}
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[hsl(20,20%,6%)] via-[hsl(20,20%,6%)]/60 to-transparent" />
-            </div>
-
-            {/* Chef name badge */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10">
-              <div className="bg-[hsl(20,20%,10%)]/90 border border-gold/40 rounded-full px-5 py-2 backdrop-blur-sm">
-                <span className="text-gold font-display font-bold text-sm tracking-wide">✨ Chef Gabriella Castro</span>
-              </div>
-            </div>
-
-            {/* Floating brownie - top left */}
-            <div
-              className="absolute -top-3 -left-3 w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border-2 border-white/20 shadow-lg transform -rotate-6"
-              style={{ boxShadow: '0 8px 20px rgba(0,0,0,0.4)' }}
-            >
-              <img src={brownie1} alt="Brownie gourmet" width={96} height={96} loading="eager" decoding="async" className="w-full h-full object-cover" />
-            </div>
-
-            {/* Floating brownie - top right */}
-            <div
-              className="absolute top-8 -right-3 w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border-2 border-white/20 shadow-lg transform rotate-6"
-              style={{ boxShadow: '0 8px 20px rgba(0,0,0,0.4)' }}
-            >
-              <img src={brownie2} alt="Brownie recheado" width={96} height={96} loading="eager" decoding="async" className="w-full h-full object-cover" />
-            </div>
-
-            {/* Floating brownie - bottom left */}
-            <div
-              className="absolute bottom-16 -left-4 w-18 h-18 sm:w-22 sm:h-22 rounded-xl overflow-hidden border-2 border-white/20 shadow-lg transform rotate-3"
-              style={{ boxShadow: '0 8px 20px rgba(0,0,0,0.4)', width: '80px', height: '80px' }}
-            >
-              <img src={brownie3} alt="Brownie premium" width={88} height={88} loading="eager" decoding="async" className="w-full h-full object-cover" />
-            </div>
-
-            {/* Earnings badge */}
-            <div className="absolute -bottom-2 -right-2 sm:right-0 bg-[hsl(20,20%,10%)] border-2 border-gold/60 rounded-2xl px-4 py-3 shadow-lg transform rotate-3 z-10" style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.4)' }}>
-              <div className="flex items-center gap-2">
-                <span className="text-2xl">💰</span>
-                <div className="text-left">
-                  <p className="text-gold font-display font-bold text-sm leading-tight">R$280 em 1 dia</p>
-                  <p className="text-white/60 text-[10px] font-body">— Aluna do grupo VIP</p>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Subheadline */}
