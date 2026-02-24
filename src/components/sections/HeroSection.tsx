@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { CheckCircle, Star, Clock } from "lucide-react";
 import chefGabriella from "@/assets/chef-gabriella-hero.webp";
 import brownie1 from "@/assets/brownie-1.webp";
 import brownie2 from "@/assets/brownie-2.webp";
@@ -134,7 +133,7 @@ export const HeroSection = memo(() => {
               <span className="text-5xl sm:text-6xl font-display font-black tracking-tight bg-gradient-to-r from-[hsl(38,95%,60%)] via-[hsl(25,100%,55%)] to-[hsl(38,95%,60%)] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-flow">R$ 2,90</span>
             </div>
             <div className="flex items-center justify-center gap-2 text-sm text-white/80">
-              <CheckCircle className="w-4 h-4 text-neon-green flex-shrink-0" />
+              <svg className="w-4 h-4 text-neon-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               <span>Acesso vitalício + Garantia de 14 dias</span>
             </div>
           </div>
@@ -159,7 +158,7 @@ export const HeroSection = memo(() => {
           {/* WhatsApp Trust Badge */}
           <div className="max-w-xs mx-auto">
             <div className="bg-[hsl(145,60%,35%)] border border-[hsl(145,70%,45%)]/50 rounded-xl px-5 py-3 flex items-center justify-center gap-2">
-              <CheckCircle className="w-4 h-4 text-white" />
+              <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               <span className="text-white font-medium text-sm">Acesso enviado pelo WhatsApp</span>
             </div>
             <p className="text-center text-white/50 text-xs mt-2">
@@ -170,15 +169,13 @@ export const HeroSection = memo(() => {
           {/* Social Proof */}
           <div className="flex items-center justify-center gap-6 text-sm text-white/70 font-body">
             <span className="flex items-center gap-1">
-              <Star className="w-4 h-4 text-gold fill-gold" />
-              <Star className="w-4 h-4 text-gold fill-gold" />
-              <Star className="w-4 h-4 text-gold fill-gold" />
-              <Star className="w-4 h-4 text-gold fill-gold" />
-              <Star className="w-4 h-4 text-gold fill-gold" />
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} className="w-4 h-4 text-gold fill-gold" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              ))}
               <span className="ml-1 font-medium text-white/80">4.9/5</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-white/60" />
+              <svg className="w-4 h-4 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               <span className="text-white/70">Acesso Imediato</span>
             </span>
           </div>
