@@ -16,109 +16,104 @@ const trackViewContent = (name: string, value: number) => {
 
 export const HeroSection = memo(() => {
   return (
-    <section className="relative min-h-screen px-4 overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(20,20%,8%) 0%, hsl(15,25%,5%) 40%, hsl(20,15%,4%) 100%)' }}>
-      <div className="container mx-auto max-w-3xl pt-6 pb-12">
-        <div className="space-y-5 text-center">
-          
-          {/* Live Badge */}
-          <div className="flex justify-center">
-            <div className="inline-flex items-center gap-2 bg-[hsl(20,20%,12%)] border border-white/20 px-4 py-2 rounded-full">
-              <span className="text-gold">👑</span>
-              <span className="text-white/90 font-medium text-sm">+500 Alunas</span>
-            </div>
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Full-cover background image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          alt="Chef Gabriella Castro segurando bandeja de brownies gourmet"
+          width={800}
+          height={1200}
+          fetchPriority="high"
+          decoding="sync"
+          loading="eager"
+          className="w-full h-full object-cover object-top"
+          src={chefGabriella}
+        />
+        {/* Smoky overlay - bottom heavy for text readability */}
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(180deg, hsl(20,20%,6%,0.3) 0%, hsl(20,20%,6%,0.15) 25%, hsl(20,20%,6%,0.4) 50%, hsl(20,20%,6%,0.85) 70%, hsl(20,20%,6%,0.97) 85%, hsl(20,20%,6%) 100%)'
+        }} />
+        {/* Side vignette */}
+        <div className="absolute inset-0" style={{
+          background: 'radial-gradient(ellipse 120% 100% at 50% 30%, transparent 30%, hsl(20,20%,6%,0.6) 80%)'
+        }} />
+      </div>
+
+      <div className="relative z-10 container mx-auto max-w-3xl px-4 pt-6 pb-12 min-h-screen flex flex-col">
+        
+        {/* Top badge */}
+        <div className="flex justify-center pt-2">
+          <div className="inline-flex items-center gap-2 bg-[hsl(20,20%,10%)]/80 border border-white/20 px-4 py-2 rounded-full backdrop-blur-sm">
+            <span className="text-gold">👑</span>
+            <span className="text-white/90 font-medium text-sm">+500 Alunas</span>
+          </div>
+        </div>
+
+        {/* Spacer - push content to bottom half where the smoky overlay is strongest */}
+        <div className="flex-1 min-h-[35vh]" />
+
+        {/* Floating brownies - positioned in the middle area */}
+        <div className="relative">
+          {/* Floating brownie - left */}
+          <div
+            className="absolute -top-32 left-2 sm:left-8 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-white/25 transform -rotate-6 z-10"
+            style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.5)' }}
+          >
+            <img src={brownie1} alt="Brownie gourmet" width={96} height={96} loading="eager" decoding="async" className="w-full h-full object-cover" />
           </div>
 
-          {/* Expert Photo - smoky/dissolve effect */}
-          <div className="relative w-full max-w-xs sm:max-w-sm mx-auto" style={{ contain: 'layout' }}>
-            {/* Radial glow behind the chef */}
-            <div 
-              className="absolute inset-0 z-0"
-              style={{
-                background: 'radial-gradient(ellipse 80% 60% at 50% 40%, hsl(25,60%,25%,0.3) 0%, transparent 70%)',
-              }}
-            />
-            
-            {/* Main chef image with smoky dissolve edges */}
-            <div className="relative z-[1]">
-              <div 
-                className="relative mx-auto overflow-hidden"
-                style={{
-                  WebkitMaskImage: 'radial-gradient(ellipse 85% 80% at 50% 40%, black 50%, transparent 100%)',
-                  maskImage: 'radial-gradient(ellipse 85% 80% at 50% 40%, black 50%, transparent 100%)',
-                }}
-              >
-                <img
-                  alt="Chef Gabriella Castro segurando bandeja de brownies gourmet"
-                  width={400}
-                  height={500}
-                  fetchPriority="high"
-                  decoding="sync"
-                  loading="eager"
-                  className="w-full h-auto object-cover"
-                  src={chefGabriella}
-                />
-              </div>
+          {/* Floating brownie - right */}
+          <div
+            className="absolute -top-24 right-2 sm:right-8 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-white/25 transform rotate-6 z-10"
+            style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.5)' }}
+          >
+            <img src={brownie2} alt="Brownie recheado" width={96} height={96} loading="eager" decoding="async" className="w-full h-full object-cover" />
+          </div>
 
-              {/* Floating brownie - top left */}
-              <div
-                className="absolute -top-2 left-0 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-white/25 transform -rotate-6 z-10"
-                style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.5)' }}
-              >
-                <img src={brownie1} alt="Brownie gourmet" width={96} height={96} loading="eager" decoding="async" className="w-full h-full object-cover" />
-              </div>
+          {/* Floating brownie - bottom left */}
+          <div
+            className="absolute -top-16 left-16 sm:left-24 w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] rounded-2xl overflow-hidden border-2 border-white/25 transform rotate-3 z-10"
+            style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.5)' }}
+          >
+            <img src={brownie3} alt="Brownie premium" width={88} height={88} loading="eager" decoding="async" className="w-full h-full object-cover" />
+          </div>
 
-              {/* Floating brownie - top right */}
-              <div
-                className="absolute top-6 -right-1 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-white/25 transform rotate-6 z-10"
-                style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.5)' }}
-              >
-                <img src={brownie2} alt="Brownie recheado" width={96} height={96} loading="eager" decoding="async" className="w-full h-full object-cover" />
+          {/* Earnings badge */}
+          <div className="absolute -top-28 right-0 sm:right-4 bg-[hsl(20,20%,10%)]/90 border-2 border-gold/60 rounded-2xl px-4 py-3 shadow-lg transform rotate-3 z-10 backdrop-blur-sm" style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.4)' }}>
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">💰</span>
+              <div className="text-left">
+                <p className="text-gold font-display font-bold text-sm leading-tight">R$280 em 1 dia</p>
+                <p className="text-white/60 text-[10px] font-body">— Aluna do grupo VIP</p>
               </div>
+            </div>
+          </div>
+        </div>
 
-              {/* Floating brownie - bottom left */}
-              <div
-                className="absolute bottom-20 -left-3 w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] rounded-2xl overflow-hidden border-2 border-white/25 transform rotate-3 z-10"
-                style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.5)' }}
-              >
-                <img src={brownie3} alt="Brownie premium" width={88} height={88} loading="eager" decoding="async" className="w-full h-full object-cover" />
-              </div>
-
-              {/* Chef name badge */}
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-                <div className="bg-gradient-to-r from-[hsl(20,20%,8%)]/95 via-[hsl(20,25%,12%)]/95 to-[hsl(20,20%,8%)]/95 border border-gold/50 rounded-full px-6 py-2.5 backdrop-blur-md shadow-lg" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,200,100,0.15)' }}>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[hsl(25,95%,55%)] text-base">👩‍🍳</span>
-                    <div className="flex flex-col leading-tight">
-                      <span className="text-gold font-display font-bold text-sm tracking-wide">Gabriella Castro</span>
-                      <span className="text-white/50 text-[10px] font-body tracking-widest uppercase">Chef Confeiteira</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Earnings badge */}
-              <div className="absolute bottom-24 -right-2 sm:right-0 bg-[hsl(20,20%,10%)] border-2 border-gold/60 rounded-2xl px-4 py-3 shadow-lg transform rotate-3 z-10" style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.4)' }}>
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">💰</span>
-                  <div className="text-left">
-                    <p className="text-gold font-display font-bold text-sm leading-tight">R$280 em 1 dia</p>
-                    <p className="text-white/60 text-[10px] font-body">— Aluna do grupo VIP</p>
-                  </div>
+        {/* Content over the smoky area */}
+        <div className="space-y-5 text-center">
+          
+          {/* Chef badge */}
+          <div className="flex justify-center">
+            <div className="bg-gradient-to-r from-[hsl(20,20%,8%)]/95 via-[hsl(20,25%,12%)]/95 to-[hsl(20,20%,8%)]/95 border border-gold/50 rounded-full px-6 py-2.5 backdrop-blur-md" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,200,100,0.15)' }}>
+              <div className="flex items-center gap-2">
+                <span className="text-[hsl(25,95%,55%)] text-base">👩‍🍳</span>
+                <div className="flex flex-col leading-tight">
+                  <span className="text-gold font-display font-bold text-sm tracking-wide">Gabriella Castro</span>
+                  <span className="text-white/50 text-[10px] font-body tracking-widest uppercase">Chef Confeiteira</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Main Headline */}
-          <div className="relative">
-            <h1 className="font-display text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl leading-[1.2] font-black tracking-tight">
-              <span className="text-[hsl(25,95%,55%)]">Brownies Lucrativos </span>
-              <span className="text-white">Mesmo Para Quem </span>
-              <br className="sm:hidden" />
-              <span className="text-white">Está </span>
-              <span className="text-[hsl(25,95%,55%)]">Começando</span>
-            </h1>
-          </div>
+          <h1 className="font-display text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl leading-[1.2] font-black tracking-tight">
+            <span className="text-[hsl(25,95%,55%)]">Brownies Lucrativos </span>
+            <span className="text-white">Mesmo Para Quem </span>
+            <br className="sm:hidden" />
+            <span className="text-white">Está </span>
+            <span className="text-[hsl(25,95%,55%)]">Começando</span>
+          </h1>
 
           {/* Subheadline */}
           <div className="max-w-xl mx-auto">
