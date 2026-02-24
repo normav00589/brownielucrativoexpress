@@ -28,25 +28,20 @@ export const HeroSection = memo(() => {
             </div>
           </div>
 
-          {/* Chef image section - contained, with smoky dissolve like competitor */}
-          <div className="relative w-full max-w-[280px] sm:max-w-[340px] mx-auto">
-            {/* Soft radial glow behind */}
-            <div className="absolute inset-0 -inset-x-8 -inset-y-4" style={{
-              background: 'radial-gradient(ellipse 100% 80% at 50% 35%, hsl(25,40%,20%,0.35) 0%, transparent 70%)',
-            }} />
-
-            {/* Chef image with smooth smoky fade-out on all edges */}
+          {/* Chef image section - large, covering with smoky bottom fade */}
+          <div className="relative w-full max-w-[380px] sm:max-w-[440px] mx-auto">
+            {/* Chef image with smoky fade only at bottom */}
             <div 
               className="relative mx-auto"
               style={{
-                WebkitMaskImage: 'radial-gradient(ellipse 90% 85% at 50% 42%, black 40%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.2) 78%, transparent 95%)',
-                maskImage: 'radial-gradient(ellipse 90% 85% at 50% 42%, black 40%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.2) 78%, transparent 95%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.5) 80%, transparent 100%)',
+                maskImage: 'linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.5) 80%, transparent 100%)',
               }}
             >
               <img
                 alt="Chef Gabriella Castro segurando bandeja de brownies gourmet"
-                width={340}
-                height={425}
+                width={440}
+                height={550}
                 fetchPriority="high"
                 decoding="sync"
                 loading="eager"
