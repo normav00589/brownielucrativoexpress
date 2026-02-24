@@ -60,8 +60,14 @@ export const HeroSection = memo(() => {
 
             {/* Chef name badge */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10">
-              <div className="bg-[hsl(20,20%,10%)]/90 border border-gold/40 rounded-full px-5 py-2 backdrop-blur-sm">
-                <span className="text-gold font-display font-bold text-sm tracking-wide">✨ Chef Gabriella Castro</span>
+              <div className="bg-gradient-to-r from-[hsl(20,20%,8%)]/95 via-[hsl(20,25%,12%)]/95 to-[hsl(20,20%,8%)]/95 border border-gold/50 rounded-full px-6 py-2.5 backdrop-blur-md shadow-lg" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,200,100,0.15)' }}>
+                <div className="flex items-center gap-2">
+                  <span className="text-[hsl(25,95%,55%)] text-base">👩‍🍳</span>
+                  <div className="flex flex-col leading-tight">
+                    <span className="text-gold font-display font-bold text-sm tracking-wide">Gabriella Castro</span>
+                    <span className="text-white/50 text-[10px] font-body tracking-widest uppercase">Chef Confeiteira</span>
+                  </div>
+                </div>
               </div>
             </div>
 
