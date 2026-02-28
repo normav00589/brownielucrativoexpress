@@ -1,8 +1,5 @@
 import { memo } from "react";
-import chefGabriella from "@/assets/chef-gabriella-hero.webp";
-import brownie1 from "@/assets/brownie-1.webp";
-import brownie2 from "@/assets/brownie-2.webp";
-import brownie3 from "@/assets/brownie-3.webp";
+import heroBrownie from "@/assets/hero-brownie.webp";
 
 const trackViewContent = (name: string, value: number) => {
   if (typeof (window as any).fbq === 'function') {
@@ -27,74 +24,25 @@ export const HeroSection = memo(() => {
             </div>
           </div>
 
-          {/* Chef image section - large, covering with smoky bottom fade */}
-          <div className="relative w-full max-w-[380px] sm:max-w-[440px] mx-auto">
-            {/* Chef image with smoky fade only at bottom */}
+          {/* Hero brownie image with smoky bottom fade */}
+          <div className="relative w-full max-w-[340px] sm:max-w-[400px] mx-auto">
             <div 
-              className="relative mx-auto"
+              className="relative mx-auto rounded-2xl overflow-hidden"
               style={{
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.5) 80%, transparent 100%)',
-                maskImage: 'linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.5) 80%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)',
+                maskImage: 'linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)',
               }}
             >
               <img
-                alt="Chef Gabriella Castro segurando bandeja de brownies gourmet"
-                width={440}
-                height={550}
+                alt="Brownie gourmet irresistível"
+                width={400}
+                height={400}
                 fetchPriority="high"
                 decoding="sync"
                 loading="eager"
                 className="w-full h-auto object-cover"
-                src={chefGabriella}
+                src={heroBrownie}
               />
-            </div>
-
-            {/* Floating brownie - top left */}
-            <div
-              className="absolute -top-1 -left-3 sm:-left-6 w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] rounded-2xl overflow-hidden border-[2.5px] border-white/30 transform -rotate-6 z-10"
-              style={{ boxShadow: '0 6px 20px rgba(0,0,0,0.5)' }}
-            >
-              <img src={brownie1} alt="Brownie gourmet" width={88} height={88} loading="eager" decoding="async" className="w-full h-full object-cover" />
-            </div>
-
-            {/* Floating brownie - top right */}
-            <div
-              className="absolute top-8 -right-3 sm:-right-6 w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] rounded-2xl overflow-hidden border-[2.5px] border-white/30 transform rotate-6 z-10"
-              style={{ boxShadow: '0 6px 20px rgba(0,0,0,0.5)' }}
-            >
-              <img src={brownie2} alt="Brownie recheado" width={88} height={88} loading="eager" decoding="async" className="w-full h-full object-cover" />
-            </div>
-
-            {/* Floating brownie - bottom left */}
-            <div
-              className="absolute bottom-12 -left-5 sm:-left-8 w-[64px] h-[64px] sm:w-[76px] sm:h-[76px] rounded-2xl overflow-hidden border-[2.5px] border-white/30 transform rotate-3 z-10"
-              style={{ boxShadow: '0 6px 20px rgba(0,0,0,0.5)' }}
-            >
-              <img src={brownie3} alt="Brownie premium" width={76} height={76} loading="eager" decoding="async" className="w-full h-full object-cover" />
-            </div>
-
-            {/* Earnings badge */}
-            <div className="absolute bottom-16 -right-4 sm:-right-8 bg-[hsl(20,20%,10%)]/90 border-2 border-gold/50 rounded-2xl px-3 py-2.5 transform rotate-3 z-10 backdrop-blur-sm" style={{ boxShadow: '0 6px 20px rgba(0,0,0,0.4)' }}>
-              <div className="flex items-center gap-2">
-                <span className="text-xl">💰</span>
-                <div className="text-left">
-                  <p className="text-gold font-display font-bold text-xs sm:text-sm leading-tight">R$280 em 1 dia</p>
-                  <p className="text-white/60 text-[9px] sm:text-[10px] font-body">— Aluna do grupo VIP</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Chef badge - overlapping bottom */}
-            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 z-10">
-              <div className="bg-[hsl(20,20%,8%)]/95 border border-gold/50 rounded-full px-5 py-2 backdrop-blur-md" style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,200,100,0.12)' }}>
-                <div className="flex items-center gap-2">
-                  <span className="text-[hsl(25,95%,55%)] text-sm">👩‍🍳</span>
-                  <div className="flex flex-col leading-tight">
-                    <span className="text-gold font-display font-bold text-xs sm:text-sm tracking-wide">Gabriella Castro</span>
-                    <span className="text-white/50 text-[9px] font-body tracking-widest uppercase">Chef Confeiteira</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
