@@ -2,8 +2,8 @@ import { useEffect, useState, useCallback } from "react";
 import {
   Dialog,
   DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog";
+  DialogTitle } from
+"@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Check, Clock, Sparkles, Gift, Flame, Trophy, Zap, Star } from "lucide-react";
 import { trackViewContent, trackInitiateCheckout } from "@/lib/fbTracking";
@@ -18,7 +18,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
   const [pulsePrice, setPulsePrice] = useState(false);
 
   const totalSeconds = timeLeft.minutes * 60 + timeLeft.seconds;
-  const progressPercent = (totalSeconds / 180) * 100; // 3 min = 180s
+  const progressPercent = totalSeconds / 180 * 100; // 3 min = 180s
 
   useEffect(() => {
     if (isOpen) {
@@ -64,12 +64,12 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
   }, []);
 
   const benefits = [
-    { text: "+80 Receitas Profissionais", value: "R$197", icon: "📚" },
-    { text: "Método 3C Completo", value: "R$297", icon: "🎯" },
-    { text: "Calculadora de Lucro", value: "R$97", icon: "💰" },
-    { text: "Aulas de Brownies Natalinos", value: "R$147", icon: "🎄" },
-    { text: "Suporte + Certificado", value: "R$97", icon: "🏆" },
-  ];
+  { text: "+80 Receitas Profissionais", value: "R$197", icon: "📚" },
+  { text: "Método 3C Completo", value: "R$297", icon: "🎯" },
+  { text: "Calculadora de Lucro", value: "R$97", icon: "💰" },
+  { text: "Aulas de Brownies Natalinos", value: "R$147", icon: "🎄" },
+  { text: "Suporte + Certificado", value: "R$97", icon: "🏆" }];
+
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -131,10 +131,10 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
 
                 {/* Progress bar */}
                 <div className="h-2 bg-background/50 rounded-full overflow-hidden">
-                  <div 
+                  <div
                     className="h-full bg-gradient-to-r from-accent via-primary to-accent transition-all duration-1000 rounded-full"
-                    style={{ width: `${progressPercent}%` }}
-                  />
+                    style={{ width: `${progressPercent}%` }} />
+
                 </div>
               </div>
 
@@ -144,7 +144,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                   <p className="text-muted-foreground text-xs line-through">De R$835,00</p>
                   <div className={`transition-transform duration-300 ${pulsePrice ? 'scale-110' : 'scale-100'}`}>
                     <span className="font-heading font-black text-4xl text-accent drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]">
-                      R$9,70
+                      R$ 8,90
                     </span>
                   </div>
                   <p className="text-white/60 text-[10px]">Economia de 98%! 🔥</p>
@@ -157,11 +157,11 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
 
               {/* Benefits Grid - compact */}
               <div className="grid grid-cols-1 gap-1.5 mb-3">
-                {benefits.map((benefit, index) => (
-                  <div 
-                    key={index} 
-                    className="flex items-center justify-between bg-white/5 rounded-lg px-2 py-1.5 border border-white/10"
-                  >
+                {benefits.map((benefit, index) =>
+                <div
+                  key={index}
+                  className="flex items-center justify-between bg-white/5 rounded-lg px-2 py-1.5 border border-white/10">
+
                     <div className="flex items-center gap-2">
                       <span className="text-base">{benefit.icon}</span>
                       <span className="text-white text-xs font-medium">{benefit.text}</span>
@@ -171,7 +171,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                       <Check className="w-4 h-4 text-accent" />
                     </div>
                   </div>
-                ))}
+                )}
               </div>
 
               {/* Bonus badge */}
@@ -187,16 +187,16 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
               </div>
 
               {/* CTA Button */}
-              <Button 
+              <Button
                 className="w-full bg-gradient-to-r from-accent via-primary to-accent hover:brightness-110 text-white font-heading font-black text-sm py-5 rounded-xl shadow-[0_0_30px_rgba(255,107,0,0.4)] border-2 border-white/20 relative overflow-hidden group"
-                asChild
-              >
-                <a 
-                  href="https://www.ggcheckout.com/checkout/v5/7OPzDqPI0Ma6G0I1oISl" 
-                  target="_blank" 
+                asChild>
+
+                <a
+                  href="https://www.ggcheckout.com/checkout/v5/7OPzDqPI0Ma6G0I1oISl"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  onClick={handleProPlanClick}
-                >
+                  onClick={handleProPlanClick}>
+
                   {/* Shimmer effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   
@@ -217,14 +217,14 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                   handleBasicPlanClick();
                   window.open("https://www.ggcheckout.com/checkout/v5/bi4rE4iOdJz77kLNWHrb", "_blank");
                 }}
-                className="w-full text-center text-white/60 text-xs py-2 mt-2 hover:text-white/80 transition-colors underline underline-offset-2"
-              >
+                className="w-full text-center text-white/60 text-xs py-2 mt-2 hover:text-white/80 transition-colors underline underline-offset-2">
+
                 Não, prefiro o plano básico por R$1,99
               </button>
             </div>
           </div>
         </div>
       </DialogContent>
-    </Dialog>
-  );
+    </Dialog>);
+
 };
