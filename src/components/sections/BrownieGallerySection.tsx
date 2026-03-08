@@ -1,6 +1,7 @@
 import { useEffect, useState, memo } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { Cookie, Sparkles, Scissors, DollarSign, Clock, BookOpen } from "lucide-react";
 import type { CarouselApi } from "@/components/ui/carousel";
 
 // Lazy import brownie images only when section is visible (all WebP for max performance)
@@ -97,8 +98,28 @@ export const BrownieGallerySection = memo(() => {
             <CarouselNext className="hidden md:flex -right-12 bg-primary hover:bg-primary/90 text-white border-primary" />
           </Carousel>}
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-8 mb-12">
           <p className="text-sm text-secondary-foreground">✨ Deslize para ver mais</p>
+        </div>
+
+        {/* Micro-benefits grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+          {[
+            { icon: Cookie, title: "Receita Universal", desc: "Funciona em qualquer forno" },
+            { icon: Sparkles, title: "Técnica da Casquinha", desc: "Crocante por fora, macia por dentro" },
+            { icon: Scissors, title: "Corte Fotogênico", desc: "Perfeito pra vender nas redes" },
+            { icon: DollarSign, title: "Precificação Correta", desc: "Saiba exatamente quanto cobrar" },
+            { icon: Clock, title: "Validade Estendida", desc: "Dure mais sem conservantes" },
+            { icon: BookOpen, title: "Cardápio Campeão", desc: "Os sabores que mais vendem" },
+          ].map((benefit, idx) => (
+            <div key={idx} className="flex flex-col items-center gap-2 bg-section-dark/80 border border-white/10 rounded-xl px-3 py-4 md:px-4 md:py-5 text-center md:hover:border-gold/30 md:transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
+                <benefit.icon className="w-5 h-5 text-gold" />
+              </div>
+              <span className="text-sm font-bold text-white leading-tight">{benefit.title}</span>
+              <span className="text-xs text-white/50 leading-snug">{benefit.desc}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>;
