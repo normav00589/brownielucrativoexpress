@@ -1,5 +1,5 @@
 import { memo } from "react";
-import heroBrownie from "@/assets/hero-brownie.webp";
+import heroBrownie from "@/assets/hero-brownie-aluna.webp";
 
 const trackViewContent = (name: string, value: number) => {
   if (typeof (window as any).fbq === 'function') {
@@ -20,10 +20,6 @@ export const HeroSection = memo(() => {
           
 
 
-
-
-
-
           {/* Hero brownie image with smoky bottom fade */}
           <div className="relative w-full max-w-[340px] sm:max-w-[400px] mx-auto">
             <div
@@ -34,7 +30,7 @@ export const HeroSection = memo(() => {
               }}>
 
               <img
-                alt="Brownie gourmet irresistível"
+                alt="Brownie gourmet feito por aluna do Grupo VIP"
                 width={400}
                 height={400}
                 fetchPriority="high"
@@ -43,6 +39,19 @@ export const HeroSection = memo(() => {
                 className="w-full h-auto object-cover"
                 src={heroBrownie} />
 
+            </div>
+            {/* Social proof badge */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white whitespace-nowrap"
+                style={{
+                  background: 'hsla(20, 20%, 8%, 0.85)',
+                  border: '1px solid hsla(42, 90%, 55%, 0.4)',
+                  backdropFilter: 'blur(6px)',
+                  boxShadow: '0 2px 12px hsla(0,0%,0%,0.4)'
+                }}>
+                <svg className="w-3.5 h-3.5 text-[hsl(var(--neon-green))] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+                <span>Feito por nossa aluna do Grupo VIP</span>
+              </div>
             </div>
           </div>
 
