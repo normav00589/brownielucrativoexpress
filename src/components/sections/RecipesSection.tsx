@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { ChefHat, Star, Sparkles, Cookie, Scissors, DollarSign, Clock, BookOpen } from "lucide-react";
+import { ChefHat, Star, Sparkles } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import brownieBg from "@/assets/testimonial-brownie-first.webp";
 
