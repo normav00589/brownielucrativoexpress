@@ -113,7 +113,7 @@ export const TestimonialsSection = memo(() => {
         
         {/* Bottom Barnum CTA */}
         <div className="text-center mt-8 md:mt-12">
-          <p className="text-white/70 text-sm md:text-base">
+          <p className="text-white text-sm md:text-base">
             💬 <span className="text-gold">Imagine você</span> compartilhando suas conquistas aqui daqui a alguns dias...
           </p>
         </div>

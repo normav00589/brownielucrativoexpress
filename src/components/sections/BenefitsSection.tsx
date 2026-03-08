@@ -56,7 +56,7 @@ export const BenefitsSection = () => {
               <h3 className="text-xl font-bold mb-2 text-white group-hover:text-gold transition-colors duration-300">
                 {benefit.title}
               </h3>
-              <p className="text-white/60 group-hover:text-white/80 transition-colors duration-300">
+              <p className="text-white group-hover:text-white transition-colors duration-300">
                 {benefit.description}
               </p>
             </div>

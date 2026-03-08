@@ -117,7 +117,7 @@ export const BrownieGallerySection = memo(() => {
                 <benefit.icon className="w-5 h-5 text-gold" />
               </div>
               <span className="text-sm font-bold text-white leading-tight">{benefit.title}</span>
-              <span className="text-xs text-white/50 leading-snug">{benefit.desc}</span>
+              <span className="text-xs text-white leading-snug">{benefit.desc}</span>
             </div>
           ))}
         </div>

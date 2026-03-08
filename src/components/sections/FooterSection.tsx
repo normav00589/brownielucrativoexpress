@@ -33,7 +33,7 @@ export const FooterSection = () => {
           <p className="font-body text-sm text-white mb-4">
             📜 <span className="font-semibold text-white">Missão:</span> Tornar o brownie uma fonte de liberdade financeira para milhares de pessoas.
           </p>
-          <p className="font-body text-xs text-white/40">
+          <p className="font-body text-xs text-white/80">
             © {new Date().getFullYear()} Brownies Lucrativos. Todos os direitos reservados.
           </p>
         </div>

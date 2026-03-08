@@ -218,7 +218,7 @@ export const BonusSection = () => {
                   <span className="text-neon-green">📲</span>
                   <span className="text-white/90">Receba no <span className="text-neon-green font-semibold">WhatsApp</span></span>
                 </div>
-                <span className="text-white/60 text-xs">Sem e-mails perdidos. Sem links confusos.</span>
+                <span className="text-white text-xs">Sem e-mails perdidos. Sem links confusos.</span>
               </div>
             </div>
           </div>

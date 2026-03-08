@@ -104,8 +104,8 @@ export const HeroSection = memo(() => {
               <span className="ml-1 font-medium text-white">4.9/5</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <svg className="w-4 h-4 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-              <span className="text-white/70">Acesso Imediato</span>
+              <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+              <span className="text-white">Acesso Imediato</span>
             </span>
           </div>
 

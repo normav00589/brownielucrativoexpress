@@ -58,7 +58,7 @@ export const FinalCTASection = () => {
               <Shield className="w-4 h-4" />
               <span className="text-xs font-semibold">Garantia de 14 dias • Pagamento Seguro</span>
             </div>
-            <p className="text-xs md:text-sm text-white/50">
+            <p className="text-xs md:text-sm text-white">
               Acesso instantâneo • Receba pelo WhatsApp • Suporte incluso
             </p>
           </div>

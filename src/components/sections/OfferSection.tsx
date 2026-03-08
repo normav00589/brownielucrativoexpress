@@ -155,8 +155,8 @@ export const OfferSection = memo(() => {
                   <span className="text-neon-green text-lg">📲</span>
                   <span className="text-white font-medium">Acesso enviado automaticamente pelo <span className="text-neon-green font-bold">WhatsApp</span></span>
                 </div>
-                <p className="text-white/70 text-sm">Material liberado após a confirmação do pagamento</p>
-                <p className="text-white/50 text-xs">Sem e-mails perdidos. Sem links confusos.</p>
+                <p className="text-white text-sm">Material liberado após a confirmação do pagamento</p>
+                <p className="text-white text-xs">Sem e-mails perdidos. Sem links confusos.</p>
               </div>
             </div>
           </div>
