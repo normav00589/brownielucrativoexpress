@@ -3,11 +3,18 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { MessageCircle, Users, Sparkles } from "lucide-react";
 
-// Lazy load testimonial images - now 10 images
+// Lazy load testimonial images - brownie results first, then WhatsApp screenshots
 const testimonialPaths = [
   () => import("@/assets/testimonial-brownie-first.webp"),
   () => import("@/assets/testimonial-brownie-second.webp"),
   () => import("@/assets/testimonial-brownie-third.webp"),
+  () => import("@/assets/testimonial-real-11.webp"),
+  () => import("@/assets/testimonial-real-12.webp"),
+  () => import("@/assets/testimonial-real-13.webp"),
+  () => import("@/assets/testimonial-real-14.webp"),
+  () => import("@/assets/testimonial-real-15.webp"),
+  () => import("@/assets/testimonial-real-16.webp"),
+  () => import("@/assets/testimonial-real-17.webp"),
   () => import("@/assets/testimonial-real-1.webp"),
   () => import("@/assets/testimonial-real-2.webp"),
   () => import("@/assets/testimonial-real-3.webp"),
