@@ -14,9 +14,9 @@ export const FooterSection = () => {
           <div>
             <h4 className="font-heading font-semibold mb-4 text-gold">Links Úteis</h4>
             <ul className="space-y-2 font-body text-sm">
-              <li><a href="#" className="text-white/50 hover:text-gold transition-colors">Termos de Uso</a></li>
-              <li><a href="#" className="text-white/50 hover:text-gold transition-colors">Política de Privacidade</a></li>
-              <li><a href="#" className="text-white/50 hover:text-gold transition-colors">Contato</a></li>
+              <li><a href="#" className="text-white hover:text-gold transition-colors">Termos de Uso</a></li>
+              <li><a href="#" className="text-white hover:text-gold transition-colors">Política de Privacidade</a></li>
+              <li><a href="#" className="text-white hover:text-gold transition-colors">Contato</a></li>
             </ul>
           </div>
           
