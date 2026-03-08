@@ -22,7 +22,7 @@ export const FooterSection = () => {
           
           <div>
             <h4 className="font-heading font-semibold mb-4 text-gold">Contato</h4>
-            <div className="flex items-center gap-2 font-body text-sm text-white/50">
+            <div className="flex items-center gap-2 font-body text-sm text-white">
               <Mail className="w-4 h-4 text-gold" />
               <span>suporte@brownieslucrativos.com</span>
             </div>
