@@ -8,6 +8,7 @@ interface Bonus {
   highlight: string;
   recipes: string;
   color: string;
+  value: string;
   featured?: boolean;
 }
 
@@ -18,7 +19,8 @@ const bonuses: Bonus[] = [
     description: "Receitas especiais para a época mais lucrativa do ano",
     highlight: "Edição Limitada",
     recipes: "15+ receitas exclusivas",
-    color: "from-red-500 to-red-700"
+    color: "from-red-500 to-red-700",
+    value: "R$97"
   },
   {
     icon: BookOpen,
@@ -26,7 +28,8 @@ const bonuses: Bonus[] = [
     description: "Expanda seu negócio com outro produto campeão de vendas",
     highlight: "Bônus Premium",
     recipes: "32 receitas completas",
-    color: "from-primary to-accent"
+    color: "from-primary to-accent",
+    value: "R$127"
   },
   {
     icon: Sparkles,
@@ -34,7 +37,8 @@ const bonuses: Bonus[] = [
     description: "Receitas diferenciadas para clientes exigentes",
     highlight: "Receitas Gourmet",
     recipes: "24 variações premium",
-    color: "from-caramel to-gold"
+    color: "from-caramel to-gold",
+    value: "R$97"
   },
   {
     icon: Star,
@@ -42,7 +46,8 @@ const bonuses: Bonus[] = [
     description: "Cocada, biscoitinhos, manjar, brigadeirão, mousse e mais!",
     highlight: "Alto Valor",
     recipes: "6+ receitas em vídeo",
-    color: "from-amber-500 to-orange-600"
+    color: "from-amber-500 to-orange-600",
+    value: "R$67"
   },
   {
     icon: Gift,
@@ -50,7 +55,8 @@ const bonuses: Bonus[] = [
     description: "Recheios, coberturas e ganaches de confeitaria",
     highlight: "Segredos Pro",
     recipes: "Técnicas avançadas",
-    color: "from-accent to-primary"
+    color: "from-accent to-primary",
+    value: "R$87"
   },
   {
     icon: Award,
@@ -58,7 +64,8 @@ const bonuses: Bonus[] = [
     description: "Certificado digital para comprovar sua especialização",
     highlight: "Profissional",
     recipes: "Documento oficial",
-    color: "from-gold to-caramel"
+    color: "from-gold to-caramel",
+    value: "R$47"
   },
   {
     icon: Calculator,
@@ -66,7 +73,8 @@ const bonuses: Bonus[] = [
     description: "Ferramenta para calcular custos e definir preços lucrativos",
     highlight: "Ferramenta Premium",
     recipes: "Lucro garantido",
-    color: "from-emerald-500 to-emerald-700"
+    color: "from-emerald-500 to-emerald-700",
+    value: "R$67"
   },
   {
     icon: Sparkles,
@@ -74,7 +82,8 @@ const bonuses: Bonus[] = [
     description: "Você sempre quis ter uma marca profissional que transmite confiança? Crie seu logotipo único sem pagar designer!",
     highlight: "🔥 Exclusivo",
     recipes: "Marca profissional grátis",
-    color: "from-violet-500 to-purple-700"
+    color: "from-violet-500 to-purple-700",
+    value: "R$97"
   },
   {
     icon: BookOpen,
@@ -82,7 +91,8 @@ const bonuses: Bonus[] = [
     description: "Aquele catálogo lindo que você vê nas redes e pensa 'queria fazer igual'? Agora você vai criar o seu!",
     highlight: "🚀 Novidade",
     recipes: "Venda pelo WhatsApp",
-    color: "from-pink-500 to-rose-600"
+    color: "from-pink-500 to-rose-600",
+    value: "R$67"
   },
   {
     icon: Star,
@@ -91,6 +101,7 @@ const bonuses: Bonus[] = [
     highlight: "⭐ EXCLUSIVO",
     recipes: "Suporte direto",
     color: "from-neon-green to-emerald-500",
+    value: "R$197",
     featured: true
   }
 ];
@@ -146,8 +157,13 @@ export const BonusSection = () => {
                 <span className="text-xs font-heading font-bold text-white whitespace-nowrap">{bonus.highlight}</span>
               </div>
               
+              {/* Value badge */}
+              <div className="absolute -top-3 left-4 bg-[hsl(20,20%,10%)] border border-gold/30 px-3 py-1 rounded-full">
+                <span className="text-xs font-bold text-gold line-through">{bonus.value}</span>
+              </div>
+              
               {/* Icon */}
-              <div className={`bg-gradient-to-br ${bonus.color} w-14 h-14 rounded-xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`bg-gradient-to-br ${bonus.color} w-14 h-14 rounded-xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300 mt-2`}>
                 <bonus.icon className="w-7 h-7 text-white" />
               </div>
               
@@ -169,6 +185,17 @@ export const BonusSection = () => {
           ))}
         </div>
         
+        {/* Marquee Banner */}
+        <div className="mt-10 overflow-hidden rounded-xl border border-gold/30 bg-gradient-to-r from-[hsl(20,20%,8%)] via-[hsl(25,25%,10%)] to-[hsl(20,20%,8%)]">
+          <div className="flex animate-marquee whitespace-nowrap py-3">
+            {[...Array(4)].map((_, i) => (
+              <span key={i} className="mx-8 font-heading font-bold text-lg text-gold flex items-center gap-3">
+                🎁 BÔNUS EXCLUSIVOS <span className="text-white/60">•</span> VALOR TOTAL: <span className="text-[hsl(var(--neon-green))] text-xl">R$950</span> <span className="text-white/60">•</span> HOJE GRÁTIS NO PLANO MASTER <span className="text-white/60">•</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* Bottom summary */}
         <div className="mt-14 md:mt-20 text-center">
           <div className="relative inline-block">
