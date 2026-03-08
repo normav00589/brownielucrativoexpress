@@ -62,21 +62,6 @@ export const RecipesSection = memo(() => {
           </p>
         </div>
 
-        {/* Micro-benefits grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-12 md:mb-16 max-w-4xl mx-auto">
-          {microBenefits.map((benefit, idx) => (
-            <div key={idx} className="flex items-center gap-3 bg-section-dark/80 border border-white/10 rounded-xl px-4 py-3 md:hover:border-gold/30 md:transition-colors">
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
-                <benefit.icon className="w-5 h-5 text-gold" />
-              </div>
-              <div>
-                <span className="block text-sm font-bold text-white leading-tight">{benefit.title}</span>
-                <span className="block text-xs text-white/50">{benefit.desc}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-        
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {recipeCategories.map((category, idx) => (
             <div key={idx} className="bg-section-dark rounded-2xl p-6 md:p-8 border border-white/10 md:transition-all md:duration-500 md:hover:border-gold/40 md:hover:shadow-[0_0_30px_rgba(234,193,123,0.15)] md:hover:-translate-y-1 group md:bg-section-dark/80 md:backdrop-blur-sm">
