@@ -1,6 +1,7 @@
 import { useEffect, useState, memo } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { Cookie, Sparkles, Scissors, DollarSign, Clock, BookOpen } from "lucide-react";
 import type { CarouselApi } from "@/components/ui/carousel";
 
 // Lazy import brownie images only when section is visible (all WebP for max performance)
