@@ -207,7 +207,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
               </Button>
 
               {/* Guarantee text */}
-              <p className="text-center text-white/50 text-[10px] mt-2 flex items-center justify-center gap-1">
+              <p className="text-center text-white text-[10px] mt-2 flex items-center justify-center gap-1">
                 🔒 Compra 100% segura • Garantia de 7 dias
               </p>
 
