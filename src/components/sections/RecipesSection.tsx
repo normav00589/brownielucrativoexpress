@@ -3,14 +3,6 @@ import { ChefHat, Star, Sparkles } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import brownieBg from "@/assets/testimonial-brownie-first.webp";
 
-const microBenefits = [
-  { icon: Cookie, title: "Receita Universal", desc: "Funciona em qualquer forno" },
-  { icon: Sparkles, title: "Técnica da Casquinha", desc: "Crocante por fora, macia por dentro" },
-  { icon: Scissors, title: "Corte Fotogênico", desc: "Perfeito pra vender nas redes" },
-  { icon: DollarSign, title: "Precificação Correta", desc: "Saiba exatamente quanto cobrar" },
-  { icon: Clock, title: "Validade Estendida", desc: "Dure mais sem conservantes" },
-  { icon: BookOpen, title: "Cardápio Campeão", desc: "Os sabores que mais vendem" },
-];
 
 const recipeCategories = [{
   title: "BROWNIES TRADICIONAIS",
