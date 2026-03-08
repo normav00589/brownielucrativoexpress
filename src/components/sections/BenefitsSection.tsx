@@ -39,7 +39,7 @@ export const BenefitsSection = () => {
             <span className="text-white">O Que Você </span>
             <span className="text-gold">Vai Receber</span>
           </h2>
-          <p className="text-white/60 text-lg">
+          <p className="text-white text-lg">
             Tudo que você precisa para começar a faturar com brownies
           </p>
         </div>
