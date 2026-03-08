@@ -27,7 +27,7 @@ export const OfferSection = memo(() => {
               <span>CONHEÇA O APLICATIVO</span>
             </div>
             
-            <h2 className="font-['Poppins',sans-serif] font-bold sm:text-4xl md:text-5xl text-3xl leading-tight">
+            <h2 className="font-['Poppins',sans-serif] font-bold sm:text-4xl md:text-5xl leading-tight text-2xl">
               <span className="text-gold drop-shadow-[0_0_20px_rgba(218,165,32,0.3)]">O Segredo Que</span>
               <br />
               <span className="text-gold drop-shadow-[0_0_20px_rgba(218,165,32,0.3)]">Você Sempre Procurou</span>
@@ -61,19 +61,19 @@ export const OfferSection = memo(() => {
                     {/* Video Content */}
                     <div className="absolute inset-0 bg-gradient-to-br from-chocolate to-secondary">
                       <div className="w-full h-full flex items-center justify-center p-2 pt-8">
-                        {videoLoaded ? (
-                          <div 
-                            className="w-full h-full rounded-[2rem] overflow-hidden"
-                            dangerouslySetInnerHTML={{
-                              __html: '<wistia-player media-id="pt22c9q3y0" seo="false" style="width: 100%; height: 100%; object-fit: cover;"></wistia-player>'
-                            }}
-                          />
-                        ) : (
-                          <button
-                            onClick={handlePlayClick}
-                            className="w-full h-full rounded-[2rem] overflow-hidden relative group cursor-pointer bg-gradient-to-br from-chocolate/80 to-secondary flex items-center justify-center"
-                            aria-label="Assistir vídeo"
-                          >
+                        {videoLoaded ?
+                        <div
+                          className="w-full h-full rounded-[2rem] overflow-hidden"
+                          dangerouslySetInnerHTML={{
+                            __html: '<wistia-player media-id="pt22c9q3y0" seo="false" style="width: 100%; height: 100%; object-fit: cover;"></wistia-player>'
+                          }} /> :
+
+
+                        <button
+                          onClick={handlePlayClick}
+                          className="w-full h-full rounded-[2rem] overflow-hidden relative group cursor-pointer bg-gradient-to-br from-chocolate/80 to-secondary flex items-center justify-center"
+                          aria-label="Assistir vídeo">
+                          
                             {/* Play button overlay */}
                             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
                             
@@ -87,7 +87,7 @@ export const OfferSection = memo(() => {
                               </span>
                             </div>
                           </button>
-                        )}
+                        }
                       </div>
                     </div>
                     
@@ -131,11 +131,11 @@ export const OfferSection = memo(() => {
           </div>
           
           <div className="flex flex-col items-center gap-4">
-            <a 
-              href="#pricing" 
+            <a
+              href="#pricing"
               className="relative inline-block w-full sm:max-w-md px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] font-heading font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-xl shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 text-center overflow-hidden group"
-              style={{ boxShadow: '0 4px 30px rgba(255, 200, 100, 0.3)' }}
-            >
+              style={{ boxShadow: '0 4px 30px rgba(255, 200, 100, 0.3)' }}>
+              
               <span className="relative z-10 flex items-center justify-center gap-2">
                 🔥 BAIXE SUAS RECEITAS E APROVEITE!
               </span>
@@ -162,8 +162,8 @@ export const OfferSection = memo(() => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 });
 
 OfferSection.displayName = 'OfferSection';
