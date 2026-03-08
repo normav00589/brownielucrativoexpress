@@ -68,11 +68,12 @@ export const HeroSection = memo(() => {
           {/* Subheadline */}
           <div className="max-w-xl mx-auto">
             <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-white">
-              Receitas de brownie que{" "}
-              <span className="font-bold">não fica seca, molenga ou até mesmo aquela massa crua</span>, e fica pronta em{" "}
-              <span className="text-[hsl(25,95%,55%)] underline underline-offset-4 decoration-2">30 minutos</span>{" "}
-              — podendo gerar{" "}
-              <span className="text-[hsl(25,95%,55%)] font-semibold">R$150 a R$300 por dia</span>.
+              Você sempre soube que{" "}
+              <span className="font-bold">tinha potencial pra ganhar dinheiro com o que ama</span>. Com essas receitas,{" "}
+              <span className="text-[hsl(25,95%,55%)] underline underline-offset-4 decoration-2">em 30 minutos</span>{" "}
+              você tira do forno brownies que{" "}
+              <span className="text-[hsl(25,95%,55%)] font-semibold">faturam de R$150 a R$300 por dia</span>{" "}
+              — mesmo que nunca tenha vendido nada antes.
             </p>
           </div>
           
