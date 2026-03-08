@@ -1,4 +1,5 @@
 import { memo } from "react";
+import heroBrownie from "@/assets/hero-brownie-aluna.webp";
 
 const trackViewContent = (name: string, value: number) => {
   if (typeof (window as any).fbq === 'function') {
