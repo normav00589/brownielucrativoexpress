@@ -112,12 +112,12 @@ const Index = () => {
           <BonusSection />
         </Suspense>
         
-        <Suspense fallback={<SectionPlaceholder height={600} />}>
-          <PricingSectionWithExitIntent onExitIntent={handleShowDownsell} />
-        </Suspense>
-        
         <Suspense fallback={<SectionPlaceholder height={400} />}>
           <TestimonialsSection />
+        </Suspense>
+        
+        <Suspense fallback={<SectionPlaceholder height={600} />}>
+          <PricingSectionWithExitIntent onExitIntent={handleShowDownsell} />
         </Suspense>
         
         <Suspense fallback={<SectionPlaceholder height={350} />}>
