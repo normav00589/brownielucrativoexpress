@@ -217,7 +217,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                   handleBasicPlanClick();
                   window.open("https://www.ggcheckout.com/checkout/v5/bi4rE4iOdJz77kLNWHrb", "_blank");
                 }}
-                className="w-full text-center text-white/60 text-xs py-2 mt-2 hover:text-white/80 transition-colors underline underline-offset-2">
+                className="w-full text-center text-white text-xs py-2 mt-2 hover:text-white transition-colors underline underline-offset-2">
 
                 Não, prefiro o plano básico por R$1,99
               </button>

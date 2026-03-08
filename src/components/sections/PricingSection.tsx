@@ -113,7 +113,7 @@ export const PricingSection = memo(() => {
 
         {/* Payment Icons + Secure Badge */}
         <div className="mt-10 flex flex-col items-center gap-4">
-          <div className="flex items-center gap-6 text-white/60">
+          <div className="flex items-center gap-6 text-white">
             <div className="flex items-center gap-2">
               <CreditCard className="w-5 h-5" />
               <span className="text-sm font-medium">Cartão</span>

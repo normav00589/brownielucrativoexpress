@@ -135,7 +135,7 @@ export const HeroSection = memo(() => {
                 </div>
                 <div className="text-left">
                   <p className="text-sm font-semibold text-white leading-tight">Feita por aluna da nossa comunidade</p>
-                  <p className="text-xs text-white/60">Já está faturando com palhas italianas 🔥</p>
+                  <p className="text-xs text-white">Já está faturando com palhas italianas 🔥</p>
                 </div>
               </div>
             </div>
