@@ -35,9 +35,9 @@
     --primary: 42 90% 55%;
     --primary-foreground: 20 30% 10%;
     --secondary: 18 25% 10%;
-    --secondary-foreground: 40 30% 92%;
+    --secondary-foreground: 0 0% 100%;
     --muted: 18 20% 12%;
-    --muted-foreground: 35 20% 65%;
+    --muted-foreground: 0 0% 100%;
     --accent: 42 95% 58%;
     --accent-foreground: 20 40% 10%;
     --cta-orange: 30 95% 55%;

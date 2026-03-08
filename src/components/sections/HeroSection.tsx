@@ -53,13 +53,13 @@ export const HeroSection = memo(() => {
           {/* Price Block */}
           <div className="relative mx-auto max-w-xs pt-1">
             <div className="flex items-center justify-center gap-3 mb-2">
-              <span className="text-base line-through text-white/50 font-body">De R$29</span>
+              <span className="text-base line-through text-white/80 font-body">De R$29</span>
               <span className="bg-[hsl(25,95%,55%)] text-white text-xs font-bold px-3 py-1 rounded-md">
                 -93% OFF
               </span>
             </div>
             <div className="text-center mb-3">
-              <span className="text-base font-body text-white/70">por apenas </span>
+              <span className="text-base font-body text-white">por apenas </span>
               <span className="text-5xl sm:text-6xl font-display font-black tracking-tight bg-gradient-to-r from-[hsl(38,95%,60%)] via-[hsl(25,100%,55%)] to-[hsl(38,95%,60%)] bg-clip-text text-transparent">R$ 2,90</span>
             </div>
             <div className="flex items-center justify-center gap-2 text-sm text-white/80">
@@ -90,22 +90,22 @@ export const HeroSection = memo(() => {
               <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
               <span className="text-white font-medium text-sm">Acesso enviado pelo WhatsApp</span>
             </div>
-            <p className="text-center text-white/50 text-xs mt-2">
+            <p className="text-center text-white text-xs mt-2">
               Material liberado após confirmação do pagamento
             </p>
           </div>
           
           {/* Social Proof */}
-          <div className="flex items-center justify-center gap-6 text-sm text-white/70 font-body">
+          <div className="flex items-center justify-center gap-6 text-sm text-white font-body">
             <span className="flex items-center gap-1">
               {[...Array(5)].map((_, i) =>
               <svg key={i} className="w-4 h-4 text-gold fill-gold" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
               )}
-              <span className="ml-1 font-medium text-white/80">4.9/5</span>
+              <span className="ml-1 font-medium text-white">4.9/5</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <svg className="w-4 h-4 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-              <span className="text-white/70">Acesso Imediato</span>
+              <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+              <span className="text-white">Acesso Imediato</span>
             </span>
           </div>
 
@@ -135,7 +135,7 @@ export const HeroSection = memo(() => {
                 </div>
                 <div className="text-left">
                   <p className="text-sm font-semibold text-white leading-tight">Feita por aluna da nossa comunidade</p>
-                  <p className="text-xs text-white/60">Já está faturando com palhas italianas 🔥</p>
+                  <p className="text-xs text-white">Já está faturando com palhas italianas 🔥</p>
                 </div>
               </div>
             </div>

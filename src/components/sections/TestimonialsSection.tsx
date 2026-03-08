@@ -79,7 +79,7 @@ export const TestimonialsSection = memo(() => {
             achavam que precisavam de muito dinheiro pra começar, e duvidavam de si mesmas...
           </p>
           
-          <p className="text-base text-white/60 max-w-xl mx-auto">
+          <p className="text-base text-white max-w-xl mx-auto">
             Veja o que elas estão compartilhando no nosso{" "}
             <span className="text-neon-green font-semibold">Grupo VIP de Confeitaria</span>:
           </p>
@@ -113,7 +113,7 @@ export const TestimonialsSection = memo(() => {
         
         {/* Bottom Barnum CTA */}
         <div className="text-center mt-8 md:mt-12">
-          <p className="text-white/70 text-sm md:text-base">
+          <p className="text-white text-sm md:text-base">
             💬 <span className="text-gold">Imagine você</span> compartilhando suas conquistas aqui daqui a alguns dias...
           </p>
         </div>

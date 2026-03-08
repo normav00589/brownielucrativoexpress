@@ -147,7 +147,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                       R$ 8,90
                     </span>
                   </div>
-                  <p className="text-white/60 text-[10px]">Economia de 98%! 🔥</p>
+                  <p className="text-white text-[10px]">Economia de 98%! 🔥</p>
                 </div>
                 
                 {/* Floating stars */}
@@ -207,7 +207,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
               </Button>
 
               {/* Guarantee text */}
-              <p className="text-center text-white/50 text-[10px] mt-2 flex items-center justify-center gap-1">
+              <p className="text-center text-white text-[10px] mt-2 flex items-center justify-center gap-1">
                 🔒 Compra 100% segura • Garantia de 7 dias
               </p>
 
@@ -217,7 +217,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                   handleBasicPlanClick();
                   window.open("https://www.ggcheckout.com/checkout/v5/bi4rE4iOdJz77kLNWHrb", "_blank");
                 }}
-                className="w-full text-center text-white/60 text-xs py-2 mt-2 hover:text-white/80 transition-colors underline underline-offset-2">
+                className="w-full text-center text-white text-xs py-2 mt-2 hover:text-white transition-colors underline underline-offset-2">
 
                 Não, prefiro o plano básico por R$1,99
               </button>

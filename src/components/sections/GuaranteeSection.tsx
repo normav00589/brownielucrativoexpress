@@ -17,7 +17,7 @@ export const GuaranteeSection = () => {
             <span className="text-neon-green">Satisfação Total</span>
           </h2>
           
-          <div className="space-y-3 md:space-y-4 font-body text-base md:text-lg text-white/70 max-w-2xl mx-auto">
+          <div className="space-y-3 md:space-y-4 font-body text-base md:text-lg text-white max-w-2xl mx-auto">
             <p>
               Você tem <span className="text-neon-green font-bold text-xl">14 dias de garantia total</span>.
             </p>

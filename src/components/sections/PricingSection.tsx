@@ -88,7 +88,7 @@ export const PricingSection = memo(() => {
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-neon-green/20 flex items-center justify-center mt-0.5">
                     <Check className="w-4 h-4 text-neon-green" />
                   </div>
-                  <span className="font-body text-sm md:text-base text-white/70">{item}</span>
+                  <span className="font-body text-sm md:text-base text-white">{item}</span>
                 </li>
               ))}
             </ul>
@@ -113,7 +113,7 @@ export const PricingSection = memo(() => {
 
         {/* Payment Icons + Secure Badge */}
         <div className="mt-10 flex flex-col items-center gap-4">
-          <div className="flex items-center gap-6 text-white/60">
+          <div className="flex items-center gap-6 text-white">
             <div className="flex items-center gap-2">
               <CreditCard className="w-5 h-5" />
               <span className="text-sm font-medium">Cartão</span>

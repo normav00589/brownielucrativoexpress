@@ -190,7 +190,7 @@ export const BonusSection = () => {
           <div className="flex animate-marquee whitespace-nowrap py-3">
             {[...Array(4)].map((_, i) => (
               <span key={i} className="mx-8 font-heading font-bold text-lg text-gold flex items-center gap-3">
-                🎁 BÔNUS EXCLUSIVOS <span className="text-white/60">•</span> VALOR TOTAL: <span className="text-[hsl(var(--neon-green))] text-xl">R$950</span> <span className="text-white/60">•</span> HOJE GRÁTIS NO PLANO MASTER <span className="text-white/60">•</span>
+                🎁 BÔNUS EXCLUSIVOS <span className="text-white">•</span> VALOR TOTAL: <span className="text-[hsl(var(--neon-green))] text-xl">R$950</span> <span className="text-white">•</span> HOJE GRÁTIS NO PLANO MASTER <span className="text-white">•</span>
               </span>
             ))}
           </div>
@@ -218,7 +218,7 @@ export const BonusSection = () => {
                   <span className="text-neon-green">📲</span>
                   <span className="text-white/90">Receba no <span className="text-neon-green font-semibold">WhatsApp</span></span>
                 </div>
-                <span className="text-white/60 text-xs">Sem e-mails perdidos. Sem links confusos.</span>
+                <span className="text-white text-xs">Sem e-mails perdidos. Sem links confusos.</span>
               </div>
             </div>
           </div>

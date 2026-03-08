@@ -72,7 +72,7 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
           <div className="flex items-center gap-1.5 flex-wrap justify-center">
             <span className="text-[hsl(25,95%,55%)] flex-shrink-0">🔥</span>
             <span className="font-heading font-bold text-xs md:text-sm text-white/90 text-center leading-tight">
-              O preço de <span className="text-gold font-black">R$2,90</span> vai expirar — depois volta pra <span className="line-through text-white/50">R$29,90</span>
+              O preço de <span className="text-gold font-black">R$2,90</span> vai expirar — depois volta pra <span className="line-through text-white/80">R$29,90</span>
             </span>
           </div>
 

@@ -36,7 +36,7 @@ export const FinalCTASection = () => {
           </h2>
           
           <p className="text-lg md:text-2xl font-body max-w-2xl mx-auto text-secondary-foreground">
-            Depois dessa promoção, o valor volta para <span className="line-through text-white/50">R$29,90</span>. Garanta agora e comece a lucrar hoje mesmo.
+            Depois dessa promoção, o valor volta para <span className="line-through text-white/80">R$29,90</span>. Garanta agora e comece a lucrar hoje mesmo.
           </p>
           
           <a
@@ -58,7 +58,7 @@ export const FinalCTASection = () => {
               <Shield className="w-4 h-4" />
               <span className="text-xs font-semibold">Garantia de 14 dias • Pagamento Seguro</span>
             </div>
-            <p className="text-xs md:text-sm text-white/50">
+            <p className="text-xs md:text-sm text-white">
               Acesso instantâneo • Receba pelo WhatsApp • Suporte incluso
             </p>
           </div>

@@ -91,7 +91,7 @@ export const SecretSection = () => {
                   <div className="w-6 h-6 md:w-7 md:h-7 rounded-full bg-gold/20 border-2 border-background flex items-center justify-center text-xs">👩</div>
                   <div className="w-6 h-6 md:w-7 md:h-7 rounded-full bg-gold/20 border-2 border-background flex items-center justify-center text-xs">👩</div>
                 </div>
-                <span className="text-white/70">+2.847 alunas já dominam esse método</span>
+                <span className="text-white">+2.847 alunas já dominam esse método</span>
               </div>
               
               {/* Urgency */}
