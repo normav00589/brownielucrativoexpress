@@ -27,24 +27,6 @@ export const HeroSection = memo(() => {
             </div>
           </div>
 
-          {/* Hero brownie image - compact */}
-          <div className="relative w-40 sm:w-52 mx-auto">
-            <div className="rounded-2xl overflow-hidden"
-              style={{
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)',
-                maskImage: 'linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)'
-              }}>
-              <img
-                alt="Brownie gourmet feito por aluna do Grupo VIP"
-                width={208}
-                height={208}
-                fetchPriority="high"
-                decoding="sync"
-                loading="eager"
-                className="w-full h-auto object-cover"
-                src={heroBrownie} />
-            </div>
-          </div>
 
           {/* Main Headline */}
           <div>
