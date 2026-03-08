@@ -1,4 +1,5 @@
 import { memo } from "react";
+import heroBrownie from "@/assets/hero-brownie-aluna.webp";
 
 const trackViewContent = (name: string, value: number) => {
   if (typeof (window as any).fbq === 'function') {
@@ -23,6 +24,25 @@ export const HeroSection = memo(() => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[hsl(var(--neon-green))]"></span>
               </span>
               <span className="text-xs sm:text-sm font-semibold text-[hsl(var(--neon-green))]">+2.400 alunas já lucrando com brownies</span>
+            </div>
+          </div>
+
+          {/* Hero brownie image - compact */}
+          <div className="relative w-40 sm:w-52 mx-auto">
+            <div className="rounded-2xl overflow-hidden"
+              style={{
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)',
+                maskImage: 'linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)'
+              }}>
+              <img
+                alt="Brownie gourmet feito por aluna do Grupo VIP"
+                width={208}
+                height={208}
+                fetchPriority="high"
+                decoding="sync"
+                loading="eager"
+                className="w-full h-auto object-cover"
+                src={heroBrownie} />
             </div>
           </div>
 
