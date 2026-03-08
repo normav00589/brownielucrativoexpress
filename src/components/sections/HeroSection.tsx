@@ -90,7 +90,7 @@ export const HeroSection = memo(() => {
               <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
               <span className="text-white font-medium text-sm">Acesso enviado pelo WhatsApp</span>
             </div>
-            <p className="text-center text-white/50 text-xs mt-2">
+            <p className="text-center text-white text-xs mt-2">
               Material liberado após confirmação do pagamento
             </p>
           </div>
