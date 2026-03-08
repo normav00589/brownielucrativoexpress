@@ -6,7 +6,7 @@ export const FooterSection = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <p className="font-body text-sm text-white/60">
+            <p className="font-body text-sm text-white">
               Transformando cozinhas em negócios lucrativos desde 2020
             </p>
           </div>
