@@ -30,7 +30,7 @@ export const FooterSection = () => {
         </div>
         
         <div className="border-t border-white/10 pt-8 text-center">
-          <p className="font-body text-sm text-white/60 mb-4">
+          <p className="font-body text-sm text-white mb-4">
             📜 <span className="font-semibold text-white">Missão:</span> Tornar o brownie uma fonte de liberdade financeira para milhares de pessoas.
           </p>
           <p className="font-body text-xs text-white/40">
