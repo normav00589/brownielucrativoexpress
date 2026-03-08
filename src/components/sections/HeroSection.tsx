@@ -1,5 +1,4 @@
 import { memo } from "react";
-import heroBrownie from "@/assets/hero-brownie-aluna.webp";
 
 const trackViewContent = (name: string, value: number) => {
   if (typeof (window as any).fbq === 'function') {
@@ -13,8 +12,8 @@ const trackViewContent = (name: string, value: number) => {
 export const HeroSection = memo(() => {
   return (
     <section className="relative overflow-hidden" style={{ background: 'hsl(20,20%,6%)' }}>
-      <div className="container mx-auto max-w-3xl px-4 pt-2 pb-10">
-        <div className="space-y-5 text-center">
+      <div className="container mx-auto max-w-3xl px-4 pt-2 pb-8">
+        <div className="space-y-4 text-center">
           
           {/* Live Badge - Social Proof */}
           <div className="flex justify-center">
@@ -27,44 +26,8 @@ export const HeroSection = memo(() => {
             </div>
           </div>
 
-
-          {/* Hero brownie image with smoky bottom fade */}
-          <div className="relative w-full max-w-[340px] sm:max-w-[400px] mx-auto">
-            <div
-              className="relative mx-auto rounded-2xl overflow-hidden"
-              style={{
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)',
-                maskImage: 'linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)'
-              }}>
-
-              <img
-                alt="Brownie gourmet feito por aluna do Grupo VIP"
-                width={400}
-                height={400}
-                fetchPriority="high"
-                decoding="sync"
-                loading="eager"
-                className="w-full h-auto object-cover"
-                src={heroBrownie} />
-
-            </div>
-            {/* Social proof badge */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10">
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white whitespace-nowrap"
-                style={{
-                  background: 'hsla(20, 20%, 8%, 0.85)',
-                  border: '1px solid hsla(42, 90%, 55%, 0.4)',
-                  backdropFilter: 'blur(6px)',
-                  boxShadow: '0 2px 12px hsla(0,0%,0%,0.4)'
-                }}>
-                <svg className="w-3.5 h-3.5 text-[hsl(var(--neon-green))] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
-                <span>Feito por nossa aluna do Grupo VIP</span>
-              </div>
-            </div>
-          </div>
-
           {/* Main Headline */}
-          <div className="pt-3">
+          <div>
             <h1 className="text-[1.55rem] sm:text-3xl md:text-4xl lg:text-5xl leading-[1.25] font-bold tracking-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
               <span className="text-white">Você sempre teve </span>
               <span className="bg-gradient-to-r from-[hsl(30,100%,58%)] via-[hsl(15,92%,50%)] to-[hsl(0,85%,48%)] bg-clip-text text-transparent">mão boa para a cozinha</span>
@@ -86,14 +49,14 @@ export const HeroSection = memo(() => {
           </div>
           
           {/* Price Block */}
-          <div className="relative mx-auto max-w-xs pt-2">
+          <div className="relative mx-auto max-w-xs pt-1">
             <div className="flex items-center justify-center gap-3 mb-2">
               <span className="text-base line-through text-white/50 font-body">De R$29</span>
               <span className="bg-[hsl(25,95%,55%)] text-white text-xs font-bold px-3 py-1 rounded-md">
                 -93% OFF
               </span>
             </div>
-            <div className="text-center mb-4">
+            <div className="text-center mb-3">
               <span className="text-base font-body text-white/70">por apenas </span>
               <span className="text-5xl sm:text-6xl font-display font-black tracking-tight bg-gradient-to-r from-[hsl(38,95%,60%)] via-[hsl(25,100%,55%)] to-[hsl(38,95%,60%)] bg-clip-text text-transparent">R$ 2,90</span>
             </div>
@@ -114,7 +77,6 @@ export const HeroSection = memo(() => {
                 block: 'center'
               });
             }}>
-
             <span className="relative flex items-center justify-center gap-2">
               🔥 QUERO COMEÇAR AGORA!
             </span>
@@ -144,17 +106,9 @@ export const HeroSection = memo(() => {
               <span className="text-white/70">Acesso Imediato</span>
             </span>
           </div>
-          
-          {/* Empathy Copy */}
-          <p className="font-body text-sm sm:text-base max-w-lg mx-auto leading-relaxed italic text-secondary-foreground">
-            Você já tem{" "}
-            <span className="text-gold font-semibold">tudo o que precisa dentro de você</span>
-            {" "}— só faltava{" "}
-            <span className="text-gold font-semibold italic">a técnica certa.</span>
-          </p>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 });
 HeroSection.displayName = 'HeroSection';
