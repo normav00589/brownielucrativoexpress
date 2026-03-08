@@ -79,7 +79,7 @@ export const TestimonialsSection = memo(() => {
             achavam que precisavam de muito dinheiro pra começar, e duvidavam de si mesmas...
           </p>
           
-          <p className="text-base text-white/60 max-w-xl mx-auto">
+          <p className="text-base text-white max-w-xl mx-auto">
             Veja o que elas estão compartilhando no nosso{" "}
             <span className="text-neon-green font-semibold">Grupo VIP de Confeitaria</span>:
           </p>
