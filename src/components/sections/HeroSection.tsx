@@ -27,24 +27,6 @@ export const HeroSection = memo(() => {
             </div>
           </div>
 
-          {/* Hero brownie image - compact */}
-          <div className="relative w-40 sm:w-52 mx-auto">
-            <div className="rounded-2xl overflow-hidden"
-              style={{
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)',
-                maskImage: 'linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.4) 85%, transparent 100%)'
-              }}>
-              <img
-                alt="Brownie gourmet feito por aluna do Grupo VIP"
-                width={208}
-                height={208}
-                fetchPriority="high"
-                decoding="sync"
-                loading="eager"
-                className="w-full h-auto object-cover"
-                src={heroBrownie} />
-            </div>
-          </div>
 
           {/* Main Headline */}
           <div>
@@ -125,6 +107,38 @@ export const HeroSection = memo(() => {
               <svg className="w-4 h-4 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
               <span className="text-white/70">Acesso Imediato</span>
             </span>
+          </div>
+
+          {/* Hero brownie image - after social proof like reference */}
+          <div className="relative w-full max-w-sm mx-auto pt-2">
+            <div className="rounded-2xl overflow-hidden border-2 border-[hsl(25,95%,50%)]">
+              <img
+                alt="Brownie gourmet feito por aluna do Grupo VIP"
+                width={400}
+                height={300}
+                fetchPriority="high"
+                decoding="sync"
+                loading="eager"
+                className="w-full h-auto object-cover"
+                src={heroBrownie} />
+            </div>
+            {/* Floating badge */}
+            <div className="absolute bottom-4 left-4 right-4 z-10">
+              <div className="flex items-center gap-3 px-4 py-3 rounded-xl"
+                style={{
+                  background: 'hsla(20, 20%, 8%, 0.9)',
+                  border: '1px solid hsla(25, 95%, 55%, 0.4)',
+                  backdropFilter: 'blur(8px)',
+                }}>
+                <div className="w-9 h-9 rounded-full bg-[hsl(25,95%,55%)] flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-white leading-tight">Feita por aluna da nossa comunidade</p>
+                  <p className="text-xs text-white/60">Já está faturando com palhas italianas 🔥</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
