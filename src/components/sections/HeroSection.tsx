@@ -58,11 +58,12 @@ export const HeroSection = memo(() => {
           {/* Main Headline */}
           <div className="pt-3">
             <h1 className="font-display text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl leading-[1.2] font-black tracking-tight">
-              <span className="text-[hsl(25,95%,55%)]">Brownies Lucrativos </span>
-              <span className="text-white">Mesmo Para Quem </span>
+              <span className="text-white">Você Já Sabe Que </span>
               <br className="sm:hidden" />
-              <span className="text-white">Está </span>
-              <span className="text-[hsl(25,95%,55%)]">Começando</span>
+              <span className="bg-gradient-to-r from-[hsl(25,95%,55%)] via-[hsl(12,90%,52%)] to-[hsl(0,85%,50%)] bg-clip-text text-transparent">Nasceu Pra Isso</span>
+              <br />
+              <span className="text-white">— Só Faltava </span>
+              <span className="bg-gradient-to-r from-[hsl(30,100%,58%)] via-[hsl(15,92%,50%)] to-[hsl(0,85%,48%)] bg-clip-text text-transparent">a Receita Certa</span>
             </h1>
           </div>
 
