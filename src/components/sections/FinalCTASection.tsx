@@ -36,7 +36,7 @@ export const FinalCTASection = () => {
           </h2>
           
           <p className="text-lg md:text-2xl font-body max-w-2xl mx-auto text-secondary-foreground">
-            Depois dessa promoção, o valor volta para <span className="line-through text-white/50">R$29,90</span>. Garanta agora e comece a lucrar hoje mesmo.
+            Depois dessa promoção, o valor volta para <span className="line-through text-white/80">R$29,90</span>. Garanta agora e comece a lucrar hoje mesmo.
           </p>
           
           <a
