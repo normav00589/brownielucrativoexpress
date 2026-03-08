@@ -59,7 +59,7 @@ export const HeroSection = memo(() => {
               </span>
             </div>
             <div className="text-center mb-3">
-              <span className="text-base font-body text-white/70">por apenas </span>
+              <span className="text-base font-body text-white">por apenas </span>
               <span className="text-5xl sm:text-6xl font-display font-black tracking-tight bg-gradient-to-r from-[hsl(38,95%,60%)] via-[hsl(25,100%,55%)] to-[hsl(38,95%,60%)] bg-clip-text text-transparent">R$ 2,90</span>
             </div>
             <div className="flex items-center justify-center gap-2 text-sm text-white/80">
