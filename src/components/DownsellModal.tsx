@@ -147,7 +147,7 @@ export const DownsellModal = ({ isOpen, onClose }: DownsellModalProps) => {
                       R$ 8,90
                     </span>
                   </div>
-                  <p className="text-white/60 text-[10px]">Economia de 98%! 🔥</p>
+                  <p className="text-white text-[10px]">Economia de 98%! 🔥</p>
                 </div>
                 
                 {/* Floating stars */}
