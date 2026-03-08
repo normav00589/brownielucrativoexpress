@@ -88,7 +88,7 @@ export const PricingSection = memo(() => {
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-neon-green/20 flex items-center justify-center mt-0.5">
                     <Check className="w-4 h-4 text-neon-green" />
                   </div>
-                  <span className="font-body text-sm md:text-base text-white/70">{item}</span>
+                  <span className="font-body text-sm md:text-base text-white">{item}</span>
                 </li>
               ))}
             </ul>
