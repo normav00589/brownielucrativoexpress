@@ -53,7 +53,7 @@ export const HeroSection = memo(() => {
           {/* Price Block */}
           <div className="relative mx-auto max-w-xs pt-1">
             <div className="flex items-center justify-center gap-3 mb-2">
-              <span className="text-base line-through text-white/50 font-body">De R$29</span>
+              <span className="text-base line-through text-white/80 font-body">De R$29</span>
               <span className="bg-[hsl(25,95%,55%)] text-white text-xs font-bold px-3 py-1 rounded-md">
                 -93% OFF
               </span>
