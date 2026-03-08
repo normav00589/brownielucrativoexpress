@@ -41,7 +41,7 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
 
   useEffect(() => {
     (window as any).__resetUrgencyTimer = resetTimer;
-    return () => { delete (window as any).__resetUrgencyTimer; };
+    return () => {delete (window as any).__resetUrgencyTimer;};
   }, [resetTimer]);
 
   const pad = (n: number) => String(n).padStart(2, "0");
@@ -49,8 +49,8 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
   return (
     <div
       className="sticky top-0 z-50 border-b border-gold/20"
-      style={{ background: 'hsl(15,30%,6%)', contain: 'layout style' }}
-    >
+      style={{ background: 'hsl(15,30%,6%)', contain: 'layout style' }}>
+      
       <div className="py-2.5 md:py-3 px-3">
         <div className="container mx-auto flex flex-col items-center gap-1.5 md:gap-2">
           {/* Top row: social proof + spots */}
@@ -60,7 +60,7 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[hsl(var(--neon-green))] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[hsl(var(--neon-green))]"></span>
               </span>
-              <span className="font-semibold">+2.400 Alunas</span>
+              
             </span>
             <span className="text-white/30 hidden sm:inline">|</span>
             <span className="bg-[hsl(0,70%,50%)] text-white text-xs font-bold px-2.5 py-0.5 rounded-md animate-pulse">
@@ -92,8 +92,8 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 });
 
 UrgencyBanner.displayName = 'UrgencyBanner';
