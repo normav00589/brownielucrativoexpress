@@ -1,5 +1,6 @@
 import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { SectionDivider } from "@/components/SectionDivider";
 import { lazy, Suspense, memo, useState, useCallback, useRef } from "react";
 import { useOfferExitIntent } from "@/hooks/useOfferExitIntent";
 
@@ -94,39 +95,55 @@ const Index = () => {
         {/* Hero loads immediately - critical for LCP */}
         <HeroSection />
         
-        {/* All sections lazy loaded with proper fallback heights */}
+        <SectionDivider variant="glow" />
+        
         <Suspense fallback={<SectionPlaceholder height={500} />}>
           <OfferSection />
         </Suspense>
         
+        <SectionDivider variant="diamond" />
         
         <Suspense fallback={<SectionPlaceholder height={450} />}>
           <RecipesSection />
         </Suspense>
         
+        <SectionDivider variant="fade" />
+        
         <Suspense fallback={<SectionPlaceholder height={350} />}>
           <BrownieGallerySection />
         </Suspense>
+        
+        <SectionDivider variant="dots" />
         
         <Suspense fallback={<SectionPlaceholder height={400} />}>
           <BonusSection />
         </Suspense>
         
+        <SectionDivider variant="diamond" />
+        
         <Suspense fallback={<SectionPlaceholder height={400} />}>
           <TestimonialsSection />
         </Suspense>
+        
+        <SectionDivider variant="glow" />
         
         <Suspense fallback={<SectionPlaceholder height={600} />}>
           <PricingSectionWithExitIntent onExitIntent={handleShowDownsell} />
         </Suspense>
         
+        <SectionDivider variant="fade" />
+        
         <Suspense fallback={<SectionPlaceholder height={350} />}>
           <GuaranteeSection />
         </Suspense>
         
+        <SectionDivider variant="dots" />
+        
         <Suspense fallback={<SectionPlaceholder height={500} />}>
           <FAQSection />
         </Suspense>
+        
+        <SectionDivider variant="diamond" />
         
         <Suspense fallback={<SectionPlaceholder height={400} />}>
           <FinalCTASection />
