@@ -57,23 +57,23 @@ export const HeroSection = memo(() => {
 
           {/* Main Headline */}
           <div className="pt-3">
-            <h1 className="font-display text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl leading-[1.2] font-black tracking-tight">
-              <span className="bg-gradient-to-r from-[hsl(30,100%,58%)] via-[hsl(15,92%,50%)] to-[hsl(0,85%,48%)] bg-clip-text text-transparent">Brownies Irresistíveis </span>
-              <br className="sm:hidden" />
-              <span className="text-white">Até Para Quem </span>
-              <span className="bg-gradient-to-r from-[hsl(25,95%,55%)] via-[hsl(12,90%,52%)] to-[hsl(0,85%,50%)] bg-clip-text text-transparent">Nunca Fez</span>
+            <h1 className="text-[1.55rem] sm:text-3xl md:text-4xl lg:text-5xl leading-[1.25] font-bold tracking-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              <span className="text-white">Você sempre teve </span>
+              <span className="bg-gradient-to-r from-[hsl(30,100%,58%)] via-[hsl(15,92%,50%)] to-[hsl(0,85%,48%)] bg-clip-text text-transparent">mão boa para a cozinha</span>
+              <span className="text-white">, só te faltava a </span>
+              <span className="bg-gradient-to-r from-[hsl(25,95%,55%)] via-[hsl(12,90%,52%)] to-[hsl(0,85%,50%)] bg-clip-text text-transparent">técnica exata</span>
+              <span className="text-white"> para transformar os elogios da família em </span>
+              <span className="bg-gradient-to-r from-[hsl(30,100%,58%)] via-[hsl(15,92%,50%)] to-[hsl(0,85%,48%)] bg-clip-text text-transparent">dinheiro no bolso.</span>
             </h1>
           </div>
 
           {/* Subheadline */}
           <div className="max-w-xl mx-auto">
-            <p className="font-body text-base sm:text-lg md:text-xl leading-relaxed text-white">
-              Você sempre soube que{" "}
-              <span className="font-bold">tinha potencial pra ganhar dinheiro com o que ama</span>. Com essas receitas,{" "}
-              <span className="text-[hsl(25,95%,55%)] underline underline-offset-4 decoration-2">em 30 minutos</span>{" "}
-              você tira do forno brownies que{" "}
-              <span className="text-[hsl(25,95%,55%)] font-semibold">faturam de R$150 a R$300 por dia</span>{" "}
-              — mesmo que nunca tenha vendido nada antes.
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed text-white/85" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              Descubra o passo a passo à prova de falhas para tirar do seu forno o brownie da{" "}
+              <span className="font-semibold text-white">casquinha perfeita logo na primeira tentativa</span>{" "}
+              e faturar de{" "}
+              <span className="text-[hsl(25,95%,55%)] font-bold">R$150 a R$300 por dia</span>, mesmo que sua cozinha seja pequena e você nunca tenha vendido um doce.
             </p>
           </div>
           
