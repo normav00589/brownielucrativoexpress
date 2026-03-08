@@ -48,50 +48,53 @@ export const UrgencyBanner = memo(({ onTimerExpire }: UrgencyBannerProps) => {
 
   return (
     <div
-      className="sticky top-0 z-50 border-b border-gold/20"
-      style={{ background: 'hsl(15,30%,6%)', contain: 'layout style' }}>
+      className="sticky top-0 z-50"
+      style={{ background: 'linear-gradient(135deg, hsl(15,30%,5%) 0%, hsl(20,40%,8%) 50%, hsl(15,30%,5%) 100%)', contain: 'layout style' }}>
       
-      <div className="py-2.5 md:py-3 px-3">
-        <div className="container mx-auto flex flex-col items-center gap-1.5 md:gap-2">
-          {/* Top row: social proof + spots */}
-          <div className="flex items-center gap-3 flex-wrap justify-center">
-            <span className="flex items-center gap-1.5 text-xs text-white/80">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[hsl(var(--neon-green))] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[hsl(var(--neon-green))]"></span>
-              </span>
-              
+      {/* Top accent line */}
+      <div className="h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent" />
+      
+      <div className="py-2 md:py-2.5 px-3">
+        <div className="container mx-auto flex items-center justify-center gap-3 md:gap-5 flex-wrap">
+          
+          {/* Spots badge */}
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[hsl(0,70%,50%)] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[hsl(0,70%,50%)]"></span>
             </span>
-            <span className="text-white/30 hidden sm:inline">|</span>
-            <span className="bg-[hsl(0,70%,50%)] text-white text-xs font-bold px-2.5 py-0.5 rounded-md animate-pulse">
-              🔥 APENAS {spotsLeft} VAGAS
-            </span>
-          </div>
-
-          {/* Price row */}
-          <div className="flex items-center gap-1.5 flex-wrap justify-center">
-            <span className="text-[hsl(25,95%,55%)] flex-shrink-0">🔥</span>
-            <span className="font-heading font-bold text-xs md:text-sm text-white/90 text-center leading-tight">
-              O preço de <span className="text-gold font-black">R$2,90</span> vai expirar — depois volta pra <span className="line-through text-white/80">R$29,90</span>
+            <span className="bg-[hsl(0,70%,45%)]/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+              🔥 Apenas {spotsLeft} vagas
             </span>
           </div>
 
-          {/* Timer */}
-          <div className="flex items-center gap-1.5">
-            <div className="bg-[hsl(20,20%,10%)] rounded-md px-2.5 py-1 min-w-[40px] text-center border border-gold/20">
-              <span className="font-heading font-black text-lg md:text-xl text-gold tabular-nums">{pad(timeLeft.hours)}</span>
+          {/* Divider */}
+          <div className="hidden sm:block w-px h-5 bg-white/15" />
+
+          {/* Price text */}
+          <span className="font-heading font-bold text-xs md:text-sm text-white text-center leading-tight">
+            Preço de <span className="text-accent font-black">R$2,90</span> expira em:
+          </span>
+
+          {/* Timer - inline compact */}
+          <div className="flex items-center gap-1">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-2 py-1 min-w-[36px] text-center border border-white/10">
+              <span className="font-heading font-black text-base md:text-lg text-white tabular-nums">{pad(timeLeft.hours)}</span>
             </div>
-            <span className="font-heading font-black text-gold/60 text-lg">:</span>
-            <div className="bg-[hsl(20,20%,10%)] rounded-md px-2.5 py-1 min-w-[40px] text-center border border-gold/20">
-              <span className="font-heading font-black text-lg md:text-xl text-gold tabular-nums">{pad(timeLeft.minutes)}</span>
+            <span className="font-heading font-black text-white/40 text-sm">:</span>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-2 py-1 min-w-[36px] text-center border border-white/10">
+              <span className="font-heading font-black text-base md:text-lg text-white tabular-nums">{pad(timeLeft.minutes)}</span>
             </div>
-            <span className="font-heading font-black text-gold/60 text-lg">:</span>
-            <div className="bg-[hsl(20,20%,10%)] rounded-md px-2.5 py-1 min-w-[40px] text-center border border-gold/20">
-              <span className="font-heading font-black text-lg md:text-xl text-[hsl(10,70%,55%)] tabular-nums">{pad(timeLeft.seconds)}</span>
+            <span className="font-heading font-black text-white/40 text-sm">:</span>
+            <div className="bg-accent/20 rounded-lg px-2 py-1 min-w-[36px] text-center border border-accent/30">
+              <span className="font-heading font-black text-base md:text-lg text-accent tabular-nums">{pad(timeLeft.seconds)}</span>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Bottom subtle border */}
+      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </div>);
 
 });
