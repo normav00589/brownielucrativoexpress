@@ -1,5 +1,6 @@
 import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { SectionDivider } from "@/components/SectionDivider";
 import { lazy, Suspense, memo, useState, useCallback, useRef } from "react";
 import { useOfferExitIntent } from "@/hooks/useOfferExitIntent";
 
