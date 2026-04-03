@@ -31,12 +31,11 @@ export const HeroSection = memo(() => {
           {/* Main Headline */}
           <div>
             <h1 className="text-[1.55rem] sm:text-3xl md:text-4xl lg:text-5xl leading-[1.25] font-bold tracking-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <span className="text-white">Você sempre teve </span>
-              <span className="bg-gradient-to-r from-[hsl(30,100%,58%)] via-[hsl(15,92%,50%)] to-[hsl(0,85%,48%)] bg-clip-text text-transparent">mão boa para a cozinha</span>
-              <span className="text-white">, só te faltava a </span>
-              <span className="bg-gradient-to-r from-[hsl(25,95%,55%)] via-[hsl(12,90%,52%)] to-[hsl(0,85%,50%)] bg-clip-text text-transparent">técnica exata</span>
-              <span className="text-white"> para transformar os elogios da família em </span>
-              <span className="bg-gradient-to-r from-[hsl(30,100%,58%)] via-[hsl(15,92%,50%)] to-[hsl(0,85%,48%)] bg-clip-text text-transparent">dinheiro no bolso.</span>
+              <span className="bg-gradient-to-r from-[hsl(30,100%,58%)] via-[hsl(15,92%,50%)] to-[hsl(0,85%,48%)] bg-clip-text text-transparent">Esse brownie aqui me sustenta todos os meses.</span>
+              <span className="text-white"> Aprenda a fazer do zero e fature de </span>
+              <span className="bg-gradient-to-r from-[hsl(25,95%,55%)] via-[hsl(12,90%,52%)] to-[hsl(0,85%,50%)] bg-clip-text text-transparent">R$150 a R$300 por dia</span>
+              <span className="text-white">, sem cozinha profissional, sem experiência, </span>
+              <span className="bg-gradient-to-r from-[hsl(30,100%,58%)] via-[hsl(15,92%,50%)] to-[hsl(0,85%,48%)] bg-clip-text text-transparent">na primeira tentativa.</span>
             </h1>
           </div>
 
