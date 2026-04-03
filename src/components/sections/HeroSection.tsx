@@ -42,10 +42,8 @@ export const HeroSection = memo(() => {
           {/* Subheadline */}
           <div className="max-w-xl mx-auto">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-white/85" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Descubra o passo a passo à prova de falhas para tirar do seu forno o brownie da{" "}
-              <span className="font-semibold text-white">casquinha perfeita logo na primeira tentativa</span>{" "}
-              e faturar de{" "}
-              <span className="text-[hsl(25,95%,55%)] font-bold">R$150 a R$300 por dia</span>, mesmo que sua cozinha seja pequena e você nunca tenha vendido um doce.
+              Chega de elogios sem retorno. Aprenda a técnica que transforma seu brownie em{" "}
+              <span className="font-semibold text-white">renda real</span>, começando hoje.
             </p>
           </div>
           
