@@ -1,9 +1,7 @@
 import { memo, useState, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { MessageCircle, Users, Sparkles } from "lucide-react";
 
-// Lazy load testimonial images - brownie results first, then WhatsApp screenshots
 const testimonialPaths = [
   () => import("@/assets/testimonial-brownie-first.webp"),
   () => import("@/assets/testimonial-brownie-second.webp"),
@@ -31,7 +29,6 @@ export const TestimonialsSection = memo(() => {
   const { ref, isVisible } = useIntersectionObserver();
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
-  // Load images only when section becomes visible
   useEffect(() => {
     if (isVisible && loadedImages.length === 0) {
       Promise.all(testimonialPaths.map(async (loader) => {
@@ -41,7 +38,6 @@ export const TestimonialsSection = memo(() => {
     }
   }, [isVisible, loadedImages.length]);
 
-  // Show skeleton while loading
   if (!isVisible && loadedImages.length === 0) {
     return (
       <section ref={ref} className="py-12 md:py-20 px-4 bg-[hsl(15,30%,5%)] min-h-[400px]">
@@ -56,24 +52,21 @@ export const TestimonialsSection = memo(() => {
   return (
     <section ref={ref} className="py-12 md:py-20 px-4 bg-[hsl(15,30%,5%)]">
       <div className="container mx-auto max-w-6xl">
-        {/* Header with Barnum Effect Copy */}
         <div className="text-center mb-8 md:mb-12">
-          {/* Trust Badge */}
           <div className="inline-flex items-center gap-2 bg-neon-green/10 border border-neon-green/30 rounded-full px-4 py-2 mb-6">
-            <MessageCircle className="w-4 h-4 text-neon-green" />
+            💬
             <span className="text-neon-green text-sm font-medium">
               Direto do Grupo VIP de Alunas
             </span>
-            <Users className="w-4 h-4 text-neon-green" />
+            👥
           </div>
           
           <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-4">
-            <Sparkles className="inline w-6 h-6 text-gold mr-2" />
+            ✨{" "}
             Você também pode ser a{" "}
             <span className="text-gold">próxima história de sucesso</span>
           </h2>
           
-          {/* Barnum Effect Subheadline - universal statements that feel personal */}
           <p className="text-lg text-white/80 max-w-2xl mx-auto mb-4">
             Assim como você, elas também tinham <span className="text-gold font-semibold">medo de não dar certo</span>, 
             achavam que precisavam de muito dinheiro pra começar, e duvidavam de si mesmas...
@@ -111,7 +104,6 @@ export const TestimonialsSection = memo(() => {
           </div>
         )}
         
-        {/* Bottom Barnum CTA */}
         <div className="text-center mt-8 md:mt-12">
           <p className="text-white text-sm md:text-base">
             💬 <span className="text-gold">Imagine você</span> compartilhando suas conquistas aqui daqui a alguns dias...

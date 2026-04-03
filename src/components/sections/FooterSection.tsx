@@ -1,5 +1,3 @@
-import { Mail } from "lucide-react";
-
 export const FooterSection = () => {
   return (
     <footer className="bg-gradient-to-b from-section-dark via-[hsl(15,30%,5%)] to-[hsl(10,25%,3%)] text-foreground py-12 px-4 border-t border-gold/10">
@@ -23,7 +21,7 @@ export const FooterSection = () => {
           <div>
             <h4 className="font-heading font-semibold mb-4 text-gold">Contato</h4>
             <div className="flex items-center gap-2 font-body text-sm text-white">
-              <Mail className="w-4 h-4 text-gold" />
+              ✉️
               <span>suporte@brownieslucrativos.com</span>
             </div>
           </div>

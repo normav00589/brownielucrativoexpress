@@ -1,10 +1,8 @@
 import { useEffect, useState, memo } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { Cookie, Sparkles, Scissors, DollarSign, Clock, BookOpen } from "lucide-react";
 import type { CarouselApi } from "@/components/ui/carousel";
 
-// Lazy import brownie images only when section is visible (all WebP for max performance)
 const brownieImages = [{
   src: () => import("@/assets/brownie-1.webp"),
   alt: "Brownie caseiro irresistível com textura úmida"
@@ -36,15 +34,21 @@ const brownieImages = [{
   src: () => import("@/assets/brownie-10.webp"),
   alt: "Brownie caseiro mostrando textura perfeita"
 }];
+
+const benefits = [
+  { emoji: "🍪", title: "Receita Universal", desc: "Funciona em qualquer forno" },
+  { emoji: "✨", title: "Técnica da Casquinha", desc: "Crocante por fora, macia por dentro" },
+  { emoji: "✂️", title: "Corte Fotogênico", desc: "Perfeito pra vender nas redes" },
+  { emoji: "💲", title: "Precificação Correta", desc: "Saiba exatamente quanto cobrar" },
+  { emoji: "⏳", title: "Validade Estendida", desc: "Dure mais sem conservantes" },
+  { emoji: "📖", title: "Cardápio Campeão", desc: "Os sabores que mais vendem" },
+];
+
 export const BrownieGallerySection = memo(() => {
   const [api, setApi] = useState<CarouselApi>();
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
-  const {
-    ref,
-    isVisible
-  } = useIntersectionObserver();
+  const { ref, isVisible } = useIntersectionObserver();
 
-  // Load images only when section becomes visible
   useEffect(() => {
     if (isVisible && loadedImages.length === 0) {
       Promise.all(brownieImages.map(async img => {
@@ -53,19 +57,22 @@ export const BrownieGallerySection = memo(() => {
       })).then(setLoadedImages);
     }
   }, [isVisible, loadedImages.length]);
+
   useEffect(() => {
     if (!api) return;
     const autoplay = setInterval(() => api.scrollNext(), 4000);
     return () => clearInterval(autoplay);
   }, [api]);
+
   if (!isVisible && loadedImages.length === 0) {
     return <section ref={ref} className="py-16 px-4 bg-gradient-section-2 min-h-[400px]">
         <div className="container mx-auto text-center">
-          <div className="h-8 w-64 mx-auto bg-muted animate-pulse rounded mb-4" />
-          <div className="h-4 w-96 mx-auto bg-muted animate-pulse rounded" />
+          <div className="h-8 w-64 mx-auto bg-muted rounded mb-4" />
+          <div className="h-4 w-96 mx-auto bg-muted rounded" />
         </div>
       </section>;
   }
+
   return <section ref={ref} className="py-16 px-4 bg-gradient-section-2 relative overflow-hidden">
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-12">
@@ -77,18 +84,13 @@ export const BrownieGallerySection = memo(() => {
           </p>
         </div>
 
-        {loadedImages.length > 0 && <Carousel setApi={setApi} opts={{
-        align: "center",
-        loop: true
-      }} className="w-full max-w-6xl mx-auto">
+        {loadedImages.length > 0 && <Carousel setApi={setApi} opts={{ align: "center", loop: true }} className="w-full max-w-6xl mx-auto">
             <CarouselContent className="-ml-2 md:-ml-4">
               {loadedImages.map((src, index) => <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                   <div className="p-2">
                     <div className="relative overflow-hidden rounded-2xl border-2 border-primary/20">
                       <div className="aspect-square overflow-hidden bg-muted">
-                        <img src={src} alt={brownieImages[index].alt} loading="lazy" decoding="async" width="400" height="400" className="w-full h-full object-cover" style={{
-                    aspectRatio: '1/1'
-                  }} />
+                        <img src={src} alt={brownieImages[index].alt} loading="lazy" decoding="async" width="400" height="400" className="w-full h-full object-cover" style={{ aspectRatio: '1/1' }} />
                       </div>
                     </div>
                   </div>
@@ -102,19 +104,11 @@ export const BrownieGallerySection = memo(() => {
           <p className="text-sm text-secondary-foreground">✨ Deslize para ver mais</p>
         </div>
 
-        {/* Micro-benefits grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
-          {[
-            { icon: Cookie, title: "Receita Universal", desc: "Funciona em qualquer forno" },
-            { icon: Sparkles, title: "Técnica da Casquinha", desc: "Crocante por fora, macia por dentro" },
-            { icon: Scissors, title: "Corte Fotogênico", desc: "Perfeito pra vender nas redes" },
-            { icon: DollarSign, title: "Precificação Correta", desc: "Saiba exatamente quanto cobrar" },
-            { icon: Clock, title: "Validade Estendida", desc: "Dure mais sem conservantes" },
-            { icon: BookOpen, title: "Cardápio Campeão", desc: "Os sabores que mais vendem" },
-          ].map((benefit, idx) => (
+          {benefits.map((benefit, idx) => (
             <div key={idx} className="flex flex-col items-center gap-2 bg-section-dark/80 border border-white/10 rounded-xl px-3 py-4 md:px-4 md:py-5 text-center md:hover:border-gold/30 md:transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
-                <benefit.icon className="w-5 h-5 text-gold" />
+              <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-xl">
+                {benefit.emoji}
               </div>
               <span className="text-sm font-bold text-white leading-tight">{benefit.title}</span>
               <span className="text-xs text-white leading-snug">{benefit.desc}</span>

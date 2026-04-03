@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Sparkles, Shield } from "lucide-react";
 import { trackViewContent } from "@/lib/fbTracking";
 import { trackInitiateCheckout } from "@/lib/fbTracking";
 
@@ -17,13 +16,10 @@ export const FinalCTASection = () => {
     <section className="py-16 md:py-24 px-4 bg-gradient-section-2 text-white relative overflow-hidden">
       <div className="container mx-auto max-w-4xl text-center relative z-10">
         <div className="space-y-6 md:space-y-8">
-          <div className="inline-flex items-center gap-2 text-4xl md:text-6xl float-animation">
-            <Sparkles className="text-gold" />
-            🍫
-            <Sparkles className="text-gold" />
+          <div className="inline-flex items-center gap-2 text-4xl md:text-6xl">
+            ✨ 🍫 ✨
           </div>
 
-          {/* Spots badge */}
           <div className="inline-flex items-center gap-2 bg-[hsl(0,70%,50%)] px-5 py-2 rounded-full animate-pulse">
             <span className="text-white font-heading font-bold text-sm md:text-base">
               🔥 ÚLTIMAS {spotsLeft} VAGAS COM DESCONTO
@@ -55,7 +51,7 @@ export const FinalCTASection = () => {
           
           <div className="flex flex-col items-center gap-3">
             <div className="flex items-center gap-2 text-[hsl(var(--neon-green))]">
-              <Shield className="w-4 h-4" />
+              🛡️
               <span className="text-xs font-semibold">Garantia de 14 dias • Pagamento Seguro</span>
             </div>
             <p className="text-xs md:text-sm text-white">
