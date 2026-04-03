@@ -53,7 +53,7 @@ export const PricingSection = memo(() => {
                   <div className="absolute -top-3 right-4 bg-[hsl(10,70%,55%)] text-white text-xs font-bold px-3 py-1 rounded-md">
                     -98% OFF
                   </div>
-                  <span className="text-5xl md:text-6xl font-heading font-bold text-gold">R$14,90</span>
+                  <span className="text-5xl md:text-6xl font-heading font-bold text-gold">R$13,90</span>
                 </div>
               </div>
               
