@@ -1,8 +1,6 @@
 import { memo } from "react";
-import { ChefHat, Star, Sparkles } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import brownieBg from "@/assets/testimonial-brownie-first.webp";
-
 
 const recipeCategories = [{
   title: "BROWNIES TRADICIONAIS",
@@ -26,22 +24,20 @@ export const RecipesSection = memo(() => {
   
   return (
     <section ref={ref} className={`py-12 md:py-20 px-4 bg-gradient-section-3 text-foreground relative overflow-hidden fade-in-up ${isVisible ? 'visible' : ''}`}>
-      {/* Background brownie image with overlay - hidden on mobile */}
       <div className="absolute inset-0 z-0 hidden md:block">
         <img src={brownieBg} alt="" aria-hidden="true" loading="lazy" className="w-full h-full object-cover opacity-[0.06]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[hsl(20,15%,5%)] via-transparent to-[hsl(20,15%,5%)]" />
       </div>
 
-      {/* Decorative glow orbs - hidden on mobile */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-gold/5 rounded-full blur-[100px] pointer-events-none hidden md:block" />
       <div className="absolute bottom-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none hidden md:block" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold px-6 py-3 rounded-full mb-6 shadow-[0_0_20px_rgba(234,193,123,0.3)]">
-            <ChefHat className="w-6 h-6 text-[hsl(20,30%,15%)]" />
+            🧑‍🍳
             <span className="font-heading font-bold text-lg text-[hsl(20,30%,15%)]">+80 Receitas Incríveis</span>
-            <Sparkles className="w-5 h-5 text-[hsl(20,30%,15%)]" />
+            ✨
           </div>
           
           <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl mb-6">
@@ -64,7 +60,7 @@ export const RecipesSection = memo(() => {
               <ul className="space-y-3 mb-4">
                 {category.recipes.map((recipe, recipeIdx) => (
                   <li key={recipeIdx} className="flex items-start gap-3">
-                    <Star className="w-4 h-4 flex-shrink-0 mt-1 text-gold" />
+                    <span className="text-gold mt-0.5">⭐</span>
                     <span className="text-sm md:text-base text-secondary-foreground">{recipe}</span>
                   </li>
                 ))}

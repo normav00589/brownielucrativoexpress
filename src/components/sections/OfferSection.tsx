@@ -1,11 +1,9 @@
-import { Smartphone, Play } from "lucide-react";
 import { useState, useCallback, memo } from "react";
 
 export const OfferSection = memo(() => {
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   const handlePlayClick = useCallback(() => {
-    // Load Wistia on demand
     if (!document.querySelector('script[src*="fast.wistia.com"]')) {
       const script = document.createElement('script');
       script.src = 'https://fast.wistia.com/player.js';
@@ -19,11 +17,9 @@ export const OfferSection = memo(() => {
     <section className="py-12 md:py-20 px-4 bg-[hsl(15,30%,5%)] relative overflow-hidden">
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="space-y-8 md:space-y-12">
-          {/* Content Section */}
           <div className="text-center space-y-6 md:space-y-8 max-w-4xl mx-auto">
-            {/* Badge */}
             <div className="inline-flex items-center gap-2 text-gold text-sm font-medium">
-              <Smartphone className="w-4 h-4" />
+              📱
               <span>CONHEÇA O APLICATIVO</span>
             </div>
             
@@ -45,20 +41,14 @@ export const OfferSection = memo(() => {
           {/* iPhone Mockup with Click-to-Play Video */}
           <div className="flex justify-center">
             <div className="relative">
-              {/* Glow Effect behind iPhone */}
               <div className="absolute inset-0 bg-gradient-radial from-gold/20 via-gold/5 to-transparent blur-3xl scale-150 opacity-60" />
-              {/* iPhone Mockup */}
               <div className="relative w-[280px] md:w-[320px] mx-auto">
-                {/* iPhone Frame */}
                 <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_40px_rgba(218,165,32,0.15)] border border-white/10">
-                  {/* Screen */}
                   <div className="relative bg-black rounded-[2.5rem] overflow-hidden" style={{ aspectRatio: '0.549618320610687' }}>
-                    {/* Notch */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl z-10">
                       <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-900 rounded-full border border-slate-700" />
                     </div>
                     
-                    {/* Video Content */}
                     <div className="absolute inset-0 bg-gradient-to-br from-chocolate to-secondary">
                       <div className="w-full h-full flex items-center justify-center p-2 pt-8">
                         {videoLoaded ?
@@ -67,20 +57,14 @@ export const OfferSection = memo(() => {
                           dangerouslySetInnerHTML={{
                             __html: '<wistia-player media-id="pt22c9q3y0" seo="false" style="width: 100%; height: 100%; object-fit: cover;"></wistia-player>'
                           }} /> :
-
-
                         <button
                           onClick={handlePlayClick}
                           className="w-full h-full rounded-[2rem] overflow-hidden relative group cursor-pointer bg-gradient-to-br from-chocolate/80 to-secondary flex items-center justify-center"
                           aria-label="Assistir vídeo">
-                          
-                            {/* Play button overlay */}
                             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
-                            
-                            {/* Play icon */}
                             <div className="relative z-10 flex flex-col items-center gap-3">
                               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-gold via-[hsl(42,95%,60%)] to-gold flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                <Play className="w-8 h-8 md:w-10 md:h-10 text-[hsl(20,30%,15%)] fill-[hsl(20,30%,15%)] ml-1" />
+                                <svg className="w-8 h-8 md:w-10 md:h-10 text-[hsl(20,30%,15%)] ml-1" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                               </div>
                               <span className="text-white font-heading font-bold text-sm md:text-base drop-shadow-lg">
                                 CLIQUE PARA ASSISTIR
@@ -91,11 +75,9 @@ export const OfferSection = memo(() => {
                       </div>
                     </div>
                     
-                    {/* Glass reflection */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-40 pointer-events-none z-20" />
                   </div>
                   
-                  {/* iPhone Buttons */}
                   <div className="absolute right-0 top-24 w-1 h-12 bg-slate-900 rounded-l" />
                   <div className="absolute right-0 top-40 w-1 h-16 bg-slate-900 rounded-l" />
                   <div className="absolute right-0 top-60 w-1 h-16 bg-slate-900 rounded-l" />
@@ -123,7 +105,6 @@ export const OfferSection = memo(() => {
               <p className="font-['Poppins',sans-serif] font-bold text-gold text-lg">✅ Acesso</p>
               <p className="text-white text-sm font-['Poppins',sans-serif]">Vitalício ao conteúdo!</p>
             </div>
-            {/* WhatsApp Group - Featured */}
             <div className="bg-gradient-to-b from-[hsl(145,40%,12%)] to-[hsl(145,50%,8%)] p-5 rounded-xl border-2 border-neon-green/50 text-center shadow-[0_0_25px_rgba(0,255,128,0.15)] ring-1 ring-neon-green/20">
               <p className="font-['Poppins',sans-serif] font-bold text-neon-green text-lg">📲 Grupo VIP</p>
               <p className="text-white text-sm font-['Poppins',sans-serif]">no WhatsApp com alunas!</p>
@@ -135,20 +116,18 @@ export const OfferSection = memo(() => {
               href="#pricing"
               className="relative inline-block w-full sm:max-w-md px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] font-heading font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-xl shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 text-center overflow-hidden group"
               style={{ boxShadow: '0 4px 30px rgba(255, 200, 100, 0.3)' }}>
-              
               <span className="relative z-10 flex items-center justify-center gap-2">
                 🔥 BAIXE SUAS RECEITAS E APROVEITE!
               </span>
             </a>
             
             <div className="flex items-center justify-center gap-2">
-              <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-neon-green" />
+              📱
               <p className="font-heading font-bold text-neon-green text-sm sm:text-base md:text-lg">
                 Disponível para Android e iOS
               </p>
             </div>
             
-            {/* WhatsApp Trust Badge */}
             <div className="mt-2 bg-gradient-to-r from-[hsl(20,25%,10%)] to-[hsl(20,30%,8%)] border border-neon-green/30 rounded-xl px-6 py-4 max-w-md">
               <div className="flex flex-col items-center gap-2 text-center">
                 <div className="flex items-center gap-2">
@@ -163,7 +142,6 @@ export const OfferSection = memo(() => {
         </div>
       </div>
     </section>);
-
 });
 
 OfferSection.displayName = 'OfferSection';
