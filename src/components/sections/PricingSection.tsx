@@ -53,7 +53,7 @@ export const PricingSection = memo(() => {
                   <div className="absolute -top-3 right-4 bg-[hsl(10,70%,55%)] text-white text-xs font-bold px-3 py-1 rounded-md">
                     -98% OFF
                   </div>
-                  <span className="text-5xl md:text-6xl font-heading font-bold text-gold">R$14,90</span>
+                  <span className="text-5xl md:text-6xl font-heading font-bold text-gold">R$13,90</span>
                 </div>
               </div>
               
@@ -68,7 +68,7 @@ export const PricingSection = memo(() => {
                 )}
               </ul>
               
-              <a href="https://www.ggcheckout.com/checkout/v5/dGUJ8Ztwl0ct036P2mcl" target="_blank" rel="noopener noreferrer" onClick={() => trackInitiateCheckout(14.90, 'App Completo + Bônus Exclusivos - Master Plan')} className="block w-full py-4 px-8 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] font-heading font-bold text-lg rounded-xl text-center hover:scale-105 transition-transform duration-300" style={{ boxShadow: '0 4px 30px rgba(255, 200, 100, 0.3)' }}>
+              <a href="https://www.ggcheckout.com/checkout/v5/dGUJ8Ztwl0ct036P2mcl" target="_blank" rel="noopener noreferrer" onClick={() => trackInitiateCheckout(13.90, 'App Completo + Bônus Exclusivos - Master Plan')} className="block w-full py-4 px-8 bg-gradient-to-r from-[hsl(38,90%,55%)] via-[hsl(42,95%,60%)] to-[hsl(38,90%,55%)] text-[hsl(20,30%,15%)] font-heading font-bold text-lg rounded-xl text-center hover:scale-105 transition-transform duration-300" style={{ boxShadow: '0 4px 30px rgba(255, 200, 100, 0.3)' }}>
                 🍫 Quero o Acesso Completo!
               </a>
             </div>
