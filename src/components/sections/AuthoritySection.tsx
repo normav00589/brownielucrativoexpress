@@ -1,4 +1,3 @@
-import { Award, TrendingUp, Users } from "lucide-react";
 import gabriellaCastro from "@/assets/gabriella-castro.webp";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
@@ -18,33 +17,19 @@ export const AuthoritySection = () => {
           
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="bg-card p-8 rounded-xl shadow-soft">
-              <Award className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="font-heading font-bold text-xl mb-2 text-foreground">
-                Baseado em Testes Reais
-              </h3>
-              <p className="font-body text-muted-foreground">
-                Todas as receitas foram testadas e aprovadas por centenas de alunos
-              </p>
+              <span className="text-4xl block mx-auto mb-4 text-center">🏆</span>
+              <h3 className="font-heading font-bold text-xl mb-2 text-foreground">Baseado em Testes Reais</h3>
+              <p className="font-body text-muted-foreground">Todas as receitas foram testadas e aprovadas por centenas de alunos</p>
             </div>
-            
             <div className="bg-card p-8 rounded-xl shadow-soft">
-              <TrendingUp className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="font-heading font-bold text-xl mb-2 text-foreground">
-                Foco em Lucro
-              </h3>
-              <p className="font-body text-muted-foreground">
-                Método desenvolvido especificamente para gerar renda real
-              </p>
+              <span className="text-4xl block mx-auto mb-4 text-center">📈</span>
+              <h3 className="font-heading font-bold text-xl mb-2 text-foreground">Foco em Lucro</h3>
+              <p className="font-body text-muted-foreground">Método desenvolvido especificamente para gerar renda real</p>
             </div>
-            
             <div className="bg-card p-8 rounded-xl shadow-soft">
-              <Users className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="font-heading font-bold text-xl mb-2 text-foreground">
-                +3000 Alunos
-              </h3>
-              <p className="font-body text-muted-foreground">
-                Milhares de pessoas já mudaram de vida com o método
-              </p>
+              <span className="text-4xl block mx-auto mb-4 text-center">👥</span>
+              <h3 className="font-heading font-bold text-xl mb-2 text-foreground">+3000 Alunos</h3>
+              <p className="font-body text-muted-foreground">Milhares de pessoas já mudaram de vida com o método</p>
             </div>
           </div>
         </div>
